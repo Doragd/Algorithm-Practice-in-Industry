@@ -23,11 +23,6 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           
-      - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-          
       - name: Install dependencies
         run: pip install openpyxl
 
@@ -44,7 +39,7 @@ jobs:
           if [-z "$(git status --porcelain)"]; then
              echo "::set-output name=push::false"
           else
-             git commit -m "chore: update cache" -a
+             git commit -m "chore: update content" -a
              echo "::set-output name=push::true"
           fi
         shell: bash
