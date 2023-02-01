@@ -1,6 +1,12 @@
 # Algorithm-Practice-in-Industry
 ## 来源
 搜索、推荐、广告、用增等工业界实践文章收集（来源：知乎、Datafuntalk、技术公众号）
+本文仅做资源收集，未引用具体内容，如有侵权，请联系删除。
+
+## 贡献新文章
+提交issue，利用github action自动更新readme和source.xlsx内容
+
+已提供issue模板，具体内容参考issue：https://github.com/Doragd/Algorithm-Practice-in-Industry/issues/1
 
 ## 内容
 * 源文件：source.xlsx，可以执行自定义排序
