@@ -37,7 +37,7 @@ def update_excel(args):
     for item in info:
         assert item.keys() == {"公司", "内容", "标签", "时间", "链接"}
         write_item(wb, item)
-    wb.save("source2.xlsx")
+    wb.save("source.xlsx")
     print("[+] Add items Done!")
 
 def update_readme(args):
