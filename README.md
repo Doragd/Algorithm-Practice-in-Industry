@@ -7,6 +7,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 快手 | [快手精排模型实践](https://mp.weixin.qq.com/s/SsgVqei9sL5y7N1GUXOJLg) | 精排&CXR预估 | 2023/2/1 |
 | 阿里健康     | [领域知识增强的预训练语言模型在药电商搜索领域的实践](https://mp.weixin.qq.com/s/or9DT2HlVPnUFBsqAEv6Uw) | 搜索          | 2023/1/30  |
 | 京东         | [京东零售在电商搜索场景下的数据科学实践](https://mp.weixin.qq.com/s/Rmgh-ynoWU4uerh_4jL4YA) | 搜索          | 2023/1/29  |
 | 阿里达摩院   | [基于预训练语言模型的行业搜索的应用和研究](https://mp.weixin.qq.com/s/oRxn2PQdh3_giCPkrJpQaQ) | 搜索          | 2023/1/28  |
