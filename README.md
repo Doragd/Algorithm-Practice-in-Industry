@@ -22,6 +22,8 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 贝壳 | [DeepFM在贝壳房源详情页推荐场景的实践](https://mp.weixin.qq.com/s/bPjk1Rq19KmlPcfkYvVJVw) | 推荐 | 2019/12/30 |
+| 贝壳 | [wide&deep 在贝壳推荐场景的实践](https://mp.weixin.qq.com/s/rp6H_HydTbKiSanijDZwBQ) | 推荐 | 2019/12/18 |
 | 阿里飞猪 | [阿里飞猪“猜你喜欢”推荐排序实践](https://mp.weixin.qq.com/s?__biz=MzI1MzY0MzE4Mg==&mid=2247486489&idx=2&sn=e03b23d476d9864cd417f81c02f6e62e&chksm=e9d01cd8dea795ceb3d95d80ddab98f689d18ded9c0adc2f8175c665666a1d252c8db1d40f3c&scene=27) | 推荐 | 2020/4/8 |
 | 快手 | [快手精排模型实践](https://mp.weixin.qq.com/s/SsgVqei9sL5y7N1GUXOJLg) | 精排&CXR预估 | 2023/2/1 |
 | 阿里健康     | [领域知识增强的预训练语言模型在药电商搜索领域的实践](https://mp.weixin.qq.com/s/or9DT2HlVPnUFBsqAEv6Uw) | 搜索          | 2023/1/30  |
