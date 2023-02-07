@@ -22,6 +22,8 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 美团 | [Transformer 在美团搜索排序中的实践](https://mp.weixin.qq.com/s/Oixc46P9rQeiMDjI-0j0cw) | 搜索 | 2020/4/16 |
+| 美团 | [大众点评搜索基于知识图谱的深度学习排序实践](https://tech.meituan.com/2019/01/17/dianping-search-deeplearning.html) | 搜索 | 2019/1/17 |
 | 贝壳 | [DeepFM在贝壳房源详情页推荐场景的实践](https://mp.weixin.qq.com/s/bPjk1Rq19KmlPcfkYvVJVw) | 推荐 | 2019/12/30 |
 | 贝壳 | [wide&deep 在贝壳推荐场景的实践](https://mp.weixin.qq.com/s/rp6H_HydTbKiSanijDZwBQ) | 推荐 | 2019/12/18 |
 | 阿里飞猪 | [阿里飞猪“猜你喜欢”推荐排序实践](https://mp.weixin.qq.com/s?__biz=MzI1MzY0MzE4Mg==&mid=2247486489&idx=2&sn=e03b23d476d9864cd417f81c02f6e62e&chksm=e9d01cd8dea795ceb3d95d80ddab98f689d18ded9c0adc2f8175c665666a1d252c8db1d40f3c&scene=27) | 推荐 | 2020/4/8 |
