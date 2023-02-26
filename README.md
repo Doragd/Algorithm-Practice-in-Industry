@@ -22,6 +22,8 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 美团 | [交互式推荐在外卖场景的探索与应用](https://mp.weixin.qq.com/s/SwR1-mAtqjwsnJVy3UiMnA) | 推荐 | 2023/02/16 |
+| 小红书 | [小红书广告智能创意能力构建过程详解](https://mp.weixin.qq.com/s/EabcwCtSPEmFOjRATVVORQ) | 广告 | 2023/02/16 |
 | 阿里 | [当你打开天猫的那一刻，推荐系统做了哪些工作？](https://mp.weixin.qq.com/s?src=11&timestamp=1675783003&ver=4336&signature=JXo7DrRlU7Hx9WJP0r7ozT7S1eVkuUt-AiIg21XL7Nz3OkHBzLWECkq4hTwtGtYY0NUnl5gLihW3hGnfr8dqXJIydi1e5uty4VX58eYccDtQI-jUVPhyMU9VvBdkCWkV&new=1) | 推荐 | 2019/6/4 |
 | 360 | [深度学习在360搜索广告 NLP 任务中的应用](https://mp.weixin.qq.com/s?__biz=MzI1MzY0MzE4Mg==&mid=2247484855&idx=2&sn=f0032b7a1611be3d87615f3aecc334de&chksm=e9d01576dea79c60aed6633bd1ff386a376c2bdb50aeaa35834644068f76a2a7f23649500fe1&scene=27#wechat_redirect) | 搜索 | 2019/7/18 |
 | 美团 | [Transformer 在美团搜索排序中的实践](https://mp.weixin.qq.com/s/Oixc46P9rQeiMDjI-0j0cw) | 搜索 | 2020/4/16 |
