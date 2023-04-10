@@ -22,6 +22,20 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 阿里淘系 | [直播回顾 | 阿里淘系技术：算法黑科技](https://www.bilibili.com/video/BV16M4y1P71Y) | 搜索 |  2021/11/29 |
+| 阿里淘系 | [直播回顾 | 大淘宝技术“推荐算法”PART 1](https://www.bilibili.com/video/BV1QP4y1n7vD) | 推荐 |  2021/12/20 |
+| 阿里淘系 | [直播回顾 | 大淘宝技术“推荐算法”PART 2](https://www.bilibili.com/video/BV1CL411j7sP) | 推荐 |  2021/12/20 |
+| 阿里淘系 | [直播回顾 | 大淘宝技术“推荐算法”PART 3](https://www.bilibili.com/video/BV1Bg411w7ib) | 推荐 |  2021/12/20 |
+| 阿里淘系 | [直播回顾 | 大淘宝技术“搜索算法”专场①：淘宝搜索召回、个性化搜索排序](https://www.bilibili.com/video/BV1QS4y1j7yK) | 搜索 |  2022/1/14 |
+| 阿里淘系 | [直播回顾 | 大淘宝技术“搜索算法”专场②：电商搜索相关性、电商知识图谱](https://www.bilibili.com/video/BV1GY411h7MH) | 搜索 |  2022/1/14 |
+| 阿里妈妈 | [代码开源！阿里妈妈展示广告Match底层技术架构最新进展](https://mp.weixin.qq.com/s/IoPZ-fUL0h1PVOA8uDXPJg) | 召回 |  2023/3/14 |
+| 阿里妈妈 | [贝叶斯分层模型应用之直播场景打分校准](https://mp.weixin.qq.com/s/-klZWT30J41xPQfOqlWiNA) | 精排 |  2023/3/14 |
+| 小红书 | [小红书高时效推荐系统背后的技术升级](https://mp.weixin.qq.com/s/1a2bl983bGKM713xI_3v_A) | 推荐 |  2023/3/21 |
+| 美团 | [多场景多任务学习在美团到店餐饮推荐的实践](https://mp.weixin.qq.com/s/v-GN1ors-bWutfsIJcZYbQ) | 推荐 |  2023/3/23 |
+| 阿里飞猪 | [飞猪旅行场景下的实时用户理解服务](https://mp.weixin.qq.com/s/CFmp_FTHbf5l2ohUokTGgw) | 搜索 |  2023/4/1 |
+| 小红书 | [搜推系统召回阶段的前沿进展](https://www.bilibili.com/video/BV1Km4y167ho) | 召回 |  2023/4/3 |
+| 阿里淘系 | [每日好店——淘宝店铺推荐系统实践](https://mp.weixin.qq.com/s/DCiNgI1LL-uN4JmgQ5VSjQ) | 推荐 |  2023/4/7 |
+| 阿里淘系 | [淘宝个性化推荐中自适应与无监督的多场景模型建模实践](https://mp.weixin.qq.com/s/KX2gmEUme4Iy1PCR9PTrYg) | 推荐 |  2023/4/10 |
 | 腾讯音乐 | [粗排上不了COLD？我们提出了异构三塔粗排](https://zhuanlan.zhihu.com/p/611877625) | 粗排 | 2023/3/7 |
 | 美团 | [交互式推荐在外卖场景的探索与应用](https://mp.weixin.qq.com/s/SwR1-mAtqjwsnJVy3UiMnA) | 推荐 | 2023/02/16 |
 | 小红书 | [小红书广告智能创意能力构建过程详解](https://mp.weixin.qq.com/s/EabcwCtSPEmFOjRATVVORQ) | 广告 | 2023/02/16 |
