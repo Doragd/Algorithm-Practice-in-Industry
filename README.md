@@ -22,12 +22,12 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
-| 阿里淘系 | [直播回顾 | 阿里淘系技术：算法黑科技](https://www.bilibili.com/video/BV16M4y1P71Y) | 搜索 |  2021/11/29 |
-| 阿里淘系 | [直播回顾 | 大淘宝技术“推荐算法”PART 1](https://www.bilibili.com/video/BV1QP4y1n7vD) | 推荐 |  2021/12/20 |
-| 阿里淘系 | [直播回顾 | 大淘宝技术“推荐算法”PART 2](https://www.bilibili.com/video/BV1CL411j7sP) | 推荐 |  2021/12/20 |
-| 阿里淘系 | [直播回顾 | 大淘宝技术“推荐算法”PART 3](https://www.bilibili.com/video/BV1Bg411w7ib) | 推荐 |  2021/12/20 |
-| 阿里淘系 | [直播回顾 | 大淘宝技术“搜索算法”专场①：淘宝搜索召回、个性化搜索排序](https://www.bilibili.com/video/BV1QS4y1j7yK) | 搜索 |  2022/1/14 |
-| 阿里淘系 | [直播回顾 | 大淘宝技术“搜索算法”专场②：电商搜索相关性、电商知识图谱](https://www.bilibili.com/video/BV1GY411h7MH) | 搜索 |  2022/1/14 |
+| 阿里淘系 | [阿里淘系技术：算法黑科技](https://www.bilibili.com/video/BV16M4y1P71Y) | 搜索 |  2021/11/29 |
+| 阿里淘系 | [大淘宝技术“推荐算法”PART 1](https://www.bilibili.com/video/BV1QP4y1n7vD) | 推荐 |  2021/12/20 |
+| 阿里淘系 | [大淘宝技术“推荐算法”PART 2](https://www.bilibili.com/video/BV1CL411j7sP) | 推荐 |  2021/12/20 |
+| 阿里淘系 | [大淘宝技术“推荐算法”PART 3](https://www.bilibili.com/video/BV1Bg411w7ib) | 推荐 |  2021/12/20 |
+| 阿里淘系 | [大淘宝技术“搜索算法”专场①：淘宝搜索召回、个性化搜索排序](https://www.bilibili.com/video/BV1QS4y1j7yK) | 搜索 |  2022/1/14 |
+| 阿里淘系 | [大淘宝技术“搜索算法”专场②：电商搜索相关性、电商知识图谱](https://www.bilibili.com/video/BV1GY411h7MH) | 搜索 |  2022/1/14 |
 | 阿里妈妈 | [代码开源！阿里妈妈展示广告Match底层技术架构最新进展](https://mp.weixin.qq.com/s/IoPZ-fUL0h1PVOA8uDXPJg) | 召回 |  2023/3/14 |
 | 阿里妈妈 | [贝叶斯分层模型应用之直播场景打分校准](https://mp.weixin.qq.com/s/-klZWT30J41xPQfOqlWiNA) | 精排 |  2023/3/14 |
 | 小红书 | [小红书高时效推荐系统背后的技术升级](https://mp.weixin.qq.com/s/1a2bl983bGKM713xI_3v_A) | 推荐 |  2023/3/21 |
