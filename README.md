@@ -22,6 +22,8 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 阿里淘系 | [淘宝内容化推荐场景下对多场景全域表征的思考与应用](https://mp.weixin.qq.com/s/e6Sqb6MAY5Bvzd7Pi8-zOg) | 推荐 | 2023-04-28 |
+| 阿里淘系 | [每日好店——店品排序探索模型升级](https://mp.weixin.qq.com/s/rdcqehk6l_GMF07YisHLFw) | 推荐 | 2023-04-24 |
 | 阿里淘系     | [淘宝个性化推荐中自适应与无监督的多场景模型建模实践](https://mp.weixin.qq.com/s/KX2gmEUme4Iy1PCR9PTrYg) | 推荐          | 2023-04-10 |
 | 阿里淘系     | [每日好店——淘宝店铺推荐系统实践](https://mp.weixin.qq.com/s/DCiNgI1LL-uN4JmgQ5VSjQ) | 推荐          | 2023-04-07 |
 | 小红书       | [搜推系统召回阶段的前沿进展](https://www.bilibili.com/video/BV1Km4y167ho) | 召回          | 2023-04-03 |
