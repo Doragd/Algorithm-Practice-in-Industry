@@ -22,6 +22,8 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 阿里飞猪 | [因果推断技术在飞猪保险模块推荐以及可解释性应用](https://mp.weixin.qq.com/s/M9RSzYiDvJ8L2Ux2VmFFRw) | 推荐 | 2023-04-28 |
+| 微博 | [微博推荐实时大模型的技术演进](https://mp.weixin.qq.com/s/wRi0YJLpru5M1My0H2Ww0w) | 推荐 | 2023-04-24 |
 | 阿里淘系 | [淘宝内容化推荐场景下对多场景全域表征的思考与应用](https://mp.weixin.qq.com/s/e6Sqb6MAY5Bvzd7Pi8-zOg) | 推荐 | 2023-04-28 |
 | 阿里淘系 | [每日好店——店品排序探索模型升级](https://mp.weixin.qq.com/s/rdcqehk6l_GMF07YisHLFw) | 推荐 | 2023-04-24 |
 | 阿里淘系     | [淘宝个性化推荐中自适应与无监督的多场景模型建模实践](https://mp.weixin.qq.com/s/KX2gmEUme4Iy1PCR9PTrYg) | 推荐          | 2023-04-10 |
