@@ -22,6 +22,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 阿里妈妈 | [AdaSparse: 自适应稀疏网络的多场景CTR预估建模](https://mp.weixin.qq.com/s/a2X08FZfMgMfzmucF0DZ_w) | 精排 | 2023-05-10 |
 | 阿里飞猪 | [因果推断技术在飞猪保险模块推荐以及可解释性应用](https://mp.weixin.qq.com/s/M9RSzYiDvJ8L2Ux2VmFFRw) | 推荐 | 2023-04-28 |
 | 微博 | [微博推荐实时大模型的技术演进](https://mp.weixin.qq.com/s/wRi0YJLpru5M1My0H2Ww0w) | 推荐 | 2023-04-24 |
 | 阿里淘系 | [淘宝内容化推荐场景下对多场景全域表征的思考与应用](https://mp.weixin.qq.com/s/e6Sqb6MAY5Bvzd7Pi8-zOg) | 推荐 | 2023-04-28 |
