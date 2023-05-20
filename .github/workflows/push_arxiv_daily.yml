@@ -18,8 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SERVERCHAN_API_KEY: ${{ secrets.SERVERCHAN_API_KEY }}
+      CAIYUN_TOKEN: ${{ secrets.CAIYUN_TOKEN }}
       QUERY: "cs.IR"
-      THREADS: 2
+      LIMITS: 5
 
     permissions:
       issues: write
