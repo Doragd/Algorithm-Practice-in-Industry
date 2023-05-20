@@ -11,7 +11,6 @@
 - [搜广推算法系列串讲](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/%E6%90%9C%E5%B9%BF%E6%8E%A8%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B8%B2%E8%AE%B2.md)
 
 
-
 本文仅做资源收集，未引用具体内容，如有侵权，请联系删除。
 * 源文件：source.xlsx，可以执行自定义排序
 * 同时还提供了搜广推顶会论文列表

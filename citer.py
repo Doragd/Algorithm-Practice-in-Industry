@@ -37,7 +37,7 @@ class CachedDOICounter:
             response = requests.get(url)
             response.raise_for_status()
             data = response.json()['message']
-            reference_count = data['reference-count']
+            reference_count = data['is-referenced-by-count']
             self.cache[doi] = reference_count
             return reference_count
         except(requests.exceptions.RequestException, KeyError) as e:
