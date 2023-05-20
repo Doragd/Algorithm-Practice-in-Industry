@@ -2,6 +2,7 @@ import re
 import ast
 import argparse
 import openpyxl
+from datetime import datetime
 
 def set_args():
     parser = argparse.ArgumentParser()
@@ -40,22 +41,38 @@ def update_excel(args):
     wb.save("source.xlsx")
     print("[+] Add items Done!")
 
-def update_readme(args):
+def update_readme(args, info=None):
     print("[+] Add new items into readme...")
-    info = parse_issue(args.issue)
+    if info is None:
+        info = parse_issue(args.issue)
     with open("README.md", "r", encoding="utf-8") as f:
-        line = f.read()
-    index = re.search(r"\|(\s-+\s\|)+", line).span(0)[1]
-    newlines = ""
-    for item in info:
-        newline = "".join("| {} | [{}]({}) | {} | {} |".format(
-            item["公司"], item["内容"], item["链接"], item["标签"], item["时间"]))
-        newlines += newline + "\n"
-    newlines = newlines[:-1]
-    line = line[:index] + "\n" + newlines + line[index:]
-    with open("README.md", "w", encoding="utf-8") as f:
-        f.write(line)
-    print("[+] Add items Done!")
+        lines = f.readlines()
+
+    # 查找表格位置
+    table_title = "## 大厂实践文章"
+    table_index = None
+    for i, line in enumerate(lines):
+        if line.strip() == table_title:
+            table_index = i
+            break
+
+    # 如果找到表格位置，则更新表格
+    if table_index is not None:
+        j = table_index + 2
+        while j < len(lines) and not re.search(r"\|(\s-+\s\|)+", lines[j]):
+            j += 1
+        index = j + 1
+        newlines = []
+        for item in info:
+            newline = "".join("| {} | [{}]({}) | {} | {} |\n".format(
+                item["公司"], item["内容"], item["链接"], item["标签"], item["时间"]))
+            newlines.append(newline)
+        lines = lines[:index] + newlines + lines[index:]
+        with open("README.md", "w", encoding="utf-8") as f:
+            f.writelines(lines)
+        print("[+] Add items Done!")
+    else:
+        print("[-] Table not found!")
 
 
 def main():

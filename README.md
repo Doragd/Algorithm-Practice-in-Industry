@@ -11,14 +11,31 @@
 
 
 本文仅做资源收集，未引用具体内容，如有侵权，请联系删除。
+* 源文件：source.xlsx，可以执行自定义排序
+* 同时还提供了搜广推顶会论文列表
 
 ## 贡献新文章
 提交issue，利用github action自动更新readme和source.xlsx内容
 
 已提供issue模板，具体内容参考issue：https://github.com/Doragd/Algorithm-Practice-in-Industry/issues/1
 
-## 内容
-* 源文件：source.xlsx，可以执行自定义排序
+## 顶会论文列表
+|   CIKM  |   ECIR  |   KDD  |   RECSYS  |   SIGIR  |   WSDM  |   WWW  |
+|  ------ |  ------ |  ------ |  ------ |  ------ |  ------ |  ------  |
+|   [2012](./papers/cikm/cikm2012.md)  |   [2012](./papers/ecir/ecir2012.md)  |   [2012](./papers/kdd/kdd2012.md)  |   [2012](./papers/recsys/recsys2012.md)  |   [2012](./papers/sigir/sigir2012.md)  |   [2012](./papers/wsdm/wsdm2012.md)  |   [2012](./papers/www/www2012.md)  |   
+|   [2013](./papers/cikm/cikm2013.md)  |   [2013](./papers/ecir/ecir2013.md)  |   [2013](./papers/kdd/kdd2013.md)  |   [2013](./papers/recsys/recsys2013.md)  |   [2013](./papers/sigir/sigir2013.md)  |   [2013](./papers/wsdm/wsdm2013.md)  |   [2013](./papers/www/www2013.md)  |   
+|   [2014](./papers/cikm/cikm2014.md)  |   [2014](./papers/ecir/ecir2014.md)  |   [2014](./papers/kdd/kdd2014.md)  |   [2014](./papers/recsys/recsys2014.md)  |   [2014](./papers/sigir/sigir2014.md)  |   [2014](./papers/wsdm/wsdm2014.md)  |   [2014](./papers/www/www2014.md)  |   
+|   [2015](./papers/cikm/cikm2015.md)  |   [2015](./papers/ecir/ecir2015.md)  |   [2015](./papers/kdd/kdd2015.md)  |   [2015](./papers/recsys/recsys2015.md)  |   [2015](./papers/sigir/sigir2015.md)  |   [2015](./papers/wsdm/wsdm2015.md)  |   [2015](./papers/www/www2015.md)  |   
+|   [2016](./papers/cikm/cikm2016.md)  |   [2016](./papers/ecir/ecir2016.md)  |   [2016](./papers/kdd/kdd2016.md)  |   [2016](./papers/recsys/recsys2016.md)  |   [2016](./papers/sigir/sigir2016.md)  |   [2016](./papers/wsdm/wsdm2016.md)  |   [2016](./papers/www/www2016.md)  |   
+|   [2017](./papers/cikm/cikm2017.md)  |   [2017](./papers/ecir/ecir2017.md)  |   [2017](./papers/kdd/kdd2017.md)  |   [2017](./papers/recsys/recsys2017.md)  |   [2017](./papers/sigir/sigir2017.md)  |   [2017](./papers/wsdm/wsdm2017.md)  |   [2017](./papers/www/www2017.md)  |   
+|   [2018](./papers/cikm/cikm2018.md)  |   [2018](./papers/ecir/ecir2018.md)  |   [2018](./papers/kdd/kdd2018.md)  |   [2018](./papers/recsys/recsys2018.md)  |   [2018](./papers/sigir/sigir2018.md)  |   [2018](./papers/wsdm/wsdm2018.md)  |   [2018](./papers/www/www2018.md)  |   
+|   [2019](./papers/cikm/cikm2019.md)  |   [2019](./papers/ecir/ecir2019.md)  |   [2019](./papers/kdd/kdd2019.md)  |   [2019](./papers/recsys/recsys2019.md)  |   [2019](./papers/sigir/sigir2019.md)  |   [2019](./papers/wsdm/wsdm2019.md)  |   [2019](./papers/www/www2019.md)  |   
+|   [2020](./papers/cikm/cikm2020.md)  |   [2020](./papers/ecir/ecir2020.md)  |   [2020](./papers/kdd/kdd2020.md)  |   [2020](./papers/recsys/recsys2020.md)  |   [2020](./papers/sigir/sigir2020.md)  |   [2020](./papers/wsdm/wsdm2020.md)  |   [2020](./papers/www/www2020.md)  |   
+|   [2021](./papers/cikm/cikm2021.md)  |   [2021](./papers/ecir/ecir2021.md)  |   [2021](./papers/kdd/kdd2021.md)  |   [2021](./papers/recsys/recsys2021.md)  |   [2021](./papers/sigir/sigir2021.md)  |   [2021](./papers/wsdm/wsdm2021.md)  |   [2021](./papers/www/www2021.md)  |   
+|   [2022](./papers/cikm/cikm2022.md)  |   [2022](./papers/ecir/ecir2022.md)  |   [2022](./papers/kdd/kdd2022.md)  |   [2022](./papers/recsys/recsys2022.md)  |   [2022](./papers/sigir/sigir2022.md)  |   [2022](./papers/wsdm/wsdm2022.md)  |   [2022](./papers/www/www2022.md)  |   
+|   [2023](./papers/cikm/cikm2023.md)  |   [2023](./papers/ecir/ecir2023.md)  |   [2023](./papers/kdd/kdd2023.md)  |   [2023](./papers/recsys/recsys2023.md)  |   [2023](./papers/sigir/sigir2023.md)  |   [2023](./papers/wsdm/wsdm2023.md)  |   [2023](./papers/www/www2023.md)  |   
+
+## 大厂实践文章
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
