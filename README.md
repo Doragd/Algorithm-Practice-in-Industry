@@ -4,6 +4,8 @@
 
 除此以外，还有
 
+- [搜广推顶会论文列表](https://github.com/Doragd/Algorithm-Practice-in-Industry#%E9%A1%B6%E4%BC%9A%E8%AE%BA%E6%96%87%E5%88%97%E8%A1%A8)
+
 - [搜广推优质博主文章](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/%E6%90%9C%E5%B9%BF%E6%8E%A8%E4%BC%98%E8%B4%A8%E5%8D%9A%E4%B8%BB%E6%96%87%E7%AB%A0.md)
 
 - [搜广推算法系列串讲](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/%E6%90%9C%E5%B9%BF%E6%8E%A8%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B8%B2%E8%AE%B2.md)
@@ -33,7 +35,7 @@
 |   [2020](./papers/cikm/cikm2020.md)  |   [2020](./papers/ecir/ecir2020.md)  |   [2020](./papers/kdd/kdd2020.md)  |   [2020](./papers/recsys/recsys2020.md)  |   [2020](./papers/sigir/sigir2020.md)  |   [2020](./papers/wsdm/wsdm2020.md)  |   [2020](./papers/www/www2020.md)  |   
 |   [2021](./papers/cikm/cikm2021.md)  |   [2021](./papers/ecir/ecir2021.md)  |   [2021](./papers/kdd/kdd2021.md)  |   [2021](./papers/recsys/recsys2021.md)  |   [2021](./papers/sigir/sigir2021.md)  |   [2021](./papers/wsdm/wsdm2021.md)  |   [2021](./papers/www/www2021.md)  |   
 |   [2022](./papers/cikm/cikm2022.md)  |   [2022](./papers/ecir/ecir2022.md)  |   [2022](./papers/kdd/kdd2022.md)  |   [2022](./papers/recsys/recsys2022.md)  |   [2022](./papers/sigir/sigir2022.md)  |   [2022](./papers/wsdm/wsdm2022.md)  |   [2022](./papers/www/www2022.md)  |   
-|   [2023](./papers/cikm/cikm2023.md)  |   [2023](./papers/ecir/ecir2023.md)  |   [2023](./papers/kdd/kdd2023.md)  |   [2023](./papers/recsys/recsys2023.md)  |   [2023](./papers/sigir/sigir2023.md)  |   [2023](./papers/wsdm/wsdm2023.md)  |   [2023](./papers/www/www2023.md)  |   
+|   2023  |   [2023](./papers/ecir/ecir2023.md)  |   2023  |   2023  |   2023  |   [2023](./papers/wsdm/wsdm2023.md)  |   [2023](./papers/www/www2023.md)  |   
 
 ## 大厂实践文章
 

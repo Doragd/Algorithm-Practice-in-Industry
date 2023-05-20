@@ -64,7 +64,12 @@ if st_index is not None and ed_index is not None:
     ]
     for year in years:
         markdown_str = '|   '
-        markdown_str += "".join([ f"[{year}](./papers/{conf}/{conf}{year}.md)" + '  |   ' for conf in confs])
+        markdown_str += "".join([ 
+            f"[{year}](./papers/{conf}/{conf}{year}.md)" + '  |   '
+            if os.path.exists(f'./papers/{conf}/{conf}{year}.md')
+            else f"{year}" + '  |   '
+            for conf in confs
+        ])
         markdown_str += '\n'
         markdown.append(markdown_str)
     markdown.append('\n')
