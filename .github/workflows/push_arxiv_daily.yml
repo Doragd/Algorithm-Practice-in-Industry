@@ -34,7 +34,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           
       - name: Install dependencies
-        run: pip install tqdm
+        run: pip install tqdm requests
 
 
       - name: PUSH ARXIV DAILY
