@@ -74,8 +74,8 @@ def update_results(results):
     count = 0
     daily_limits = False
     ret_items = []
-    for conf in confs:
-        for year in years:
+    for year in years:
+        for conf in confs:
             key = f"{conf}{year}"
             if key not in results:
                 continue
