@@ -22,18 +22,25 @@ FEISHU_URL = os.environ.get("FEISHU_URL", None)
 def match_score(item):
     keywords = [
         "click-through", "recommend", "taobao", "ctr", "cvr", "conver", "match",
-        "search", "rank", "alipay", "kuanshou", "bias", "multi-task", "candidate", "relevance", "query",
-        "retriev", "personal", "cold", "click", "commerce", "embedding", "collaborative", "facebook",
-        "a/b", "sequential", "intent", "product", "wechat", "tencent", "multi-objective",
-        "domain", "feed", "large-scale", "interest", "estima", "online", "twitter", "machine learning", "stream",
-        "netflix", "linucb", "user", "term", "semantic", "instacart", "explor", "sampl", "listwise", "constrative",
-        "pairwise", "bandit", "variation", "session", "uplift", "distil", "negative", "item", "similar",
-        "behavior", "cascad", "trigger", "ads", "top-k", "top-n", "tower", "approximat", "bid", "transfer"
+        "search", "rank", "alipay", "kuanshou", "multi-task", "candidate", "relevance", "query",
+        "retriev", "personal",  "click", "commerce", "embedding", "collaborative", "facebook",
+        "sequential",  "wechat", "tencent", "multi-objective", "ads", "tower", "approximat", 
+        "instacart", "airbnb", "negative"
+    ]
+    keywords2 = [
+        "bias", "cold", "a/b", "intent", "product", "domain", "feed", "large-scale", "interest", "estima", "online", "twitter",
+        "machine learning", "stream", "netflix", "linucb", "user", "term", "semantic",  
+        "explor", "sampl", "listwise", "constrative", "pairwise", "bandit", "variation", "session", 
+        "uplift", "distil", "item", "similar", "behavior", "cascad", "trigger", "transfer"
+        "top-k", "top-n", "bid"
     ]
     score = 0
     for keyword in keywords:
         if 'paper_name' in item and keyword.lower() in item['paper_name'].lower():
             score += 1
+    for keyword in keywords2:
+        if 'paper_name' in item and keyword.lower() in item['paper_name'].lower():
+            score += 0.25
     return score
 
 def get_paper(query):
