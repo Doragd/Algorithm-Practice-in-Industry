@@ -87,7 +87,7 @@ def update_message(args):
     content = []
     for info in infos:
         emoji = random.choice("🌱🌿🍀🪴🎋🍃🪷🌸✨")
-        meta_info = f"🥹 公司:{info['公司']}  📆 时间:{info['时间']}  🍉 标签:{info['标签']}"
+        meta_info = f"🥹 {info['公司']}  📆 {info['时间']}  🍉 {info['标签']}"
         info_title = f"✅ {info['内容']}"
         line_len = max(len(meta_info), len(info_title))
         sepline = emoji * line_len
