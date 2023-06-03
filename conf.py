@@ -12,10 +12,10 @@ HEADERS = {
 }
 
 URL = os.environ.get("CONF_URL", None)
-INTERVAL = os.environ.get("INTERVAL", 3)
 SERVERCHAN_API_KEY = os.environ.get("SERVERCHAN_API_KEY", None)
-LIMITS = os.environ.get('LIMITS', 4)
-ERROR_LIMITS = os.environ.get('ERROR_LIMITS', 1)
+LIMITS = int(os.environ.get('LIMITS', 4))
+ERROR_LIMITS = int(os.environ.get('ERROR_LIMITS', 1))
+INTERVAL = int(os.environ.get("INTERVAL", 3))
 CAIYUN_TOKEN = os.environ.get("CAIYUN_TOKEN", None)
 FEISHU_URL = os.environ.get("FEISHU_URL", None)
 
