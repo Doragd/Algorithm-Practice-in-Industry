@@ -83,14 +83,14 @@ def update_readme(args, info=None):
 def update_message(args):
     infos = parse_issue(args.issue)
     today = datetime.datetime.now().strftime('%Y-%m-%d')
-    title = f"🌸🌸🌸 大厂实践文章自动更新@{today} 🌸🌸🌸"
+    title = f"🌸大厂实践文章自动更新@{today}"
     content = []
     for info in infos:
         # emoji = random.choice("🌱🌿🍀🪴🎋🍃🪷🌸✨")
         emoji = "="
-        meta_info = f"🥹 公司:{info['公司']}\t\t📆 时间:{info['时间']}\t\t🍉 标签:{info['标签']}"
+        meta_info = f"🥹 公司:{info['公司']}  📆 时间:{info['时间']}  🍉 标签:{info['标签']}"
         info_title = f"✅ {info['内容']}"
-        line_len = max(len(meta_info), len(info_title)) + 8
+        line_len = max(len(meta_info), len(info_title))
         sepline = emoji * line_len
         content.append(
             [{
@@ -144,7 +144,7 @@ def update_message(args):
     content.append(
         [{
             "tag": "a",
-            "text": "➡️    点击查看完整大厂实践文章列表    ⬅️",
+            "text": "➡️    点击查看完整大厂实践文章列表",
             "href": "https://github.com/Doragd/Algorithm-Practice-in-Industry"
         }]
     )
