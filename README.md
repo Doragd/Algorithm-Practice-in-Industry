@@ -53,6 +53,9 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| Shopee | [Calibration4CVR：2018年关于“神经元级别共享的多任务CVR”的初探](https://mp.weixin.qq.com/s/2JFY--9xDoMF5_2YCehwkg) | 推荐 | 2023-03-05 |
+| 阿里健康 | [阿里可解释性推荐算法应用](https://mp.weixin.qq.com/s/hQgsT9xpQr2Ylb6_3uwfvQ) | 推荐 | 2023-03-06 |
+| Shopee | [多任务学习最新进展：基于神经元级共享的 CTR、CVR 多任务联合预估方法](https://mp.weixin.qq.com/s/4PO6EK3b4VCKO0ibd76C9w) | 推荐 | 2023-05-29 |
 | 阿里妈妈 | [AdaSparse: 自适应稀疏网络的多场景CTR预估建模](https://mp.weixin.qq.com/s/a2X08FZfMgMfzmucF0DZ_w) | 精排 | 2023-05-10 |
 | 阿里飞猪 | [因果推断技术在飞猪保险模块推荐以及可解释性应用](https://mp.weixin.qq.com/s/M9RSzYiDvJ8L2Ux2VmFFRw) | 推荐 | 2023-04-28 |
 | 微博 | [微博推荐实时大模型的技术演进](https://mp.weixin.qq.com/s/wRi0YJLpru5M1My0H2Ww0w) | 推荐 | 2023-04-24 |
