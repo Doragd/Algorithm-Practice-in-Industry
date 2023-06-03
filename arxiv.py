@@ -15,6 +15,7 @@ SERVERCHAN_API_KEY = os.environ.get("SERVERCHAN_API_KEY", None)
 QUERY = os.environ.get('QUERY', 'cs.IR')
 LIMITS = os.environ.get('LIMITS', 3)
 CAIYUN_TOKEN = os.environ.get("CAIYUN_TOKEN", None)
+FEISHU_URL = os.environ.get("FEISHU_URL", None)
 
 def translate(source, direction='en2zh', CAIYUN_TOKEN=CAIYUN_TOKEN):
     url = "http://api.interpreter.caiyunai.com/v1/translator"
@@ -94,6 +95,40 @@ def send_wechat_message(title, content, SERVERCHAN_API_KEY):
     }
     requests.post(url, params=params)
 
+def send_feishu_message(title, content, url=FEISHU_URL):
+    card_data = {
+        "config": {
+            "wide_screen_mode": True
+        },
+        "header": {
+            "template": "green",
+            "title": {
+            "tag": "plain_text",
+            "content": title
+            }
+        },
+        "elements": [
+            {
+            "tag": "img",
+            "img_key": "img_v2_9781afeb-279d-4a05-8736-1dff05e19dbg",
+            "alt": {
+                "tag": "plain_text",
+                "content": ""
+            },
+            "mode": "fit_horizontal",
+            "preview": True
+            },
+            {
+            "tag": "markdown",
+            "content": content
+            }
+        ]
+    }
+    card = json.dumps(card_data)
+    body =json.dumps({"msg_type": "interactive","card":card})
+    headers = {"Content-Type":"application/json"}
+    requests.post(url=url, data=body, headers=headers)
+
 
 def save_and_translate(papers, filename='arxiv.json'):
     with open(filename, 'r', encoding='utf-8') as f:
@@ -166,9 +201,9 @@ def cronjob():
         yesterday = get_yesterday()
 
         if pub_date == yesterday:
-            msg_title = f'[Newest]Title: {title}' 
+            msg_title = f'[Newest]{title}' 
         else:
-            msg_title = f'Title: {title}'
+            msg_title = f'{title}'
 
         msg_url = f'URL: {url}'
         msg_pub_date = f'Pub Date：{pub_date}'
@@ -178,7 +213,8 @@ def cronjob():
         push_title = f'Arxiv:{QUERY}[{ii}]@{today}'
         msg_content = f"[{msg_title}]({url})\n\n{msg_pub_date}\n\n{msg_url}\n\n{msg_translated}\n\n{msg_summary}\n\n"
 
-        send_wechat_message(push_title, msg_content, SERVERCHAN_API_KEY)
+        # send_wechat_message(push_title, msg_content, SERVERCHAN_API_KEY)
+        send_feishu_message(push_title, msg_content, FEISHU_URL)
 
         time.sleep(12)
 

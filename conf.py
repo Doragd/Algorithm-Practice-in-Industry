@@ -4,7 +4,7 @@ import time
 import requests
 import datetime
 from tqdm import tqdm
-from arxiv import translate, send_wechat_message
+from arxiv import translate, send_wechat_message, send_feishu_message
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36",
@@ -14,9 +14,10 @@ HEADERS = {
 URL = os.environ.get("CONF_URL", None)
 INTERVAL = os.environ.get("INTERVAL", 3)
 SERVERCHAN_API_KEY = os.environ.get("SERVERCHAN_API_KEY", None)
-LIMITS = os.environ.get('LIMITS', 2)
+LIMITS = os.environ.get('LIMITS', 4)
 ERROR_LIMITS = os.environ.get('ERROR_LIMITS', 1)
 CAIYUN_TOKEN = os.environ.get("CAIYUN_TOKEN", None)
+FEISHU_URL = os.environ.get("FEISHU_URL", None)
 
 def get_paper(query):
     req = {
@@ -150,7 +151,8 @@ def cronjob(error_cnt):
         push_title = f'{conf}[{ii}]@{today}'
         msg_content = f"[{msg_title}]({url})\n\n{msg_author}\n\n{msg_org}\n\n{msg_url}\n\n{msg_translated}\n\n{msg_summary}\n\n"
 
-        send_wechat_message(push_title, msg_content, SERVERCHAN_API_KEY)
+        # send_wechat_message(push_title, msg_content, SERVERCHAN_API_KEY)
+        send_feishu_message(push_title, msg_content, FEISHU_URL)
 
         time.sleep(12)
 
