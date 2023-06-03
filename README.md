@@ -3,6 +3,7 @@
 搜索、推荐、广告、用增等工业界实践文章收集（来源：知乎、Datafuntalk、技术公众号）
 
 除此以外，还有
+- [搜广推论文推送Bot]()
 
 - [搜广推顶会论文列表](https://github.com/Doragd/Algorithm-Practice-in-Industry#%E9%A1%B6%E4%BC%9A%E8%AE%BA%E6%96%87%E5%88%97%E8%A1%A8)
 
@@ -19,6 +20,13 @@
 提交issue，利用github action自动更新readme和source.xlsx内容
 
 已提供issue模板，具体内容参考issue：https://github.com/Doragd/Algorithm-Practice-in-Industry/issues/1
+
+## 搜广推论文推送Bot
+* Arxiv论文：利用github action + 飞书机器人每天推送cs.IR的新论文到飞书群组中。[配置文件](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/.github/workflows/push_arxiv_daily.yml)
+* 顶会论文：利用github action + 飞书机器人每天推送搜广推顶会的论文到到飞书群组中。[配置文件](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/.github/workflows/push_conf_daily.yml)
+
+<img src=https://github.com/Doragd/Algorithm-Practice-in-Industry/assets/26213546/13c9f2dd-9599-433e-9af8-6b0cd5afdb30 height="20%" width="20%"></img>
+
 
 ## 顶会论文列表
 |   CIKM  |   ECIR  |   KDD  |   RECSYS  |   SIGIR  |   WSDM  |   WWW  |
