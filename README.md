@@ -1,8 +1,16 @@
 # Algorithm-Practice-in-Industry
-## 来源
+## 仓库介绍
+
+**一开始这个仓库是做如下内容：**
+
 搜索、推荐、广告、用增等工业界实践文章收集（来源：知乎、Datafuntalk、技术公众号）
 
-除此以外，还有
+- [搜广推大厂实践文章](https://github.com/Doragd/Algorithm-Practice-in-Industry#%E5%A4%A7%E5%8E%82%E5%AE%9E%E8%B7%B5%E6%96%87%E7%AB%A0)
+> 本文仅做资源收集，未引用具体内容，如有侵权，请联系删除。
+> 源文件：source.xlsx，可以执行自定义排序
+
+随后扩展了以下内容：
+
 - [搜广推论文推送Bot](https://github.com/Doragd/Algorithm-Practice-in-Industry/tree/main#%E6%90%9C%E5%B9%BF%E6%8E%A8%E8%AE%BA%E6%96%87%E6%8E%A8%E9%80%81bot)
 
 - [搜广推顶会论文列表](https://github.com/Doragd/Algorithm-Practice-in-Industry#%E9%A1%B6%E4%BC%9A%E8%AE%BA%E6%96%87%E5%88%97%E8%A1%A8)
@@ -11,21 +19,18 @@
 
 - [搜广推算法系列串讲](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/%E6%90%9C%E5%B9%BF%E6%8E%A8%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B8%B2%E8%AE%B2.md)
 
-
-本文仅做资源收集，未引用具体内容，如有侵权，请联系删除。
-* 源文件：source.xlsx，可以执行自定义排序
-* 同时还提供了搜广推顶会论文列表
-
 ## 贡献新文章
 提交issue，利用github action自动更新readme和source.xlsx内容
 
 已提供issue模板，具体内容参考issue：https://github.com/Doragd/Algorithm-Practice-in-Industry/issues/1
 
 ## 搜广推论文推送Bot
-* Arxiv论文：利用github action + 飞书机器人每天推送cs.IR的新论文到飞书群组中。[配置文件](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/.github/workflows/push_arxiv_daily.yml)
-* 顶会论文：利用github action + 飞书机器人每天推送搜广推顶会的论文到到飞书群组中。[配置文件](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/.github/workflows/push_conf_daily.yml)
+* Arxiv论文：利用github action + 彩云小译 + 飞书机器人每天推送cs.IR的新论文到飞书群组中。[配置文件](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/.github/workflows/push_arxiv_daily.yml)
+* 顶会论文：利用github action + 彩云小译 + 飞书机器人每天推送搜广推顶会的论文到到飞书群组中。[配置文件](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/.github/workflows/push_conf_daily.yml)
+* PS: 虽然论文没太大用，但是可以无聊时候刷刷，扩展下思路。
+* 比如早上通勤的时候，可以刷刷推送，看看有没有有意思的论文，也不需要花太多时间，毕竟摘要都翻译好了~
 
-<img src=https://github.com/Doragd/Algorithm-Practice-in-Industry/assets/26213546/13c9f2dd-9599-433e-9af8-6b0cd5afdb30 height="20%" width="20%"></img>
+<img src=https://github.com/Doragd/Algorithm-Practice-in-Industry/assets/26213546/13c9f2dd-9599-433e-9af8-6b0cd5afdb30 height="30%" width="30%"></img>
 
 
 ## 顶会论文列表
