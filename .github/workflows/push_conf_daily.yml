@@ -41,7 +41,9 @@ jobs:
 
 
       - name: PUSH CONF DAILY
-        run: python conf.py
+        run: |
+          python conf.py
+          python render.py
         
       - name: Commit files
         id: commit

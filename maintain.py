@@ -1,8 +1,14 @@
 import re
 import ast
+import os
+import random
+import json
 import argparse
 import openpyxl
-from datetime import datetime
+import requests
+import datetime
+
+FEISHU_URL = os.environ.get("FEISHU_URL", None)
 
 def set_args():
     parser = argparse.ArgumentParser()
@@ -74,11 +80,100 @@ def update_readme(args, info=None):
     else:
         print("[-] Table not found!")
 
+def update_message(args):
+    infos = parse_issue(args.issue)
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    title = f"🌸🌸🌸 大厂实践文章自动更新@{today} 🌸🌸🌸"
+    content = []
+    for info in infos:
+        # emoji = random.choice("🌱🌿🍀🪴🎋🍃🪷🌸✨")
+        emoji = "="
+        meta_info = f"🥹 公司:{info['公司']}\t\t📆 时间:{info['时间']}\t\t🍉 标签:{info['标签']}"
+        info_title = f"✅ {info['内容']}"
+        line_len = max(len(meta_info), len(info_title)) + 8
+        sepline = emoji * line_len
+        content.append(
+            [{
+                "tag": "text",
+                "text": ""
+            }]
+        )
+        content.append(
+            [{
+                "tag": "text",
+                "text": sepline
+            }]
+        )
+        content.append(
+            [{
+                "tag": "text",
+                "text": ""
+            }]
+        )
+        content.append(
+            [{
+                "tag": "text",
+                "text": meta_info
+            }]
+        )
+        content.append(
+            [{
+                "tag": "text",
+                "text": ""
+            }]
+        )
+        content.append(
+            [{
+                "tag": "a",
+                "text": info_title,
+                "href": f"{info['链接']}"
+            }]
+        )
+        content.append(
+            [{
+                "tag": "text",
+                "text": ""
+            }]
+        )
+    content.append(
+        [{
+            "tag": "text",
+            "text": "-----",
+        }]
+    )
+    content.append(
+        [{
+            "tag": "a",
+            "text": "➡️    点击查看完整大厂实践文章列表    ⬅️",
+            "href": "https://github.com/Doragd/Algorithm-Practice-in-Industry"
+        }]
+    )
+    send_feishu_message(title, content, url=FEISHU_URL)
+
+def send_feishu_message(title, content, url=FEISHU_URL):
+    raw_data = {
+        "msg_type": "post",
+        "content": {
+            "post": {
+                "zh_cn": {
+                    "title": title,
+                    "content": content
+                }
+            }
+        }
+    }  
+    body = json.dumps(raw_data)
+    headers = {"Content-Type":"application/json"}
+    ret = requests.post(url=url, data=body, headers=headers)
+    print(ret.text)
+
+
 
 def main():
     args = set_args()
     update_excel(args)
     update_readme(args)
+    update_message(args)
 
 if __name__ == "__main__":
     main()

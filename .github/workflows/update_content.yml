@@ -13,6 +13,8 @@ jobs:
   update-conf-list:
     if: github.event.label.name == 'require to update content'
     runs-on: ubuntu-latest
+    env:
+      FEISHU_URL: ${{ secrets.FEISHU_URL }}
     permissions:
       issues: write
       contents: write
