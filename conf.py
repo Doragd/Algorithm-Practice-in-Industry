@@ -19,6 +19,23 @@ INTERVAL = int(os.environ.get("INTERVAL", 3))
 CAIYUN_TOKEN = os.environ.get("CAIYUN_TOKEN", None)
 FEISHU_URL = os.environ.get("FEISHU_URL", None)
 
+def match_score(item):
+    keywords = [
+        "click-through", "recommend", "taobao", "ctr", "cvr", "conver", "match",
+        "search", "rank", "alipay", "kuanshou", "bias", "multi-task", "candidate", "relevance", "query",
+        "retriev", "personal", "cold", "click", "commerce", "embedding", "collaborative", "facebook",
+        "a/b", "sequential", "intent", "product", "wechat", "tencent", "multi-objective",
+        "domain", "feed", "large-scale", "interest", "estima", "online", "twitter", "machine learning", "stream",
+        "netflix", "linucb", "user", "term", "semantic", "instacart", "explor", "sampl", "listwise", "constrative",
+        "pairwise", "bandit", "variation", "session", "uplift", "distil", "negative", "item", "similar",
+        "behavior", "cascad", "trigger", "ads", "top-k", "top-n", "tower", "approximat", "bid", "transfer"
+    ]
+    score = 0
+    for keyword in keywords:
+        if 'paper_name' in item and keyword.lower() in item['paper_name'].lower():
+            score += 1
+    return score
+
 def get_paper(query):
     req = {
         "query": query,
@@ -36,7 +53,7 @@ def get_paper(query):
             if len(hit_list) > 0:
                 return hit_list[0]
     except (requests.exceptions.RequestException, ValueError) as e:
-        print(f"Error occurred when requesting data from {url}: {e}")
+        print(f"Error occurred when requesting data from {URL}: {e}")
     return None
 
 def load_results(filename='results.json'):
@@ -69,7 +86,8 @@ def parse_item(item):
     return ret
 
 def update_results(results):
-    confs = ['kdd', 'cikm', 'sigir', 'www', 'wsdm', 'ecir', 'recsys']
+    # confs = ['kdd', 'cikm', 'sigir', 'www', 'wsdm', 'ecir', 'recsys']
+    confs = ['kdd', 'cikm', 'sigir', 'www', 'wsdm', 'recsys']
     years = list(range(2030, 2010, -1))
     count = 0
     daily_limits = False
@@ -110,21 +128,28 @@ def update_results(results):
             ret_items[i][-1].update({"translated": target[i]})
     for key, i, item in ret_items:
         results[key][i].update(item)
-    save_results(results)
+    # save_results(results)
 
     return ret_items
 
 def cronjob(error_cnt):
     results = load_results()
+    for key in results:
+        results[key] = sorted(results[key], key=match_score, reverse=True)
+        if key in ["kdd2022", "sigir2022", "cikm2022", "www2022", "www2023"]:
+            for ii, paper in enumerate(results[key]):
+                print(paper["paper_name"])
+                if ii > 10:
+                    break
     print("[+] 开始检索最新顶会论文")
     ret_items = update_results(results)
-    if ret_items == []:
+    if not ret_items:
         if error_cnt >= ERROR_LIMITS:
             print('[+] 每日推送任务执行结束')
             return -1
         return 0
     print('[+] 开始推送每日顶会论文....')
-    for ii, [key, i, _] in enumerate(tqdm(ret_items, total=len(ret_items), desc=f"论文推送进度")):
+    for ii, [key, i, _] in enumerate(tqdm(ret_items, total=len(ret_items), desc="论文推送进度")):
         ret = results[key][i]
         today = datetime.datetime.now().strftime('%Y-%m-%d')
         title = ret["paper_name"]
@@ -169,5 +194,3 @@ if __name__ == '__main__':
             time.sleep(error_cnt * 60)
         code = cronjob(error_cnt)
         error_cnt += 1
-
-    
