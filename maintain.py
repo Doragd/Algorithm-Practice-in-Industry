@@ -144,7 +144,7 @@ def update_message(args):
     content.append(
         [{
             "tag": "a",
-            "text": "➡️    点击查看完整大厂实践文章列表",
+            "text": "➡️ 点击查看完整大厂实践文章列表",
             "href": "https://github.com/Doragd/Algorithm-Practice-in-Industry"
         }]
     )
