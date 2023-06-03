@@ -3,7 +3,7 @@
 搜索、推荐、广告、用增等工业界实践文章收集（来源：知乎、Datafuntalk、技术公众号）
 
 除此以外，还有
-- [搜广推论文推送Bot]()
+- [搜广推论文推送Bot](https://github.com/Doragd/Algorithm-Practice-in-Industry/tree/main#%E6%90%9C%E5%B9%BF%E6%8E%A8%E8%AE%BA%E6%96%87%E6%8E%A8%E9%80%81bot)
 
 - [搜广推顶会论文列表](https://github.com/Doragd/Algorithm-Practice-in-Industry#%E9%A1%B6%E4%BC%9A%E8%AE%BA%E6%96%87%E5%88%97%E8%A1%A8)
 
