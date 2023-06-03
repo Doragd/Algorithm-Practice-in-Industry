@@ -87,7 +87,6 @@ def update_message(args):
     content = []
     for info in infos:
         # emoji = random.choice("🌱🌿🍀🪴🎋🍃🪷🌸✨")
-        emoji = "="
         meta_info = f"🥹 公司:{info['公司']}  📆 时间:{info['时间']}  🍉 标签:{info['标签']}"
         info_title = f"✅ {info['内容']}"
         line_len = max(len(meta_info), len(info_title))
@@ -98,18 +97,18 @@ def update_message(args):
                 "text": ""
             }]
         )
-        content.append(
-            [{
-                "tag": "text",
-                "text": sepline
-            }]
-        )
-        content.append(
-            [{
-                "tag": "text",
-                "text": ""
-            }]
-        )
+        # content.append(
+        #     [{
+        #         "tag": "text",
+        #         "text": sepline
+        #     }]
+        # )
+        # content.append(
+        #     [{
+        #         "tag": "text",
+        #         "text": ""
+        #     }]
+        # )
         content.append(
             [{
                 "tag": "text",
