@@ -16,7 +16,7 @@ QUERY = os.environ.get('QUERY', 'cs.IR')
 LIMITS = os.environ.get('LIMITS', 3)
 CAIYUN_TOKEN = os.environ.get("CAIYUN_TOKEN", None)
 
-def translate(source, direction='en2zh'):
+def translate(source, direction='en2zh', CAIYUN_TOKEN=CAIYUN_TOKEN):
     url = "http://api.interpreter.caiyunai.com/v1/translator"
 
     payload = {
