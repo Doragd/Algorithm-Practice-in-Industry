@@ -86,7 +86,7 @@ def update_message(args):
     title = f"🌸大厂实践文章自动更新@{today}"
     content = []
     for info in infos:
-        # emoji = random.choice("🌱🌿🍀🪴🎋🍃🪷🌸✨")
+        emoji = random.choice("🌱🌿🍀🪴🎋🍃🪷🌸✨")
         meta_info = f"🥹 公司:{info['公司']}  📆 时间:{info['时间']}  🍉 标签:{info['标签']}"
         info_title = f"✅ {info['内容']}"
         line_len = max(len(meta_info), len(info_title))
