@@ -55,6 +55,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 阿里 | [阿里解耦域适应无偏召回模型详解](https://mp.weixin.qq.com/s/0Cbc3aAYTeFqLDutLBXJmA) | 召回 | 2023-06-04 |
 | Shopee | [Calibration4CVR：2018年关于“神经元级别共享的多任务CVR”的初探](https://mp.weixin.qq.com/s/2JFY--9xDoMF5_2YCehwkg) | 推荐 | 2023-03-05 |
 | 阿里健康 | [阿里可解释性推荐算法应用](https://mp.weixin.qq.com/s/hQgsT9xpQr2Ylb6_3uwfvQ) | 推荐 | 2023-03-06 |
 | Shopee | [多任务学习最新进展：基于神经元级共享的 CTR、CVR 多任务联合预估方法](https://mp.weixin.qq.com/s/4PO6EK3b4VCKO0ibd76C9w) | 推荐 | 2023-05-29 |
