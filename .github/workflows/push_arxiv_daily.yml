@@ -10,7 +10,7 @@ on:
       - labeled
 
   schedule:
-    - cron: '0 0 * * *' # 每天 UTC 时间 00:00 触发, 即上海时间8点
+    - cron: '20 0 * * *' # 每天 UTC 时间 00:00 触发, 即上海时间8点
 
 jobs:
   daily-push:
