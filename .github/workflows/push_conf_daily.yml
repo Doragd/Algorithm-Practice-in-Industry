@@ -6,7 +6,7 @@ env:
 
 on:
   schedule:
-    - cron: '50 3 * * *' # 每天 UTC 时间 04:00 触发, 即上海时间12点
+    - cron: '0 2 * * *' # 每天 UTC 时间 04:00 触发, 即上海时间12点
 
 jobs:
   daily-push:
