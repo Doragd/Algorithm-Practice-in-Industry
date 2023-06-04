@@ -4,17 +4,12 @@ env:
   PYTHON_VERSION: "3.8" # set this to the Python version to use
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-on:
-  issues:
-    types:
-      - labeled
-      
+on:      
   schedule:
     - cron: '0 4 * * *' # 每天 UTC 时间 04:00 触发, 即上海时间12点
 
 jobs:
   daily-push:
-    if: github.event.label.name == 'push test'
     runs-on: ubuntu-latest
     env:
       SERVERCHAN_API_KEY: ${{ secrets.SERVERCHAN_API_KEY }}
