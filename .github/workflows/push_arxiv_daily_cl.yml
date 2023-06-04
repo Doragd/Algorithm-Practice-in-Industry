@@ -5,12 +5,16 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 on:
+  issues:
+    types:
+      - labeled
   schedule:
-    - cron: '55 1 * * *' # 每天 UTC 时间 00:00 触发, 即上海时间8点
+    - cron: '30 0 * * *' # 每天 UTC 时间 00:00 触发, 即上海时间8点
 
 jobs:
   daily-push:
     runs-on: ubuntu-latest
+    if: github.event.label.name == 'push test'
     env:
       SERVERCHAN_API_KEY: ${{ secrets.SERVERCHAN_API_KEY }}
       CAIYUN_TOKEN: ${{ secrets.CAIYUN_TOKEN }}
