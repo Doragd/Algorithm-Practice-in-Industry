@@ -113,17 +113,22 @@ def update_results(results):
                 item = get_paper(results[key][i]["paper_name"])
                 if item is None:
                     print(f"[+] find error at paper {results[key][i]['paper_name']}")
-                    time.sleep(INTERVAL * 2)
+                    time.sleep(INTERVAL * 20)
                     continue
-                parse_ret = parse_item(item)
+                try:
+                    parse_ret = parse_item(item)
+                except:
+                    print(f"[+] find error at paper {results[key][i]['paper_name']}")
+                    time.sleep(INTERVAL * 20)
+                    continue
                 if not parse_ret:
                     print(f"[+] find error at paper {results[key][i]['paper_name']}")
-                    time.sleep(INTERVAL * 2)
+                    time.sleep(INTERVAL * 20)
                     continue
                 print(f"[+] get sucuess at papaer {results[key][i]['paper_name']}")
                 ret_items.append([key, i, parse_ret])
                 count += 1
-                time.sleep(INTERVAL)
+                time.sleep(INTERVAL * 10)
             if daily_limits:
                 break
         if daily_limits:
@@ -135,7 +140,7 @@ def update_results(results):
             ret_items[i][-1].update({"translated": target[i]})
     for key, i, item in ret_items:
         results[key][i].update(item)
-    # save_results(results)
+    save_results(results)
 
     return ret_items
 
@@ -143,11 +148,6 @@ def cronjob(error_cnt):
     results = load_results()
     for key in results:
         results[key] = sorted(results[key], key=match_score, reverse=True)
-        if key in ["kdd2022", "sigir2022", "cikm2022", "www2022", "www2023"]:
-            for ii, paper in enumerate(results[key]):
-                print(paper["paper_name"])
-                if ii > 10:
-                    break
     print("[+] 开始检索最新顶会论文")
     ret_items = update_results(results)
     if not ret_items:
