@@ -55,6 +55,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 阿里淘系 | [Generator-Evaluator重排模型在淘宝流式场景的实践](https://mp.weixin.qq.com/s/YoQNDdsRE6LZWJXrRKubLw) | 重排 | 2023-06-09 |
 | 阿里 | [阿里解耦域适应无偏召回模型详解](https://mp.weixin.qq.com/s/0Cbc3aAYTeFqLDutLBXJmA) | 召回 | 2023-06-04 |
 | Shopee | [Calibration4CVR：2018年关于“神经元级别共享的多任务CVR”的初探](https://mp.weixin.qq.com/s/2JFY--9xDoMF5_2YCehwkg) | 推荐 | 2023-03-05 |
 | 阿里健康 | [阿里可解释性推荐算法应用](https://mp.weixin.qq.com/s/hQgsT9xpQr2Ylb6_3uwfvQ) | 推荐 | 2023-03-06 |
