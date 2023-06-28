@@ -55,6 +55,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 阿里妈妈 | [转化率预估新思路：基于历史数据复用的大促转化率精准预估](https://mp.weixin.qq.com/s/MRpoM1ucZIVdiXMcS4PiHQ) | 推荐 | 2023-06-28 |
 | 小米电商 | [多任务学习梯度冲突在电商场景的改进](https://mp.weixin.qq.com/s/0GWkUFSC0geRZMpISx-4gg) | 多任务学习 | 2023-06-24 |
 | 阿里妈妈 | [排序和准度联合优化：一种基于混合生成/判别式建模的方案](https://mp.weixin.qq.com/s/kMEYxeUPtJIbJ-X6NgHR2A) | 排序 | 2023-06-21 |
 | 阿里淘系 | [Generator-Evaluator重排模型在淘宝流式场景的实践](https://mp.weixin.qq.com/s/YoQNDdsRE6LZWJXrRKubLw) | 重排 | 2023-06-09 |
