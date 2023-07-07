@@ -2273,5 +2273,40 @@
         "pub_date": "2023-07-05",
         "summary": "This article presents the results of a study involving the reception of a\nfictional story by Kurt Vonnegut translated from English into Catalan and Dutch\nin three conditions: machine-translated (MT), post-edited (PE) and translated\nfrom scratch (HT). 223 participants were recruited who rated the reading\nconditions using three scales: Narrative Engagement, Enjoyment and Translation\nReception. The results show that HT presented a higher engagement, enjoyment\nand translation reception in Catalan if compared to PE and MT. However, the\nDutch readers show higher scores in PE than in both HT and MT, and the highest\nengagement and enjoyments scores are reported when reading the original English\nversion. We hypothesize that when reading a fictional story in translation, not\nonly the condition and the quality of the translations is key to understand its\nreception, but also the participants reading patterns, reading language, and,\nperhaps language status in their own societies.",
         "translated": ""
+    },
+    {
+        "title": "MultiVENT: Multilingual Videos of Events with Aligned Natural Text",
+        "url": "http://arxiv.org/abs/2307.03153v1",
+        "pub_date": "2023-07-06",
+        "summary": "Everyday news coverage has shifted from traditional broadcasts towards a wide\nrange of presentation formats such as first-hand, unedited video footage.\nDatasets that reflect the diverse array of multimodal, multilingual news\nsources available online could be used to teach models to benefit from this\nshift, but existing news video datasets focus on traditional news broadcasts\nproduced for English-speaking audiences. We address this limitation by\nconstructing MultiVENT, a dataset of multilingual, event-centric videos\ngrounded in text documents across five target languages. MultiVENT includes\nboth news broadcast videos and non-professional event footage, which we use to\nanalyze the state of online news videos and how they can be leveraged to build\nrobust, factually accurate models. Finally, we provide a model for complex,\nmultilingual video retrieval to serve as a baseline for information retrieval\nusing MultiVENT.",
+        "translated": ""
+    },
+    {
+        "title": "Track Mix Generation on Music Streaming Services using Transformers",
+        "url": "http://arxiv.org/abs/2307.03045v1",
+        "pub_date": "2023-07-06",
+        "summary": "This paper introduces Track Mix, a personalized playlist generation system\nreleased in 2022 on the music streaming service Deezer. Track Mix automatically\ngenerates \"mix\" playlists inspired by initial music tracks, allowing users to\ndiscover music similar to their favorite content. To generate these mixes, we\nconsider a Transformer model trained on millions of track sequences from user\nplaylists. In light of the growing popularity of Transformers in recent years,\nwe analyze the advantages, drawbacks, and technical challenges of using such a\nmodel for mix generation on the service, compared to a more traditional\ncollaborative filtering approach. Since its release, Track Mix has been\ngenerating playlists for millions of users daily, enhancing their music\ndiscovery experience on Deezer.",
+        "translated": ""
+    },
+    {
+        "title": "Improving Retrieval-Augmented Large Language Models via Data Importance\n  Learning",
+        "url": "http://arxiv.org/abs/2307.03027v1",
+        "pub_date": "2023-07-06",
+        "summary": "Retrieval augmentation enables large language models to take advantage of\nexternal knowledge, for example on tasks like question answering and data\nimputation. However, the performance of such retrieval-augmented models is\nlimited by the data quality of their underlying retrieval corpus. In this\npaper, we propose an algorithm based on multilinear extension for evaluating\nthe data importance of retrieved data points. There are exponentially many\nterms in the multilinear extension, and one key contribution of this paper is a\npolynomial time algorithm that computes exactly, given a retrieval-augmented\nmodel with an additive utility function and a validation set, the data\nimportance of data points in the retrieval corpus using the multilinear\nextension of the model's utility function. We further proposed an even more\nefficient ({\\epsilon}, {\\delta})-approximation algorithm. Our experimental\nresults illustrate that we can enhance the performance of large language models\nby only pruning or reweighting the retrieval corpus, without requiring further\ntraining. For some tasks, this even allows a small model (e.g., GPT-JT),\naugmented with a search engine API, to outperform GPT-3.5 (without retrieval\naugmentation). Moreover, we show that weights based on multilinear extension\ncan be computed efficiently in practice (e.g., in less than ten minutes for a\ncorpus with 100 million elements).",
+        "translated": ""
+    },
+    {
+        "title": "A Meta-Evaluation of C/W/L/A Metrics: System Ranking Similarity, System\n  Ranking Consistency and Discriminative Power",
+        "url": "http://arxiv.org/abs/2307.02936v1",
+        "pub_date": "2023-07-06",
+        "summary": "Recently, Moffat et al. proposed an analytic framework, namely C/W/L/A, for\noffline evaluation metrics. This framework allows information retrieval (IR)\nresearchers to design evaluation metrics through the flexible combination of\nuser browsing models and user gain aggregations. However, the statistical\nstability of C/W/L/A metrics with different aggregations is not yet\ninvestigated. In this study, we investigate the statistical stability of\nC/W/L/A metrics from the perspective of: (1) the system ranking similarity\namong aggregations, (2) the system ranking consistency of aggregations and (3)\nthe discriminative power of aggregations. More specifically, we combined\nvarious aggregation functions with the browsing model of Precision, Discounted\nCumulative Gain (DCG), Rank-Biased Precision (RBP), INST, Average Precision\n(AP) and Expected Reciprocal Rank (ERR), examing their performances in terms of\nsystem ranking similarity, system ranking consistency and discriminative power\non two offline test collections. Our experimental result suggests that, in\nterms of system ranking consistency and discriminative power, the aggregation\nfunction of expected rate of gain (ERG) has an outstanding performance while\nthe aggregation function of maximum relevance usually has an insufficient\nperformance. The result also suggests that Precision, DCG, RBP, INST and AP\nwith their canonical aggregation all have favourable performances in system\nranking consistency and discriminative power; but for ERR, replacing its\ncanonical aggregation with ERG can further strengthen the discriminative power\nwhile obtaining a system ranking list similar to the canonical version at the\nsame time.",
+        "translated": ""
+    },
+    {
+        "title": "PLIERS: a Popularity-Based Recommender System for Content Dissemination\n  in Online Social Networks",
+        "url": "http://arxiv.org/abs/2307.02865v1",
+        "pub_date": "2023-07-06",
+        "summary": "In this paper, we propose a novel tag-based recommender system called PLIERS,\nwhich relies on the assumption that users are mainly interested in items and\ntags with similar popularity to those they already own. PLIERS is aimed at\nreaching a good tradeoff between algorithmic complexity and the level of\npersonalization of recommended items. To evaluate PLIERS, we performed a set of\nexperiments on real OSN datasets, demonstrating that it outperforms\nstate-of-the-art solutions in terms of personalization, relevance, and novelty\nof recommendations.",
+        "translated": ""
     }
 ]
