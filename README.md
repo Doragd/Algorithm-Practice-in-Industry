@@ -55,6 +55,8 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 美团 | [美团外卖智能陪伴型导购的探索与实践](https://mp.weixin.qq.com/s/prLykt36ONu43V-twgfcOg) | Query推荐 | 2023-07-13 |
+| 京东 | [京东搜索EE链路演进](https://mp.weixin.qq.com/s/na90G1GqLoS41L_-NHpVKQ) | 搜索生态 | 2023-07-12 |
 | 腾讯 | [对话双塔——腾讯视频中的粗排相关性模型](https://mp.weixin.qq.com/s/ETJ-lkIKcxN6zIgH8FrTjw) | 粗排相关性 | 2023-06-28 |
 | 阿里妈妈 | [转化率预估新思路：基于历史数据复用的大促转化率精准预估](https://mp.weixin.qq.com/s/MRpoM1ucZIVdiXMcS4PiHQ) | 推荐 | 2023-06-28 |
 | 小米电商 | [多任务学习梯度冲突在电商场景的改进](https://mp.weixin.qq.com/s/0GWkUFSC0geRZMpISx-4gg) | 多任务学习 | 2023-06-24 |
