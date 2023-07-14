@@ -2693,5 +2693,75 @@
         "pub_date": "2023-07-11",
         "summary": "Relation extraction (RE) is the task of extracting relations between entities\nin text. Most RE methods extract relations from free-form running text and\nleave out other rich data sources, such as tables. We explore RE from the\nperspective of applying neural methods on tabularly organized data. We\nintroduce a new model consisting of Convolutional Neural Network (CNN) and\nBidirectional-Long Short Term Memory (BiLSTM) network to encode entities and\nlearn dependencies among them, respectively. We evaluate our model on a large\nand recent dataset and compare results with previous neural methods.\nExperimental results show that our model consistently outperforms the previous\nmodel for the task of relation extraction on tabular data. We perform\ncomprehensive error analyses and ablation study to show the contribution of\nvarious components of our model. Finally, we discuss the usefulness and\ntrade-offs of our approach, and provide suggestions for fostering further\nresearch.",
         "translated": ""
+    },
+    {
+        "title": "Instruction Mining: High-Quality Instruction Data Selection for Large\n  Language Models",
+        "url": "http://arxiv.org/abs/2307.06290v1",
+        "pub_date": "2023-07-12",
+        "summary": "Large language models typically undergo two training stages, pretraining and\nfinetuning. Despite that large-scale pretraining endows the model with strong\ncapabilities to generate natural language responses, these pretrained models\ncan still fail to understand human instructions at times. To enhance language\nmodels' ability of interpreting and responding to instructions, instruction\nfinetuning has emerged as a critical method in this area. Recent studies found\nthat large language models can be finetuned to perform well even with a small\namount of high-quality instruction-following data. However, the selection of\nhigh-quality datasets for finetuning language models still lacks clear\nguidelines to follow. In this paper, we propose InstructMining, a linear rule\nfor evaluating instruction-following data quality. We formulate InstructMining\nusing specific natural language indicators. To investigate the relationship\nbetween data quality and these indicators, we further conduct extensive\nfinetuning experiments. The experiment results are then applied to estimating\nparameters in InstructMining. To further investigate its performance, we use\nInstructMining to select high-quality data from unseen datasets. Results\ndemonstrate that InstructMining can help select relatively high-quality samples\nfrom various instruction-following datasets. Compared to models finetuned on\nunfiltered datasets, models finetuned on InstructMining selected datasets\nperform better on 42.5% cases.",
+        "translated": ""
+    },
+    {
+        "title": "MMBench: Is Your Multi-modal Model an All-around Player?",
+        "url": "http://arxiv.org/abs/2307.06281v1",
+        "pub_date": "2023-07-12",
+        "summary": "Large vision-language models have recently achieved remarkable progress,\nexhibiting great perception and reasoning abilities concerning visual\ninformation. However, how to effectively evaluate these large vision-language\nmodels remains a major obstacle, hindering future model development.\nTraditional benchmarks like VQAv2 or COCO Caption provide quantitative\nperformance measurements but suffer from a lack of fine-grained ability\nassessment and non-robust evaluation metrics. Recent subjective benchmarks,\nsuch as OwlEval, offer comprehensive evaluations of a model's abilities by\nincorporating human labor, but they are not scalable and display significant\nbias. In response to these challenges, we propose MMBench, a novel\nmulti-modality benchmark. MMBench methodically develops a comprehensive\nevaluation pipeline, primarily comprised of two elements. The first element is\na meticulously curated dataset that surpasses existing similar benchmarks in\nterms of the number and variety of evaluation questions and abilities. The\nsecond element introduces a novel CircularEval strategy and incorporates the\nuse of ChatGPT. This implementation is designed to convert free-form\npredictions into pre-defined choices, thereby facilitating a more robust\nevaluation of the model's predictions. MMBench is a systematically-designed\nobjective benchmark for robustly evaluating the various abilities of\nvision-language models. We hope MMBench will assist the research community in\nbetter evaluating their models and encourage future advancements in this\ndomain. Project page: https://opencompass.org.cn/mmbench.",
+        "translated": ""
+    },
+    {
+        "title": "Ashaar: Automatic Analysis and Generation of Arabic Poetry Using Deep\n  Learning Approaches",
+        "url": "http://arxiv.org/abs/2307.06218v1",
+        "pub_date": "2023-07-12",
+        "summary": "Poetry holds immense significance within the cultural and traditional fabric\nof any nation. It serves as a vehicle for poets to articulate their emotions,\npreserve customs, and convey the essence of their culture. Arabic poetry is no\nexception, having played a cherished role in the heritage of the Arabic\ncommunity throughout history and maintaining its relevance in the present era.\nTypically, comprehending Arabic poetry necessitates the expertise of a linguist\nwho can analyze its content and assess its quality. This paper presents the\nintroduction of a framework called \\textit{Ashaar}\nhttps://github.com/ARBML/Ashaar, which encompasses a collection of datasets and\npre-trained models designed specifically for the analysis and generation of\nArabic poetry. The pipeline established within our proposed approach\nencompasses various aspects of poetry, such as meter, theme, and era\nclassification. It also incorporates automatic poetry diacritization, enabling\nmore intricate analyses like automated extraction of the \\textit{Arudi} style.\nAdditionally, we explore the feasibility of generating conditional poetry\nthrough the pre-training of a character-based GPT model. Furthermore, as part\nof this endeavor, we provide four datasets: one for poetry generation, another\nfor diacritization, and two for Arudi-style prediction. These datasets aim to\nfacilitate research and development in the field of Arabic poetry by enabling\nresearchers and enthusiasts to delve into the nuances of this rich literary\ntradition.",
+        "translated": ""
+    },
+    {
+        "title": "Self-Adaptive Large Language Model (LLM)-Based Multiagent Systems",
+        "url": "http://arxiv.org/abs/2307.06187v1",
+        "pub_date": "2023-07-12",
+        "summary": "In autonomic computing, self-adaptation has been proposed as a fundamental\nparadigm to manage the complexity of multiagent systems (MASs). This achieved\nby extending a system with support to monitor and adapt itself to achieve\nspecific concerns of interest. Communication in these systems is key given that\nin scenarios involving agent interaction, it enhances cooperation and reduces\ncoordination challenges by enabling direct, clear information exchange.\nHowever, improving the expressiveness of the interaction communication with\nMASs is not without challenges. In this sense, the interplay between\nself-adaptive systems and effective communication is crucial for future MAS\nadvancements. In this paper, we propose the integration of large language\nmodels (LLMs) such as GPT-based technologies into multiagent systems. We anchor\nour methodology on the MAPE-K model, which is renowned for its robust support\nin monitoring, analyzing, planning, and executing system adaptations in\nresponse to dynamic environments. We also present a practical illustration of\nthe proposed approach, in which we implement and assess a basic MAS-based\napplication. The approach significantly advances the state-of-the-art of\nself-adaptive systems by proposing a new paradigm for MAS self-adaptation of\nautonomous systems based on LLM capabilities.",
+        "translated": ""
+    },
+    {
+        "title": "Enhancing Portuguese Sign Language Animation with Dynamic Timing and\n  Mouthing",
+        "url": "http://arxiv.org/abs/2307.06124v1",
+        "pub_date": "2023-07-12",
+        "summary": "Current signing avatars are often described as unnatural as they cannot\naccurately reproduce all the subtleties of synchronized body behaviors of a\nhuman signer. In this paper, we propose a new dynamic approach for transitions\nbetween signs, focusing on mouthing animations for Portuguese Sign Language.\nAlthough native signers preferred animations with dynamic transitions, we did\nnot find significant differences in comprehension and perceived naturalness\nscores. On the other hand, we show that including mouthing behaviors improved\ncomprehension and perceived naturalness for novice sign language learners.\nResults have implications in computational linguistics, human-computer\ninteraction, and synthetic animation of signing avatars.",
+        "translated": ""
+    },
+    {
+        "title": "VELMA: Verbalization Embodiment of LLM Agents for Vision and Language\n  Navigation in Street View",
+        "url": "http://arxiv.org/abs/2307.06082v1",
+        "pub_date": "2023-07-12",
+        "summary": "Incremental decision making in real-world environments is one of the most\nchallenging tasks in embodied artificial intelligence. One particularly\ndemanding scenario is Vision and Language Navigation~(VLN) which requires\nvisual and natural language understanding as well as spatial and temporal\nreasoning capabilities. The embodied agent needs to ground its understanding of\nnavigation instructions in observations of a real-world environment like Street\nView. Despite the impressive results of LLMs in other research areas, it is an\nongoing problem of how to best connect them with an interactive visual\nenvironment. In this work, we propose VELMA, an embodied LLM agent that uses a\nverbalization of the trajectory and of visual environment observations as\ncontextual prompt for the next action. Visual information is verbalized by a\npipeline that extracts landmarks from the human written navigation instructions\nand uses CLIP to determine their visibility in the current panorama view. We\nshow that VELMA is able to successfully follow navigation instructions in\nStreet View with only two in-context examples. We further finetune the LLM\nagent on a few thousand examples and achieve 25%-30% relative improvement in\ntask completion over the previous state-of-the-art for two datasets.",
+        "translated": ""
+    },
+    {
+        "title": "Interpreting deep embeddings for disease progression clustering",
+        "url": "http://arxiv.org/abs/2307.06060v1",
+        "pub_date": "2023-07-12",
+        "summary": "We propose a novel approach for interpreting deep embeddings in the context\nof patient clustering. We evaluate our approach on a dataset of participants\nwith type 2 diabetes from the UK Biobank, and demonstrate clinically meaningful\ninsights into disease progression patterns.",
+        "translated": ""
+    },
+    {
+        "title": "A Study on the Appropriate size of the Mongolian general corpus",
+        "url": "http://arxiv.org/abs/2307.06050v1",
+        "pub_date": "2023-07-12",
+        "summary": "This study aims to determine the appropriate size of the Mongolian general\ncorpus. This study used the Heaps function and Type Token Ratio to determine\nthe appropriate size of the Mongolian general corpus. The sample corpus of\n906,064 tokens comprised texts from 10 domains of newspaper politics, economy,\nsociety, culture, sports, world articles and laws, middle and high school\nliterature textbooks, interview articles, and podcast transcripts. First, we\nestimated the Heaps function with this sample corpus. Next, we observed changes\nin the number of types and TTR values while increasing the number of tokens by\none million using the estimated Heaps function. As a result of observation, we\nfound that the TTR value hardly changed when the number of tokens exceeded from\n39 to 42 million. Thus, we conclude that an appropriate size for a Mongolian\ngeneral corpus is from 39 to 42 million tokens.",
+        "translated": ""
+    },
+    {
+        "title": "Pluggable Neural Machine Translation Models via Memory-augmented\n  Adapters",
+        "url": "http://arxiv.org/abs/2307.06029v1",
+        "pub_date": "2023-07-12",
+        "summary": "Although neural machine translation (NMT) models perform well in the general\ndomain, it remains rather challenging to control their generation behavior to\nsatisfy the requirement of different users. Given the expensive training cost\nand the data scarcity challenge of learning a new model from scratch for each\nuser requirement, we propose a memory-augmented adapter to steer pretrained NMT\nmodels in a pluggable manner. Specifically, we construct a multi-granular\nmemory based on the user-provided text samples and propose a new adapter\narchitecture to combine the model representations and the retrieved results. We\nalso propose a training strategy using memory dropout to reduce spurious\ndependencies between the NMT model and the memory. We validate our approach on\nboth style- and domain-specific experiments and the results indicate that our\nmethod can outperform several representative pluggable baselines.",
+        "translated": ""
+    },
+    {
+        "title": "PolyLM: An Open Source Polyglot Large Language Model",
+        "url": "http://arxiv.org/abs/2307.06018v1",
+        "pub_date": "2023-07-12",
+        "summary": "Large language models (LLMs) demonstrate remarkable ability to comprehend,\nreason, and generate following nature language instructions. However, the\ndevelopment of LLMs has been primarily focused on high-resource languages, such\nas English, thereby limiting their applicability and research in other\nlanguages. Consequently, we present PolyLM, a multilingual LLM trained on 640\nbillion (B) tokens, avaliable in two model sizes: 1.7B and 13B. To enhance its\nmultilingual capabilities, we 1) integrate bilingual data into training data;\nand 2) adopt a curriculum learning strategy that increases the proportion of\nnon-English data from 30% in the first stage to 60% in the final stage during\npre-training. Further, we propose a multilingual self-instruct method which\nautomatically generates 132.7K diverse multilingual instructions for model\nfine-tuning. To assess the model's performance, we collect several existing\nmultilingual tasks, including multilingual understanding, question answering,\ngeneration, and translation. Extensive experiments show that PolyLM surpasses\nother open-source models such as LLaMA and BLOOM on multilingual tasks while\nmaintaining comparable performance in English. Our models, alone with the\ninstruction data and multilingual benchmark, are available at:\n\\url{https://modelscope.cn/models/damo/nlp_polylm_13b_text_generation}.",
+        "translated": ""
     }
 ]
