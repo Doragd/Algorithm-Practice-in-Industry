@@ -55,6 +55,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 美团 | [美团外卖推荐关于用户新颖体验优化的技术探索](https://mp.weixin.qq.com/s/RG_eOhxJxzdou06GfJVp3g) | 推荐 | 2023-07-20 |
 | 美团 | [美团外卖智能陪伴型导购的探索与实践](https://mp.weixin.qq.com/s/prLykt36ONu43V-twgfcOg) | Query推荐 | 2023-07-13 |
 | 京东 | [京东搜索EE链路演进](https://mp.weixin.qq.com/s/na90G1GqLoS41L_-NHpVKQ) | 搜索生态 | 2023-07-12 |
 | 腾讯 | [对话双塔——腾讯视频中的粗排相关性模型](https://mp.weixin.qq.com/s/ETJ-lkIKcxN6zIgH8FrTjw) | 粗排相关性 | 2023-06-28 |
