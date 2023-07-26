@@ -3498,5 +3498,75 @@
         "pub_date": "2023-07-24",
         "summary": "There are two fundamental problems in applying deep learning/machine learning\nmethods to disease classification tasks, one is the insufficient number and\npoor quality of training samples; another one is how to effectively fuse\nmultiple source features and thus train robust classification models. To\naddress these problems, inspired by the process of human learning knowledge, we\npropose the Feature-aware Fusion Correlation Neural Network (FaFCNN), which\nintroduces a feature-aware interaction module and a feature alignment module\nbased on domain adversarial learning. This is a general framework for disease\nclassification, and FaFCNN improves the way existing methods obtain sample\ncorrelation features. The experimental results show that training using\naugmented features obtained by pre-training gradient boosting decision tree\nyields more performance gains than random-forest based methods. On the\nlow-quality dataset with a large amount of missing data in our setup, FaFCNN\nobtains a consistently optimal performance compared to competitive baselines.\nIn addition, extensive experiments demonstrate the robustness of the proposed\nmethod and the effectiveness of each component of the model\\footnote{Accepted\nin IEEE SMC2023}.",
         "translated": ""
+    },
+    {
+        "title": "3D-LLM: Injecting the 3D World into Large Language Models",
+        "url": "http://arxiv.org/abs/2307.12981v1",
+        "pub_date": "2023-07-24",
+        "summary": "Large language models (LLMs) and Vision-Language Models (VLMs) have been\nproven to excel at multiple tasks, such as commonsense reasoning. Powerful as\nthese models can be, they are not grounded in the 3D physical world, which\ninvolves richer concepts such as spatial relationships, affordances, physics,\nlayout, and so on. In this work, we propose to inject the 3D world into large\nlanguage models and introduce a whole new family of 3D-LLMs. Specifically,\n3D-LLMs can take 3D point clouds and their features as input and perform a\ndiverse set of 3D-related tasks, including captioning, dense captioning, 3D\nquestion answering, task decomposition, 3D grounding, 3D-assisted dialog,\nnavigation, and so on. Using three types of prompting mechanisms that we\ndesign, we are able to collect over 300k 3D-language data covering these tasks.\nTo efficiently train 3D-LLMs, we first utilize a 3D feature extractor that\nobtains 3D features from rendered multi- view images. Then, we use 2D VLMs as\nour backbones to train our 3D-LLMs. By introducing a 3D localization mechanism,\n3D-LLMs can better capture 3D spatial information. Experiments on ScanQA show\nthat our model outperforms state-of-the-art baselines by a large margin (e.g.,\nthe BLEU-1 score surpasses state-of-the-art score by 9%). Furthermore,\nexperiments on our held-in datasets for 3D captioning, task composition, and\n3D-assisted dialogue show that our model outperforms 2D VLMs. Qualitative\nexamples also show that our model could perform more tasks beyond the scope of\nexisting LLMs and VLMs. Project Page: : https://vis-www.cs.umass.edu/3dllm/.",
+        "translated": ""
+    },
+    {
+        "title": "Evaluating the Ripple Effects of Knowledge Editing in Language Models",
+        "url": "http://arxiv.org/abs/2307.12976v1",
+        "pub_date": "2023-07-24",
+        "summary": "Modern language models capture a large body of factual knowledge. However,\nsome facts can be incorrectly induced or become obsolete over time, resulting\nin factually incorrect generations. This has led to the development of various\nediting methods that allow updating facts encoded by the model. Evaluation of\nthese methods has primarily focused on testing whether an individual fact has\nbeen successfully injected, and if similar predictions for other subjects have\nnot changed. Here we argue that such evaluation is limited, since injecting one\nfact (e.g. ``Jack Depp is the son of Johnny Depp'') introduces a ``ripple\neffect'' in the form of additional facts that the model needs to update\n(e.g.``Jack Depp is the sibling of Lily-Rose Depp''). To address this issue, we\npropose a novel set of evaluation criteria that consider the implications of an\nedit on related facts. Using these criteria, we then construct \\ripple{}, a\ndiagnostic benchmark of 5K factual edits, capturing a variety of types of\nripple effects. We evaluate prominent editing methods on \\ripple{}, showing\nthat current methods fail to introduce consistent changes in the model's\nknowledge. In addition, we find that a simple in-context editing baseline\nobtains the best scores on our benchmark, suggesting a promising research\ndirection for model editing.",
+        "translated": ""
+    },
+    {
+        "title": "Leveraging Label Variation in Large Language Models for Zero-Shot Text\n  Classification",
+        "url": "http://arxiv.org/abs/2307.12973v1",
+        "pub_date": "2023-07-24",
+        "summary": "The zero-shot learning capabilities of large language models (LLMs) make them\nideal for text classification without annotation or supervised training. Many\nstudies have shown impressive results across multiple tasks. While tasks, data,\nand results differ widely, their similarities to human annotation can aid us in\ntackling new tasks with minimal expenses. We evaluate using 5 state-of-the-art\nLLMs as \"annotators\" on 5 different tasks (age, gender, topic, sentiment\nprediction, and hate speech detection), across 4 languages: English, French,\nGerman, and Spanish. No single model excels at all tasks, across languages, or\nacross all labels within a task. However, aggregation techniques designed for\nhuman annotators perform substantially better than any one individual model.\nOverall, though, LLMs do not rival even simple supervised models, so they do\nnot (yet) replace the need for human annotation. We also discuss the tradeoffs\nbetween speed, accuracy, cost, and bias when it comes to aggregated model\nlabeling versus human annotation.",
+        "translated": ""
+    },
+    {
+        "title": "Aligning Large Language Models with Human: A Survey",
+        "url": "http://arxiv.org/abs/2307.12966v1",
+        "pub_date": "2023-07-24",
+        "summary": "Large Language Models (LLMs) trained on extensive textual corpora have\nemerged as leading solutions for a broad array of Natural Language Processing\n(NLP) tasks. Despite their notable performance, these models are prone to\ncertain limitations such as misunderstanding human instructions, generating\npotentially biased content, or factually incorrect (hallucinated) information.\nHence, aligning LLMs with human expectations has become an active area of\ninterest within the research community. This survey presents a comprehensive\noverview of these alignment technologies, including the following aspects. (1)\nData collection: the methods for effectively collecting high-quality\ninstructions for LLM alignment, including the use of NLP benchmarks, human\nannotations, and leveraging strong LLMs. (2) Training methodologies: a detailed\nreview of the prevailing training methods employed for LLM alignment. Our\nexploration encompasses Supervised Fine-tuning, both Online and Offline human\npreference training, along with parameter-efficient training mechanisms. (3)\nModel Evaluation: the methods for evaluating the effectiveness of these\nhuman-aligned LLMs, presenting a multifaceted approach towards their\nassessment. In conclusion, we collate and distill our findings, shedding light\non several promising future research avenues in the field. This survey,\ntherefore, serves as a valuable resource for anyone invested in understanding\nand advancing the alignment of LLMs to better suit human-oriented tasks and\nexpectations. An associated GitHub link collecting the latest papers is\navailable at https://github.com/GaryYufei/AlignLLMHumanSurvey.",
+        "translated": ""
+    },
+    {
+        "title": "RLCD: Reinforcement Learning from Contrast Distillation for Language\n  Model Alignment",
+        "url": "http://arxiv.org/abs/2307.12950v1",
+        "pub_date": "2023-07-24",
+        "summary": "We propose Reinforcement Learning from Contrast Distillation (RLCD), a method\nfor aligning language models to follow natural language principles without\nusing human feedback. RLCD trains a preference model using simulated preference\npairs that contain both a high-quality and low-quality example, generated using\ncontrasting positive and negative prompts. The preference model is then used to\nimprove a base unaligned language model via reinforcement learning.\nEmpirically, RLCD outperforms RLAIF (Bai et al., 2022b) and context\ndistillation (Huang et al., 2022) baselines across three diverse alignment\ntasks--harmlessness, helpfulness, and story outline generation--and on both 7B\nand 30B model scales for preference data simulation.",
+        "translated": ""
+    },
+    {
+        "title": "Boosting Punctuation Restoration with Data Generation and Reinforcement\n  Learning",
+        "url": "http://arxiv.org/abs/2307.12949v1",
+        "pub_date": "2023-07-24",
+        "summary": "Punctuation restoration is an important task in automatic speech recognition\n(ASR) which aim to restore the syntactic structure of generated ASR texts to\nimprove readability. While punctuated texts are abundant from written\ndocuments, the discrepancy between written punctuated texts and ASR texts\nlimits the usability of written texts in training punctuation restoration\nsystems for ASR texts. This paper proposes a reinforcement learning method to\nexploit in-topic written texts and recent advances in large pre-trained\ngenerative language models to bridge this gap. The experiments show that our\nmethod achieves state-of-the-art performance on the ASR test set on two\nbenchmark datasets for punctuation restoration.",
+        "translated": ""
+    },
+    {
+        "title": "Rule By Example: Harnessing Logical Rules for Explainable Hate Speech\n  Detection",
+        "url": "http://arxiv.org/abs/2307.12935v1",
+        "pub_date": "2023-07-24",
+        "summary": "Classic approaches to content moderation typically apply a rule-based\nheuristic approach to flag content. While rules are easily customizable and\nintuitive for humans to interpret, they are inherently fragile and lack the\nflexibility or robustness needed to moderate the vast amount of undesirable\ncontent found online today. Recent advances in deep learning have demonstrated\nthe promise of using highly effective deep neural models to overcome these\nchallenges. However, despite the improved performance, these data-driven models\nlack transparency and explainability, often leading to mistrust from everyday\nusers and a lack of adoption by many platforms. In this paper, we present Rule\nBy Example (RBE): a novel exemplar-based contrastive learning approach for\nlearning from logical rules for the task of textual content moderation. RBE is\ncapable of providing rule-grounded predictions, allowing for more explainable\nand customizable predictions compared to typical deep learning-based\napproaches. We demonstrate that our approach is capable of learning rich rule\nembedding representations using only a few data examples. Experimental results\non 3 popular hate speech classification datasets show that RBE is able to\noutperform state-of-the-art deep learning classifiers as well as the use of\nrules in both supervised and unsupervised settings while providing explainable\nmodel predictions via rule-grounding.",
+        "translated": ""
+    },
+    {
+        "title": "Corrections of Zipf's and Heaps' Laws Derived from Hapax Rate Models",
+        "url": "http://arxiv.org/abs/2307.12896v1",
+        "pub_date": "2023-07-24",
+        "summary": "The article introduces corrections to Zipf's and Heaps' laws based on\nsystematic models of the hapax rate. The derivation rests on two assumptions:\nThe first one is the standard urn model which predicts that marginal frequency\ndistributions for shorter texts look as if word tokens were sampled blindly\nfrom a given longer text. The second assumption posits that the rate of hapaxes\nis a simple function of the text size. Four such functions are discussed: the\nconstant model, the Davis model, the linear model, and the logistic model. It\nis shown that the logistic model yields the best fit.",
+        "translated": ""
+    },
+    {
+        "title": "A Real-World WebAgent with Planning, Long Context Understanding, and\n  Program Synthesis",
+        "url": "http://arxiv.org/abs/2307.12856v1",
+        "pub_date": "2023-07-24",
+        "summary": "Pre-trained large language models (LLMs) have recently achieved better\ngeneralization and sample efficiency in autonomous web navigation. However, the\nperformance on real-world websites has still suffered from (1) open domainness,\n(2) limited context length, and (3) lack of inductive bias on HTML. We\nintroduce WebAgent, an LLM-driven agent that can complete the tasks on real\nwebsites following natural language instructions. WebAgent plans ahead by\ndecomposing instructions into canonical sub-instructions, summarizes long HTML\ndocuments into task-relevant snippets, and acts on websites via generated\nPython programs from those. We design WebAgent with Flan-U-PaLM, for grounded\ncode generation, and HTML-T5, new pre-trained LLMs for long HTML documents\nusing local and global attention mechanisms and a mixture of long-span\ndenoising objectives, for planning and summarization. We empirically\ndemonstrate that our recipe improves the success on a real website by over 50%,\nand that HTML-T5 is the best model to solve HTML-based tasks; achieving 14.9%\nhigher success rate than prior SoTA on the MiniWoB web navigation benchmark and\nbetter accuracy on offline task planning evaluation.",
+        "translated": ""
+    },
+    {
+        "title": "Joint Dropout: Improving Generalizability in Low-Resource Neural Machine\n  Translation through Phrase Pair Variables",
+        "url": "http://arxiv.org/abs/2307.12835v1",
+        "pub_date": "2023-07-24",
+        "summary": "Despite the tremendous success of Neural Machine Translation (NMT), its\nperformance on low-resource language pairs still remains subpar, partly due to\nthe limited ability to handle previously unseen inputs, i.e., generalization.\nIn this paper, we propose a method called Joint Dropout, that addresses the\nchallenge of low-resource neural machine translation by substituting phrases\nwith variables, resulting in significant enhancement of compositionality, which\nis a key aspect of generalization. We observe a substantial improvement in\ntranslation quality for language pairs with minimal resources, as seen in BLEU\nand Direct Assessment scores. Furthermore, we conduct an error analysis, and\nfind Joint Dropout to also enhance generalizability of low-resource NMT in\nterms of robustness and adaptability across different domains",
+        "translated": ""
     }
 ]
