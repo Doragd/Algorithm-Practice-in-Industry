@@ -3771,5 +3771,40 @@
         "pub_date": "2023-07-26",
         "summary": "RNN-T models are widely used in ASR, which rely on the RNN-T loss to achieve\nlength alignment between input audio and target sequence. However, the\nimplementation complexity and the alignment-based optimization target of RNN-T\nloss lead to computational redundancy and a reduced role for predictor network,\nrespectively. In this paper, we propose a novel model named CIF-Transducer\n(CIF-T) which incorporates the Continuous Integrate-and-Fire (CIF) mechanism\nwith the RNN-T model to achieve efficient alignment. In this way, the RNN-T\nloss is abandoned, thus bringing a computational reduction and allowing the\npredictor network a more significant role. We also introduce Funnel-CIF,\nContext Blocks, Unified Gating and Bilinear Pooling joint network, and\nauxiliary training strategy to further improve performance. Experiments on the\n178-hour AISHELL-1 and 10000-hour WenetSpeech datasets show that CIF-T achieves\nstate-of-the-art results with lower computational overhead compared to RNN-T\nmodels.",
         "translated": ""
+    },
+    {
+        "title": "On (Normalised) Discounted Cumulative Gain as an Offline Evaluation\n  Metric for Top-$n$ Recommendation",
+        "url": "http://arxiv.org/abs/2307.15053v1",
+        "pub_date": "2023-07-27",
+        "summary": "Approaches to recommendation are typically evaluated in one of two ways: (1)\nvia a (simulated) online experiment, often seen as the gold standard, or (2)\nvia some offline evaluation procedure, where the goal is to approximate the\noutcome of an online experiment. Several offline evaluation metrics have been\nadopted in the literature, inspired by ranking metrics prevalent in the field\nof Information Retrieval. (Normalised) Discounted Cumulative Gain (nDCG) is one\nsuch metric that has seen widespread adoption in empirical studies, and higher\n(n)DCG values have been used to present new methods as the state-of-the-art in\ntop-$n$ recommendation for many years.\n  Our work takes a critical look at this approach, and investigates when we can\nexpect such metrics to approximate the gold standard outcome of an online\nexperiment. We formally present the assumptions that are necessary to consider\nDCG an unbiased estimator of online reward and provide a derivation for this\nmetric from first principles, highlighting where we deviate from its\ntraditional uses in IR. Importantly, we show that normalising the metric\nrenders it inconsistent, in that even when DCG is unbiased, ranking competing\nmethods by their normalised DCG can invert their relative order. Through a\ncorrelation analysis between off- and on-line experiments conducted on a\nlarge-scale recommendation platform, we show that our unbiased DCG estimates\nstrongly correlate with online reward, even when some of the metric's inherent\nassumptions are violated. This statement no longer holds for its normalised\nvariant, suggesting that nDCG's practical utility may be limited.",
+        "translated": ""
+    },
+    {
+        "title": "The Effect of Third Party Implementations on Reproducibility",
+        "url": "http://arxiv.org/abs/2307.14956v1",
+        "pub_date": "2023-07-27",
+        "summary": "Reproducibility of recommender systems research has come under scrutiny\nduring recent years. Along with works focusing on repeating experiments with\ncertain algorithms, the research community has also started discussing various\naspects of evaluation and how these affect reproducibility. We add a novel\nangle to this discussion by examining how unofficial third-party\nimplementations could benefit or hinder reproducibility. Besides giving a\ngeneral overview, we thoroughly examine six third-party implementations of a\npopular recommender algorithm and compare them to the official version on five\npublic datasets. In the light of our alarming findings we aim to draw the\nattention of the research community to this neglected aspect of\nreproducibility.",
+        "translated": ""
+    },
+    {
+        "title": "Widespread Flaws in Offline Evaluation of Recommender Systems",
+        "url": "http://arxiv.org/abs/2307.14951v1",
+        "pub_date": "2023-07-27",
+        "summary": "Even though offline evaluation is just an imperfect proxy of online\nperformance -- due to the interactive nature of recommenders -- it will\nprobably remain the primary way of evaluation in recommender systems research\nfor the foreseeable future, since the proprietary nature of production\nrecommenders prevents independent validation of A/B test setups and\nverification of online results. Therefore, it is imperative that offline\nevaluation setups are as realistic and as flawless as they can be.\nUnfortunately, evaluation flaws are quite common in recommender systems\nresearch nowadays, due to later works copying flawed evaluation setups from\ntheir predecessors without questioning their validity. In the hope of improving\nthe quality of offline evaluation of recommender systems, we discuss four of\nthese widespread flaws and why researchers should avoid them.",
+        "translated": ""
+    },
+    {
+        "title": "Scaling Session-Based Transformer Recommendations using Optimized\n  Negative Sampling and Loss Functions",
+        "url": "http://arxiv.org/abs/2307.14906v1",
+        "pub_date": "2023-07-27",
+        "summary": "This work introduces TRON, a scalable session-based Transformer Recommender\nusing Optimized Negative-sampling. Motivated by the scalability and performance\nlimitations of prevailing models such as SASRec and GRU4Rec+, TRON integrates\ntop-k negative sampling and listwise loss functions to enhance its\nrecommendation accuracy. Evaluations on relevant large-scale e-commerce\ndatasets show that TRON improves upon the recommendation quality of current\nmethods while maintaining training speeds similar to SASRec. A live A/B test\nyielded an 18.14% increase in click-through rate over SASRec, highlighting the\npotential of TRON in practical settings. For further research, we provide\naccess to our source code at https://github.com/otto-de/TRON and an anonymized\ndataset at https://github.com/otto-de/recsys-dataset.",
+        "translated": ""
+    },
+    {
+        "title": "Integrating Offline Reinforcement Learning with Transformers for\n  Sequential Recommendation",
+        "url": "http://arxiv.org/abs/2307.14450v1",
+        "pub_date": "2023-07-26",
+        "summary": "We consider the problem of sequential recommendation, where the current\nrecommendation is made based on past interactions. This recommendation task\nrequires efficient processing of the sequential data and aims to provide\nrecommendations that maximize the long-term reward. To this end, we train a\nfarsighted recommender by using an offline RL algorithm with the policy network\nin our model architecture that has been initialized from a pre-trained\ntransformer model. The pre-trained model leverages the superb ability of the\ntransformer to process sequential information. Compared to prior works that\nrely on online interaction via simulation, we focus on implementing a fully\noffline RL framework that is able to converge in a fast and stable way. Through\nextensive experiments on public datasets, we show that our method is robust\nacross various recommendation regimes, including e-commerce and movie\nsuggestions. Compared to state-of-the-art supervised learning algorithms, our\nalgorithm yields recommendations of higher quality, demonstrating the clear\nadvantage of combining RL and transformers.",
+        "translated": ""
     }
 ]
