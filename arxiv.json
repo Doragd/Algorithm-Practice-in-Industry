@@ -4093,5 +4093,75 @@
         "pub_date": "2023-08-01",
         "summary": "The success of graph neural network-based models (GNNs) has significantly\nadvanced recommender systems by effectively modeling users and items as a\nbipartite, undirected graph. However, many original graph-based works often\nadopt results from baseline papers without verifying their validity for the\nspecific configuration under analysis. Our work addresses this issue by\nfocusing on the replicability of results. We present a code that successfully\nreplicates results from six popular and recent graph recommendation models\n(NGCF, DGCF, LightGCN, SGL, UltraGCN, and GFCF) on three common benchmark\ndatasets (Gowalla, Yelp 2018, and Amazon Book). Additionally, we compare these\ngraph models with traditional collaborative filtering models that historically\nperformed well in offline evaluations. Furthermore, we extend our study to two\nnew datasets (Allrecipes and BookCrossing) that lack established setups in\nexisting literature. As the performance on these datasets differs from the\nprevious benchmarks, we analyze the impact of specific dataset characteristics\non recommendation accuracy. By investigating the information flow from users'\nneighborhoods, we aim to identify which models are influenced by intrinsic\nfeatures in the dataset structure. The code to reproduce our experiments is\navailable at: https://github.com/sisinflab/Graph-RSs-Reproducibility.",
         "translated": ""
+    },
+    {
+        "title": "CodeBPE: Investigating Subtokenization Options for Large Language Model\n  Pretraining on Source Code",
+        "url": "http://arxiv.org/abs/2308.00683v1",
+        "pub_date": "2023-08-01",
+        "summary": "Recent works have widely adopted large language model pretraining for source\ncode, suggested source code-specific pretraining objectives and investigated\nthe applicability of various Transformer-based language model architectures for\nsource code. This work investigates another important aspect of such models,\nnamely the effect of different subtokenization options, and aims at identifying\nmost effective and length-efficient subtokenizations, taking into account code\nspecifics. We propose subtokenziation that reduces average length by 17%\nwithout downstream performance drop, and show that a carefully chosen\nsubtokenization may improve quality by 0.5-2%, possibly with some length\nincrease.",
+        "translated": ""
+    },
+    {
+        "title": "Tool Documentation Enables Zero-Shot Tool-Usage with Large Language\n  Models",
+        "url": "http://arxiv.org/abs/2308.00675v1",
+        "pub_date": "2023-08-01",
+        "summary": "Today, large language models (LLMs) are taught to use new tools by providing\na few demonstrations of the tool's usage. Unfortunately, demonstrations are\nhard to acquire, and can result in undesirable biased usage if the wrong\ndemonstration is chosen. Even in the rare scenario that demonstrations are\nreadily available, there is no principled selection protocol to determine how\nmany and which ones to provide. As tasks grow more complex, the selection\nsearch grows combinatorially and invariably becomes intractable. Our work\nprovides an alternative to demonstrations: tool documentation. We advocate the\nuse of tool documentation, descriptions for the individual tool usage, over\ndemonstrations. We substantiate our claim through three main empirical findings\non 6 tasks across both vision and language modalities. First, on existing\nbenchmarks, zero-shot prompts with only tool documentation are sufficient for\neliciting proper tool usage, achieving performance on par with few-shot\nprompts. Second, on a newly collected realistic tool-use dataset with hundreds\nof available tool APIs, we show that tool documentation is significantly more\nvaluable than demonstrations, with zero-shot documentation significantly\noutperforming few-shot without documentation. Third, we highlight the benefits\nof tool documentations by tackling image generation and video tracking using\njust-released unseen state-of-the-art models as tools. Finally, we highlight\nthe possibility of using tool documentation to automatically enable new\napplications: by using nothing more than the documentation of GroundingDino,\nStable Diffusion, XMem, and SAM, LLMs can re-invent the functionalities of the\njust-released Grounded-SAM and Track Anything models.",
+        "translated": ""
+    },
+    {
+        "title": "JIANG: Chinese Open Foundation Language Model",
+        "url": "http://arxiv.org/abs/2308.00624v1",
+        "pub_date": "2023-08-01",
+        "summary": "With the advancements in large language model technology, it has showcased\ncapabilities that come close to those of human beings across various tasks.\nThis achievement has garnered significant interest from companies and\nscientific research institutions, leading to substantial investments in the\nresearch and development of these models. While numerous large models have\nemerged during this period, the majority of them have been trained primarily on\nEnglish data. Although they exhibit decent performance in other languages, such\nas Chinese, their potential remains limited due to factors like vocabulary\ndesign and training corpus. Consequently, their ability to fully express their\ncapabilities in Chinese falls short. To address this issue, we introduce the\nmodel named JIANG (Chinese pinyin of ginger) specifically designed for the\nChinese language. We have gathered a substantial amount of Chinese corpus to\ntrain the model and have also optimized its structure. The extensive\nexperimental results demonstrate the excellent performance of our model.",
+        "translated": ""
+    },
+    {
+        "title": "Unimodal Intermediate Training for Multimodal Meme Sentiment\n  Classification",
+        "url": "http://arxiv.org/abs/2308.00528v1",
+        "pub_date": "2023-08-01",
+        "summary": "Internet Memes remain a challenging form of user-generated content for\nautomated sentiment classification. The availability of labelled memes is a\nbarrier to developing sentiment classifiers of multimodal memes. To address the\nshortage of labelled memes, we propose to supplement the training of a\nmultimodal meme classifier with unimodal (image-only and text-only) data. In\nthis work, we present a novel variant of supervised intermediate training that\nuses relatively abundant sentiment-labelled unimodal data. Our results show a\nstatistically significant performance improvement from the incorporation of\nunimodal text data. Furthermore, we show that the training set of labelled\nmemes can be reduced by 40% without reducing the performance of the downstream\nmodel.",
+        "translated": ""
+    },
+    {
+        "title": "Retrieval Augmented Generation and Representative Vector Summarization\n  for large unstructured textual data in Medical Education",
+        "url": "http://arxiv.org/abs/2308.00479v1",
+        "pub_date": "2023-08-01",
+        "summary": "Large Language Models are increasingly being used for various tasks including\ncontent generation and as chatbots. Despite their impressive performances in\ngeneral tasks, LLMs need to be aligned when applying for domain specific tasks\nto mitigate the problems of hallucination and producing harmful answers.\nRetrieval Augmented Generation (RAG) allows to easily attach and manipulate a\nnon-parametric knowledgebases to LLMs. Applications of RAG in the field of\nmedical education are discussed in this paper. A combined extractive and\nabstractive summarization method for large unstructured textual data using\nrepresentative vectors is proposed.",
+        "translated": ""
+    },
+    {
+        "title": "Structural Embeddings of Tools for Large Language Models",
+        "url": "http://arxiv.org/abs/2308.00447v1",
+        "pub_date": "2023-08-01",
+        "summary": "It is evident that the current state of Large Language Models (LLMs)\nnecessitates the incorporation of external tools. The lack of straightforward\nalgebraic and logical reasoning is well documented and prompted researchers to\ndevelop frameworks which allow LLMs to operate via external tools. The\nontological nature of tool utilization for a specific task can be well\nformulated with a Directed Acyclic Graph (DAG). The central aim of the paper is\nto highlight the importance of graph based approaches to LLM-tool interaction\nin near future. We propose an exemplary framework to guide the orchestration of\nexponentially increasing numbers of external tools with LLMs,where objectives\nand functionalities of tools are graph encoded hierarchically. Assuming that\ntextual segments of a Chain-of-Thought (CoT) can be imagined as a tool as\ndefined here, the graph based framework can pave new avenues in that particular\ndirection as well.",
+        "translated": ""
+    },
+    {
+        "title": "SelfCheck: Using LLMs to Zero-Shot Check Their Own Step-by-Step\n  Reasoning",
+        "url": "http://arxiv.org/abs/2308.00436v1",
+        "pub_date": "2023-08-01",
+        "summary": "The recent progress in large language models (LLMs), especially the invention\nof chain-of-thoughts (CoT) prompting, makes it possible to solve reasoning\nproblems. However, even the strongest LLMs are still struggling with more\ncomplicated problems that require non-linear thinking and multi-step reasoning.\nIn this work, we explore whether LLMs have the ability to recognize their own\nerrors, without resorting to external resources. In particular, we investigate\nwhether they can be used to identify individual errors within a step-by-step\nreasoning. To this end, we propose a zero-shot verification scheme to recognize\nsuch errors. We then use this verification scheme to improve question-answering\nperformance, by using it to perform weighted voting on different generated\nanswers. We test the method on three math datasets-GSM8K, MathQA, and MATH-and\nfind that it successfully recognizes errors and, in turn, increases final\npredictive performance.",
+        "translated": ""
+    },
+    {
+        "title": "Discourse-Aware Text Simplification: From Complex Sentences to Linked\n  Propositions",
+        "url": "http://arxiv.org/abs/2308.00425v1",
+        "pub_date": "2023-08-01",
+        "summary": "Sentences that present a complex syntax act as a major stumbling block for\ndownstream Natural Language Processing applications whose predictive quality\ndeteriorates with sentence length and complexity. The task of Text\nSimplification (TS) may remedy this situation. It aims to modify sentences in\norder to make them easier to process, using a set of rewriting operations, such\nas reordering, deletion, or splitting. State-of-the-art syntactic TS approaches\nsuffer from two major drawbacks: first, they follow a very conservative\napproach in that they tend to retain the input rather than transforming it, and\nsecond, they ignore the cohesive nature of texts, where context spread across\nclauses or sentences is needed to infer the true meaning of a statement. To\naddress these problems, we present a discourse-aware TS approach that splits\nand rephrases complex English sentences within the semantic context in which\nthey occur. Based on a linguistically grounded transformation stage that uses\nclausal and phrasal disembedding mechanisms, complex sentences are transformed\ninto shorter utterances with a simple canonical structure that can be easily\nanalyzed by downstream applications. With sentence splitting, we thus address a\nTS task that has hardly been explored so far. Moreover, we introduce the notion\nof minimality in this context, as we aim to decompose source sentences into a\nset of self-contained minimal semantic units. To avoid breaking down the input\ninto a disjointed sequence of statements that is difficult to interpret because\nimportant contextual information is missing, we incorporate the semantic\ncontext between the split propositions in the form of hierarchical structures\nand semantic relationships. In that way, we generate a semantic hierarchy of\nminimal propositions that leads to a novel representation of complex assertions\nthat puts a semantic layer on top of the simplified sentences.",
+        "translated": ""
+    },
+    {
+        "title": "ZRIGF: An Innovative Multimodal Framework for Zero-Resource\n  Image-Grounded Dialogue Generation",
+        "url": "http://arxiv.org/abs/2308.00400v1",
+        "pub_date": "2023-08-01",
+        "summary": "Image-grounded dialogue systems benefit greatly from integrating visual\ninformation, resulting in high-quality response generation. However, current\nmodels struggle to effectively utilize such information in zero-resource\nscenarios, mainly due to the disparity between image and text modalities. To\novercome this challenge, we propose an innovative multimodal framework, called\nZRIGF, which assimilates image-grounded information for dialogue generation in\nzero-resource situations. ZRIGF implements a two-stage learning strategy,\ncomprising contrastive pre-training and generative pre-training. Contrastive\npre-training includes a text-image matching module that maps images and texts\ninto a unified encoded vector space, along with a text-assisted masked image\nmodeling module that preserves pre-training visual features and fosters further\nmultimodal feature alignment. Generative pre-training employs a multimodal\nfusion module and an information transfer module to produce insightful\nresponses based on harmonized multimodal representations. Comprehensive\nexperiments conducted on both text-based and image-grounded dialogue datasets\ndemonstrate ZRIGF's efficacy in generating contextually pertinent and\ninformative responses. Furthermore, we adopt a fully zero-resource scenario in\nthe image-grounded dialogue dataset to demonstrate our framework's robust\ngeneralization capabilities in novel domains. The code is available at\nhttps://github.com/zhangbo-nlp/ZRIGF.",
+        "translated": ""
+    },
+    {
+        "title": "Tackling Hallucinations in Neural Chart Summarization",
+        "url": "http://arxiv.org/abs/2308.00399v1",
+        "pub_date": "2023-08-01",
+        "summary": "Hallucinations in text generation occur when the system produces text that is\nnot grounded in the input. In this work, we tackle the problem of\nhallucinations in neural chart summarization. Our analysis shows that the\ntarget side of chart summarization training datasets often contains additional\ninformation, leading to hallucinations. We propose a natural language inference\n(NLI) based method to preprocess the training data and show through human\nevaluation that our method significantly reduces hallucinations. We also found\nthat shortening long-distance dependencies in the input sequence and adding\nchart-related information like title and legends improves the overall\nperformance.",
+        "translated": ""
     }
 ]
