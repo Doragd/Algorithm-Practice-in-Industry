@@ -4198,5 +4198,75 @@
         "pub_date": "2023-08-02",
         "summary": "Modern recommender systems utilize users' historical behaviors to generate\npersonalized recommendations. However, these systems often lack user\ncontrollability, leading to diminished user satisfaction and trust in the\nsystems. Acknowledging the recent advancements in explainable recommender\nsystems that enhance users' understanding of recommendation mechanisms, we\npropose leveraging these advancements to improve user controllability. In this\npaper, we present a user-controllable recommender system that seamlessly\nintegrates explainability and controllability within a unified framework. By\nproviding both retrospective and prospective explanations through\ncounterfactual reasoning, users can customize their control over the system by\ninteracting with these explanations.\n  Furthermore, we introduce and assess two attributes of controllability in\nrecommendation systems: the complexity of controllability and the accuracy of\ncontrollability. Experimental evaluations on MovieLens and Yelp datasets\nsubstantiate the effectiveness of our proposed framework. Additionally, our\nexperiments demonstrate that offering users control options can potentially\nenhance recommendation accuracy in the future. Source code and data are\navailable at \\url{https://github.com/chrisjtan/ucr}.",
         "translated": ""
+    },
+    {
+        "title": "More Context, Less Distraction: Visual Classification by Inferring and\n  Conditioning on Contextual Attributes",
+        "url": "http://arxiv.org/abs/2308.01313v1",
+        "pub_date": "2023-08-02",
+        "summary": "CLIP, as a foundational vision language model, is widely used in zero-shot\nimage classification due to its ability to understand various visual concepts\nand natural language descriptions. However, how to fully leverage CLIP's\nunprecedented human-like understanding capabilities to achieve better zero-shot\nclassification is still an open question. This paper draws inspiration from the\nhuman visual perception process: a modern neuroscience view suggests that in\nclassifying an object, humans first infer its class-independent attributes\n(e.g., background and orientation) which help separate the foreground object\nfrom the background, and then make decisions based on this information.\nInspired by this, we observe that providing CLIP with contextual attributes\nimproves zero-shot classification and mitigates reliance on spurious features.\nWe also observe that CLIP itself can reasonably infer the attributes from an\nimage. With these observations, we propose a training-free, two-step zero-shot\nclassification method named PerceptionCLIP. Given an image, it first infers\ncontextual attributes (e.g., background) and then performs object\nclassification conditioning on them. Our experiments show that PerceptionCLIP\nachieves better generalization, group robustness, and better interpretability.\nFor example, PerceptionCLIP with ViT-L/14 improves the worst group accuracy by\n16.5% on the Waterbirds dataset and by 3.5% on CelebA.",
+        "translated": ""
+    },
+    {
+        "title": "Fighting Fire with Fire: Can ChatGPT Detect AI-generated Text?",
+        "url": "http://arxiv.org/abs/2308.01284v1",
+        "pub_date": "2023-08-02",
+        "summary": "Large language models (LLMs) such as ChatGPT are increasingly being used for\nvarious use cases, including text content generation at scale. Although\ndetection methods for such AI-generated text exist already, we investigate\nChatGPT's performance as a detector on such AI-generated text, inspired by\nworks that use ChatGPT as a data labeler or annotator. We evaluate the\nzero-shot performance of ChatGPT in the task of human-written vs. AI-generated\ntext detection, and perform experiments on publicly available datasets. We\nempirically investigate if ChatGPT is symmetrically effective in detecting\nAI-generated or human-written text. Our findings provide insight on how ChatGPT\nand similar LLMs may be leveraged in automated detection pipelines by simply\nfocusing on solving a specific aspect of the problem and deriving the rest from\nthat solution. All code and data is available at\n\\url{https://github.com/AmritaBh/ChatGPT-as-Detector}.",
+        "translated": ""
+    },
+    {
+        "title": "Exploring the psychology of GPT-4's Moral and Legal Reasoning",
+        "url": "http://arxiv.org/abs/2308.01264v1",
+        "pub_date": "2023-08-02",
+        "summary": "Large language models have been used as the foundation of highly\nsophisticated artificial intelligences, capable of delivering human-like\nresponses to probes about legal and moral issues. However, these models are\nunreliable guides to their own inner workings, and even the engineering teams\nbehind their creation are unable to explain exactly how they came to develop\nall of the capabilities they currently have. The emerging field of machine\npsychology seeks to gain insight into the processes and concepts that these\nmodels possess. In this paper, we employ the methods of psychology to probe\ninto GPT-4's moral and legal reasoning. More specifically, we investigate the\nsimilarities and differences between GPT-4 and humans when it comes to\nintentionality ascriptions, judgments about causation, the morality of\ndeception, moral foundations, the impact of moral luck on legal judgments, the\nconcept of consent, and rule violation judgments. We find high correlations\nbetween human and AI responses, but also several significant systematic\ndifferences between them. We conclude with a discussion of the philosophical\nimplications of our findings.",
+        "translated": ""
+    },
+    {
+        "title": "XSTest: A Test Suite for Identifying Exaggerated Safety Behaviours in\n  Large Language Models",
+        "url": "http://arxiv.org/abs/2308.01263v1",
+        "pub_date": "2023-08-02",
+        "summary": "Without proper safeguards, large language models will readily follow\nmalicious instructions and generate toxic content. This motivates safety\nefforts such as red-teaming and large-scale feedback learning, which aim to\nmake models both helpful and harmless. However, there is a tension between\nthese two objectives, since harmlessness requires models to refuse complying\nwith unsafe prompts, and thus not be helpful. Recent anecdotal evidence\nsuggests that some models may have struck a poor balance, so that even clearly\nsafe prompts are refused if they use similar language to unsafe prompts or\nmention sensitive topics. In this paper, we introduce a new test suite called\nXSTest to identify such eXaggerated Safety behaviours in a structured and\nsystematic way. In its current form, XSTest comprises 200 safe prompts across\nten prompt types that well-calibrated models should not refuse to comply with.\nWe describe XSTest's creation and composition, and use the test suite to\nhighlight systematic failure modes in a recently-released state-of-the-art\nlanguage model.",
+        "translated": ""
+    },
+    {
+        "title": "Evaluating Instruction-Tuned Large Language Models on Code Comprehension\n  and Generation",
+        "url": "http://arxiv.org/abs/2308.01240v1",
+        "pub_date": "2023-08-02",
+        "summary": "In this work, we evaluate 10 open-source instructed LLMs on four\nrepresentative code comprehension and generation tasks. We have the following\nmain findings. First, for the zero-shot setting, instructed LLMs are very\ncompetitive on code comprehension and generation tasks and sometimes even\nbetter than small SOTA models specifically fine-tuned on each downstream task.\nWe also find that larger instructed LLMs are not always better on code-related\ntasks. Second, for the few-shot setting, we find that adding demonstration\nexamples substantially helps instructed LLMs perform better on most code\ncomprehension and generation tasks; however, the examples would sometimes\ninduce unstable or even worse performance. Furthermore, we find widely-used\nBM25-based shot selection strategy significantly outperforms the basic random\nselection or fixed selection only on generation problems. Third, for the\nfine-tuning setting, we find that fine-tuning could further improve the model\nperformance on downstream code comprehension and generation tasks compared to\nthe zero-shot/one-shot performance. In addition, after being fine-tuned on the\nsame downstream task dataset, instructed LLMs outperform both the small SOTA\nmodels and similar-scaled LLMs without instruction tuning. Based on our\nfindings, we further present practical implications on model and usage\nrecommendation, performance and cost trade-offs, and future direction.",
+        "translated": ""
+    },
+    {
+        "title": "Grounded Image Text Matching with Mismatched Relation Reasoning",
+        "url": "http://arxiv.org/abs/2308.01236v1",
+        "pub_date": "2023-08-02",
+        "summary": "This paper introduces Grounded Image Text Matching with Mismatched Relation\n(GITM-MR), a novel visual-linguistic joint task that evaluates the relation\nunderstanding capabilities of transformer-based pre-trained models. GITM-MR\nrequires a model to first determine if an expression describes an image, then\nlocalize referred objects or ground the mismatched parts of the text. We\nprovide a benchmark for evaluating pre-trained models on this task, with a\nfocus on the challenging settings of limited data and out-of-distribution\nsentence lengths. Our evaluation demonstrates that pre-trained models lack data\nefficiency and length generalization ability. To address this, we propose the\nRelation-sensitive Correspondence Reasoning Network (RCRN), which incorporates\nrelation-aware reasoning via bi-directional message propagation guided by\nlanguage structure. RCRN can be interpreted as a modular program and delivers\nstrong performance in both length generalization and data efficiency.",
+        "translated": ""
+    },
+    {
+        "title": "Do Multilingual Language Models Think Better in English?",
+        "url": "http://arxiv.org/abs/2308.01223v1",
+        "pub_date": "2023-08-02",
+        "summary": "Translate-test is a popular technique to improve the performance of\nmultilingual language models. This approach works by translating the input into\nEnglish using an external machine translation system, and running inference\nover the translated input. However, these improvements can be attributed to the\nuse of a separate translation system, which is typically trained on large\namounts of parallel data not seen by the language model. In this work, we\nintroduce a new approach called self-translate, which overcomes the need of an\nexternal translation system by leveraging the few-shot translation capabilities\nof multilingual language models. Experiments over 5 tasks show that\nself-translate consistently outperforms direct inference, demonstrating that\nlanguage models are unable to leverage their full multilingual potential when\nprompted in non-English languages. Our code is available at\nhttps://github.com/juletx/self-translate.",
+        "translated": ""
+    },
+    {
+        "title": "Global Hierarchical Neural Networks using Hierarchical Softmax",
+        "url": "http://arxiv.org/abs/2308.01210v1",
+        "pub_date": "2023-08-02",
+        "summary": "This paper presents a framework in which hierarchical softmax is used to\ncreate a global hierarchical classifier. The approach is applicable for any\nclassification task where there is a natural hierarchy among classes. We show\nempirical results on four text classification datasets. In all datasets the\nhierarchical softmax improved on the regular softmax used in a flat classifier\nin terms of macro-F1 and macro-recall. In three out of four datasets\nhierarchical softmax achieved a higher micro-accuracy and macro-precision.",
+        "translated": ""
+    },
+    {
+        "title": "Arithmetic with Language Models: from Memorization to Computation",
+        "url": "http://arxiv.org/abs/2308.01154v1",
+        "pub_date": "2023-08-02",
+        "summary": "A better understanding of the emergent computation and problem-solving\ncapabilities of recent large language models is of paramount importance to\nfurther improve them and broaden their applicability. This work investigates\nhow a language model, trained to predict the next token, can perform arithmetic\ncomputations generalizing beyond training data. Binary addition and\nmultiplication constitute a good testbed for this purpose, since they require a\nvery small vocabulary and exhibit relevant input/output discontinuities making\nsmooth input interpolation ineffective for novel data. We successfully trained\na light language model to learn these tasks and ran a number of experiments to\ninvestigate the extrapolation capabilities and internal information processing.\nOur findings support the hypotheses that the language model works as an\nEncoding-Regression-Decoding machine where the computation takes place in the\nvalue space once the input token representation is mapped to an appropriate\ninternal representation.",
+        "translated": ""
+    },
+    {
+        "title": "ADS-Cap: A Framework for Accurate and Diverse Stylized Captioning with\n  Unpaired Stylistic Corpora",
+        "url": "http://arxiv.org/abs/2308.01143v1",
+        "pub_date": "2023-08-02",
+        "summary": "Generating visually grounded image captions with specific linguistic styles\nusing unpaired stylistic corpora is a challenging task, especially since we\nexpect stylized captions with a wide variety of stylistic patterns. In this\npaper, we propose a novel framework to generate Accurate and Diverse Stylized\nCaptions (ADS-Cap). Our ADS-Cap first uses a contrastive learning module to\nalign the image and text features, which unifies paired factual and unpaired\nstylistic corpora during the training process. A conditional variational\nauto-encoder is then used to automatically memorize diverse stylistic patterns\nin latent space and enhance diversity through sampling. We also design a simple\nbut effective recheck module to boost style accuracy by filtering\nstyle-specific captions. Experimental results on two widely used stylized image\ncaptioning datasets show that regarding consistency with the image, style\naccuracy and diversity, ADS-Cap achieves outstanding performances compared to\nvarious baselines. We finally conduct extensive analyses to understand the\neffectiveness of our method. Our code is available at\nhttps://github.com/njucckevin/ADS-Cap.",
+        "translated": ""
     }
 ]
