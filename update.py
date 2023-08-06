@@ -45,7 +45,7 @@ def run(confs_str, start_year, filter_str=''):
     )
 
     citer.run_all(
-        confs=[conf + str(start_year) for conf in confs]
+        confs=[conf + str(start_year) for conf in confs],
         mode='parallel'
     )
 
