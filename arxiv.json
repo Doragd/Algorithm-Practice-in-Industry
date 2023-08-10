@@ -4604,5 +4604,75 @@
         "pub_date": "2023-08-08",
         "summary": "When searching for products, the opinions of others play an important role in\nmaking informed decisions. Subjective experiences about a product can be a\nvaluable source of information. This is also true in sales conversations, where\na customer and a sales assistant exchange facts and opinions about products.\nHowever, training an AI for such conversations is complicated by the fact that\nlanguage models do not possess authentic opinions for their lack of real-world\nexperience. We address this problem by leveraging product reviews as a rich\nsource of product opinions to ground conversational AI in true subjective\nnarratives. With OpinionConv, we develop the first conversational AI for\nsimulating sales conversations. To validate the generated conversations, we\nconduct several user studies showing that the generated opinions are perceived\nas realistic. Our assessors also confirm the importance of opinions as an\ninformative basis for decision-making.",
         "translated": ""
+    },
+    {
+        "title": "SILO Language Models: Isolating Legal Risk In a Nonparametric Datastore",
+        "url": "http://arxiv.org/abs/2308.04430v1",
+        "pub_date": "2023-08-08",
+        "summary": "The legality of training language models (LMs) on copyrighted or otherwise\nrestricted data is under intense debate. However, as we show, model performance\nsignificantly degrades if trained only on low-risk text (e.g., out-of-copyright\nbooks or government documents), due to its limited size and domain coverage. We\npresent SILO, a new language model that manages this risk-performance tradeoff\nduring inference. SILO is built by (1) training a parametric LM on Open License\nCorpus (OLC), a new corpus we curate with 228B tokens of public domain and\npermissively licensed text and (2) augmenting it with a more general and easily\nmodifiable nonparametric datastore (e.g., containing copyrighted books or news)\nthat is only queried during inference. The datastore allows use of high-risk\ndata without training on it, supports sentence-level data attribution, and\nenables data producers to opt out from the model by removing content from the\nstore. These capabilities can foster compliance with data-use regulations such\nas the fair use doctrine in the United States and the GDPR in the European\nUnion. Our experiments show that the parametric LM struggles on domains not\ncovered by OLC. However, access to the datastore greatly improves out of domain\nperformance, closing 90% of the performance gap with an LM trained on the Pile,\na more diverse corpus with mostly high-risk text. We also analyze which\nnonparametric approach works best, where the remaining errors lie, and how\nperformance scales with datastore size. Our results suggest that it is possible\nto build high quality language models while mitigating their legal risk.",
+        "translated": ""
+    },
+    {
+        "title": "A Bi-directional Multi-hop Inference Model for Joint Dialog Sentiment\n  Classification and Act Recognition",
+        "url": "http://arxiv.org/abs/2308.04424v1",
+        "pub_date": "2023-08-08",
+        "summary": "The joint task of Dialog Sentiment Classification (DSC) and Act Recognition\n(DAR) aims to predict the sentiment label and act label for each utterance in a\ndialog simultaneously. However, current methods encode the dialog context in\nonly one direction, which limits their ability to thoroughly comprehend the\ncontext. Moreover, these methods overlook the explicit correlations between\nsentiment and act labels, which leads to an insufficient ability to capture\nrich sentiment and act clues and hinders effective and accurate reasoning. To\naddress these issues, we propose a Bi-directional Multi-hop Inference Model\n(BMIM) that leverages a feature selection network and a bi-directional\nmulti-hop inference network to iteratively extract and integrate rich sentiment\nand act clues in a bi-directional manner. We also employ contrastive learning\nand dual learning to explicitly model the correlations of sentiment and act\nlabels. Our experiments on two widely-used datasets show that BMIM outperforms\nstate-of-the-art baselines by at least 2.6% on F1 score in DAR and 1.4% on F1\nscore in DSC. Additionally, Our proposed model not only improves the\nperformance but also enhances the interpretability of the joint sentiment and\nact prediction task.",
+        "translated": ""
+    },
+    {
+        "title": "Character-level NMT and language similarity",
+        "url": "http://arxiv.org/abs/2308.04398v1",
+        "pub_date": "2023-08-08",
+        "summary": "We explore the effectiveness of character-level neural machine translation\nusing Transformer architecture for various levels of language similarity and\nsize of the training dataset on translation between Czech and Croatian, German,\nHungarian, Slovak, and Spanish. We evaluate the models using automatic MT\nmetrics and show that translation between similar languages benefits from\ncharacter-level input segmentation, while for less related languages,\ncharacter-level vanilla Transformer-base often lags behind subword-level\nsegmentation. We confirm previous findings that it is possible to close the gap\nby finetuning the already trained subword-level models to character-level.",
+        "translated": ""
+    },
+    {
+        "title": "Learning Evaluation Models from Large Language Models for Sequence\n  Generation",
+        "url": "http://arxiv.org/abs/2308.04386v1",
+        "pub_date": "2023-08-08",
+        "summary": "Large language models achieve state-of-the-art performance on sequence\ngeneration evaluation, but typically have a large number of parameters. This is\na computational challenge as presented by applying their evaluation capability\nat scale. To overcome the challenge, in this paper, we propose \\textbf{ECT}, an\n\\textbf{e}valuation \\textbf{c}apability \\textbf{t}ransfer method, to transfer\nthe evaluation capability from LLMs to relatively lightweight language models.\nBased on the proposed ECT, we learn various evaluation models from ChatGPT, and\nemploy them as reward models to improve sequence generation models via\nreinforcement learning and reranking approaches. Experimental results on\nmachine translation, text style transfer, and summarization tasks demonstrate\nthe effectiveness of our ECT. Notably, applying the learned evaluation models\nto sequence generation models results in better generated sequences as\nevaluated by commonly used metrics and ChatGPT.",
+        "translated": ""
+    },
+    {
+        "title": "Unmasking Nationality Bias: A Study of Human Perception of Nationalities\n  in AI-Generated Articles",
+        "url": "http://arxiv.org/abs/2308.04346v1",
+        "pub_date": "2023-08-08",
+        "summary": "We investigate the potential for nationality biases in natural language\nprocessing (NLP) models using human evaluation methods. Biased NLP models can\nperpetuate stereotypes and lead to algorithmic discrimination, posing a\nsignificant challenge to the fairness and justice of AI systems. Our study\nemploys a two-step mixed-methods approach that includes both quantitative and\nqualitative analysis to identify and understand the impact of nationality bias\nin a text generation model. Through our human-centered quantitative analysis,\nwe measure the extent of nationality bias in articles generated by AI sources.\nWe then conduct open-ended interviews with participants, performing qualitative\ncoding and thematic analysis to understand the implications of these biases on\nhuman readers. Our findings reveal that biased NLP models tend to replicate and\namplify existing societal biases, which can translate to harm if used in a\nsociotechnical setting. The qualitative analysis from our interviews offers\ninsights into the experience readers have when encountering such articles,\nhighlighting the potential to shift a reader's perception of a country. These\nfindings emphasize the critical role of public perception in shaping AI's\nimpact on society and the need to correct biases in AI systems.",
+        "translated": ""
+    },
+    {
+        "title": "Towards an AI to Win Ghana's National Science and Maths Quiz",
+        "url": "http://arxiv.org/abs/2308.04333v1",
+        "pub_date": "2023-08-08",
+        "summary": "Can an AI win Ghana's National Science and Maths Quiz (NSMQ)? That is the\nquestion we seek to answer in the NSMQ AI project, an open-source project that\nis building AI to compete live in the NSMQ and win. The NSMQ is an annual live\nscience and mathematics competition for senior secondary school students in\nGhana in which 3 teams of 2 students compete by answering questions across\nbiology, chemistry, physics, and math in 5 rounds over 5 progressive stages\nuntil a winning team is crowned for that year. The NSMQ is an exciting live\nquiz competition with interesting technical challenges across speech-to-text,\ntext-to-speech, question-answering, and human-computer interaction. In this\nongoing work that began in January 2023, we give an overview of the project,\ndescribe each of the teams, progress made thus far, and the next steps toward\nour planned launch and debut of the AI in October for NSMQ 2023. An AI that\nconquers this grand challenge can have real-world impact on education such as\nenabling millions of students across Africa to have one-on-one learning support\nfrom this AI.",
+        "translated": ""
+    },
+    {
+        "title": "Deep Learning-Based Knowledge Injection for Metaphor Detection: A\n  Comprehensive Review",
+        "url": "http://arxiv.org/abs/2308.04306v1",
+        "pub_date": "2023-08-08",
+        "summary": "The history of metaphor research also marks the evolution of knowledge\ninfusion research. With the continued advancement of deep learning techniques\nin recent years, the natural language processing community has shown great\ninterest in applying knowledge to successful results in metaphor recognition\ntasks. Although there has been a gradual increase in the number of approaches\ninvolving knowledge injection in the field of metaphor recognition, there is a\nlack of a complete review article on knowledge injection based approaches.\nTherefore, the goal of this paper is to provide a comprehensive review of\nresearch advances in the application of deep learning for knowledge injection\nin metaphor recognition tasks. In this paper, we systematically summarize and\ngeneralize the mainstream knowledge and knowledge injection principles, as well\nas review the datasets, evaluation metrics, and benchmark models used in\nmetaphor recognition tasks. Finally, we explore the current issues facing\nknowledge injection methods and provide an outlook on future research\ndirections.",
+        "translated": ""
+    },
+    {
+        "title": "Comparative Analysis of the wav2vec 2.0 Feature Extractor",
+        "url": "http://arxiv.org/abs/2308.04286v1",
+        "pub_date": "2023-08-08",
+        "summary": "Automatic speech recognition (ASR) systems typically use handcrafted feature\nextraction pipelines. To avoid their inherent information loss and to achieve\nmore consistent modeling from speech to transcribed text, neural raw waveform\nfeature extractors (FEs) are an appealing approach. Also the wav2vec 2.0 model,\nwhich has recently gained large popularity, uses a convolutional FE which\noperates directly on the speech waveform. However, it is not yet studied\nextensively in the literature. In this work, we study its capability to replace\nthe standard feature extraction methods in a connectionist temporal\nclassification (CTC) ASR model and compare it to an alternative neural FE. We\nshow that both are competitive with traditional FEs on the LibriSpeech\nbenchmark and analyze the effect of the individual components. Furthermore, we\nanalyze the learned filters and show that the most important information for\nthe ASR system is obtained by a set of bandpass filters.",
+        "translated": ""
+    },
+    {
+        "title": "In-Context Alignment: Chat with Vanilla Language Models Before\n  Fine-Tuning",
+        "url": "http://arxiv.org/abs/2308.04275v1",
+        "pub_date": "2023-08-08",
+        "summary": "In this note, we explore inference-time alignment through in-context\nlearning. We consider a vanilla pretrained language model Llama-2 before any\nfine-tuning and retrieve an average of 9 demonstration alignment examples when\nthe model is prompted to follow chat-style instructions. Compared to direct\nprompting, the in-context alignment without changing model weights leads to a\n7x increase in win-rate w.r.t. the text-davinci-003 model from OpenAI, making\nthe vanilla language model comparable to strong baselines with alignment\nfine-tuning.",
+        "translated": ""
+    },
+    {
+        "title": "CLASSLA-Stanza: The Next Step for Linguistic Processing of South Slavic\n  Languages",
+        "url": "http://arxiv.org/abs/2308.04255v1",
+        "pub_date": "2023-08-08",
+        "summary": "We present CLASSLA-Stanza, a pipeline for automatic linguistic annotation of\nthe South Slavic languages, which is based on the Stanza natural language\nprocessing pipeline. We describe the main improvements in CLASSLA-Stanza with\nrespect to Stanza, and give a detailed description of the model training\nprocess for the latest 2.1 release of the pipeline. We also report performance\nscores produced by the pipeline for different languages and varieties.\nCLASSLA-Stanza exhibits consistently high performance across all the supported\nlanguages and outperforms or expands its parent pipeline Stanza at all the\nsupported tasks. We also present the pipeline's new functionality enabling\nefficient processing of web data and the reasons that led to its\nimplementation.",
+        "translated": ""
     }
 ]
