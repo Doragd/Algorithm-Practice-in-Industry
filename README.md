@@ -55,6 +55,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 百度 | [百度凤巢大模型与搜索广告满意度设计与实践](https://mp.weixin.qq.com/s/Mpi7wZlHw3eKPJzj00CPMw) | 搜索 | 2023-08-13 |
 | 美团 | [美团外卖推荐关于用户新颖体验优化的技术探索](https://mp.weixin.qq.com/s/RG_eOhxJxzdou06GfJVp3g) | 推荐 | 2023-07-20 |
 | 美团 | [美团外卖智能陪伴型导购的探索与实践](https://mp.weixin.qq.com/s/prLykt36ONu43V-twgfcOg) | Query推荐 | 2023-07-13 |
 | 京东 | [京东搜索EE链路演进](https://mp.weixin.qq.com/s/na90G1GqLoS41L_-NHpVKQ) | 搜索生态 | 2023-07-12 |
