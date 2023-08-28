@@ -55,6 +55,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 新浪 | [[0826推荐系统峰会]推荐系统大模型启发的MemoNet[提取码:ckpa]](https://pan.baidu.com/s/1iR6tdrD93o35WPKyievo7w) | CTR预估 | 2023-08-26 |
 | 百度 | [[0826推荐系统峰会]百度推荐排序技术的思考[提取码:r5kv]](https://pan.baidu.com/s/1kTbebwkDuZOuKS7INW1Jew) | 推荐 | 2023-08-26 |
 | 百度 | [百度凤巢大模型与搜索广告满意度设计与实践](https://mp.weixin.qq.com/s/Mpi7wZlHw3eKPJzj00CPMw) | 搜索 | 2023-08-13 |
 | 美团 | [美团外卖推荐关于用户新颖体验优化的技术探索](https://mp.weixin.qq.com/s/RG_eOhxJxzdou06GfJVp3g) | 推荐 | 2023-07-20 |
