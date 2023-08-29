@@ -55,6 +55,8 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 京东 | [图机器学习在京东视频召回中的应用[提取码:gfkx]](https://pan.baidu.com/s/1-NQEP8M4Y1GH1gzMGj7p-Q) | 召回 | 2023-08-26 |
+| 百度 | [图模型在百度推荐系统的实践与思考[提取码:huaz]](https://pan.baidu.com/s/1tzWEjphTt9EzTXqp4OfiRw) | 推荐 | 2023-08-26 |
 | 58同城 | [深度学习在互联网房产推荐场景的算法实践[提取码:wcz7]](https://pan.baidu.com/s/1LGmN8ZUajMBhnZ7vcOaRoA) | 排序 | 2023-08-26 |
 | 虎牙 | [面向直播场景的虎牙排序算法实践[提取码:yhb8]](https://pan.baidu.com/s/1iU4LNm7qFAKUtkE65hVaYg) | 排序 | 2023-08-26 |
 | 百度 | [百度视频推荐跨域多目标预估与融合的实践和思考[提取码:cva3]](https://pan.baidu.com/s/1nVoJCVUQZDGxlf05zhYuhw) | 多目标 | 2023-08-26 |
