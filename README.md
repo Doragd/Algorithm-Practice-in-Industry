@@ -58,10 +58,10 @@
 | 58同城 | [深度学习在互联网房产推荐场景的算法实践[提取码:wcz7]](https://pan.baidu.com/s/1LGmN8ZUajMBhnZ7vcOaRoA) | 排序 | 2023-08-26 |
 | 虎牙 | [面向直播场景的虎牙排序算法实践[提取码:yhb8]](https://pan.baidu.com/s/1iU4LNm7qFAKUtkE65hVaYg) | 排序 | 2023-08-26 |
 | 百度 | [百度视频推荐跨域多目标预估与融合的实践和思考[提取码:cva3]](https://pan.baidu.com/s/1nVoJCVUQZDGxlf05zhYuhw) | 多目标 | 2023-08-26 |
-| 快手 | [[0826推荐系统峰会]快手内容冷启动模型实践[提取码:cjbc]](https://pan.baidu.com/s/1SbDA0t6DzevVcVEzttfydg) | 冷启动 | 2023-08-26 |
-| 网易 | [[0826推荐系统峰会]网易云音乐推荐的多模态冷启技术[提取码:x72d]](https://pan.baidu.com/s/1PnE89HVWg379ax9ewP8ydQ) | 冷启动 | 2023-08-26 |
-| 新浪 | [[0826推荐系统峰会]推荐系统大模型启发的MemoNet[提取码:ckpa]](https://pan.baidu.com/s/1iR6tdrD93o35WPKyievo7w) | CTR预估 | 2023-08-26 |
-| 百度 | [[0826推荐系统峰会]百度推荐排序技术的思考[提取码:r5kv]](https://pan.baidu.com/s/1kTbebwkDuZOuKS7INW1Jew) | 推荐 | 2023-08-26 |
+| 快手 | [快手内容冷启动模型实践[提取码:cjbc]](https://pan.baidu.com/s/1SbDA0t6DzevVcVEzttfydg) | 冷启动 | 2023-08-26 |
+| 网易 | [网易云音乐推荐的多模态冷启技术[提取码:x72d]](https://pan.baidu.com/s/1PnE89HVWg379ax9ewP8ydQ) | 冷启动 | 2023-08-26 |
+| 新浪 | [推荐系统大模型启发的MemoNet[提取码:ckpa]](https://pan.baidu.com/s/1iR6tdrD93o35WPKyievo7w) | CTR预估 | 2023-08-26 |
+| 百度 | [百度推荐排序技术的思考[提取码:r5kv]](https://pan.baidu.com/s/1kTbebwkDuZOuKS7INW1Jew) | 推荐 | 2023-08-26 |
 | 百度 | [百度凤巢大模型与搜索广告满意度设计与实践](https://mp.weixin.qq.com/s/Mpi7wZlHw3eKPJzj00CPMw) | 搜索 | 2023-08-13 |
 | 美团 | [美团外卖推荐关于用户新颖体验优化的技术探索](https://mp.weixin.qq.com/s/RG_eOhxJxzdou06GfJVp3g) | 推荐 | 2023-07-20 |
 | 美团 | [美团外卖智能陪伴型导购的探索与实践](https://mp.weixin.qq.com/s/prLykt36ONu43V-twgfcOg) | Query推荐 | 2023-07-13 |
