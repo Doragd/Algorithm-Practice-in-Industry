@@ -55,6 +55,10 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 百度 | [百度新资源冷启动实践[提取码:bji6]](https://pan.baidu.com/s/12GAalYfn4TuHf-8dZ9qHLA) | 冷启动 | 2023-08-26 |
+| 蚂蚁 | [图算法在蚂蚁集团营销推荐场景的应用[提取码:xvvi]](https://pan.baidu.com/s/1AilbuaTQLtrHOegjK353_Q) | 推荐 | 2023-08-26 |
+| 小红书 | [语义模型在小红书社区搜索的应用[提取码:xfkv]](https://pan.baidu.com/s/1xQ5lqxYb_VvLxLIzDPgMHQ) | 搜索 | 2023-06-17 |
+| 蚂蚁 | [支付宝搜索的Query理解与语义召回技术[提取码:p6gc]](https://pan.baidu.com/s/12Q_QisYd8GFq-pXX3g1x5w) | 召回 | 2023-06-17 |
 | 京东 | [图机器学习在京东视频召回中的应用[提取码:gfkx]](https://pan.baidu.com/s/1-NQEP8M4Y1GH1gzMGj7p-Q) | 召回 | 2023-08-26 |
 | 百度 | [图模型在百度推荐系统的实践与思考[提取码:huaz]](https://pan.baidu.com/s/1tzWEjphTt9EzTXqp4OfiRw) | 推荐 | 2023-08-26 |
 | 58同城 | [深度学习在互联网房产推荐场景的算法实践[提取码:wcz7]](https://pan.baidu.com/s/1LGmN8ZUajMBhnZ7vcOaRoA) | 排序 | 2023-08-26 |
