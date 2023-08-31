@@ -5997,5 +5997,75 @@
         "pub_date": "2023-08-29",
         "summary": "An emerging definition of fairness in machine learning requires that models\nare oblivious to demographic user information, e.g., a user's gender or age\nshould not influence the model. Personalized recommender systems are\nparticularly prone to violating this definition through their explicit user\nfocus and user modelling. Explicit user modelling is also an aspect that makes\nmany recommender systems incapable of providing hitherto unseen users with\nrecommendations. We propose novel approaches for mitigating discrimination in\nVariational Autoencoder-based recommender systems by limiting the encoding of\ndemographic information. The approaches are capable of, and evaluated on,\nproviding users that are not represented in the training data with fair\nrecommendations.",
         "translated": ""
+    },
+    {
+        "title": "ParaGuide: Guided Diffusion Paraphrasers for Plug-and-Play Textual Style\n  Transfer",
+        "url": "http://arxiv.org/abs/2308.15459v1",
+        "pub_date": "2023-08-29",
+        "summary": "Textual style transfer is the task of transforming stylistic properties of\ntext while preserving meaning. Target \"styles\" can be defined in numerous ways,\nranging from single attributes (e.g, formality) to authorship (e.g,\nShakespeare). Previous unsupervised style-transfer approaches generally rely on\nsignificant amounts of labeled data for only a fixed set of styles or require\nlarge language models. In contrast, we introduce a novel diffusion-based\nframework for general-purpose style transfer that can be flexibly adapted to\narbitrary target styles at inference time. Our parameter-efficient approach,\nParaGuide, leverages paraphrase-conditioned diffusion models alongside\ngradient-based guidance from both off-the-shelf classifiers and strong existing\nstyle embedders to transform the style of text while preserving semantic\ninformation. We validate the method on the Enron Email Corpus, with both human\nand automatic evaluations, and find that it outperforms strong baselines on\nformality, sentiment, and even authorship style transfer.",
+        "translated": ""
+    },
+    {
+        "title": "When Do Program-of-Thoughts Work for Reasoning?",
+        "url": "http://arxiv.org/abs/2308.15452v1",
+        "pub_date": "2023-08-29",
+        "summary": "The reasoning capabilities of Large Language Models (LLMs) play a pivotal\nrole in the realm of embodied artificial intelligence. Although there are\neffective methods like program-of-thought prompting for LLMs which uses\nprogramming language to tackle complex reasoning tasks, the specific impact of\ncode data on the improvement of reasoning capabilities remains under-explored.\nTo address this gap, we propose complexity-impacted reasoning score (CIRS),\nwhich combines structural and logical attributes, to measure the correlation\nbetween code and reasoning abilities. Specifically, we use the abstract syntax\ntree to encode the structural information and calculate logical complexity by\nconsidering the difficulty and the cyclomatic complexity. Through an empirical\nanalysis, we find not all code data of complexity can be learned or understood\nby LLMs. Optimal level of complexity is critical to the improvement of\nreasoning abilities by program-aided prompting. Then we design an\nauto-synthesizing and stratifying algorithm, and apply it to instruction\ngeneration for mathematical reasoning and code data filtering for code\ngeneration tasks. Extensive results demonstrates the effectiveness of our\nproposed approach. Code will be integrated into the EasyInstruct framework at\nhttps://github.com/zjunlp/EasyInstruct.",
+        "translated": ""
+    },
+    {
+        "title": "Vulgar Remarks Detection in Chittagonian Dialect of Bangla",
+        "url": "http://arxiv.org/abs/2308.15448v1",
+        "pub_date": "2023-08-29",
+        "summary": "The negative effects of online bullying and harassment are increasing with\nInternet popularity, especially in social media. One solution is using natural\nlanguage processing (NLP) and machine learning (ML) methods for the automatic\ndetection of harmful remarks, but these methods are limited in low-resource\nlanguages like the Chittagonian dialect of Bangla.This study focuses on\ndetecting vulgar remarks in social media using supervised ML and deep learning\nalgorithms.Logistic Regression achieved promising accuracy (0.91) while simple\nRNN with Word2vec and fastTex had lower accuracy (0.84-0.90), highlighting the\nissue that NN algorithms require more data.",
+        "translated": ""
+    },
+    {
+        "title": "Characterizing Learning Curves During Language Model Pre-Training:\n  Learning, Forgetting, and Stability",
+        "url": "http://arxiv.org/abs/2308.15419v1",
+        "pub_date": "2023-08-29",
+        "summary": "How do language models learn to make predictions during pre-training? To\nstudy this question, we extract learning curves from five autoregressive\nEnglish language model pre-training runs, for 1M tokens in context. We observe\nthat the language models generate short repetitive phrases before learning to\ngenerate longer and more coherent text. We quantify the final surprisal,\nwithin-run variability, age of acquisition, forgettability, and cross-run\nvariability of learning curves for individual tokens in context. More frequent\ntokens reach lower final surprisals, exhibit less variability within and across\npre-training runs, are learned earlier, and are less likely to be \"forgotten\"\nduring pre-training. Higher n-gram probabilities further accentuate these\neffects. Independent of the target token, shorter and more frequent contexts\ncorrelate with marginally more stable and quickly acquired predictions. Effects\nof part-of-speech are also small, although nouns tend to be acquired later and\nless stably than verbs, adverbs, and adjectives. Our work contributes to a\nbetter understanding of language model pre-training dynamics and informs the\ndeployment of stable language models in practice.",
+        "translated": ""
+    },
+    {
+        "title": "Rethinking Machine Ethics -- Can LLMs Perform Moral Reasoning through\n  the Lens of Moral Theories?",
+        "url": "http://arxiv.org/abs/2308.15399v1",
+        "pub_date": "2023-08-29",
+        "summary": "Making moral judgments is an essential step toward developing ethical AI\nsystems. Prevalent approaches are mostly implemented in a bottom-up manner,\nwhich uses a large set of annotated data to train models based on crowd-sourced\nopinions about morality. These approaches have been criticized for potentially\novergeneralizing a limited group of annotators' moral stances and lacking\nexplainability. In contrast, top-down approaches make moral judgments grounded\nin a set of principles. However, it remains conceptual due to the incapability\nof previous language models and the unsolved debate among moral principles. In\nthis study, we propose a flexible framework to steer Large Language Models\n(LLMs) to perform moral reasoning with well-established moral theories from\ninterdisciplinary research. The theory-guided top-down framework can\nincorporate various moral theories. Our experiments demonstrate the\neffectiveness of the proposed framework on datasets derived from moral\ntheories. Furthermore, we show the alignment between different moral theories\nand existing morality datasets. Our analysis exhibits the potentials and flaws\nin existing resources (models and datasets) in developing explainable moral\njudgment-making systems.",
+        "translated": ""
+    },
+    {
+        "title": "Text-to-SQL Empowered by Large Language Models: A Benchmark Evaluation",
+        "url": "http://arxiv.org/abs/2308.15363v1",
+        "pub_date": "2023-08-29",
+        "summary": "Large language models (LLMs) have emerged as a new paradigm for Text-to-SQL\ntask. However, the absence of a systematical benchmark inhibits the development\nof designing effective, efficient and economic LLM-based Text-to-SQL solutions.\nTo address this challenge, in this paper, we first conduct a systematical and\nextensive comparison over existing prompt engineering methods, including\nquestion representation, example selection and example organization, and with\nthese experimental results, we elaborates their pros and cons. Based on these\nfindings, we propose a new integrated solution, named DAIL-SQL, which refreshes\nthe Spider leaderboard with 86.6% execution accuracy and sets a new bar.\nTowards an efficient and economic LLM-based Text-to-SQL solution, we emphasize\nthe token efficiency in prompt engineering and compare the prior studies under\nthis metric. Additionally, we investigate open-source LLMs in in-context\nlearning, and further enhance their performance with task-specific supervised\nfine-tuning. Our explorations highlight open-source LLMs' potential in\nText-to-SQL, as well as the advantages and disadvantages of the task-specific\nsupervised fine-tuning. We hope that our work provides a deeper understanding\nof Text-to-SQL with LLMs, and inspire further investigations and broad\napplications.",
+        "translated": ""
+    },
+    {
+        "title": "Historical patterns of rice farming explain modern-day language use in\n  China and Japan more than modernization and urbanization",
+        "url": "http://arxiv.org/abs/2308.15352v1",
+        "pub_date": "2023-08-29",
+        "summary": "We used natural language processing to analyze a billion words to study\ncultural differences on Weibo, one of China's largest social media platforms.\nWe compared predictions from two common explanations about cultural differences\nin China (economic development and urban-rural differences) against the\nless-obvious legacy of rice versus wheat farming. Rice farmers had to\ncoordinate shared irrigation networks and exchange labor to cope with higher\nlabor requirements. In contrast, wheat relied on rainfall and required half as\nmuch labor. We test whether this legacy made southern China more\ninterdependent. Across all word categories, rice explained twice as much\nvariance as economic development and urbanization. Rice areas used more words\nreflecting tight social ties, holistic thought, and a cautious, prevention\norientation. We then used Twitter data comparing prefectures in Japan, which\nlargely replicated the results from China. This provides crucial evidence of\nthe rice theory in a different nation, language, and platform.",
+        "translated": ""
+    },
+    {
+        "title": "A Framework for Responsible Development of Automated Student Feedback\n  with Generative AI",
+        "url": "http://arxiv.org/abs/2308.15334v1",
+        "pub_date": "2023-08-29",
+        "summary": "Providing rich feedback to students is essential for supporting student\nlearning. Recent advances in generative AI, particularly within large language\nmodelling (LLM), provide the opportunity to deliver repeatable, scalable and\ninstant automatically generated feedback to students, making abundant a\npreviously scarce and expensive learning resource. Such an approach is feasible\nfrom a technical perspective due to these recent advances in Artificial\nIntelligence (AI) and Natural Language Processing (NLP); while the potential\nupside is a strong motivator, doing so introduces a range of potential ethical\nissues that must be considered as we apply these technologies. The\nattractiveness of AI systems is that they can effectively automate the most\nmundane tasks; but this risks introducing a \"tyranny of the majority\", where\nthe needs of minorities in the long tail are overlooked because they are\ndifficult to automate.\n  Developing machine learning models that can generate valuable and authentic\nfeedback requires the input of human domain experts. The choices we make in\ncapturing this expertise -- whose, which, when, and how -- will have\nsignificant consequences for the nature of the resulting feedback. How we\nmaintain our models will affect how that feedback remains relevant given\ntemporal changes in context, theory, and prior learning profiles of student\ncohorts. These questions are important from an ethical perspective; but they\nare also important from an operational perspective. Unless they can be\nanswered, our AI generated systems will lack the trust necessary for them to be\nuseful features in the contemporary learning environment.\n  This article will outline the frontiers of automated feedback, identify the\nethical issues involved in the provision of automated feedback and present a\nframework to assist academics to develop such systems responsibly.",
+        "translated": ""
+    },
+    {
+        "title": "TaskLAMA: Probing the Complex Task Understanding of Language Models",
+        "url": "http://arxiv.org/abs/2308.15299v1",
+        "pub_date": "2023-08-29",
+        "summary": "Structured Complex Task Decomposition (SCTD) is the problem of breaking down\na complex real-world task (such as planning a wedding) into a directed acyclic\ngraph over individual steps that contribute to achieving the task, with edges\nspecifying temporal dependencies between them. SCTD is an important component\nof assistive planning tools, and a challenge for commonsense reasoning systems.\nWe probe how accurately SCTD can be done with the knowledge extracted from\nLarge Language Models (LLMs). We introduce a high-quality human-annotated\ndataset for this problem and novel metrics to fairly assess performance of LLMs\nagainst several baselines. Our experiments reveal that LLMs are able to\ndecompose complex tasks into individual steps effectively, with a relative\nimprovement of 15% to 280% over the best baseline. We also propose a number of\napproaches to further improve their performance, with a relative improvement of\n7% to 37% over the base model. However, we find that LLMs still struggle to\npredict pairwise temporal dependencies, which reveals a gap in their\nunderstanding of complex tasks.",
+        "translated": ""
+    },
+    {
+        "title": "KGConv, a Conversational Corpus grounded in Wikidata",
+        "url": "http://arxiv.org/abs/2308.15298v1",
+        "pub_date": "2023-08-29",
+        "summary": "We present KGConv, a large, conversational corpus of 71k conversations where\neach question-answer pair is grounded in a Wikidata fact. Conversations contain\non average 8.6 questions and for each Wikidata fact, we provide multiple\nvariants (12 on average) of the corresponding question using templates, human\nannotations, hand-crafted rules and a question rewriting neural model. We\nprovide baselines for the task of Knowledge-Based, Conversational Question\nGeneration. KGConv can further be used for other generation and analysis tasks\nsuch as single-turn question generation from Wikidata triples, question\nrewriting, question answering from conversation or from knowledge graphs and\nquiz generation.",
+        "translated": ""
     }
 ]
