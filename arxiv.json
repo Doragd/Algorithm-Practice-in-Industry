@@ -8510,5 +8510,68 @@
         "pub_date": "2023-10-04",
         "summary": "This paper uses the dataset of Amazon to predict the books ratings listed on\nAmazon website. As part of this project, we predicted the ratings of the books,\nand also built a recommendation cluster. This recommendation cluster provides\nthe recommended books based on the column's values from dataset, for instance,\ncategory, description, author, price, reviews etc. This paper provides a flow\nof handling big data files, data engineering, building models and providing\npredictions. The models predict book ratings column using various PySpark\nMachine Learning APIs. Additionally, we used hyper-parameters and parameters\ntuning. Also, Cross Validation and TrainValidationSplit were used for\ngeneralization. Finally, we performed a comparison between Binary\nClassification and Multiclass Classification in their accuracies. We converted\nour label from multiclass to binary to see if we could find any difference\nbetween the two classifications. As a result, we found out that we get higher\naccuracy in binary classification than in multiclass classification.",
         "translated": ""
+    },
+    {
+        "title": "Improved Baselines with Visual Instruction Tuning",
+        "url": "http://arxiv.org/abs/2310.03744v1",
+        "pub_date": "2023-10-05",
+        "summary": "Large multimodal models (LMM) have recently shown encouraging progress with\nvisual instruction tuning. In this note, we show that the fully-connected\nvision-language cross-modal connector in LLaVA is surprisingly powerful and\ndata-efficient. With simple modifications to LLaVA, namely, using\nCLIP-ViT-L-336px with an MLP projection and adding academic-task-oriented VQA\ndata with simple response formatting prompts, we establish stronger baselines\nthat achieve state-of-the-art across 11 benchmarks. Our final 13B checkpoint\nuses merely 1.2M publicly available data, and finishes full training in ~1 day\non a single 8-A100 node. We hope this can make state-of-the-art LMM research\nmore accessible. Code and model will be publicly available.",
+        "translated": ""
+    },
+    {
+        "title": "MathCoder: Seamless Code Integration in LLMs for Enhanced Mathematical\n  Reasoning",
+        "url": "http://arxiv.org/abs/2310.03731v1",
+        "pub_date": "2023-10-05",
+        "summary": "The recently released GPT-4 Code Interpreter has demonstrated remarkable\nproficiency in solving challenging math problems, primarily attributed to its\nability to seamlessly reason with natural language, generate code, execute\ncode, and continue reasoning based on the execution output. In this paper, we\npresent a method to fine-tune open-source language models, enabling them to use\ncode for modeling and deriving math equations and, consequently, enhancing\ntheir mathematical reasoning abilities. We propose a method of generating novel\nand high-quality datasets with math problems and their code-based solutions,\nreferred to as MathCodeInstruct. Each solution interleaves natural language,\ncode, and execution results. We also introduce a customized supervised\nfine-tuning and inference approach. This approach yields the MathCoder models,\na family of models capable of generating code-based solutions for solving\nchallenging math problems. Impressively, the MathCoder models achieve\nstate-of-the-art scores among open-source LLMs on the MATH (45.2%) and GSM8K\n(83.9%) datasets, substantially outperforming other open-source alternatives.\nNotably, the MathCoder model not only surpasses ChatGPT-3.5 and PaLM-2 on GSM8K\nand MATH but also outperforms GPT-4 on the competition-level MATH dataset. The\ndataset and models will be released at https://github.com/mathllm/MathCoder.",
+        "translated": ""
+    },
+    {
+        "title": "Modular Speech-to-Text Translation for Zero-Shot Cross-Modal Transfer",
+        "url": "http://arxiv.org/abs/2310.03724v1",
+        "pub_date": "2023-10-05",
+        "summary": "Recent research has shown that independently trained encoders and decoders,\ncombined through a shared fixed-size representation, can achieve competitive\nperformance in speech-to-text translation. In this work, we show that this type\nof approach can be further improved with multilingual training. We observe\nsignificant improvements in zero-shot cross-modal speech translation, even\noutperforming a supervised approach based on XLSR for several languages.",
+        "translated": ""
+    },
+    {
+        "title": "A Long Way to Go: Investigating Length Correlations in RLHF",
+        "url": "http://arxiv.org/abs/2310.03716v1",
+        "pub_date": "2023-10-05",
+        "summary": "Great successes have been reported using Reinforcement Learning from Human\nFeedback (RLHF) to align large language models. Open-source preference datasets\nand reward models have enabled wider experimentation beyond generic chat\nsettings, particularly to make systems more \"helpful\" for tasks like web\nquestion answering, summarization, and multi-turn dialogue. When optimizing for\nhelpfulness, RLHF has been consistently observed to drive models to produce\nlonger outputs. This paper demonstrates that optimizing for response length is\na significant factor behind RLHF's reported improvements in these settings.\nFirst, we study the relationship between reward and length for reward models\ntrained on three open-source preference datasets for helpfulness. Here, length\ncorrelates strongly with reward, and improvements in reward score are driven in\nlarge part by shifting the distribution over output lengths. We then explore\ninterventions during both RL and reward model learning to see if we can achieve\nthe same downstream improvements as RLHF without increasing length. While our\ninterventions mitigate length increases, they aren't uniformly effective across\nsettings. Furthermore, we find that even running RLHF with a reward based\nsolely on length can reproduce most of the downstream improvements over the\ninitial policy model, showing that reward models in these settings have a long\nway to go.",
+        "translated": ""
+    },
+    {
+        "title": "Agent Instructs Large Language Models to be General Zero-Shot Reasoners",
+        "url": "http://arxiv.org/abs/2310.03710v1",
+        "pub_date": "2023-10-05",
+        "summary": "We introduce a method to improve the zero-shot reasoning abilities of large\nlanguage models on general language understanding tasks. Specifically, we build\nan autonomous agent to instruct the reasoning process of large language models.\nWe show this approach further unleashes the zero-shot reasoning abilities of\nlarge language models to more tasks. We study the performance of our method on\na wide set of datasets spanning generation, classification, and reasoning. We\nshow that our method generalizes to most tasks and obtains state-of-the-art\nzero-shot performance on 20 of the 29 datasets that we evaluate. For instance,\nour method boosts the performance of state-of-the-art large language models by\na large margin, including Vicuna-13b (13.3%), Llama-2-70b-chat (23.2%), and\nGPT-3.5 Turbo (17.0%). Compared to zero-shot chain of thought, our improvement\nin reasoning is striking, with an average increase of 10.5%. With our method,\nLlama-2-70b-chat outperforms zero-shot GPT-3.5 Turbo by 10.2%.",
+        "translated": ""
+    },
+    {
+        "title": "Fine-tuning Aligned Language Models Compromises Safety, Even When Users\n  Do Not Intend To!",
+        "url": "http://arxiv.org/abs/2310.03693v1",
+        "pub_date": "2023-10-05",
+        "summary": "Optimizing large language models (LLMs) for downstream use cases often\ninvolves the customization of pre-trained LLMs through further fine-tuning.\nMeta's open release of Llama models and OpenAI's APIs for fine-tuning GPT-3.5\nTurbo on custom datasets also encourage this practice. But, what are the safety\ncosts associated with such custom fine-tuning? We note that while existing\nsafety alignment infrastructures can restrict harmful behaviors of LLMs at\ninference time, they do not cover safety risks when fine-tuning privileges are\nextended to end-users. Our red teaming studies find that the safety alignment\nof LLMs can be compromised by fine-tuning with only a few adversarially\ndesigned training examples. For instance, we jailbreak GPT-3.5 Turbo's safety\nguardrails by fine-tuning it on only 10 such examples at a cost of less than\n$0.20 via OpenAI's APIs, making the model responsive to nearly any harmful\ninstructions. Disconcertingly, our research also reveals that, even without\nmalicious intent, simply fine-tuning with benign and commonly used datasets can\nalso inadvertently degrade the safety alignment of LLMs, though to a lesser\nextent. These findings suggest that fine-tuning aligned LLMs introduces new\nsafety risks that current safety infrastructures fall short of addressing --\neven if a model's initial safety alignment is impeccable, it is not necessarily\nto be maintained after custom fine-tuning. We outline and critically analyze\npotential mitigations and advocate for further research efforts toward\nreinforcing safety protocols for the custom fine-tuning of aligned LLMs.",
+        "translated": ""
+    },
+    {
+        "title": "DecoderLens: Layerwise Interpretation of Encoder-Decoder Transformers",
+        "url": "http://arxiv.org/abs/2310.03686v1",
+        "pub_date": "2023-10-05",
+        "summary": "In recent years, many interpretability methods have been proposed to help\ninterpret the internal states of Transformer-models, at different levels of\nprecision and complexity. Here, to analyze encoder-decoder Transformers, we\npropose a simple, new method: DecoderLens. Inspired by the LogitLens (for\ndecoder-only Transformers), this method involves allowing the decoder to\ncross-attend representations of intermediate encoder layers instead of using\nthe final encoder output, as is normally done in encoder-decoder models. The\nmethod thus maps previously uninterpretable vector representations to\nhuman-interpretable sequences of words or symbols. We report results from the\nDecoderLens applied to models trained on question answering, logical reasoning,\nspeech recognition and machine translation. The DecoderLens reveals several\nspecific subtasks that are solved at low or intermediate layers, shedding new\nlight on the information flow inside the encoder component of this important\nclass of models.",
+        "translated": ""
+    },
+    {
+        "title": "GoLLIE: Annotation Guidelines improve Zero-Shot Information-Extraction",
+        "url": "http://arxiv.org/abs/2310.03668v1",
+        "pub_date": "2023-10-05",
+        "summary": "Large Language Models (LLMs) combined with instruction tuning have made\nsignificant progress when generalizing to unseen tasks. However, they have been\nless successful in Information Extraction (IE), lagging behind task-specific\nmodels. Typically, IE tasks are characterized by complex annotation guidelines\nwhich describe the task and give examples to humans. Previous attempts to\nleverage such information have failed, even with the largest models, as they\nare not able to follow the guidelines out-of-the-box. In this paper we propose\nGoLLIE (Guideline-following Large Language Model for IE), a model able to\nimprove zero-shot results on unseen IE tasks by virtue of being fine-tuned to\ncomply with annotation guidelines. Comprehensive evaluation empirically\ndemonstrates that GoLLIE is able to generalize to and follow unseen guidelines,\noutperforming previous attempts at zero-shot information extraction. The\nablation study shows that detailed guidelines is key for good results.",
+        "translated": ""
+    },
+    {
+        "title": "MapperGPT: Large Language Models for Linking and Mapping Entities",
+        "url": "http://arxiv.org/abs/2310.03666v1",
+        "pub_date": "2023-10-05",
+        "summary": "Aligning terminological resources, including ontologies, controlled\nvocabularies, taxonomies, and value sets is a critical part of data integration\nin many domains such as healthcare, chemistry, and biomedical research. Entity\nmapping is the process of determining correspondences between entities across\nthese resources, such as gene identifiers, disease concepts, or chemical entity\nidentifiers. Many tools have been developed to compute such mappings based on\ncommon structural features and lexical information such as labels and synonyms.\nLexical approaches in particular often provide very high recall, but low\nprecision, due to lexical ambiguity. As a consequence of this, mapping efforts\noften resort to a labor intensive manual mapping refinement through a human\ncurator.\n  Large Language Models (LLMs), such as the ones employed by ChatGPT, have\ngeneralizable abilities to perform a wide range of tasks, including\nquestion-answering and information extraction. Here we present MapperGPT, an\napproach that uses LLMs to review and refine mapping relationships as a\npost-processing step, in concert with existing high-recall methods that are\nbased on lexical and structural heuristics.\n  We evaluated MapperGPT on a series of alignment tasks from different domains,\nincluding anatomy, developmental biology, and renal diseases. We devised a\ncollection of tasks that are designed to be particularly challenging for\nlexical methods. We show that when used in combination with high-recall\nmethods, MapperGPT can provide a substantial improvement in accuracy, beating\nstate-of-the-art (SOTA) methods such as LogMap.",
+        "translated": ""
     }
 ]
