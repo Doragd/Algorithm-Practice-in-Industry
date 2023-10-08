@@ -55,6 +55,9 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 美团 | [大规模异构图召回在美团到店推荐广告的应用](https://mp.weixin.qq.com/s/9HZZQCVd-bMRrR6mCanaog) | 召回 | 2022-11-24 |
+| 美团 | [美团外卖搜索基于Elasticsearch的优化实践](https://mp.weixin.qq.com/s/6k8THshasaYfSaLr58O1NA) | 搜索 | 2022-11-17 |
+| 美团 | [图技术在美团外卖下的场景化应用及探索](https://mp.weixin.qq.com/s/7bCrFHNeQ3_2kLlvzb5l3w) | 搜索 | 2022-09-08 |
 | 百度 | [百度新资源冷启动实践[提取码:bji6]](https://pan.baidu.com/s/12GAalYfn4TuHf-8dZ9qHLA) | 冷启动 | 2023-08-26 |
 | 蚂蚁 | [图算法在蚂蚁集团营销推荐场景的应用[提取码:xvvi]](https://pan.baidu.com/s/1AilbuaTQLtrHOegjK353_Q) | 推荐 | 2023-08-26 |
 | 小红书 | [语义模型在小红书社区搜索的应用[提取码:xfkv]](https://pan.baidu.com/s/1xQ5lqxYb_VvLxLIzDPgMHQ) | 搜索 | 2023-06-17 |
