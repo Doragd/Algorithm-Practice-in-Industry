@@ -8916,5 +8916,68 @@
         "pub_date": "2023-10-11",
         "summary": "In this paper, we propose a solution that won the 10th prize in the KDD Cup\n2023 Challenge Task 2 (Next Product Recommendation for Underrepresented\nLanguages/Locales). Our approach involves two steps: (i) Identify candidate\nitem sets based on co-visitation, and (ii) Re-ranking the items using LightGBM\nwith locale-independent features, including session-based features and product\nsimilarity. The experiment demonstrated that the locale-independent model\nperformed consistently well across different test locales, and performed even\nbetter when incorporating data from other locales into the training.",
         "translated": ""
+    },
+    {
+        "title": "To Build Our Future, We Must Know Our Past: Contextualizing Paradigm\n  Shifts in Natural Language Processing",
+        "url": "http://arxiv.org/abs/2310.07715v1",
+        "pub_date": "2023-10-11",
+        "summary": "NLP is in a period of disruptive change that is impacting our methodologies,\nfunding sources, and public perception. In this work, we seek to understand how\nto shape our future by better understanding our past. We study factors that\nshape NLP as a field, including culture, incentives, and infrastructure by\nconducting long-form interviews with 26 NLP researchers of varying seniority,\nresearch area, institution, and social identity. Our interviewees identify\ncyclical patterns in the field, as well as new shifts without historical\nparallel, including changes in benchmark culture and software infrastructure.\nWe complement this discussion with quantitative analysis of citation,\nauthorship, and language use in the ACL Anthology over time. We conclude by\ndiscussing shared visions, concerns, and hopes for the future of NLP. We hope\nthat this study of our field's past and present can prompt informed discussion\nof our community's implicit norms and more deliberate action to consciously\nshape the future.",
+        "translated": ""
+    },
+    {
+        "title": "Found in the Middle: Permutation Self-Consistency Improves Listwise\n  Ranking in Large Language Models",
+        "url": "http://arxiv.org/abs/2310.07712v1",
+        "pub_date": "2023-10-11",
+        "summary": "Large language models (LLMs) exhibit positional bias in how they use context,\nwhich especially complicates listwise ranking. To address this, we propose\npermutation self-consistency, a form of self-consistency over ranking list\noutputs of black-box LLMs. Our key idea is to marginalize out different list\norders in the prompt to produce an order-independent ranking with less\npositional bias. First, given some input prompt, we repeatedly shuffle the list\nin the prompt and pass it through the LLM while holding the instructions the\nsame. Next, we aggregate the resulting sample of rankings by computing the\ncentral ranking closest in distance to all of them, marginalizing out prompt\norder biases in the process. Theoretically, we prove the robustness of our\nmethod, showing convergence to the true ranking in the presence of random\nperturbations. Empirically, on five list-ranking datasets in sorting and\npassage reranking, our approach improves scores from conventional inference by\nup to 7-18% for GPT-3.5 and 8-16% for LLaMA v2 (70B), surpassing the previous\nstate of the art in passage reranking. Our code is at\nhttps://github.com/castorini/perm-sc.",
+        "translated": ""
+    },
+    {
+        "title": "DiPmark: A Stealthy, Efficient and Resilient Watermark for Large\n  Language Models",
+        "url": "http://arxiv.org/abs/2310.07710v1",
+        "pub_date": "2023-10-11",
+        "summary": "Watermarking techniques offer a promising way to secure data via embedding\ncovert information into the data. A paramount challenge in the domain lies in\npreserving the distribution of original data during watermarking. Our research\nextends and refines existing watermarking framework, placing emphasis on the\nimportance of a distribution-preserving (DiP) watermark. Contrary to the\ncurrent strategies, our proposed DiPmark preserves the original token\ndistribution during watermarking (stealthy), is detectable without access to\nthe language model API or weights (efficient), and is robust to moderate\nchanges of tokens (resilient). This is achieved by incorporating a novel\nreweight strategy, combined with a hash function that assigns unique\n\\textit{i.i.d.} ciphers based on the context. The empirical benchmarks of our\napproach underscore its stealthiness, efficiency, and resilience, making it a\nrobust solution for watermarking tasks that demand impeccable quality\npreservation.",
+        "translated": ""
+    },
+    {
+        "title": "MatFormer: Nested Transformer for Elastic Inference",
+        "url": "http://arxiv.org/abs/2310.07707v1",
+        "pub_date": "2023-10-11",
+        "summary": "Transformer models are deployed in a wide range of settings, from\nmulti-accelerator clusters to standalone mobile phones. The diverse inference\nconstraints in these scenarios necessitate practitioners to train foundation\nmodels such as PaLM 2, Llama, &amp; ViTs as a series of models of varying sizes.\nDue to significant training costs, only a select few model sizes are trained\nand supported, limiting more fine-grained control over relevant tradeoffs,\nincluding latency, cost, and accuracy. This work introduces MatFormer, a nested\nTransformer architecture designed to offer elasticity in a variety of\ndeployment constraints. Each Feed Forward Network (FFN) block of a MatFormer\nmodel is jointly optimized with a few nested smaller FFN blocks. This training\nprocedure allows for the Mix'n'Match of model granularities across layers --\ni.e., a trained universal MatFormer model enables extraction of hundreds of\naccurate smaller models, which were never explicitly optimized. We empirically\ndemonstrate MatFormer's effectiveness across different model classes (decoders\n&amp; encoders), modalities (language &amp; vision), and scales (up to 2.6B\nparameters). We find that a 2.6B decoder-only MatFormer language model (MatLM)\nallows us to extract smaller models spanning from 1.5B to 2.6B, each exhibiting\ncomparable validation loss and one-shot downstream evaluations to their\nindependently trained counterparts. Furthermore, we observe that smaller\nencoders extracted from a universal MatFormer-based ViT (MatViT) encoder\npreserve the metric-space structure for adaptive large-scale retrieval.\nFinally, we showcase that speculative decoding with the accurate and consistent\nsubmodels extracted from MatFormer can further reduce inference latency.",
+        "translated": ""
+    },
+    {
+        "title": "Ferret: Refer and Ground Anything Anywhere at Any Granularity",
+        "url": "http://arxiv.org/abs/2310.07704v1",
+        "pub_date": "2023-10-11",
+        "summary": "We introduce Ferret, a new Multimodal Large Language Model (MLLM) capable of\nunderstanding spatial referring of any shape or granularity within an image and\naccurately grounding open-vocabulary descriptions. To unify referring and\ngrounding in the LLM paradigm, Ferret employs a novel and powerful hybrid\nregion representation that integrates discrete coordinates and continuous\nfeatures jointly to represent a region in the image. To extract the continuous\nfeatures of versatile regions, we propose a spatial-aware visual sampler, adept\nat handling varying sparsity across different shapes. Consequently, Ferret can\naccept diverse region inputs, such as points, bounding boxes, and free-form\nshapes. To bolster the desired capability of Ferret, we curate GRIT, a\ncomprehensive refer-and-ground instruction tuning dataset including 1.1M\nsamples that contain rich hierarchical spatial knowledge, with 95K hard\nnegative data to promote model robustness. The resulting model not only\nachieves superior performance in classical referring and grounding tasks, but\nalso greatly outperforms existing MLLMs in region-based and\nlocalization-demanded multimodal chatting. Our evaluations also reveal a\nsignificantly improved capability of describing image details and a remarkable\nalleviation in object hallucination. Code and data will be available at\nhttps://github.com/apple/ml-ferret",
+        "translated": ""
+    },
+    {
+        "title": "Knowledge-enhanced Memory Model for Emotional Support Conversation",
+        "url": "http://arxiv.org/abs/2310.07700v1",
+        "pub_date": "2023-10-11",
+        "summary": "The prevalence of mental disorders has become a significant issue, leading to\nthe increased focus on Emotional Support Conversation as an effective\nsupplement for mental health support. Existing methods have achieved compelling\nresults, however, they still face three challenges: 1) variability of emotions,\n2) practicality of the response, and 3) intricate strategy modeling. To address\nthese challenges, we propose a novel knowledge-enhanced Memory mODEl for\nemotional suppoRt coNversation (MODERN). Specifically, we first devise a\nknowledge-enriched dialogue context encoding to perceive the dynamic emotion\nchange of different periods of the conversation for coherent user state\nmodeling and select context-related concepts from ConceptNet for practical\nresponse generation. Thereafter, we implement a novel memory-enhanced strategy\nmodeling module to model the semantic patterns behind the strategy categories.\nExtensive experiments on a widely used large-scale dataset verify the\nsuperiority of our model over cutting-edge baselines.",
+        "translated": ""
+    },
+    {
+        "title": "Composite Backdoor Attacks Against Large Language Models",
+        "url": "http://arxiv.org/abs/2310.07676v1",
+        "pub_date": "2023-10-11",
+        "summary": "Large language models (LLMs) have demonstrated superior performance compared\nto previous methods on various tasks, and often serve as the foundation models\nfor many researches and services. However, the untrustworthy third-party LLMs\nmay covertly introduce vulnerabilities for downstream tasks. In this paper, we\nexplore the vulnerability of LLMs through the lens of backdoor attacks.\nDifferent from existing backdoor attacks against LLMs, ours scatters multiple\ntrigger keys in different prompt components. Such a Composite Backdoor Attack\n(CBA) is shown to be stealthier than implanting the same multiple trigger keys\nin only a single component. CBA ensures that the backdoor is activated only\nwhen all trigger keys appear. Our experiments demonstrate that CBA is effective\nin both natural language processing (NLP) and multimodal tasks. For instance,\nwith $3\\%$ poisoning samples against the LLaMA-7B model on the Emotion dataset,\nour attack achieves a $100\\%$ Attack Success Rate (ASR) with a False Triggered\nRate (FTR) below $2.06\\%$ and negligible model accuracy degradation. The unique\ncharacteristics of our CBA can be tailored for various practical scenarios,\ne.g., targeting specific user groups. Our work highlights the necessity of\nincreased security research on the trustworthiness of foundation LLMs.",
+        "translated": ""
+    },
+    {
+        "title": "Well Begun is Half Done: Generator-agnostic Knowledge Pre-Selection for\n  Knowledge-Grounded Dialogue",
+        "url": "http://arxiv.org/abs/2310.07659v1",
+        "pub_date": "2023-10-11",
+        "summary": "Accurate knowledge selection is critical in knowledge-grounded dialogue\nsystems. Towards a closer look at it, we offer a novel perspective to organize\nexisting literature, i.e., knowledge selection coupled with, after, and before\ngeneration. We focus on the third under-explored category of study, which can\nnot only select knowledge accurately in advance, but has the advantage to\nreduce the learning, adjustment, and interpretation burden of subsequent\nresponse generation models, especially LLMs. We propose GATE, a\ngenerator-agnostic knowledge selection method, to prepare knowledge for\nsubsequent response generation models by selecting context-related knowledge\namong different knowledge structures and variable knowledge requirements.\nExperimental results demonstrate the superiority of GATE, and indicate that\nknowledge selection before generation is a lightweight yet effective way to\nfacilitate LLMs (e.g., ChatGPT) to generate more informative responses.",
+        "translated": ""
+    },
+    {
+        "title": "Audio-Visual Neural Syntax Acquisition",
+        "url": "http://arxiv.org/abs/2310.07654v1",
+        "pub_date": "2023-10-11",
+        "summary": "We study phrase structure induction from visually-grounded speech. The core\nidea is to first segment the speech waveform into sequences of word segments,\nand subsequently induce phrase structure using the inferred segment-level\ncontinuous representations. We present the Audio-Visual Neural Syntax Learner\n(AV-NSL) that learns phrase structure by listening to audio and looking at\nimages, without ever being exposed to text. By training on paired images and\nspoken captions, AV-NSL exhibits the capability to infer meaningful phrase\nstructures that are comparable to those derived by naturally-supervised text\nparsers, for both English and German. Our findings extend prior work in\nunsupervised language acquisition from speech and grounded grammar induction,\nand present one approach to bridge the gap between the two topics.",
+        "translated": ""
     }
 ]
