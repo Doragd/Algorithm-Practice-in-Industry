@@ -9105,5 +9105,40 @@
         "pub_date": "2023-10-13",
         "summary": "As generative language models advance, users have started to utilize Large\nLanguage Models (LLMs) to assist in writing various types of content, including\nprofessional documents such as recommendation letters. Despite their\nconvenience, these applications introduce unprecedented fairness concerns. As\ngenerated reference letters might be directly utilized by users in professional\nor academic scenarios, they have the potential to cause direct social harms,\nsuch as lowering success rates for female applicants. Therefore, it is imminent\nand necessary to comprehensively study fairness issues and associated harms in\nsuch real-world use cases for future mitigation and monitoring. In this paper,\nwe critically examine gender bias in LLM-generated reference letters. Inspired\nby findings in social science, we design evaluation methods to manifest gender\nbiases in LLM-generated letters through 2 dimensions: biases in language style\nand biases in lexical content. Furthermore, we investigate the extent of bias\npropagation by separately analyze bias amplification in model-hallucinated\ncontents, which we define to be the hallucination bias of model-generated\ndocuments. Through benchmarking evaluation on 4 popular LLMs, including\nChatGPT, Alpaca, Vicuna and StableLM, our study reveals significant gender\nbiases in LLM-generated recommendation letters. Our findings further point\ntowards the importance and imminence to recognize biases in LLM-generated\nprofessional documents.",
         "translated": ""
+    },
+    {
+        "title": "Type-aware Decoding via Explicitly Aggregating Event Information for\n  Document-level Event Extraction",
+        "url": "http://arxiv.org/abs/2310.10487v1",
+        "pub_date": "2023-10-16",
+        "summary": "Document-level event extraction (DEE) faces two main challenges:\narguments-scattering and multi-event. Although previous methods attempt to\naddress these challenges, they overlook the interference of event-unrelated\nsentences during event detection and neglect the mutual interference of\ndifferent event roles during argument extraction. Therefore, this paper\nproposes a novel Schema-based Explicitly Aggregating~(SEA) model to address\nthese limitations. SEA aggregates event information into event type and role\nrepresentations, enabling the decoding of event records based on specific\ntype-aware representations. By detecting each event based on its event type\nrepresentation, SEA mitigates the interference caused by event-unrelated\ninformation. Furthermore, SEA extracts arguments for each role based on its\nrole-aware representations, reducing mutual interference between different\nroles. Experimental results on the ChFinAnn and DuEE-fin datasets show that SEA\noutperforms the SOTA methods.",
+        "translated": ""
+    },
+    {
+        "title": "DemoSG: Demonstration-enhanced Schema-guided Generation for Low-resource\n  Event Extraction",
+        "url": "http://arxiv.org/abs/2310.10481v1",
+        "pub_date": "2023-10-16",
+        "summary": "Most current Event Extraction (EE) methods focus on the high-resource\nscenario, which requires a large amount of annotated data and can hardly be\napplied to low-resource domains. To address EE more effectively with limited\nresources, we propose the Demonstration-enhanced Schema-guided Generation\n(DemoSG) model, which benefits low-resource EE from two aspects: Firstly, we\npropose the demonstration-based learning paradigm for EE to fully use the\nannotated data, which transforms them into demonstrations to illustrate the\nextraction process and help the model learn effectively. Secondly, we formulate\nEE as a natural language generation task guided by schema-based prompts,\nthereby leveraging label semantics and promoting knowledge transfer in\nlow-resource scenarios. We conduct extensive experiments under in-domain and\ndomain adaptation low-resource settings on three datasets, and study the\nrobustness of DemoSG. The results show that DemoSG significantly outperforms\ncurrent methods in low-resource scenarios.",
+        "translated": ""
+    },
+    {
+        "title": "BeatDance: A Beat-Based Model-Agnostic Contrastive Learning Framework\n  for Music-Dance Retrieval",
+        "url": "http://arxiv.org/abs/2310.10300v1",
+        "pub_date": "2023-10-16",
+        "summary": "Dance and music are closely related forms of expression, with mutual\nretrieval between dance videos and music being a fundamental task in various\nfields like education, art, and sports. However, existing methods often suffer\nfrom unnatural generation effects or fail to fully explore the correlation\nbetween music and dance. To overcome these challenges, we propose BeatDance, a\nnovel beat-based model-agnostic contrastive learning framework. BeatDance\nincorporates a Beat-Aware Music-Dance InfoExtractor, a Trans-Temporal Beat\nBlender, and a Beat-Enhanced Hubness Reducer to improve dance-music retrieval\nperformance by utilizing the alignment between music beats and dance movements.\nWe also introduce the Music-Dance (MD) dataset, a large-scale collection of\nover 10,000 music-dance video pairs for training and testing. Experimental\nresults on the MD dataset demonstrate the superiority of our method over\nexisting baselines, achieving state-of-the-art performance. The code and\ndataset will be made public available upon acceptance.",
+        "translated": ""
+    },
+    {
+        "title": "Rethinking Financial Service Promotion With Hybrid Recommender Systems\n  at PicPay",
+        "url": "http://arxiv.org/abs/2310.10268v1",
+        "pub_date": "2023-10-16",
+        "summary": "The fintech PicPay offers a wide range of financial services to its 30\nmillion monthly active users, with more than 50 thousand items recommended in\nthe PicPay mobile app. In this scenario, promoting specific items that are\nstrategic to the company can be very challenging. In this work, we present a\nSwitching Hybrid Recommender System that combines two algorithms to effectively\npromote items without negatively impacting the user's experience. The results\nof our A/B tests show an uplift of up to 3.2\\% when compared to a default\nrecommendation strategy.",
+        "translated": ""
+    },
+    {
+        "title": "An Interpretable Deep-Learning Framework for Predicting Hospital\n  Readmissions From Electronic Health Records",
+        "url": "http://arxiv.org/abs/2310.10187v1",
+        "pub_date": "2023-10-16",
+        "summary": "With the increasing availability of patients' data, modern medicine is\nshifting towards prospective healthcare. Electronic health records contain a\nvariety of information useful for clinical patient description and can be\nexploited for the construction of predictive models, given that similar medical\nhistories will likely lead to similar progressions. One example is unplanned\nhospital readmission prediction, an essential task for reducing hospital costs\nand improving patient health. Despite predictive models showing very good\nperformances especially with deep-learning models, they are often criticized\nfor the poor interpretability of their results, a fundamental characteristic in\nthe medical field, where incorrect predictions might have serious consequences\nfor the patient health. In this paper we propose a novel, interpretable\ndeep-learning framework for predicting unplanned hospital readmissions,\nsupported by NLP findings on word embeddings and by neural-network models\n(ConvLSTM) for better handling temporal data. We validate our system on the two\npredictive tasks of hospital readmission within 30 and 180 days, using\nreal-world data. In addition, we introduce and test a model-dependent technique\nto make the representation of results easily interpretable by the medical\nstaff. Our solution achieves better performances compared to traditional models\nbased on machine learning, while providing at the same time more interpretable\nresults.",
+        "translated": ""
     }
 ]
