@@ -9245,5 +9245,75 @@
         "pub_date": "2023-10-16",
         "summary": "The recent advent of powerful Large-Language Models (LLM) provides a new\nconversational form of inquiry into historical memory (or, training data, in\nthis case). We show that by augmenting such LLMs with vector embeddings from\nhighly specialized academic sources, a conversational methodology can be made\naccessible to historians and other researchers in the Humanities. Concretely,\nwe evaluate and demonstrate how LLMs have the ability of assisting researchers\nwhile they examine a customized corpora of different types of documents,\nincluding, but not exclusive to: (1). primary sources, (2). secondary sources\nwritten by experts, and (3). the combination of these two. Compared to\nestablished search interfaces for digital catalogues, such as metadata and\nfull-text search, we evaluate the richer conversational style of LLMs on the\nperformance of two main types of tasks: (1). question-answering, and (2).\nextraction and organization of data. We demonstrate that LLMs semantic\nretrieval and reasoning abilities on problem-specific tasks can be applied to\nlarge textual archives that have not been part of the its training data.\nTherefore, LLMs can be augmented with sources relevant to specific research\nprojects, and can be queried privately by researchers.",
         "translated": ""
+    },
+    {
+        "title": "VeRA: Vector-based Random Matrix Adaptation",
+        "url": "http://arxiv.org/abs/2310.11454v1",
+        "pub_date": "2023-10-17",
+        "summary": "Low-rank adapation (LoRA) is a popular method that reduces the number of\ntrainable parameters when finetuning large language models, but still faces\nacute storage challenges when scaling to even larger models or deploying\nnumerous per-user or per-task adapted models. In this work, we present\nVector-based Random Matrix Adaptation (VeRA), which reduces the number of\ntrainable parameters by 10x compared to LoRA, yet maintains the same\nperformance. It achieves this by using a single pair of low-rank matrices\nshared across all layers and learning small scaling vectors instead. We\ndemonstrate its effectiveness on the GLUE and E2E benchmarks, and show its\napplication in instruction-following with just 1.4M parameters using the Llama2\n7B model.",
+        "translated": ""
+    },
+    {
+        "title": "BitNet: Scaling 1-bit Transformers for Large Language Models",
+        "url": "http://arxiv.org/abs/2310.11453v1",
+        "pub_date": "2023-10-17",
+        "summary": "The increasing size of large language models has posed challenges for\ndeployment and raised concerns about environmental impact due to high energy\nconsumption. In this work, we introduce BitNet, a scalable and stable 1-bit\nTransformer architecture designed for large language models. Specifically, we\nintroduce BitLinear as a drop-in replacement of the nn.Linear layer in order to\ntrain 1-bit weights from scratch. Experimental results on language modeling\nshow that BitNet achieves competitive performance while substantially reducing\nmemory footprint and energy consumption, compared to state-of-the-art 8-bit\nquantization methods and FP16 Transformer baselines. Furthermore, BitNet\nexhibits a scaling law akin to full-precision Transformers, suggesting its\npotential for effective scaling to even larger language models while\nmaintaining efficiency and performance benefits.",
+        "translated": ""
+    },
+    {
+        "title": "Seeking Neural Nuggets: Knowledge Transfer in Large Language Models from\n  a Parametric Perspective",
+        "url": "http://arxiv.org/abs/2310.11451v1",
+        "pub_date": "2023-10-17",
+        "summary": "Large Language Models (LLMs) inherently encode a wealth of knowledge within\ntheir parameters through pre-training on extensive corpora. While prior\nresearch has delved into operations on these parameters to manipulate the\nunderlying implicit knowledge (encompassing detection, editing, and merging),\nthere remains an ambiguous understanding regarding their transferability across\nmodels with varying scales. In this paper, we seek to empirically investigate\nknowledge transfer from larger to smaller models through a parametric\nperspective. To achieve this, we employ sensitivity-based techniques to extract\nand align knowledge-specific parameters between different LLMs. Moreover, the\nLoRA module is used as the intermediary mechanism for injecting the extracted\nknowledge into smaller models. Evaluations across four benchmarks validate the\nefficacy of our proposed method. Our findings highlight the critical factors\ncontributing to the process of parametric knowledge transfer, underscoring the\ntransferability of model parameters across LLMs of different scales. We release\ncode and data at \\url{https://github.com/maszhongming/ParaKnowTransfer}.",
+        "translated": ""
+    },
+    {
+        "title": "Functional Invariants to Watermark Large Transformers",
+        "url": "http://arxiv.org/abs/2310.11446v1",
+        "pub_date": "2023-10-17",
+        "summary": "The rapid growth of transformer-based models increases the concerns about\ntheir integrity and ownership insurance. Watermarking addresses this issue by\nembedding a unique identifier into the model, while preserving its performance.\nHowever, most existing approaches require to optimize the weights to imprint\nthe watermark signal, which is not suitable at scale due to the computational\ncost. This paper explores watermarks with virtually no computational cost,\napplicable to a non-blind white-box setting (assuming access to both the\noriginal and watermarked networks). They generate functionally equivalent\ncopies by leveraging the models' invariance, via operations like dimension\npermutations or scaling/unscaling. This enables to watermark models without any\nchange in their outputs and remains stealthy. Experiments demonstrate the\neffectiveness of the approach and its robustness against various model\ntransformations (fine-tuning, quantization, pruning), making it a practical\nsolution to protect the integrity of large models.",
+        "translated": ""
+    },
+    {
+        "title": "Set-of-Mark Prompting Unleashes Extraordinary Visual Grounding in GPT-4V",
+        "url": "http://arxiv.org/abs/2310.11441v1",
+        "pub_date": "2023-10-17",
+        "summary": "We present Set-of-Mark (SoM), a new visual prompting method, to unleash the\nvisual grounding abilities of large multimodal models (LMMs), such as GPT-4V.\nAs illustrated in Fig. 1 (right), we employ off-the-shelf interactive\nsegmentation models, such as SAM, to partition an image into regions at\ndifferent levels of granularity, and overlay these regions with a set of marks\ne.g., alphanumerics, masks, boxes. Using the marked image as input, GPT-4V can\nanswer the questions that require visual grounding. We perform a comprehensive\nempirical study to validate the effectiveness of SoM on a wide range of\nfine-grained vision and multimodal tasks. For example, our experiments show\nthat GPT-4V with SoM outperforms the state-of-the-art fully-finetuned referring\nsegmentation model on RefCOCOg in a zero-shot setting.",
+        "translated": ""
+    },
+    {
+        "title": "An Empirical Study of Translation Hypothesis Ensembling with Large\n  Language Models",
+        "url": "http://arxiv.org/abs/2310.11430v1",
+        "pub_date": "2023-10-17",
+        "summary": "Large language models (LLMs) are becoming a one-fits-many solution, but they\nsometimes hallucinate or produce unreliable output. In this paper, we\ninvestigate how hypothesis ensembling can improve the quality of the generated\ntext for the specific problem of LLM-based machine translation. We experiment\nwith several techniques for ensembling hypotheses produced by LLMs such as\nChatGPT, LLaMA, and Alpaca. We provide a comprehensive study along multiple\ndimensions, including the method to generate hypotheses (multiple prompts,\ntemperature-based sampling, and beam search) and the strategy to produce the\nfinal translation (instruction-based, quality-based reranking, and minimum\nBayes risk (MBR) decoding). Our results show that MBR decoding is a very\neffective method, that translation quality can be improved using a small number\nof samples, and that instruction tuning has a strong impact on the relation\nbetween the diversity of the hypotheses and the sampling temperature.",
+        "translated": ""
+    },
+    {
+        "title": "Neural Attention: Enhancing QKV Calculation in Self-Attention Mechanism\n  with Neural Networks",
+        "url": "http://arxiv.org/abs/2310.11398v1",
+        "pub_date": "2023-10-17",
+        "summary": "In the realm of deep learning, the self-attention mechanism has substantiated\nits pivotal role across a myriad of tasks, encompassing natural language\nprocessing and computer vision. Despite achieving success across diverse\napplications, the traditional self-attention mechanism primarily leverages\nlinear transformations for the computation of query, key, and value (QKV),\nwhich may not invariably be the optimal choice under specific circumstances.\nThis paper probes into a novel methodology for QKV computation-implementing a\nspecially-designed neural network structure for the calculation. Utilizing a\nmodified Marian model, we conducted experiments on the IWSLT 2017\nGerman-English translation task dataset and juxtaposed our method with the\nconventional approach. The experimental results unveil a significant\nenhancement in BLEU scores with our method. Furthermore, our approach also\nmanifested superiority when training the Roberta model with the Wikitext-103\ndataset, reflecting a notable reduction in model perplexity compared to its\noriginal counterpart. These experimental outcomes not only validate the\nefficacy of our method but also reveal the immense potential in optimizing the\nself-attention mechanism through neural network-based QKV computation, paving\nthe way for future research and practical applications. The source code and\nimplementation details for our proposed method can be accessed at\nhttps://github.com/ocislyjrti/NeuralAttention.",
+        "translated": ""
+    },
+    {
+        "title": "Robust Wake-Up Word Detection by Two-stage Multi-resolution Ensembles",
+        "url": "http://arxiv.org/abs/2310.11379v1",
+        "pub_date": "2023-10-17",
+        "summary": "Voice-based interfaces rely on a wake-up word mechanism to initiate\ncommunication with devices. However, achieving a robust, energy-efficient, and\nfast detection remains a challenge. This paper addresses these real production\nneeds by enhancing data with temporal alignments and using detection based on\ntwo phases with multi-resolution. It employs two models: a lightweight\non-device model for real-time processing of the audio stream and a verification\nmodel on the server-side, which is an ensemble of heterogeneous architectures\nthat refine detection. This scheme allows the optimization of two operating\npoints. To protect privacy, audio features are sent to the cloud instead of raw\naudio. The study investigated different parametric configurations for feature\nextraction to select one for on-device detection and another for the\nverification model. Furthermore, thirteen different audio classifiers were\ncompared in terms of performance and inference time. The proposed ensemble\noutperforms our stronger classifier in every noise condition.",
+        "translated": ""
+    },
+    {
+        "title": "DialogueLLM: Context and Emotion Knowledge-Tuned LLaMA Models for\n  Emotion Recognition in Conversations",
+        "url": "http://arxiv.org/abs/2310.11374v1",
+        "pub_date": "2023-10-17",
+        "summary": "Large language models (LLMs) and their variants have shown extraordinary\nefficacy across numerous downstream natural language processing (NLP) tasks,\nwhich has presented a new vision for the development of NLP. Despite their\nremarkable performance in natural language generating (NLG), LLMs lack a\ndistinct focus on the emotion understanding domain. As a result, using LLMs for\nemotion recognition may lead to suboptimal and inadequate precision. Another\nlimitation of LLMs is that they are typical trained without leveraging\nmulti-modal information. To overcome these limitations, we propose DialogueLLM,\na context and emotion knowledge tuned LLM that is obtained by fine-tuning LLaMA\nmodels with 13,638 multi-modal (i.e., texts and videos) emotional dialogues.\nThe visual information is considered as the supplementary knowledge to\nconstruct high-quality instructions. We offer a comprehensive evaluation of our\nproposed model on three benchmarking emotion recognition in conversations (ERC)\ndatasets and compare the results against the SOTA baselines and other SOTA\nLLMs. Additionally, DialogueLLM-7B can be easily trained using LoRA on a 40GB\nA100 GPU in 5 hours, facilitating reproducibility for other researchers.",
+        "translated": ""
+    },
+    {
+        "title": "VECHR: A Dataset for Explainable and Robust Classification of\n  Vulnerability Type in the European Court of Human Rights",
+        "url": "http://arxiv.org/abs/2310.11368v1",
+        "pub_date": "2023-10-17",
+        "summary": "Recognizing vulnerability is crucial for understanding and implementing\ntargeted support to empower individuals in need. This is especially important\nat the European Court of Human Rights (ECtHR), where the court adapts\nConvention standards to meet actual individual needs and thus ensures effective\nhuman rights protection. However, the concept of vulnerability remains elusive\nat the ECtHR and no prior NLP research has dealt with it. To enable future\nresearch in this area, we present VECHR, a novel expert-annotated multi-label\ndataset comprising of vulnerability type classification and explanation\nrationale. We benchmark the performance of state-of-the-art models on VECHR\nfrom both prediction and explainability perspectives. Our results demonstrate\nthe challenging nature of the task with lower prediction performance and\nlimited agreement between models and experts. Further, we analyze the\nrobustness of these models in dealing with out-of-domain (OOD) data and observe\noverall limited performance. Our dataset poses unique challenges offering\nsignificant room for improvement regarding performance, explainability, and\nrobustness.",
+        "translated": ""
     }
 ]
