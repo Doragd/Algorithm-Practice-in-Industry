@@ -9350,5 +9350,68 @@
         "pub_date": "2023-10-18",
         "summary": "In recent years, DL has developed rapidly, and personalized services are\nexploring using DL algorithms to improve the performance of the recommendation\nsystem. For personalized services, a successful recommendation consists of two\nparts: attracting users to click the item and users being willing to consume\nthe item. If both tasks need to be predicted at the same time, traditional\nrecommendation systems generally train two independent models. This approach is\ncumbersome and does not effectively model the relationship between the two\nsubtasks of \"click-consumption\". Therefore, in order to improve the success\nrate of recommendation and reduce computational costs, researchers are trying\nto model multi-task learning.\n  At present, existing multi-task learning models generally adopt hard\nparameter sharing or soft parameter sharing architecture, but these two\narchitectures each have certain problems. Therefore, in this work, we propose a\nnovel recommendation model based on real recommendation scenarios, Deep Cross\nnetwork based on RNN for partial parameter sharing (DCRNN). The model has three\ninnovations: 1) It adopts the idea of cross network and uses RNN network to\ncross-process the features, thereby effectively improves the expressive ability\nof the model; 2) It innovatively proposes the structure of partial parameter\nsharing; 3) It can effectively capture the potential correlation between\ndifferent tasks to optimize the efficiency and methods for learning different\ntasks.",
         "translated": ""
+    },
+    {
+        "title": "Understanding Retrieval Augmentation for Long-Form Question Answering",
+        "url": "http://arxiv.org/abs/2310.12150v1",
+        "pub_date": "2023-10-18",
+        "summary": "We present a study of retrieval-augmented language models (LMs) on long-form\nquestion answering. We analyze how retrieval augmentation impacts different\nLMs, by comparing answers generated from models while using the same evidence\ndocuments, and how differing quality of retrieval document set impacts the\nanswers generated from the same LM. We study various attributes of generated\nanswers (e.g., fluency, length, variance) with an emphasis on the attribution\nof generated long-form answers to in-context evidence documents. We collect\nhuman annotations of answer attribution and evaluate methods for automatically\njudging attribution. Our study provides new insights on how retrieval\naugmentation impacts long, knowledge-rich text generation of LMs. We further\nidentify attribution patterns for long text generation and analyze the main\nculprits of attribution errors. Together, our analysis reveals how retrieval\naugmentation impacts long knowledge-rich text generation and provide directions\nfor future work.",
+        "translated": ""
+    },
+    {
+        "title": "Simple Mechanisms for Representing, Indexing and Manipulating Concepts",
+        "url": "http://arxiv.org/abs/2310.12143v1",
+        "pub_date": "2023-10-18",
+        "summary": "Deep networks typically learn concepts via classifiers, which involves\nsetting up a model and training it via gradient descent to fit the\nconcept-labeled data. We will argue instead that learning a concept could be\ndone by looking at its moment statistics matrix to generate a concrete\nrepresentation or signature of that concept. These signatures can be used to\ndiscover structure across the set of concepts and could recursively produce\nhigher-level concepts by learning this structure from those signatures. When\nthe concepts are `intersected', signatures of the concepts can be used to find\na common theme across a number of related `intersected' concepts. This process\ncould be used to keep a dictionary of concepts so that inputs could correctly\nidentify and be routed to the set of concepts involved in the (latent)\ngeneration of the input.",
+        "translated": ""
+    },
+    {
+        "title": "Pseudointelligence: A Unifying Framework for Language Model Evaluation",
+        "url": "http://arxiv.org/abs/2310.12135v1",
+        "pub_date": "2023-10-18",
+        "summary": "With large language models surpassing human performance on an increasing\nnumber of benchmarks, we must take a principled approach for targeted\nevaluation of model capabilities. Inspired by pseudorandomness, we propose\npseudointelligence, which captures the maxim that \"(perceived) intelligence\nlies in the eye of the beholder\". That is, that claims of intelligence are\nmeaningful only when their evaluator is taken into account. Concretely, we\npropose a complexity-theoretic framework of model evaluation cast as a dynamic\ninteraction between a model and a learned evaluator. We demonstrate that this\nframework can be used to reason about two case studies in language model\nevaluation, as well as analyze existing evaluation methods.",
+        "translated": ""
+    },
+    {
+        "title": "DiagrammerGPT: Generating Open-Domain, Open-Platform Diagrams via LLM\n  Planning",
+        "url": "http://arxiv.org/abs/2310.12128v1",
+        "pub_date": "2023-10-18",
+        "summary": "Text-to-image (T2I) generation has seen significant growth over the past few\nyears. Despite this, there has been little work on generating diagrams with T2I\nmodels. A diagram is a symbolic/schematic representation that explains\ninformation using structurally rich and spatially complex visualizations (e.g.,\na dense combination of related objects, text labels, directional arrows,\nconnection lines, etc.). Existing state-of-the-art T2I models often fail at\ndiagram generation because they lack fine-grained object layout control when\nmany objects are densely connected via complex relations such as arrows/lines\nand also often fail to render comprehensible text labels. To address this gap,\nwe present DiagrammerGPT, a novel two-stage text-to-diagram generation\nframework that leverages the layout guidance capabilities of LLMs (e.g., GPT-4)\nto generate more accurate open-domain, open-platform diagrams. In the first\nstage, we use LLMs to generate and iteratively refine 'diagram plans' (in a\nplanner-auditor feedback loop) which describe all the entities (objects and\ntext labels), their relationships (arrows or lines), and their bounding box\nlayouts. In the second stage, we use a diagram generator, DiagramGLIGEN, and a\ntext label rendering module to generate diagrams following the diagram plans.\nTo benchmark the text-to-diagram generation task, we introduce AI2D-Caption, a\ndensely annotated diagram dataset built on top of the AI2D dataset. We show\nquantitatively and qualitatively that our DiagrammerGPT framework produces more\naccurate diagrams, outperforming existing T2I models. We also provide\ncomprehensive analysis including open-domain diagram generation, vector graphic\ndiagram generation in different platforms, human-in-the-loop diagram plan\nediting, and multimodal planner/auditor LLMs (e.g., GPT-4Vision). We hope our\nwork can inspire further research on diagram generation via T2I models and\nLLMs.",
+        "translated": ""
+    },
+    {
+        "title": "A Tale of Pronouns: Interpretability Informs Gender Bias Mitigation for\n  Fairer Instruction-Tuned Machine Translation",
+        "url": "http://arxiv.org/abs/2310.12127v1",
+        "pub_date": "2023-10-18",
+        "summary": "Recent instruction fine-tuned models can solve multiple NLP tasks when\nprompted to do so, with machine translation (MT) being a prominent use case.\nHowever, current research often focuses on standard performance benchmarks,\nleaving compelling fairness and ethical considerations behind. In MT, this\nmight lead to misgendered translations, resulting, among other harms, in the\nperpetuation of stereotypes and prejudices. In this work, we address this gap\nby investigating whether and to what extent such models exhibit gender bias in\nmachine translation and how we can mitigate it. Concretely, we compute\nestablished gender bias metrics on the WinoMT corpus from English to German and\nSpanish. We discover that IFT models default to male-inflected translations,\neven disregarding female occupational stereotypes. Next, using interpretability\nmethods, we unveil that models systematically overlook the pronoun indicating\nthe gender of a target occupation in misgendered translations. Finally, based\non this finding, we propose an easy-to-implement and effective bias mitigation\nsolution based on few-shot learning that leads to significantly fairer\ntranslations.",
+        "translated": ""
+    },
+    {
+        "title": "SHARCS: Efficient Transformers through Routing with Dynamic Width\n  Sub-networks",
+        "url": "http://arxiv.org/abs/2310.12126v1",
+        "pub_date": "2023-10-18",
+        "summary": "We introduce SHARCS for adaptive inference that takes into account the\nhardness of input samples. SHARCS can train a router on any transformer\nnetwork, enabling the model to direct different samples to sub-networks with\nvarying widths. Our experiments demonstrate that: (1) SHARCS outperforms or\ncomplements existing per-sample adaptive inference methods across various\nclassification tasks in terms of accuracy vs. FLOPs; (2) SHARCS generalizes\nacross different architectures and can be even applied to compressed and\nefficient transformer encoders to further improve their efficiency; (3) SHARCS\ncan provide a 2 times inference speed up at an insignificant drop in accuracy.",
+        "translated": ""
+    },
+    {
+        "title": "Harnessing Dataset Cartography for Improved Compositional Generalization\n  in Transformers",
+        "url": "http://arxiv.org/abs/2310.12118v1",
+        "pub_date": "2023-10-18",
+        "summary": "Neural networks have revolutionized language modeling and excelled in various\ndownstream tasks. However, the extent to which these models achieve\ncompositional generalization comparable to human cognitive abilities remains a\ntopic of debate. While existing approaches in the field have mainly focused on\nnovel architectures and alternative learning paradigms, we introduce a\npioneering method harnessing the power of dataset cartography (Swayamdipta et\nal., 2020). By strategically identifying a subset of compositional\ngeneralization data using this approach, we achieve a remarkable improvement in\nmodel accuracy, yielding enhancements of up to 10% on CFQ and COGS datasets.\nNotably, our technique incorporates dataset cartography as a curriculum\nlearning criterion, eliminating the need for hyperparameter tuning while\nconsistently achieving superior performance. Our findings highlight the\nuntapped potential of dataset cartography in unleashing the full capabilities\nof compositional generalization within Transformer models. Our code is\navailable at https://github.com/cyberiada/cartography-for-compositionality.",
+        "translated": ""
+    },
+    {
+        "title": "Non-Intrusive Adaptation: Input-Centric Parameter-efficient Fine-Tuning\n  for Versatile Multimodal Modeling",
+        "url": "http://arxiv.org/abs/2310.12100v1",
+        "pub_date": "2023-10-18",
+        "summary": "Large language models (LLMs) and vision language models (VLMs) demonstrate\nexcellent performance on a wide range of tasks by scaling up parameter counts\nfrom O(10^9) to O(10^{12}) levels and further beyond. These large scales make\nit impossible to adapt and deploy fully specialized models given a task of\ninterest. Parameter-efficient fine-tuning (PEFT) emerges as a promising\ndirection to tackle the adaptation and serving challenges for such large\nmodels. We categorize PEFT techniques into two types: intrusive and\nnon-intrusive. Intrusive PEFT techniques directly change a model's internal\narchitecture. Though more flexible, they introduce significant complexities for\ntraining and serving. Non-intrusive PEFT techniques leave the internal\narchitecture unchanged and only adapt model-external parameters, such as\nembeddings for input. In this work, we describe AdaLink as a non-intrusive PEFT\ntechnique that achieves competitive performance compared to SoTA intrusive PEFT\n(LoRA) and full model fine-tuning (FT) on various tasks. We evaluate using both\ntext-only and multimodal tasks, with experiments that account for both\nparameter-count scaling and training regime (with and without instruction\ntuning).",
+        "translated": ""
+    },
+    {
+        "title": "On the Benefit of Generative Foundation Models for Human Activity\n  Recognition",
+        "url": "http://arxiv.org/abs/2310.12085v1",
+        "pub_date": "2023-10-18",
+        "summary": "In human activity recognition (HAR), the limited availability of annotated\ndata presents a significant challenge. Drawing inspiration from the latest\nadvancements in generative AI, including Large Language Models (LLMs) and\nmotion synthesis models, we believe that generative AI can address this data\nscarcity by autonomously generating virtual IMU data from text descriptions.\nBeyond this, we spotlight several promising research pathways that could\nbenefit from generative AI for the community, including the generating\nbenchmark datasets, the development of foundational models specific to HAR, the\nexploration of hierarchical structures within HAR, breaking down complex\nactivities, and applications in health sensing and activity summarization.",
+        "translated": ""
     }
 ]
