@@ -9455,5 +9455,75 @@
         "pub_date": "2023-10-20",
         "summary": "Conversational recommendation systems (CRS) could acquire dynamic user\npreferences towards desired items through multi-round interactive dialogue.\nPrevious CRS mainly focuses on the single conversation (subsession) that user\nquits after a successful recommendation, neglecting the common scenario where\nuser has multiple conversations (multi-subsession) over a short period.\nTherefore, we propose a novel conversational recommendation scenario named\nMulti-Subsession Multi-round Conversational Recommendation (MSMCR), where user\nwould still resort to CRS after several subsessions and might preserve vague\ninterests, and system would proactively ask attributes to activate user\ninterests in the current subsession. To fill the gap in this new CRS scenario,\nwe devise a novel framework called Multi-Subsession Conversational Recommender\nwith Activation Attributes (MSCAA). Specifically, we first develop a\ncontext-aware recommendation module, comprehensively modeling user interests\nfrom historical interactions, previous subsessions, and feedback in the current\nsubsession. Furthermore, an attribute selection policy module is proposed to\nlearn a flexible strategy for asking appropriate attributes to elicit user\ninterests. Finally, we design a conversation policy module to manage the above\ntwo modules to decide actions between asking and recommending. Extensive\nexperiments on four datasets verify the effectiveness of our MSCAA framework\nfor the MSMCR setting.",
         "translated": ""
+    },
+    {
+        "title": "Exploring Linguistic Probes for Morphological Generalization",
+        "url": "http://arxiv.org/abs/2310.13686v1",
+        "pub_date": "2023-10-20",
+        "summary": "Modern work on the cross-linguistic computational modeling of morphological\ninflection has typically employed language-independent data splitting\nalgorithms. In this paper, we supplement that approach with language-specific\nprobes designed to test aspects of morphological generalization. Testing these\nprobes on three morphologically distinct languages, English, Spanish, and\nSwahili, we find evidence that three leading morphological inflection systems\nemploy distinct generalization strategies over conjugational classes and\nfeature sets on both orthographic and phonologically transcribed inputs.",
+        "translated": ""
+    },
+    {
+        "title": "Optimizing Retrieval-augmented Reader Models via Token Elimination",
+        "url": "http://arxiv.org/abs/2310.13682v1",
+        "pub_date": "2023-10-20",
+        "summary": "Fusion-in-Decoder (FiD) is an effective retrieval-augmented language model\napplied across a variety of open-domain tasks, such as question answering, fact\nchecking, etc. In FiD, supporting passages are first retrieved and then\nprocessed using a generative model (Reader), which can cause a significant\nbottleneck in decoding time, particularly with long outputs. In this work, we\nanalyze the contribution and necessity of all the retrieved passages to the\nperformance of reader models, and propose eliminating some of the retrieved\ninformation, at the token level, that might not contribute essential\ninformation to the answer generation process. We demonstrate that our method\ncan reduce run-time by up to 62.2%, with only a 2% reduction in performance,\nand in some cases, even improve the performance results.",
+        "translated": ""
+    },
+    {
+        "title": "Improving Long-form Speech Translation through Segmentation with Large\n  Language Models and Finite State Decoding Constraints",
+        "url": "http://arxiv.org/abs/2310.13678v1",
+        "pub_date": "2023-10-20",
+        "summary": "One challenge in spoken language translation is that plenty of spoken content\nis long-form, but short units are necessary for obtaining high-quality\ntranslations. To address this mismatch, we adapt large language models (LLM) to\nsplit long ASR transcripts into segments that can be independently translated\nso as to maximize the overall translation quality. To combat the tendency of\nhallucination by LLMs, we incorporate finite-state constraints during decoding\nto eliminate invalid outputs. We discover that LLMs are adaptable to\ntranscripts containing ASR errors through prompt-tuning or fine-tuning. In\ncomparison to a state-of-the-art automatic punctuation baseline, our best LLM\nimproves the average BLEU for English-German, English-Spanish, and\nEnglish-Arabic TED talk translation in 9 test sets by 2.9 points, just by\nimproving segmentation.",
+        "translated": ""
+    },
+    {
+        "title": "Information Value: Measuring Utterance Predictability as Distance from\n  Plausible Alternatives",
+        "url": "http://arxiv.org/abs/2310.13676v1",
+        "pub_date": "2023-10-20",
+        "summary": "We present information value, a measure which quantifies the predictability\nof an utterance relative to a set of plausible alternatives. We introduce a\nmethod to obtain interpretable estimates of information value using neural text\ngenerators, and exploit their psychometric predictive power to investigate the\ndimensions of predictability that drive human comprehension behaviour.\nInformation value is a stronger predictor of utterance acceptability in written\nand spoken dialogue than aggregates of token-level surprisal and it is\ncomplementary to surprisal for predicting eye-tracked reading times.",
+        "translated": ""
+    },
+    {
+        "title": "On Synthetic Data for Back Translation",
+        "url": "http://arxiv.org/abs/2310.13675v1",
+        "pub_date": "2023-10-20",
+        "summary": "Back translation (BT) is one of the most significant technologies in NMT\nresearch fields. Existing attempts on BT share a common characteristic: they\nemploy either beam search or random sampling to generate synthetic data with a\nbackward model but seldom work studies the role of synthetic data in the\nperformance of BT. This motivates us to ask a fundamental question: {\\em what\nkind of synthetic data contributes to BT performance?} Through both theoretical\nand empirical studies, we identify two key factors on synthetic data\ncontrolling the back-translation NMT performance, which are quality and\nimportance. Furthermore, based on our findings, we propose a simple yet\neffective method to generate synthetic data to better trade off both factors so\nas to yield a better performance for BT. We run extensive experiments on WMT14\nDE-EN, EN-DE, and RU-EN benchmark tasks. By employing our proposed method to\ngenerate synthetic data, our BT model significantly outperforms the standard BT\nbaselines (i.e., beam and sampling based methods for data generation), which\nproves the effectiveness of our proposed methods.",
+        "translated": ""
+    },
+    {
+        "title": "StereoMap: Quantifying the Awareness of Human-like Stereotypes in Large\n  Language Models",
+        "url": "http://arxiv.org/abs/2310.13673v1",
+        "pub_date": "2023-10-20",
+        "summary": "Large Language Models (LLMs) have been observed to encode and perpetuate\nharmful associations present in the training data. We propose a theoretically\ngrounded framework called StereoMap to gain insights into their perceptions of\nhow demographic groups have been viewed by society. The framework is grounded\nin the Stereotype Content Model (SCM); a well-established theory from\npsychology. According to SCM, stereotypes are not all alike. Instead, the\ndimensions of Warmth and Competence serve as the factors that delineate the\nnature of stereotypes. Based on the SCM theory, StereoMap maps LLMs'\nperceptions of social groups (defined by socio-demographic features) using the\ndimensions of Warmth and Competence. Furthermore, the framework enables the\ninvestigation of keywords and verbalizations of reasoning of LLMs' judgments to\nuncover underlying factors influencing their perceptions. Our results show that\nLLMs exhibit a diverse range of perceptions towards these groups, characterized\nby mixed evaluations along the dimensions of Warmth and Competence.\nFurthermore, analyzing the reasonings of LLMs, our findings indicate that LLMs\ndemonstrate an awareness of social disparities, often stating statistical data\nand research findings to support their reasoning. This study contributes to the\nunderstanding of how LLMs perceive and represent social groups, shedding light\non their potential biases and the perpetuation of harmful associations.",
+        "translated": ""
+    },
+    {
+        "title": "Let's Synthesize Step by Step: Iterative Dataset Synthesis with Large\n  Language Models by Extrapolating Errors from Small Models",
+        "url": "http://arxiv.org/abs/2310.13671v1",
+        "pub_date": "2023-10-20",
+        "summary": "*Data Synthesis* is a promising way to train a small model with very little\nlabeled data. One approach for data synthesis is to leverage the rich knowledge\nfrom large language models to synthesize pseudo training examples for small\nmodels, making it possible to achieve both data and compute efficiency at the\nsame time. However, a key challenge in data synthesis is that the synthesized\ndataset often suffers from a large distributional discrepancy from the *real\ntask* data distribution. Thus, in this paper, we propose *Synthesis Step by\nStep* (**S3**), a data synthesis framework that shrinks this distribution gap\nby iteratively extrapolating the errors made by a small model trained on the\nsynthesized dataset on a small real-world validation dataset using a large\nlanguage model. Extensive experiments on multiple NLP tasks show that our\napproach improves the performance of a small model by reducing the gap between\nthe synthetic dataset and the real data, resulting in significant improvement\ncompared to several baselines: 9.48% improvement compared to ZeroGen and 2.73%\ncompared to GoldGen, and at most 15.17% improvement compared to the small model\ntrained on human-annotated data.",
+        "translated": ""
+    },
+    {
+        "title": "Automatic Unit Test Data Generation and Actor-Critic Reinforcement\n  Learning for Code Synthesis",
+        "url": "http://arxiv.org/abs/2310.13669v1",
+        "pub_date": "2023-10-20",
+        "summary": "The advent of large pre-trained language models in the domain of Code\nSynthesis has shown remarkable performance on various benchmarks, treating the\nproblem of Code Generation in a fashion similar to Natural Language Generation,\ntrained with a Language Modelling (LM) objective. In addition, the property of\nprogramming language code being precisely evaluable with respect to its\nsemantics -- through the use of Unit Tests to check its functional correctness\n-- lends itself to using Reinforcement Learning (RL) as a further training\nparadigm. Previous work has shown that RL can be applied as such to improve\nmodels' coding capabilities; however, such RL-based methods rely on a reward\nsignal based on defined Unit Tests, which are much harder to obtain compared to\nthe huge crawled code datasets used in LM objectives. In this work, we present\na novel approach to automatically obtain data consisting of function signatures\nand associated Unit Tests, suitable for RL training of Code Synthesis models.\nWe also introduce a straightforward, simple yet effective Actor-Critic RL\ntraining scheme and show that it, in conjunction with automatically generated\ntraining data, leads to improvement of a pre-trained code language model's\nperformance by up to 9.9% improvement over the original underlying code\nsynthesis LM, and up to 4.3% over RL-based models trained with standard PPO or\nCodeRL.",
+        "translated": ""
+    },
+    {
+        "title": "Explainability, Interpretability, Depression detection, Social Media",
+        "url": "http://arxiv.org/abs/2310.13664v1",
+        "pub_date": "2023-10-20",
+        "summary": "Users of social platforms often perceive these sites as supportive spaces to\npost about their mental health issues. Those conversations contain important\ntraces about individuals' health risks. Recently, researchers have exploited\nthis online information to construct mental health detection models, which aim\nto identify users at risk on platforms like Twitter, Reddit or Facebook. Most\nof these models are centred on achieving good classification results, ignoring\nthe explainability and interpretability of the decisions. Recent research has\npointed out the importance of using clinical markers, such as the use of\nsymptoms, to improve trust in the computational models by health professionals.\nIn this paper, we propose using transformer-based architectures to detect and\nexplain the appearance of depressive symptom markers in the users' writings. We\npresent two approaches: $i)$ train a model to classify, and another one to\nexplain the classifier's decision separately and $ii)$ unify the two tasks\nsimultaneously using a single model. Additionally, for this latter manner, we\nalso investigated the performance of recent conversational LLMs when using\nin-context learning. Our natural language explanations enable clinicians to\ninterpret the models' decisions based on validated symptoms, enhancing trust in\nthe automated process. We evaluate our approach using recent symptom-based\ndatasets, employing both offline and expert-in-the-loop metrics to assess the\nquality of the explanations generated by our models. The experimental results\nshow that it is possible to achieve good classification results while\ngenerating interpretable symptom-based explanations.",
+        "translated": ""
+    },
+    {
+        "title": "Arabic Dialect Identification under Scrutiny: Limitations of\n  Single-label Classification",
+        "url": "http://arxiv.org/abs/2310.13661v1",
+        "pub_date": "2023-10-20",
+        "summary": "Automatic Arabic Dialect Identification (ADI) of text has gained great\npopularity since it was introduced in the early 2010s. Multiple datasets were\ndeveloped, and yearly shared tasks have been running since 2018. However, ADI\nsystems are reported to fail in distinguishing between the micro-dialects of\nArabic. We argue that the currently adopted framing of the ADI task as a\nsingle-label classification problem is one of the main reasons for that. We\nhighlight the limitation of the incompleteness of the Dialect labels and\ndemonstrate how it impacts the evaluation of ADI systems. A manual error\nanalysis for the predictions of an ADI, performed by 7 native speakers of\ndifferent Arabic dialects, revealed that $\\approx$ 66% of the validated errors\nare not true errors. Consequently, we propose framing ADI as a multi-label\nclassification task and give recommendations for designing new ADI datasets.",
+        "translated": ""
     }
 ]
