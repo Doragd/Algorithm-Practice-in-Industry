@@ -9833,5 +9833,40 @@
         "pub_date": "2023-10-24",
         "summary": "Speech accents pose a significant challenge to state-of-the-art automatic\nspeech recognition (ASR) systems. Degradation in performance across\nunderrepresented accents is a severe deterrent to the inclusive adoption of\nASR. In this work, we propose a novel accent adaptation approach for end-to-end\nASR systems using cross-attention with a trainable set of codebooks. These\nlearnable codebooks capture accent-specific information and are integrated\nwithin the ASR encoder layers. The model is trained on accented English speech,\nwhile the test data also contained accents which were not seen during training.\nOn the Mozilla Common Voice multi-accented dataset, we show that our proposed\napproach yields significant performance gains not only on the seen English\naccents (up to $37\\%$ relative improvement in word error rate) but also on the\nunseen accents (up to $5\\%$ relative improvement in WER). Further, we\nillustrate benefits for a zero-shot transfer setup on the L2Artic dataset. We\nalso compare the performance with other approaches based on accent adversarial\ntraining.",
         "translated": ""
+    },
+    {
+        "title": "Improving Conversational Recommendation Systems via Bias Analysis and\n  Language-Model-Enhanced Data Augmentation",
+        "url": "http://arxiv.org/abs/2310.16738v1",
+        "pub_date": "2023-10-25",
+        "summary": "Conversational Recommendation System (CRS) is a rapidly growing research area\nthat has gained significant attention alongside advancements in language\nmodelling techniques. However, the current state of conversational\nrecommendation faces numerous challenges due to its relative novelty and\nlimited existing contributions. In this study, we delve into benchmark datasets\nfor developing CRS models and address potential biases arising from the\nfeedback loop inherent in multi-turn interactions, including selection bias and\nmultiple popularity bias variants. Drawing inspiration from the success of\ngenerative data via using language models and data augmentation techniques, we\npresent two novel strategies, 'Once-Aug' and 'PopNudge', to enhance model\nperformance while mitigating biases. Through extensive experiments on ReDial\nand TG-ReDial benchmark datasets, we show a consistent improvement of CRS\ntechniques with our data augmentation approaches and offer additional insights\non addressing multiple newly formulated biases.",
+        "translated": ""
+    },
+    {
+        "title": "Exploring Large Language Models for Code Explanation",
+        "url": "http://arxiv.org/abs/2310.16673v1",
+        "pub_date": "2023-10-25",
+        "summary": "Automating code documentation through explanatory text can prove highly\nbeneficial in code understanding. Large Language Models (LLMs) have made\nremarkable strides in Natural Language Processing, especially within software\nengineering tasks such as code generation and code summarization. This study\nspecifically delves into the task of generating natural-language summaries for\ncode snippets, using various LLMs. The findings indicate that Code LLMs\noutperform their generic counterparts, and zero-shot methods yield superior\nresults when dealing with datasets with dissimilar distributions between\ntraining and testing sets.",
+        "translated": ""
+    },
+    {
+        "title": "Distributionally Robust Unsupervised Dense Retrieval Training on Web\n  Graphs",
+        "url": "http://arxiv.org/abs/2310.16605v1",
+        "pub_date": "2023-10-25",
+        "summary": "This paper introduces Web-DRO, an unsupervised dense retrieval model, which\nclusters documents based on web structures and reweights the groups during\ncontrastive training. Specifically, we first leverage web graph links and\ncontrastively train an embedding model for clustering anchor-document pairs.\nThen we use Group Distributional Robust Optimization to reweight different\nclusters of anchor-document pairs, which guides the model to assign more\nweights to the group with higher contrastive loss and pay more attention to the\nworst case during training. Our experiments on MS MARCO and BEIR show that our\nmodel, Web-DRO, significantly improves the retrieval effectiveness in\nunsupervised scenarios. A comparison of clustering techniques shows that\ntraining on the web graph combining URL information reaches optimal performance\non clustering. Further analysis confirms that group weights are stable and\nvalid, indicating consistent model preferences as well as effective\nup-weighting of valuable groups and down-weighting of uninformative ones. The\ncode of this paper can be obtained from https://github.com/OpenMatch/Web-DRO.",
+        "translated": ""
+    },
+    {
+        "title": "Model-enhanced Contrastive Reinforcement Learning for Sequential\n  Recommendation",
+        "url": "http://arxiv.org/abs/2310.16566v1",
+        "pub_date": "2023-10-25",
+        "summary": "Reinforcement learning (RL) has been widely applied in recommendation systems\ndue to its potential in optimizing the long-term engagement of users. From the\nperspective of RL, recommendation can be formulated as a Markov decision\nprocess (MDP), where recommendation system (agent) can interact with users\n(environment) and acquire feedback (reward signals).However, it is impractical\nto conduct online interactions with the concern on user experience and\nimplementation complexity, and we can only train RL recommenders with offline\ndatasets containing limited reward signals and state transitions. Therefore,\nthe data sparsity issue of reward signals and state transitions is very severe,\nwhile it has long been overlooked by existing RL recommenders.Worse still, RL\nmethods learn through the trial-and-error mode, but negative feedback cannot be\nobtained in implicit feedback recommendation tasks, which aggravates the\noverestimation problem of offline RL recommender. To address these challenges,\nwe propose a novel RL recommender named model-enhanced contrastive\nreinforcement learning (MCRL). On the one hand, we learn a value function to\nestimate the long-term engagement of users, together with a conservative value\nlearning mechanism to alleviate the overestimation problem.On the other hand,\nwe construct some positive and negative state-action pairs to model the reward\nfunction and state transition function with contrastive learning to exploit the\ninternal structure information of MDP. Experiments demonstrate that the\nproposed method significantly outperforms existing offline RL and\nself-supervised RL methods with different representative backbone networks on\ntwo real-world datasets.",
+        "translated": ""
+    },
+    {
+        "title": "Faithful Path Language Modelling for Explainable Recommendation over\n  Knowledge Graph",
+        "url": "http://arxiv.org/abs/2310.16452v1",
+        "pub_date": "2023-10-25",
+        "summary": "Path reasoning methods over knowledge graphs have gained popularity for their\npotential to improve transparency in recommender systems. However, the\nresulting models still rely on pre-trained knowledge graph embeddings, fail to\nfully exploit the interdependence between entities and relations in the KG for\nrecommendation, and may generate inaccurate explanations. In this paper, we\nintroduce PEARLM, a novel approach that efficiently captures user behaviour and\nproduct-side knowledge through language modelling. With our approach, knowledge\ngraph embeddings are directly learned from paths over the KG by the language\nmodel, which also unifies entities and relations in the same optimisation\nspace. Constraints on the sequence decoding additionally guarantee path\nfaithfulness with respect to the KG. Experiments on two datasets show the\neffectiveness of our approach compared to state-of-the-art baselines. Source\ncode and datasets: AVAILABLE AFTER GETTING ACCEPTED.",
+        "translated": ""
     }
 ]
