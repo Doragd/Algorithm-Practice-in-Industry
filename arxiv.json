@@ -11247,5 +11247,40 @@
         "pub_date": "2023-11-13",
         "summary": "While large language models exhibit remarkable performance in the Question\nAnswering task, they are susceptible to hallucinations. Challenges arise when\nthese models grapple with understanding multi-hop relations in complex\nquestions or lack the necessary knowledge for a comprehensive response. To\naddress this issue, we introduce the \"Decompose-and-Query\" framework (D&amp;Q).\nThis framework guides the model to think and utilize external knowledge similar\nto ReAct, while also restricting its thinking to reliable information,\neffectively mitigating the risk of hallucinations. Experiments confirm the\neffectiveness of D&amp;Q: On our ChitChatQA dataset, D&amp;Q does not lose to ChatGPT\nin 67% of cases; on the HotPotQA question-only setting, D&amp;Q achieved an F1\nscore of 59.6%. Our code is available at\nhttps://github.com/alkaidpku/DQ-ToolQA.",
         "translated": ""
+    },
+    {
+        "title": "Retrieve and Copy: Scaling ASR Personalization to Large Catalogs",
+        "url": "http://arxiv.org/abs/2311.08402v1",
+        "pub_date": "2023-11-14",
+        "summary": "Personalization of automatic speech recognition (ASR) models is a widely\nstudied topic because of its many practical applications. Most recently,\nattention-based contextual biasing techniques are used to improve the\nrecognition of rare words and domain specific entities. However, due to\nperformance constraints, the biasing is often limited to a few thousand\nentities, restricting real-world usability. To address this, we first propose a\n\"Retrieve and Copy\" mechanism to improve latency while retaining the accuracy\neven when scaled to a large catalog. We also propose a training strategy to\novercome the degradation in recall at such scale due to an increased number of\nconfusing entities. Overall, our approach achieves up to 6% more Word Error\nRate reduction (WERR) and 3.6% absolute improvement in F1 when compared to a\nstrong baseline. Our method also allows for large catalog sizes of up to 20K\nwithout significantly affecting WER and F1-scores, while achieving at least 20%\ninference speedup per acoustic frame.",
+        "translated": ""
+    },
+    {
+        "title": "ChoralSynth: Synthetic Dataset of Choral Singing",
+        "url": "http://arxiv.org/abs/2311.08350v1",
+        "pub_date": "2023-11-14",
+        "summary": "Choral singing, a widely practiced form of ensemble singing, lacks\ncomprehensive datasets in the realm of Music Information Retrieval (MIR)\nresearch, due to challenges arising from the requirement to curate multitrack\nrecordings. To address this, we devised a novel methodology, leveraging\nstate-of-the-art synthesizers to create and curate quality renditions. The\nscores were sourced from Choral Public Domain Library(CPDL). This work is done\nin collaboration with a diverse team of musicians, software engineers and\nresearchers. The resulting dataset, complete with its associated metadata, and\nmethodology is released as part of this work, opening up new avenues for\nexploration and advancement in the field of singing voice research.",
+        "translated": ""
+    },
+    {
+        "title": "Inverse Learning with Extremely Sparse Feedback for Recommendation",
+        "url": "http://arxiv.org/abs/2311.08302v1",
+        "pub_date": "2023-11-14",
+        "summary": "Modern personalized recommendation services often rely on user feedback,\neither explicit or implicit, to improve the quality of services. Explicit\nfeedback refers to behaviors like ratings, while implicit feedback refers to\nbehaviors like user clicks. However, in the scenario of full-screen video\nviewing experiences like Tiktok and Reels, the click action is absent,\nresulting in unclear feedback from users, hence introducing noises in modeling\ntraining. Existing approaches on de-noising recommendation mainly focus on\npositive instances while ignoring the noise in a large amount of sampled\nnegative feedback. In this paper, we propose a meta-learning method to annotate\nthe unlabeled data from loss and gradient perspectives, which considers the\nnoises in both positive and negative instances. Specifically, we first propose\nan Inverse Dual Loss (IDL) to boost the true label learning and prevent the\nfalse label learning. Then we further propose an Inverse Gradient (IG) method\nto explore the correct updating gradient and adjust the updating based on\nmeta-learning. Finally, we conduct extensive experiments on both benchmark and\nindustrial datasets where our proposed method can significantly improve AUC by\n9.25% against state-of-the-art methods. Further analysis verifies the proposed\ninverse learning framework is model-agnostic and can improve a variety of\nrecommendation backbones. The source code, along with the best hyper-parameter\nsettings, is available at this link:\nhttps://github.com/Guanyu-Lin/InverseLearning.",
+        "translated": ""
+    },
+    {
+        "title": "Mixed Attention Network for Cross-domain Sequential Recommendation",
+        "url": "http://arxiv.org/abs/2311.08272v1",
+        "pub_date": "2023-11-14",
+        "summary": "In modern recommender systems, sequential recommendation leverages\nchronological user behaviors to make effective next-item suggestions, which\nsuffers from data sparsity issues, especially for new users. One promising line\nof work is the cross-domain recommendation, which trains models with data\nacross multiple domains to improve the performance in data-scarce domains.\nRecent proposed cross-domain sequential recommendation models such as PiNet and\nDASL have a common drawback relying heavily on overlapped users in different\ndomains, which limits their usage in practical recommender systems. In this\npaper, we propose a Mixed Attention Network (MAN) with local and global\nattention modules to extract the domain-specific and cross-domain information.\nFirstly, we propose a local/global encoding layer to capture the\ndomain-specific/cross-domain sequential pattern. Then we propose a mixed\nattention layer with item similarity attention, sequence-fusion attention, and\ngroup-prototype attention to capture the local/global item similarity, fuse the\nlocal/global item sequence, and extract the user groups across different\ndomains, respectively. Finally, we propose a local/global prediction layer to\nfurther evolve and combine the domain-specific and cross-domain interests.\nExperimental results on two real-world datasets (each with two domains)\ndemonstrate the superiority of our proposed model. Further study also\nillustrates that our proposed method and components are model-agnostic and\neffective, respectively. The code and data are available at\nhttps://github.com/Guanyu-Lin/MAN.",
+        "translated": ""
+    },
+    {
+        "title": "REST: Retrieval-Based Speculative Decoding",
+        "url": "http://arxiv.org/abs/2311.08252v1",
+        "pub_date": "2023-11-14",
+        "summary": "We introduce Retrieval-Based Speculative Decoding (REST), a novel algorithm\ndesigned to speed up language model generation. The key insight driving the\ndevelopment of REST is the observation that the process of text generation\noften includes certain common phases and patterns. Unlike previous methods that\nrely on a draft language model for speculative decoding, REST harnesses the\npower of retrieval to generate draft tokens. This method draws from the\nreservoir of existing knowledge, retrieving and employing relevant tokens based\non the current context. Its plug-and-play nature allows for seamless\nintegration and acceleration of any language models, all without necessitating\nadditional training. When benchmarked on 7B and 13B language models in a\nsingle-batch setting, REST achieves a significant speedup of 1.62X to 2.36X on\ncode or text generation. The code of REST is available at\nhttps://github.com/FasterDecoding/REST.",
+        "translated": ""
     }
 ]
