@@ -55,6 +55,23 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 阿里 | [融合复杂目标且支持实时调控的重排模型](https://mp.weixin.qq.com/s/kRmTthX9jLB8sHC32UJWfw) | 召回 | 2023-11-14 |
+| 阿里妈妈 | [BOMGraph：基于统一图神经网络的电商多场景召回方法](https://mp.weixin.qq.com/s/Grd0PyAYmrlvc6SQLASFrg) | 召回 | 2023-11-01 |
+| 阿里妈妈 | [HC^2：基于混合对比学习的多场景广告预估建模](https://mp.weixin.qq.com/s/8Mg3lt4t2j5dtFKCsRet4g) | 广告 | 2023-11-15 |
+| 阿里妈妈 | [基于特征自适应的多场景预估建模](https://mp.weixin.qq.com/s/dDHdQFBoSTxIE_M_hPSh5w) | 多场景排序 | 2023-07-05 |
+| 阿里妈妈 | [阿里妈妈展示广告召回之多场景建模算法](https://mp.weixin.qq.com/s/LH4XI9DZXq77NvSvaoYfLQ) | 召回 | 2022-12-07 |
+| 阿里 | [CMDM：基于异构序列融合的多兴趣深度召回模型在内容平台的探索和实践](https://mp.weixin.qq.com/s/IwzizxkRQbo1Kv28wVGQag) | 召回 | 2021-12-07 |
+| 爱奇艺 | [爱奇艺效果广告双出价优化历程](https://mp.weixin.qq.com/s/brTPvcm6_yjwoXAme2kUdA) | 广告 | 2023-10-20 |
+| 爱奇艺 | [如何提升链路目标一致性？爱奇艺短视频推荐之粗排模型优化历程](https://mp.weixin.qq.com/s/LZlskUK4dmOd5fLTZIATnQ) | 粗排 | 2021-02-26 |
+| 爱奇艺 | [爱奇艺短视频推荐技术中多兴趣召回技术的演变](https://mp.weixin.qq.com/s/T2G8L820haEbvXgryvEWHg) | 召回 | 2021-04-23 |
+| 爱奇艺 | [爱奇艺搜索排序算法实践](https://mp.weixin.qq.com/s/gvFagKMgGKE2ZFic1znQWg) | 搜索 | 2021-07-30 |
+| 爱奇艺 | [多目标排序在爱奇艺短视频推荐中的应用](https://mp.weixin.qq.com/s/JOQdyQDCFStWXdxTckUa5Q) | 搜索 | 2021-06-25 |
+| 得物 | [得物多场景统一推荐技术演进](https://mp.weixin.qq.com/s/Aj5rY1ziLqvPnZ6zNAHvFw) | 推荐 | 2023-06-09 |
+| 得物 | [得物App相关推荐价格体验优化](https://mp.weixin.qq.com/s/J9gEmRWsjE8eZHpHvSHOlQ) | 推荐 | 2023-05-10 |
+| 得物 | [得物社区推荐精排模型演进](https://mp.weixin.qq.com/s/tX8fq3Az_n5NcnPlEpzA-Q) | 推荐 | 2023-01-11 |
+| 得物 | [得物分类TAB商品流多目标排序模型的演进](https://mp.weixin.qq.com/s/URIjMVSA4gJ6EBWk4Tp6tA) | 推荐 | 2022-07-01 |
+| 得物 | [得物多兴趣召回模型实践](https://mp.weixin.qq.com/s/oEcreSx5_XsN9x4Nkv7cOw) | 推荐 | 2022-05-18 |
+| 得物 | [得物社区推荐多目标排序初探](https://mp.weixin.qq.com/s/3_RmSyl_3wIAH3lW_XKEyA) | 推荐 | 2021-12-27 |
 | 美团 | [大规模异构图召回在美团到店推荐广告的应用](https://mp.weixin.qq.com/s/9HZZQCVd-bMRrR6mCanaog) | 召回 | 2022-11-24 |
 | 美团 | [美团外卖搜索基于Elasticsearch的优化实践](https://mp.weixin.qq.com/s/6k8THshasaYfSaLr58O1NA) | 搜索 | 2022-11-17 |
 | 美团 | [图技术在美团外卖下的场景化应用及探索](https://mp.weixin.qq.com/s/7bCrFHNeQ3_2kLlvzb5l3w) | 搜索 | 2022-09-08 |
