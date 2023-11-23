@@ -11793,5 +11793,75 @@
         "pub_date": "2023-11-21",
         "summary": "In recent years, Recommender Systems(RS) have witnessed a transformative\nshift with the advent of Large Language Models(LLMs) in the field of Natural\nLanguage Processing(NLP). These models such as OpenAI's GPT-3.5/4, Llama from\nMeta, have demonstrated unprecedented capabilities in understanding and\ngenerating human-like text. This has led to a paradigm shift in the realm of\npersonalized and explainable recommendations, as LLMs offer a versatile toolset\nfor processing vast amounts of textual data to enhance user experiences. To\nprovide a comprehensive understanding of the existing LLM-based recommendation\nsystems, this survey aims to analyze how RS can benefit from LLM-based\nmethodologies. Furthermore, we describe major challenges in Personalized\nExplanation Generating(PEG) tasks, which are cold-start problems, unfairness\nand bias problems in RS.",
         "translated": ""
+    },
+    {
+        "title": "LowResource at BLP-2023 Task 2: Leveraging BanglaBert for Low Resource\n  Sentiment Analysis of Bangla Language",
+        "url": "http://arxiv.org/abs/2311.12735v1",
+        "pub_date": "2023-11-21",
+        "summary": "This paper describes the system of the LowResource Team for Task 2 of\nBLP-2023, which involves conducting sentiment analysis on a dataset composed of\npublic posts and comments from diverse social media platforms. Our primary aim\nis to utilize BanglaBert, a BERT model pre-trained on a large Bangla corpus,\nusing various strategies including fine-tuning, dropping random tokens, and\nusing several external datasets. Our final model is an ensemble of the three\nbest BanglaBert variations. Our system has achieved overall 3rd in the Test Set\namong 30 participating teams with a score of 0.718. Additionally, we discuss\nthe promising systems that didn't perform well namely task-adaptive pertaining\nand paraphrasing using BanglaT5. Training codes and external datasets which are\nused for our system are publicly available at\nhttps://github.com/Aunabil4602/bnlp-workshop-task2-2023",
+        "translated": ""
+    },
+    {
+        "title": "Soft Random Sampling: A Theoretical and Empirical Analysis",
+        "url": "http://arxiv.org/abs/2311.12727v1",
+        "pub_date": "2023-11-21",
+        "summary": "Soft random sampling (SRS) is a simple yet effective approach for efficient\ntraining of large-scale deep neural networks when dealing with massive data.\nSRS selects a subset uniformly at random with replacement from the full data\nset in each epoch. In this paper, we conduct a theoretical and empirical\nanalysis of SRS. First, we analyze its sampling dynamics including data\ncoverage and occupancy. Next, we investigate its convergence with non-convex\nobjective functions and give the convergence rate. Finally, we provide its\ngeneralization performance. We empirically evaluate SRS for image recognition\non CIFAR10 and automatic speech recognition on Librispeech and an in-house\npayload dataset to demonstrate its effectiveness. Compared to existing\ncoreset-based data selection methods, SRS offers a better accuracy-efficiency\ntrade-off. Especially on real-world industrial scale data sets, it is shown to\nbe a powerful training strategy with significant speedup and competitive\nperformance with almost no additional computing cost.",
+        "translated": ""
+    },
+    {
+        "title": "Keeping Users Engaged During Repeated Administration of the Same\n  Questionnaire: Using Large Language Models to Reliably Diversify Questions",
+        "url": "http://arxiv.org/abs/2311.12707v1",
+        "pub_date": "2023-11-21",
+        "summary": "Standardized, validated questionnaires are vital tools in HCI research and\nhealthcare, offering dependable self-report data. However, their repeated use\nin longitudinal or pre-post studies can induce respondent fatigue, impacting\ndata quality via response biases and decreased response rates. We propose\nutilizing large language models (LLMs) to generate diverse questionnaire\nversions while retaining good psychometric properties. In a longitudinal study,\nparticipants engaged with our agent system and responded daily for two weeks to\neither a standardized depression questionnaire or one of two LLM-generated\nquestionnaire variants, alongside a validated depression questionnaire.\nPsychometric testing revealed consistent covariation between the external\ncriterion and the focal measure administered across the three conditions,\ndemonstrating the reliability and validity of the LLM-generated variants.\nParticipants found the repeated administration of the standardized\nquestionnaire significantly more repetitive compared to the variants. Our\nfindings highlight the potential of LLM-generated variants to invigorate\nquestionnaires, fostering engagement and interest without compromising\nvalidity.",
+        "translated": ""
+    },
+    {
+        "title": "Can Large Language Models Understand Content and Propagation for\n  Misinformation Detection: An Empirical Study",
+        "url": "http://arxiv.org/abs/2311.12699v1",
+        "pub_date": "2023-11-21",
+        "summary": "Large Language Models (LLMs) have garnered significant attention for their\npowerful ability in natural language understanding and reasoning. In this\npaper, we present a comprehensive empirical study to explore the performance of\nLLMs on misinformation detection tasks. This study stands as the pioneering\ninvestigation into the understanding capabilities of multiple LLMs regarding\nboth content and propagation across social media platforms. Our empirical\nstudies on five misinformation detection datasets show that LLMs with diverse\nprompts achieve comparable performance in text-based misinformation detection\nbut exhibit notably constrained capabilities in comprehending propagation\nstructure compared to existing models in propagation-based misinformation\ndetection. Besides, we further design four instruction-tuned strategies to\nenhance LLMs for both content and propagation-based misinformation detection.\nThese strategies boost LLMs to actively learn effective features from multiple\ninstances or hard instances, and eliminate irrelevant propagation structures,\nthereby achieving better detection performance. Extensive experiments further\ndemonstrate LLMs would play a better capacity in content and propagation\nstructure under these proposed strategies and achieve promising detection\nperformance. These findings highlight the potential ability of LLMs to detect\nmisinformation.",
+        "translated": ""
+    },
+    {
+        "title": "Fair Text Classification with Wasserstein Independence",
+        "url": "http://arxiv.org/abs/2311.12689v1",
+        "pub_date": "2023-11-21",
+        "summary": "Group fairness is a central research topic in text classification, where\nreaching fair treatment between sensitive groups (e.g. women vs. men) remains\nan open challenge. This paper presents a novel method for mitigating biases in\nneural text classification, agnostic to the model architecture. Considering the\ndifficulty to distinguish fair from unfair information in a text encoder, we\ntake inspiration from adversarial training to induce Wasserstein independence\nbetween representations learned to predict our target label and the ones\nlearned to predict some sensitive attribute. Our approach provides two\nsignificant advantages. Firstly, it does not require annotations of sensitive\nattributes in both testing and training data. This is more suitable for\nreal-life scenarios compared to existing methods that require annotations of\nsensitive attributes at train time. Second, our approach exhibits a comparable\nor better fairness-accuracy trade-off compared to existing methods.",
+        "translated": ""
+    },
+    {
+        "title": "The DURel Annotation Tool: Human and Computational Measurement of\n  Semantic Proximity, Sense Clusters and Semantic Change",
+        "url": "http://arxiv.org/abs/2311.12664v1",
+        "pub_date": "2023-11-21",
+        "summary": "We present the DURel tool that implements the annotation of semantic\nproximity between uses of words into an online, open source interface. The tool\nsupports standardized human annotation as well as computational annotation,\nbuilding on recent advances with Word-in-Context models. Annotator judgments\nare clustered with automatic graph clustering techniques and visualized for\nanalysis. This allows to measure word senses with simple and intuitive\nmicro-task judgments between use pairs, requiring minimal preparation efforts.\nThe tool offers additional functionalities to compare the agreement between\nannotators to guarantee the inter-subjectivity of the obtained judgments and to\ncalculate summary statistics giving insights into sense frequency\ndistributions, semantic variation or changes of senses over time.",
+        "translated": ""
+    },
+    {
+        "title": "MathGloss: Building mathematical glossaries from text",
+        "url": "http://arxiv.org/abs/2311.12649v1",
+        "pub_date": "2023-11-21",
+        "summary": "MathGloss is a project to create a knowledge graph (KG) for undergraduate\nmathematics from text, automatically, using modern natural language processing\n(NLP) tools and resources already available on the web. MathGloss is a linked\ndatabase of undergraduate concepts in mathematics. So far, it combines five\nresources: (i) Wikidata, a collaboratively edited, multilingual knowledge graph\nhosted by the Wikimedia Foundation, (ii) terms covered in mathematics courses\nat the University of Chicago, (iii) the syllabus of the French undergraduate\nmathematics curriculum which includes hyperlinks to the automated theorem\nprover Lean 4, (iv) MuLiMa, a multilingual dictionary of mathematics curated by\nmathematicians, and (v) the nLab, a wiki for category theory also curated by\nmathematicians. MathGloss's goal is to bring together resources for learning\nmathematics and to allow every mathematician to tailor their learning to their\nown preferences. Moreover, by organizing different resources for learning\nundergraduate mathematics alongside those for learning formal mathematics, we\nhope to make it easier for mathematicians and formal tools (theorem provers,\ncomputer algebra systems, etc) experts to \"understand\" each other and break\ndown some of the barriers to formal math.",
+        "translated": ""
+    },
+    {
+        "title": "IMGTB: A Framework for Machine-Generated Text Detection Benchmarking",
+        "url": "http://arxiv.org/abs/2311.12574v1",
+        "pub_date": "2023-11-21",
+        "summary": "In the era of large language models generating high quality texts, it is a\nnecessity to develop methods for detection of machine-generated text to avoid\nharmful use or simply due to annotation purposes. It is, however, also\nimportant to properly evaluate and compare such developed methods. Recently, a\nfew benchmarks have been proposed for this purpose; however, integration of\nnewest detection methods is rather challenging, since new methods appear each\nmonth and provide slightly different evaluation pipelines. In this paper, we\npresent the IMGTB framework, which simplifies the benchmarking of\nmachine-generated text detection methods by easy integration of custom (new)\nmethods and evaluation datasets. Its configurability and flexibility makes\nresearch and development of new detection methods easier, especially their\ncomparison to the existing state-of-the-art detectors. The default set of\nanalyses, metrics and visualizations offered by the tool follows the\nestablished practices of machine-generated text detection benchmarking found in\nstate-of-the-art literature.",
+        "translated": ""
+    },
+    {
+        "title": "In-Context Learning Functions with Varying Number of Minima",
+        "url": "http://arxiv.org/abs/2311.12538v1",
+        "pub_date": "2023-11-21",
+        "summary": "Large Language Models (LLMs) have proven effective at In-Context Learning\n(ICL), an ability that allows them to create predictors from labeled examples.\nFew studies have explored the interplay between ICL and specific properties of\nfunctions it attempts to approximate. In our study, we use a formal framework\nto explore ICL and propose a new task of approximating functions with varying\nnumber of minima. We implement a method that allows for producing functions\nwith given inputs as minima. We find that increasing the number of minima\ndegrades ICL performance. At the same time, our evaluation shows that ICL\noutperforms 2-layer Neural Network (2NN) model. Furthermore, ICL learns faster\nthan 2NN in all settings. We validate the findings through a set of few-shot\nexperiments across various hyperparameter configurations.",
+        "translated": ""
+    },
+    {
+        "title": "Oasis: Data Curation and Assessment System for Pretraining of Large\n  Language Models",
+        "url": "http://arxiv.org/abs/2311.12537v1",
+        "pub_date": "2023-11-21",
+        "summary": "Data is one of the most critical elements in building a large language model.\nHowever, existing systems either fail to customize a corpus curation pipeline\nor neglect to leverage comprehensive corpus assessment for iterative\noptimization of the curation. To this end, we present a pretraining corpus\ncuration and assessment platform called Oasis -- a one-stop system for data\nquality improvement and quantification with user-friendly interactive\ninterfaces. Specifically, the interactive modular rule filter module can devise\ncustomized rules according to explicit feedback. The debiased neural filter\nmodule builds the quality classification dataset in a negative-centric manner\nto remove the undesired bias. The adaptive document deduplication module could\nexecute large-scale deduplication with limited memory resources. These three\nparts constitute the customized data curation module. And in the holistic data\nassessment module, a corpus can be assessed in local and global views, with\nthree evaluation means including human, GPT-4, and heuristic metrics. We\nexhibit a complete process to use Oasis for the curation and assessment of\npretraining data. In addition, an 800GB bilingual corpus curated by Oasis is\npublicly released.",
+        "translated": ""
     }
 ]
