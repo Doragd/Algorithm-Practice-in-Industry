@@ -12269,5 +12269,75 @@
         "pub_date": "2023-11-28",
         "summary": "Existing information retrieval (IR) models often assume a homogeneous format,\nlimiting their applicability to diverse user needs, such as searching for\nimages with text descriptions, searching for a news article with a headline\nimage, or finding a similar photo with a query image. To approach such\ndifferent information-seeking demands, we introduce UniIR, a unified\ninstruction-guided multimodal retriever capable of handling eight distinct\nretrieval tasks across modalities. UniIR, a single retrieval system jointly\ntrained on ten diverse multimodal-IR datasets, interprets user instructions to\nexecute various retrieval tasks, demonstrating robust performance across\nexisting datasets and zero-shot generalization to new tasks. Our experiments\nhighlight that multi-task training and instruction tuning are keys to UniIR's\ngeneralization ability. Additionally, we construct the M-BEIR, a multimodal\nretrieval benchmark with comprehensive results, to standardize the evaluation\nof universal multimodal information retrieval.",
         "translated": ""
+    },
+    {
+        "title": "Knowledge Pursuit Prompting for Zero-Shot Multimodal Synthesis",
+        "url": "http://arxiv.org/abs/2311.17898v1",
+        "pub_date": "2023-11-29",
+        "summary": "Hallucinations and unfaithful synthesis due to inaccurate prompts with\ninsufficient semantic details are widely observed in multimodal generative\nmodels. A prevalent strategy to align multiple modalities is to fine-tune the\ngenerator with a large number of annotated text-image pairs. However, such a\nprocedure is labor-consuming and resource-draining. The key question we ask is:\ncan we enhance the quality and faithfulness of text-driven generative models\nbeyond extensive text-image pair annotations? To address this question, we\npropose Knowledge Pursuit Prompting (KPP), a zero-shot framework that\niteratively incorporates external knowledge to help generators produce reliable\nvisual content. Instead of training generators to handle generic prompts, KPP\nemploys a recursive knowledge query process to gather informative external\nfacts from the knowledge base, instructs a language model to compress the\nacquired knowledge for prompt refinement, and utilizes text-driven generators\nfor visual synthesis. The entire process is zero-shot, without accessing the\narchitectures and parameters of generative models. We evaluate the framework\nacross multiple text-driven generative tasks (image, 3D rendering, and video)\non datasets of different domains. We further demonstrate the extensibility and\nadaptability of KPP through varying foundation model bases and instructions.\nOur results show that KPP is capable of generating faithful and semantically\nrich content across diverse visual domains, offering a promising solution to\nimprove multimodal generative models.",
+        "translated": ""
+    },
+    {
+        "title": "A Pipeline For Discourse Circuits From CCG",
+        "url": "http://arxiv.org/abs/2311.17892v1",
+        "pub_date": "2023-11-29",
+        "summary": "There is a significant disconnect between linguistic theory and modern NLP\npractice, which relies heavily on inscrutable black-box architectures.\nDisCoCirc is a newly proposed model for meaning that aims to bridge this\ndivide, by providing neuro-symbolic models that incorporate linguistic\nstructure. DisCoCirc represents natural language text as a `circuit' that\ncaptures the core semantic information of the text. These circuits can then be\ninterpreted as modular machine learning models. Additionally, DisCoCirc fulfils\nanother major aim of providing an NLP model that can be implemented on\nnear-term quantum computers.\n  In this paper we describe a software pipeline that converts English text to\nits DisCoCirc representation. The pipeline achieves coverage over a large\nfragment of the English language. It relies on Combinatory Categorial Grammar\n(CCG) parses of the input text as well as coreference resolution information.\nThis semantic and syntactic information is used in several steps to convert the\ntext into a simply-typed $\\lambda$-calculus term, and then into a circuit\ndiagram. This pipeline will enable the application of the DisCoCirc framework\nto NLP tasks, using both classical and quantum approaches.",
+        "translated": ""
+    },
+    {
+        "title": "Look Before You Leap: Unveiling the Power of GPT-4V in Robotic\n  Vision-Language Planning",
+        "url": "http://arxiv.org/abs/2311.17842v1",
+        "pub_date": "2023-11-29",
+        "summary": "In this study, we are interested in imbuing robots with the capability of\nphysically-grounded task planning. Recent advancements have shown that large\nlanguage models (LLMs) possess extensive knowledge useful in robotic tasks,\nespecially in reasoning and planning. However, LLMs are constrained by their\nlack of world grounding and dependence on external affordance models to\nperceive environmental information, which cannot jointly reason with LLMs. We\nargue that a task planner should be an inherently grounded, unified multimodal\nsystem. To this end, we introduce Robotic Vision-Language Planning (ViLa), a\nnovel approach for long-horizon robotic planning that leverages vision-language\nmodels (VLMs) to generate a sequence of actionable steps. ViLa directly\nintegrates perceptual data into its reasoning and planning process, enabling a\nprofound understanding of commonsense knowledge in the visual world, including\nspatial layouts and object attributes. It also supports flexible multimodal\ngoal specification and naturally incorporates visual feedback. Our extensive\nevaluation, conducted in both real-robot and simulated environments,\ndemonstrates ViLa's superiority over existing LLM-based planners, highlighting\nits effectiveness in a wide array of open-world manipulation tasks.",
+        "translated": ""
+    },
+    {
+        "title": "Higher-Order DisCoCat (Peirce-Lambek-Montague semantics)",
+        "url": "http://arxiv.org/abs/2311.17813v1",
+        "pub_date": "2023-11-29",
+        "summary": "We propose a new definition of higher-order DisCoCat (categorical\ncompositional distributional) models where the meaning of a word is not a\ndiagram, but a diagram-valued higher-order function. Our models can be seen as\na variant of Montague semantics based on a lambda calculus where the primitives\nact on string diagrams rather than logical formulae. As a special case, we show\nhow to translate from the Lambek calculus into Peirce's system beta for\nfirst-order logic. This allows us to give a purely diagrammatic treatment of\nhigher-order and non-linear processes in natural language semantics: adverbs,\nprepositions, negation and quantifiers. The theoretical definition presented in\nthis article comes with a proof-of-concept implementation in DisCoPy, the\nPython library for string diagrams.",
+        "translated": ""
+    },
+    {
+        "title": "DSS: Synthesizing long Digital Ink using Data augmentation, Style\n  encoding and Split generation",
+        "url": "http://arxiv.org/abs/2311.17786v1",
+        "pub_date": "2023-11-29",
+        "summary": "As text generative models can give increasingly long answers, we tackle the\nproblem of synthesizing long text in digital ink. We show that the commonly\nused models for this task fail to generalize to long-form data and how this\nproblem can be solved by augmenting the training data, changing the model\narchitecture and the inference procedure. These methods use contrastive\nlearning technique and are tailored specifically for the handwriting domain.\nThey can be applied to any encoder-decoder model that works with digital ink.\nWe demonstrate that our method reduces the character error rate on long-form\nEnglish data by half compared to baseline RNN and by 16% compared to the\nprevious approach that aims at addressing the same problem. We show that all\nthree parts of the method improve recognizability of generated inks. In\naddition, we evaluate synthesized data in a human study and find that people\nperceive most of generated data as real.",
+        "translated": ""
+    },
+    {
+        "title": "Supervising the Centroid Baseline for Extractive Multi-Document\n  Summarization",
+        "url": "http://arxiv.org/abs/2311.17771v1",
+        "pub_date": "2023-11-29",
+        "summary": "The centroid method is a simple approach for extractive multi-document\nsummarization and many improvements to its pipeline have been proposed. We\nfurther refine it by adding a beam search process to the sentence selection and\nalso a centroid estimation attention model that leads to improved results. We\ndemonstrate this in several multi-document summarization datasets, including in\na multilingual scenario.",
+        "translated": ""
+    },
+    {
+        "title": "Mukhyansh: A Headline Generation Dataset for Indic Languages",
+        "url": "http://arxiv.org/abs/2311.17743v1",
+        "pub_date": "2023-11-29",
+        "summary": "The task of headline generation within the realm of Natural Language\nProcessing (NLP) holds immense significance, as it strives to distill the true\nessence of textual content into concise and attention-grabbing summaries. While\nnoteworthy progress has been made in headline generation for widely spoken\nlanguages like English, there persist numerous challenges when it comes to\ngenerating headlines in low-resource languages, such as the rich and diverse\nIndian languages. A prominent obstacle that specifically hinders headline\ngeneration in Indian languages is the scarcity of high-quality annotated data.\nTo address this crucial gap, we proudly present Mukhyansh, an extensive\nmultilingual dataset, tailored for Indian language headline generation.\nComprising an impressive collection of over 3.39 million article-headline\npairs, Mukhyansh spans across eight prominent Indian languages, namely Telugu,\nTamil, Kannada, Malayalam, Hindi, Bengali, Marathi, and Gujarati. We present a\ncomprehensive evaluation of several state-of-the-art baseline models.\nAdditionally, through an empirical analysis of existing works, we demonstrate\nthat Mukhyansh outperforms all other models, achieving an impressive average\nROUGE-L score of 31.43 across all 8 languages.",
+        "translated": ""
+    },
+    {
+        "title": "End-to-end Joint Rich and Normalized ASR with a limited amount of rich\n  training data",
+        "url": "http://arxiv.org/abs/2311.17741v1",
+        "pub_date": "2023-11-29",
+        "summary": "Joint rich and normalized automatic speech recognition (ASR), that produces\ntranscriptions both with and without punctuation and capitalization, remains a\nchallenge. End-to-end (E2E) ASR models offer both convenience and the ability\nto perform such joint transcription of speech. Training such models requires\npaired speech and rich text data, which is not widely available. In this paper,\nwe compare two different approaches to train a stateless Transducer-based E2E\njoint rich and normalized ASR system, ready for streaming applications, with a\nlimited amount of rich labeled data. The first approach uses a language model\nto generate pseudo-rich transcriptions of normalized training data. The second\napproach uses a single decoder conditioned on the type of the output. The first\napproach leads to E2E rich ASR which perform better on out-of-domain data, with\nup to 9% relative reduction in errors. The second approach demonstrates the\nfeasibility of an E2E joint rich and normalized ASR system using as low as 5%\nrich training data with moderate (2.42% absolute) increase in errors.",
+        "translated": ""
+    },
+    {
+        "title": "SenTest: Evaluating Robustness of Sentence Encoders",
+        "url": "http://arxiv.org/abs/2311.17722v1",
+        "pub_date": "2023-11-29",
+        "summary": "Contrastive learning has proven to be an effective method for pre-training\nmodels using weakly labeled data in the vision domain. Sentence transformers\nare the NLP counterparts to this architecture, and have been growing in\npopularity due to their rich and effective sentence representations. Having\neffective sentence representations is paramount in multiple tasks, such as\ninformation retrieval, retrieval augmented generation (RAG), and sentence\ncomparison. Keeping in mind the deployability factor of transformers,\nevaluating the robustness of sentence transformers is of utmost importance.\nThis work focuses on evaluating the robustness of the sentence encoders. We\nemploy several adversarial attacks to evaluate its robustness. This system uses\ncharacter-level attacks in the form of random character substitution,\nword-level attacks in the form of synonym replacement, and sentence-level\nattacks in the form of intra-sentence word order shuffling. The results of the\nexperiments strongly undermine the robustness of sentence encoders. The models\nproduce significantly different predictions as well as embeddings on perturbed\ndatasets. The accuracy of the models can fall up to 15 percent on perturbed\ndatasets as compared to unperturbed datasets. Furthermore, the experiments\ndemonstrate that these embeddings does capture the semantic and syntactic\nstructure (sentence order) of sentences. However, existing supervised\nclassification strategies fail to leverage this information, and merely\nfunction as n-gram detectors.",
+        "translated": ""
+    },
+    {
+        "title": "How to Build an AI Tutor that Can Adapt to Any Course and Provide\n  Accurate Answers Using Large Language Model and Retrieval-Augmented\n  Generation",
+        "url": "http://arxiv.org/abs/2311.17696v1",
+        "pub_date": "2023-11-29",
+        "summary": "Artificial intelligence is transforming education through data-driven,\npersonalized learning solutions. This paper introduces AI Tutor, an innovative\nweb application that provides personalized tutoring in any subject using\nstate-of-the-art Large Language Model (LLM). AI Tutor ingests course materials\nto construct an adaptive knowledge base tailored to the course. When students\npose questions, it retrieves the most relevant information and generates\ndetailed, conversational responses citing supporting evidence. The system is\npowered by advanced large language models and Retrieval-Augmented Generation\n(RAG) techniques for accurate, natural question answering. We present a\nfully-functional web interface and video demonstration that showcase AI Tutor's\nversatility across diverse subjects and its ability to produce pedagogically\ncogent responses. While an initial prototype, this work represents a pioneering\nstep toward AI-enabled tutoring systems that can democratize access to\nhigh-quality, customized educational support.",
+        "translated": ""
     }
 ]
