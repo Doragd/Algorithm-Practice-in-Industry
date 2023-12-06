@@ -12577,5 +12577,75 @@
         "pub_date": "2023-12-04",
         "summary": "Practitioners who wish to build real-world applications that rely on ranking\nmodels, need to decide which modelling paradigm to follow. This is not an easy\nchoice to make, as the research literature on this topic has been shifting in\nrecent years. In particular, whilst Gradient Boosted Decision Trees (GBDTs)\nhave reigned supreme for more than a decade, the flexibility of neural networks\nhas allowed them to catch up, and recent works report accuracy metrics that are\non par. Nevertheless, practical systems require considerations beyond mere\naccuracy metrics to decide on a modelling approach.\n  This work describes our experiences in balancing some of the trade-offs that\narise, presenting a case study on a short-video recommendation application. We\nhighlight (1) neural networks' ability to handle large training data size,\nuser- and item-embeddings allows for more accurate models than GBDTs in this\nsetting, and (2) because GBDTs are less reliant on specialised hardware, they\ncan provide an equally accurate model at a lower cost. We believe these\nfindings are of relevance to researchers in both academia and industry, and\nhope they can inspire practitioners who need to make similar modelling choices\nin the future.",
         "translated": ""
+    },
+    {
+        "title": "Generative Powers of Ten",
+        "url": "http://arxiv.org/abs/2312.02149v1",
+        "pub_date": "2023-12-04",
+        "summary": "We present a method that uses a text-to-image model to generate consistent\ncontent across multiple image scales, enabling extreme semantic zooms into a\nscene, e.g., ranging from a wide-angle landscape view of a forest to a macro\nshot of an insect sitting on one of the tree branches. We achieve this through\na joint multi-scale diffusion sampling approach that encourages consistency\nacross different scales while preserving the integrity of each individual\nsampling process. Since each generated scale is guided by a different text\nprompt, our method enables deeper levels of zoom than traditional\nsuper-resolution methods that may struggle to create new contextual structure\nat vastly different scales. We compare our method qualitatively with\nalternative techniques in image super-resolution and outpainting, and show that\nour method is most effective at generating consistent multi-scale content.",
+        "translated": ""
+    },
+    {
+        "title": "Competition-Level Problems Are Effective Evaluators of LLMs",
+        "url": "http://arxiv.org/abs/2312.02143v1",
+        "pub_date": "2023-12-04",
+        "summary": "Large language models (LLMs) have demonstrated impressive reasoning\ncapabilities, yet there is ongoing debate about these abilities and the\npotential data contamination problem recently. This paper aims to evaluate the\nreasoning capacities of LLMs, specifically in solving recent competition-level\nprogramming problems in Codeforces, which are expert-crafted and unique,\nrequiring deep understanding and robust reasoning skills. We first provide a\ncomprehensive evaluation of GPT-4's peiceived zero-shot performance on this\ntask, considering various aspects such as problems' release time, difficulties,\nand types of errors encountered. Surprisingly, the peiceived performance of\nGPT-4 has experienced a cliff like decline in problems after September 2021\nconsistently across all the difficulties and types of problems, which shows the\npotential data contamination, as well as the challenges for any existing LLM to\nsolve unseen complex reasoning problems. We further explore various approaches\nsuch as fine-tuning, Chain-of-Thought prompting and problem description\nsimplification, unfortunately none of them is able to consistently mitigate the\nchallenges. Through our work, we emphasis the importance of this excellent data\nsource for assessing the genuine reasoning capabilities of LLMs, and foster the\ndevelopment of LLMs with stronger reasoning abilities and better generalization\nin the future.",
+        "translated": ""
+    },
+    {
+        "title": "TPPoet: Transformer-Based Persian Poem Generation using Minimal Data and\n  Advanced Decoding Techniques",
+        "url": "http://arxiv.org/abs/2312.02125v1",
+        "pub_date": "2023-12-04",
+        "summary": "Recent advances in language models (LMs), have demonstrated significant\nefficacy in tasks related to the arts and humanities. While LMs have exhibited\nexceptional performance across a wide range of natural language processing\ntasks, there are notable challenges associated with their utilization on small\ndatasets and their ability to replicate more creative human capacities. In this\nstudy, we aim to address these challenges by training a Persian classical\npoetry generation model using a transformer architecture on a specialized\ndataset with no pretraining. Additionally, we propose a novel decoding method\nto enhance coherence and meaningfulness in the generated poetry, effectively\nmanaging the tradeoff between diversity and quality. Furthermore, the results\nof our training approach and the proposed decoding method are evaluated through\ncomprehensive set of automatic and human evaluations and showed its superior\ncapability to generate coherent and meaningful poetry in compare to other\ndecoding methods and an existing Persian large language model (LLM).",
+        "translated": ""
+    },
+    {
+        "title": "Magicoder: Source Code Is All You Need",
+        "url": "http://arxiv.org/abs/2312.02120v1",
+        "pub_date": "2023-12-04",
+        "summary": "We introduce Magicoder, a series of fully open-source (code, weights, and\ndata) Large Language Models (LLMs) for code that significantly closes the gap\nwith top code models while having no more than 7B parameters. Magicoder models\nare trained on 75K synthetic instruction data using OSS-Instruct, a novel\napproach to enlightening LLMs with open-source code snippets to generate\nhigh-quality instruction data for code. Our main motivation is to mitigate the\ninherent bias of the synthetic data generated by LLMs by empowering them with a\nwealth of open-source references for the production of more diverse, realistic,\nand controllable data. The orthogonality of OSS-Instruct and other data\ngeneration methods like Evol-Instruct further enables us to build an enhanced\nMagicoderS. Both Magicoder and MagicoderS substantially outperform\nstate-of-the-art code models with similar or even larger sizes on a wide range\nof coding benchmarks, including Python text-to-code generation, multilingual\ncoding, and data-science program completion. Notably, MagicoderS-CL-7B based on\nCodeLlama even surpasses the prominent ChatGPT on HumanEval+ (66.5 vs. 65.9 in\npass@1). Overall, OSS-Instruct opens a new direction for low-bias and\nhigh-quality instruction tuning using abundant open-source references.",
+        "translated": ""
+    },
+    {
+        "title": "Tree of Attacks: Jailbreaking Black-Box LLMs Automatically",
+        "url": "http://arxiv.org/abs/2312.02119v1",
+        "pub_date": "2023-12-04",
+        "summary": "While Large Language Models (LLMs) display versatile functionality, they\ncontinue to generate harmful, biased, and toxic content, as demonstrated by the\nprevalence of human-designed jailbreaks. In this work, we present Tree of\nAttacks with Pruning (TAP), an automated method for generating jailbreaks that\nonly requires black-box access to the target LLM. TAP utilizes an LLM to\niteratively refine candidate (attack) prompts using tree-of-thoughts reasoning\nuntil one of the generated prompts jailbreaks the target. Crucially, before\nsending prompts to the target, TAP assesses them and prunes the ones unlikely\nto result in jailbreaks. Using tree-of-thought reasoning allows TAP to navigate\na large search space of prompts and pruning reduces the total number of queries\nsent to the target. In empirical evaluations, we observe that TAP generates\nprompts that jailbreak state-of-the-art LLMs (including GPT4 and GPT4-Turbo)\nfor more than 80% of the prompts using only a small number of queries. This\nsignificantly improves upon the previous state-of-the-art black-box method for\ngenerating jailbreaks.",
+        "translated": ""
+    },
+    {
+        "title": "When it Rains, it Pours: Modeling Media Storms and the News Ecosystem",
+        "url": "http://arxiv.org/abs/2312.02118v1",
+        "pub_date": "2023-12-04",
+        "summary": "Most events in the world receive at most brief coverage by the news media.\nOccasionally, however, an event will trigger a media storm, with voluminous and\nwidespread coverage lasting for weeks instead of days. In this work, we develop\nand apply a pairwise article similarity model, allowing us to identify story\nclusters in corpora covering local and national online news, and thereby create\na comprehensive corpus of media storms over a nearly two year period. Using\nthis corpus, we investigate media storms at a new level of granularity,\nallowing us to validate claims about storm evolution and topical distribution,\nand provide empirical support for previously hypothesized patterns of influence\nof storms on media coverage and intermedia agenda setting.",
+        "translated": ""
+    },
+    {
+        "title": "A Glitch in the Matrix? Locating and Detecting Language Model Grounding\n  with Fakepedia",
+        "url": "http://arxiv.org/abs/2312.02073v1",
+        "pub_date": "2023-12-04",
+        "summary": "Large language models (LLMs) have demonstrated impressive capabilities in\nstoring and recalling factual knowledge, but also in adapting to novel\nin-context information. Yet, the mechanisms underlying their in-context\ngrounding remain unknown, especially in situations where in-context information\ncontradicts factual knowledge embedded in the parameters. This is critical for\nretrieval-augmented generation methods, which enrich the context with\nup-to-date information, hoping that grounding can rectify the outdated\nparametric knowledge. In this study, we introduce Fakepedia, a counterfactual\ndataset designed to evaluate grounding abilities when the parametric knowledge\nclashes with the in-context information. We benchmark various LLMs with\nFakepedia and discover that GPT-4-turbo has a strong preference for its\nparametric knowledge. Mistral-7B, on the contrary, is the model that most\nrobustly chooses the grounded answer. Then, we conduct causal mediation\nanalysis on LLM components when answering Fakepedia queries. We demonstrate\nthat inspection of the computational graph alone can predict LLM grounding with\n92.8% accuracy, especially because few MLPs in the Transformer can predict\nnon-grounded behavior. Our results, together with existing findings about\nfactual recall mechanisms, provide a coherent narrative of how grounding and\nfactual recall mechanisms interact within LLMs.",
+        "translated": ""
+    },
+    {
+        "title": "Know Your Audience: Do LLMs Adapt to Different Age and Education Levels?",
+        "url": "http://arxiv.org/abs/2312.02065v1",
+        "pub_date": "2023-12-04",
+        "summary": "Large language models (LLMs) offer a range of new possibilities, including\nadapting the text to different audiences and their reading needs. But how well\ndo they adapt? We evaluate the readability of answers generated by four\nstate-of-the-art LLMs (commercial and open-source) to science questions when\nprompted to target different age groups and education levels. To assess the\nadaptability of LLMs to diverse audiences, we compare the readability scores of\nthe generated responses against the recommended comprehension level of each age\nand education group. We find large variations in the readability of the answers\nby different LLMs. Our results suggest LLM answers need to be better adapted to\nthe intended audience demographics to be more comprehensible. They underline\nthe importance of enhancing the adaptability of LLMs in education settings to\ncater to diverse age and education levels. Overall, current LLMs have set\nreadability ranges and do not adapt well to different audiences, even when\nprompted. That limits their potential for educational purposes.",
+        "translated": ""
+    },
+    {
+        "title": "TimeChat: A Time-sensitive Multimodal Large Language Model for Long\n  Video Understanding",
+        "url": "http://arxiv.org/abs/2312.02051v1",
+        "pub_date": "2023-12-04",
+        "summary": "This work proposes TimeChat, a time-sensitive multimodal large language model\nspecifically designed for long video understanding. Our model incorporates two\nkey architectural contributions: (1) a timestamp-aware frame encoder that binds\nvisual content with the timestamp of each frame, and (2) a sliding video\nQ-Former that produces a video token sequence of varying lengths to accommodate\nvideos of various durations. Additionally, we construct an instruction-tuning\ndataset, encompassing 6 tasks and a total of 125K instances, to further enhance\nTimeChat's instruction-following performance. Experiment results across various\nvideo understanding tasks, such as dense captioning, temporal grounding, and\nhighlight detection, demonstrate TimeChat's strong zero-shot temporal\nlocalization and reasoning capabilities. For example, it achieves +9.2 F1 score\nand +2.8 CIDEr on YouCook2, +5.8 HIT@1 on QVHighlights, and +27.5 R@1 (IoU=0.5)\non Charades-STA, compared to state-of-the-art video large language models,\nholding the potential to serve as a versatile video assistant for long-form\nvideo comprehension tasks and satisfy realistic user requirements.",
+        "translated": ""
+    },
+    {
+        "title": "Distilled Self-Critique of LLMs with Synthetic Data: a Bayesian\n  Perspective",
+        "url": "http://arxiv.org/abs/2312.01957v1",
+        "pub_date": "2023-12-04",
+        "summary": "This paper proposes an interpretation of RLAIF as Bayesian inference by\nintroducing distilled Self-Critique (dSC), which refines the outputs of a LLM\nthrough a Gibbs sampler that is later distilled into a fine-tuned model. Only\nrequiring synthetic data, dSC is exercised in experiments regarding safety,\nsentiment, and privacy control, showing it can be a viable and cheap\nalternative to align LLMs. Code released at\n\\url{https://github.com/vicgalle/distilled-self-critique}.",
+        "translated": ""
     }
 ]
