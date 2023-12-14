@@ -13221,5 +13221,40 @@
         "pub_date": "2023-12-12",
         "summary": "Recently, the evaluation of Large Language Models has emerged as a popular\narea of research. The three crucial questions for LLM evaluation are ``what,\nwhere, and how to evaluate''. However, the existing research mainly focuses on\nthe first two questions, which are basically what tasks to give the LLM during\ntesting and what kind of knowledge it should deal with. As for the third\nquestion, which is about what standards to use, the types of evaluators, how to\nscore, and how to rank, there hasn't been much discussion. In this paper, we\nanalyze evaluation methods by comparing various criteria with both manual and\nautomatic evaluation, utilizing onsite, crowd-sourcing, public annotators and\nGPT-4, with different scoring methods and ranking systems. We propose a new\ndataset, LLMEval and conduct evaluations on 20 LLMs. A total of 2,186\nindividuals participated, leading to the generation of 243,337 manual\nannotations and 57,511 automatic evaluation results. We perform comparisons and\nanalyses of different settings and conduct 10 conclusions that can provide some\ninsights for evaluating LLM in the future. The dataset and the results are\npublicly available at https://github.com/llmeval .",
         "translated": ""
+    },
+    {
+        "title": "Leveraging User Simulation to Develop and Evaluate Conversational\n  Information Access Agents",
+        "url": "http://arxiv.org/abs/2312.08041v1",
+        "pub_date": "2023-12-13",
+        "summary": "We observe a change in the way users access information, that is, the rise of\nconversational information access (CIA) agents. However, the automatic\nevaluation of these agents remains an open challenge. Moreover, the training of\nCIA agents is cumbersome as it mostly relies on conversational corpora, expert\nknowledge, and reinforcement learning. User simulation has been identified as a\npromising solution to tackle automatic evaluation and has been previously used\nin reinforcement learning. In this research, we investigate how user simulation\ncan be leveraged in the context of CIA. We organize the work in three parts. We\nbegin with the identification of requirements for user simulators for training\nand evaluating CIA agents and compare existing types of simulator regarding\nthese. Then, we plan to combine these different types of simulators into a new\nhybrid simulator. Finally, we aim to extend simulators to handle more complex\ninformation seeking scenarios.",
+        "translated": ""
+    },
+    {
+        "title": "Improving search relevance of Azure Cognitive Search by Bayesian\n  optimization",
+        "url": "http://arxiv.org/abs/2312.08021v1",
+        "pub_date": "2023-12-13",
+        "summary": "Azure Cognitive Search (ACS) has emerged as a major contender in \"Search as a\nService\" cloud products in recent years. However, one of the major challenges\nfor ACS users is to improve the relevance of the search results for their\nspecific usecases. In this paper, we propose a novel method to find the optimal\nACS configuration that maximizes search relevance for a specific usecase\n(product search, document search...) The proposed solution improves key online\nmarketplace metrics such as click through rates (CTR) by formulating the search\nrelevance problem as hyperparameter tuning. We have observed significant\nimprovements in real-world search call to action (CTA) rate in multiple\nmarketplaces by introducing optimized weights generated from the proposed\napproach.",
+        "translated": ""
+    },
+    {
+        "title": "RAT: Reinforcement-Learning-Driven and Adaptive Testing for\n  Vulnerability Discovery in Web Application Firewalls",
+        "url": "http://arxiv.org/abs/2312.07885v1",
+        "pub_date": "2023-12-13",
+        "summary": "Due to the increasing sophistication of web attacks, Web Application\nFirewalls (WAFs) have to be tested and updated regularly to resist the\nrelentless flow of web attacks. In practice, using a brute-force attack to\ndiscover vulnerabilities is infeasible due to the wide variety of attack\npatterns. Thus, various black-box testing techniques have been proposed in the\nliterature. However, these techniques suffer from low efficiency. This paper\npresents Reinforcement-Learning-Driven and Adaptive Testing (RAT), an automated\nblack-box testing strategy to discover injection vulnerabilities in WAFs. In\nparticular, we focus on SQL injection and Cross-site Scripting, which have been\namong the top ten vulnerabilities over the past decade. More specifically, RAT\nclusters similar attack samples together. It then utilizes a reinforcement\nlearning technique combined with a novel adaptive search algorithm to discover\nalmost all bypassing attack patterns efficiently. We compare RAT with three\nstate-of-the-art methods considering their objectives. The experiments show\nthat RAT performs 33.53% and 63.16% on average better than its counterparts in\ndiscovering the most possible bypassing payloads and reducing the number of\nattempts before finding the first bypassing payload when testing\nwell-configured WAFs, respectively.",
+        "translated": ""
+    },
+    {
+        "title": "Exploring Popularity Bias in Session-based Recommendation",
+        "url": "http://arxiv.org/abs/2312.07855v1",
+        "pub_date": "2023-12-13",
+        "summary": "Existing work has revealed that large-scale offline evaluation of recommender\nsystems for user-item interactions is prone to bias caused by the deployed\nsystem itself, as a form of closed loop feedback. Many adopt the\n\\textit{propensity} concept to analyze or mitigate this empirical issue. In\nthis work, we extend the analysis to session-based setup and adapted propensity\ncalculation to the unique characteristics of session-based recommendation\ntasks. Our experiments incorporate neural models and KNN-based models, and\ncover both the music and the e-commerce domain. We study the distributions of\npropensity and different stratification techniques on different datasets and\nfind that propensity-related traits are actually dataset-specific. We then\nleverage the effect of stratification and achieve promising results compared to\nthe original models.",
+        "translated": ""
+    },
+    {
+        "title": "Harnessing Retrieval-Augmented Generation (RAG) for Uncovering Knowledge\n  Gaps",
+        "url": "http://arxiv.org/abs/2312.07796v1",
+        "pub_date": "2023-12-12",
+        "summary": "The paper presents a methodology for uncovering knowledge gaps on the\ninternet using the Retrieval Augmented Generation (RAG) model. By simulating\nuser search behaviour, the RAG system identifies and addresses gaps in\ninformation retrieval systems. The study demonstrates the effectiveness of the\nRAG system in generating relevant suggestions with a consistent accuracy of\n93%. The methodology can be applied in various fields such as scientific\ndiscovery, educational enhancement, research development, market analysis,\nsearch engine optimisation, and content development. The results highlight the\nvalue of identifying and understanding knowledge gaps to guide future\nendeavours.",
+        "translated": ""
     }
 ]
