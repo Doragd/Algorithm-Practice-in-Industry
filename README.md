@@ -59,6 +59,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 得物 | [粗排优化探讨｜得物技术](https://mp.weixin.qq.com/s/JX8adK0y-AtsoRRxx4734Q) | 粗排 | 2023-12-20 |
 | 腾讯 | [AI大模型「改造」QQ浏览器搜索](https://mp.weixin.qq.com/s/DSfo8AXIV_QMyBX4EOfe7A) | 搜索 | 2023-11-19 |
 | 阿里妈妈     | [HC^2：基于混合对比学习的多场景广告预估建模](https://mp.weixin.qq.com/s/8Mg3lt4t2j5dtFKCsRet4g) | 广告          | 2023-11-15 |
 | 阿里         | [融合复杂目标且支持实时调控的重排模型](https://mp.weixin.qq.com/s/kRmTthX9jLB8sHC32UJWfw) | 召回          | 2023-11-14 |
