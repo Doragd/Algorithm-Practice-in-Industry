@@ -13697,5 +13697,75 @@
         "pub_date": "2023-12-20",
         "summary": "Many inference scenarios rely on extracting relevant information from known\ndata in order to make future predictions. When the underlying stochastic\nprocess satisfies certain assumptions, there is a direct mapping between its\nexact classical and quantum simulators, with the latter asymptotically using\nless memory. Here we focus on studying whether such quantum advantage persists\nwhen those assumptions are not satisfied, and the model is doomed to have\nimperfect accuracy. By studying the trade-off between accuracy and memory\nrequirements, we show that quantum models can reach the same accuracy with less\nmemory, or alternatively, better accuracy with the same memory. Finally, we\ndiscuss the implications of this result for learning tasks.",
         "translated": ""
+    },
+    {
+        "title": "EmphAssess : a Prosodic Benchmark on Assessing Emphasis Transfer in\n  Speech-to-Speech Models",
+        "url": "http://arxiv.org/abs/2312.14069v1",
+        "pub_date": "2023-12-21",
+        "summary": "We introduce EmphAssess, a prosodic benchmark designed to evaluate the\ncapability of speech-to-speech models to encode and reproduce prosodic\nemphasis. We apply this to two tasks: speech resynthesis and speech-to-speech\ntranslation. In both cases, the benchmark evaluates the ability of the model to\nencode emphasis in the speech input and accurately reproduce it in the output,\npotentially across a change of speaker and language. As part of the evaluation\npipeline, we introduce EmphaClass, a new model that classifies emphasis at the\nframe or word level.",
+        "translated": ""
+    },
+    {
+        "title": "T-Eval: Evaluating the Tool Utilization Capability Step by Step",
+        "url": "http://arxiv.org/abs/2312.14033v1",
+        "pub_date": "2023-12-21",
+        "summary": "Large language models (LLM) have achieved remarkable performance on various\nNLP tasks and are augmented by tools for broader applications. Yet, how to\nevaluate and analyze the tool-utilization capability of LLMs is still\nunder-explored. In contrast to previous works that evaluate models\nholistically, we comprehensively decompose the tool utilization into multiple\nsub-processes, including instruction following, planning, reasoning, retrieval,\nunderstanding, and review. Based on that, we further introduce \\shortname~to\nevaluate the tool utilization capability step by step. \\shortname~disentangles\nthe tool utilization evaluation into several sub-domains along model\ncapabilities, facilitating the inner understanding of both holistic and\nisolated competency of LLMs. We conduct extensive experiments on \\shortname~and\nin-depth analysis of various LLMs. \\shortname~ not only exhibits consistency\nwith the outcome-oriented evaluation but also provides a more fine-grained\nanalysis of the capabilities of LLMs, providing a new perspective in LLM\nevaluation on tool-utilization ability. The benchmark will be available at\n\\href{https://github.com/open-compass/T-Eval}{https://github.com/open-compass/T-Eval}.",
+        "translated": ""
+    },
+    {
+        "title": "ChatGPT as a commenter to the news: can LLMs generate human-like\n  opinions?",
+        "url": "http://arxiv.org/abs/2312.13961v1",
+        "pub_date": "2023-12-21",
+        "summary": "ChatGPT, GPT-3.5, and other large language models (LLMs) have drawn\nsignificant attention since their release, and the abilities of these models\nhave been investigated for a wide variety of tasks. In this research we\ninvestigate to what extent GPT-3.5 can generate human-like comments on Dutch\nnews articles. We define human likeness as `not distinguishable from human\ncomments', approximated by the difficulty of automatic classification between\nhuman and GPT comments. We analyze human likeness across multiple prompting\ntechniques. In particular, we utilize zero-shot, few-shot and context prompts,\nfor two generated personas. We found that our fine-tuned BERT models can easily\ndistinguish human-written comments from GPT-3.5 generated comments, with none\nof the used prompting methods performing noticeably better. We further analyzed\nthat human comments consistently showed higher lexical diversity than\nGPT-generated comments. This indicates that although generative LLMs can\ngenerate fluent text, their capability to create human-like opinionated\ncomments is still limited.",
+        "translated": ""
+    },
+    {
+        "title": "Typhoon: Thai Large Language Models",
+        "url": "http://arxiv.org/abs/2312.13951v1",
+        "pub_date": "2023-12-21",
+        "summary": "Typhoon is a series of Thai large language models (LLMs) developed\nspecifically for the Thai language. This technical report presents challenges\nand insights in developing Thai LLMs, including data preparation, pretraining,\ninstruction-tuning, and evaluation. As one of the challenges of low-resource\nlanguages is the amount of pretraining data, we apply continual training to\ntransfer existing world knowledge from a strong LLM. To evaluate the Thai\nknowledge encapsulated in each model from the pretraining stage, we develop\nThaiExam, a benchmark based on examinations for high-school students and\ninvestment professionals in Thailand. In addition, we fine-tune Typhoon to\nfollow Thai instructions, and we evaluate instruction-tuned models on Thai\ninstruction datasets as well as translation, summarization, and\nquestion-answering tasks. Experimental results on a suite of Thai benchmarks\nshow that Typhoon outperforms all open-source Thai language models, and its\nperformance is on par with GPT-3.5 in Thai while having only 7 billion\nparameters and being 2.62 times more efficient in tokenizing Thai text.",
+        "translated": ""
+    },
+    {
+        "title": "Structured Probabilistic Coding",
+        "url": "http://arxiv.org/abs/2312.13933v1",
+        "pub_date": "2023-12-21",
+        "summary": "This paper presents a new supervised representation learning framework,\nnamely Structured Probabilistic Coding (SPC), to learn compact and informative\nrepresentations from input related to the target task. SPC is an encoder-only\nprobabilistic coding technology with a structured regularization from the\ntarget label space. By extracting compact and informative representations from\ninput related to the target task, SPC can enhance the generalization ability of\npre-trained language models for better language understanding. Specifically,\nthe hidden representation is encoded into a Gaussian distribution space, while\nmaximizing the prior entropy of latent representations concerning label space.\nThis technique can simultaneously perform information encoding and task\nprediction in one module to more fully utilize the effective information from\ninput data, and use variational inference in the output space to reduce\nrandomness and uncertainty. To better control the probability distribution in\nthe latent space, a structured regularization is proposed to promote\nclass-level uniformity in the latent space. With the regularization term, SPC\ncan preserve the Gaussian distribution structure of latent code as well as\nbetter cover the hidden space with class uniformly. We conduct evaluations on\n12 natural language understanding tasks. The results show that our SPC can\neffectively improve the performance of pre-trained language models for various\nclassification and regression tasks. Experiments demonstrate that SPC can\nenhance the generalization capability, robustness to label noise, and\nclustering quality of output representations.",
+        "translated": ""
+    },
+    {
+        "title": "Domain-Specific Fine-Tuning of Large Language Models for Interactive\n  Robot Programming",
+        "url": "http://arxiv.org/abs/2312.13905v1",
+        "pub_date": "2023-12-21",
+        "summary": "Industrial robots are applied in a widening range of industries, but robot\nprogramming mostly remains a task limited to programming experts. We propose a\nnatural language-based assistant for programming of advanced, industrial\nrobotic applications and investigate strategies for domain-specific fine-tuning\nof foundation models with limited data and compute.",
+        "translated": ""
+    },
+    {
+        "title": "Diversifying Knowledge Enhancement of Biomedical Language Models using\n  Adapter Modules and Knowledge Graphs",
+        "url": "http://arxiv.org/abs/2312.13881v1",
+        "pub_date": "2023-12-21",
+        "summary": "Recent advances in natural language processing (NLP) owe their success to\npre-training language models on large amounts of unstructured data. Still,\nthere is an increasing effort to combine the unstructured nature of LMs with\nstructured knowledge and reasoning. Particularly in the rapidly evolving field\nof biomedical NLP, knowledge-enhanced language models (KELMs) have emerged as\npromising tools to bridge the gap between large language models and\ndomain-specific knowledge, considering the available biomedical knowledge\ngraphs (KGs) curated by experts over the decades. In this paper, we develop an\napproach that uses lightweight adapter modules to inject structured biomedical\nknowledge into pre-trained language models (PLMs). We use two large KGs, the\nbiomedical knowledge system UMLS and the novel biochemical ontology OntoChem,\nwith two prominent biomedical PLMs, PubMedBERT and BioLinkBERT. The approach\nincludes partitioning knowledge graphs into smaller subgraphs, fine-tuning\nadapter modules for each subgraph, and combining the knowledge in a fusion\nlayer. We test the performance on three downstream tasks: document\nclassification,question answering, and natural language inference. We show that\nour methodology leads to performance improvements in several instances while\nkeeping requirements in computing power low. Finally, we provide a detailed\ninterpretation of the results and report valuable insights for future work.",
+        "translated": ""
+    },
+    {
+        "title": "Capture the Flag: Uncovering Data Insights with Large Language Models",
+        "url": "http://arxiv.org/abs/2312.13876v1",
+        "pub_date": "2023-12-21",
+        "summary": "The extraction of a small number of relevant insights from vast amounts of\ndata is a crucial component of data-driven decision-making. However,\naccomplishing this task requires considerable technical skills, domain\nexpertise, and human labor. This study explores the potential of using Large\nLanguage Models (LLMs) to automate the discovery of insights in data,\nleveraging recent advances in reasoning and code generation techniques. We\npropose a new evaluation methodology based on a \"capture the flag\" principle,\nmeasuring the ability of such models to recognize meaningful and pertinent\ninformation (flags) in a dataset. We further propose two proof-of-concept\nagents, with different inner workings, and compare their ability to capture\nsuch flags in a real-world sales dataset. While the work reported here is\npreliminary, our results are sufficiently interesting to mandate future\nexploration by the community.",
+        "translated": ""
+    },
+    {
+        "title": "Evaluating Task-oriented Dialogue Systems: A Systematic Review of\n  Measures, Constructs and their Operationalisations",
+        "url": "http://arxiv.org/abs/2312.13871v1",
+        "pub_date": "2023-12-21",
+        "summary": "This review gives an extensive overview of evaluation methods for\ntask-oriented dialogue systems, paying special attention to practical\napplications of dialogue systems, for example for customer service. The review\n(1) provides an overview of the used constructs and metrics in previous work,\n(2) discusses challenges in the context of dialogue system evaluation and (3)\ndevelops a research agenda for the future of dialogue system evaluation. We\nconducted a systematic review of four databases (ACL, ACM, IEEE and Web of\nScience), which after screening resulted in 122 studies. Those studies were\ncarefully analysed for the constructs and methods they proposed for evaluation.\nWe found a wide variety in both constructs and methods. Especially the\noperationalisation is not always clearly reported. We hope that future work\nwill take a more critical approach to the operationalisation and specification\nof the used constructs. To work towards this aim, this review ends with\nrecommendations for evaluation and suggestions for outstanding questions.",
+        "translated": ""
+    },
+    {
+        "title": "Understanding Inter-Session Intentions via Complex Logical Reasoning",
+        "url": "http://arxiv.org/abs/2312.13866v1",
+        "pub_date": "2023-12-21",
+        "summary": "Understanding user intentions is crucial for enhancing product\nrecommendations, navigation suggestions, and query reformulations. However,\nuser intentions can be complex, involving multiple sessions and attribute\nrequirements connected by logical operators such as And, Or, and Not. For\nexample, a user may search for Nike or Adidas running shoes across various\nsessions, with a preference for the color purple. In another case, a user may\nhave purchased a mattress in a previous session and is now seeking a\ncorresponding bed frame without intending to buy another mattress. Prior\nresearch on session understanding has not sufficiently addressed how to make\nproduct or attribute recommendations for such complex intentions. In this\npaper, we introduce the task of logical session complex query answering, where\nsessions are treated as hyperedges of items, and we formulate the problem of\ncomplex intention understanding as a task of logical session complex queries\nanswering (LS-CQA) on an aggregated hypergraph of sessions, items, and\nattributes. The proposed task is a special type of complex query answering task\nwith sessions as ordered hyperedges. We also propose a new model, the Logical\nSession Graph Transformer (LSGT), which captures interactions among items\nacross different sessions and their logical connections using a transformer\nstructure. We analyze the expressiveness of LSGT and prove the permutation\ninvariance of the inputs for the logical operators. We evaluate LSGT on three\ndatasets and demonstrate that it achieves state-of-the-art results.",
+        "translated": ""
     }
 ]
