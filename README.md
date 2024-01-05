@@ -28,6 +28,7 @@
 * 关于我：2023届毕业，之前做NLP方向，毕业后转去搜广推方向，一枚努力适应的菜鸡。目前在做召回方向。
 * 我的论文阅读笔记：https://github.com/doragd/paperreading
 * 和我交流：
+
 <img src=https://github.com/Doragd/Algorithm-Practice-in-Industry/assets/26213546/a5575665-37f9-43de-941f-5133a6114d7e height="30%" width="30%"></img>
 
 
