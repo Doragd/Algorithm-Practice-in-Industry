@@ -14236,5 +14236,61 @@
         "pub_date": "2024-01-03",
         "summary": "While Large Language Models (LLM) are able to accumulate and restore\nknowledge, they are still prone to hallucination. Especially when faced with\nfactual questions, LLM cannot only rely on knowledge stored in parameters to\nguarantee truthful and correct answers. Augmenting these models with the\nability to search on external information sources, such as the web, is a\npromising approach to ground knowledge to retrieve information. However,\nsearching in a large collection of documents introduces additional\ncomputational/time costs. An optimal behavior would be to query external\nresources only when the LLM is not confident about answers. In this paper, we\npropose a new LLM able to self-estimate if it is able to answer directly or\nneeds to request an external tool. We investigate a supervised approach by\nintroducing a hallucination masking mechanism in which labels are generated\nusing a close book question-answering task. In addition, we propose to leverage\nparameter-efficient fine-tuning techniques to train our model on a small amount\nof data. Our model directly provides answers for $78.2\\%$ of the known queries\nand opts to search for $77.2\\%$ of the unknown ones. This results in the API\nbeing utilized only $62\\%$ of the time.",
         "translated": ""
+    },
+    {
+        "title": "Theoretical guarantees on the best-of-n alignment policy",
+        "url": "http://arxiv.org/abs/2401.01879v1",
+        "pub_date": "2024-01-03",
+        "summary": "A simple and effective method for the alignment of generative models is the\nbest-of-$n$ policy, where $n$ samples are drawn from a base policy, and ranked\nbased on a reward function, and the highest ranking one is selected. A commonly\nused analytical expression in the literature claims that the KL divergence\nbetween the best-of-$n$ policy and the base policy is equal to $\\log (n) -\n(n-1)/n.$ We disprove the validity of this claim, and show that it is an upper\nbound on the actual KL divergence. We also explore the tightness of this upper\nbound in different regimes. Finally, we propose a new estimator for the KL\ndivergence and empirically show that it provides a tight approximation through\na few examples.",
+        "translated": ""
+    },
+    {
+        "title": "A Vision Check-up for Language Models",
+        "url": "http://arxiv.org/abs/2401.01862v1",
+        "pub_date": "2024-01-03",
+        "summary": "What does learning to model relationships between strings teach large\nlanguage models (LLMs) about the visual world? We systematically evaluate LLMs'\nabilities to generate and recognize an assortment of visual concepts of\nincreasing complexity and then demonstrate how a preliminary visual\nrepresentation learning system can be trained using models of text. As language\nmodels lack the ability to consume or output visual information as pixels, we\nuse code to represent images in our study. Although LLM-generated images do not\nlook like natural images, results on image generation and the ability of models\nto correct these generated images indicate that precise modeling of strings can\nteach language models about numerous aspects of the visual world. Furthermore,\nexperiments on self-supervised visual representation learning, utilizing images\ngenerated with text models, highlight the potential to train vision models\ncapable of making semantic assessments of natural images using just LLMs.",
+        "translated": ""
+    },
+    {
+        "title": "Multilingual Instruction Tuning With Just a Pinch of Multilinguality",
+        "url": "http://arxiv.org/abs/2401.01854v1",
+        "pub_date": "2024-01-03",
+        "summary": "As instruction-tuned large language models (LLMs) gain global adoption, their\nability to follow instructions in multiple languages becomes increasingly\ncrucial. One promising approach is cross-lingual transfer, where a model\nacquires specific functionality on some language by finetuning on another\nlanguage. In this work, we investigate how multilinguality during instruction\ntuning of a multilingual LLM affects instruction-following across languages. We\nfirst show that many languages transfer some instruction-following capabilities\nto other languages from even monolingual tuning. Furthermore, we find that only\n40 multilingual examples in an English tuning set substantially improve\nmultilingual instruction-following, both in seen and unseen languages during\ntuning. In general, we observe that models tuned on multilingual mixtures\nexhibit comparable or superior performance in several languages compared to\nmonolingually tuned models, despite training on 10x fewer examples in those\nlanguages. Finally, we find that increasing the number of languages in the\ninstruction tuning set from 1 to only 2, 3, or 4 increases cross-lingual\ngeneralization. Our results suggest that building massively multilingual\ninstruction-tuned models can be done with only a very small set of multilingual\ninstruction-responses.",
+        "translated": ""
+    },
+    {
+        "title": "Investigating Semi-Supervised Learning Algorithms in Text Datasets",
+        "url": "http://arxiv.org/abs/2401.01843v1",
+        "pub_date": "2024-01-03",
+        "summary": "Using large training datasets enhances the generalization capabilities of\nneural networks. Semi-supervised learning (SSL) is useful when there are few\nlabeled data and a lot of unlabeled data. SSL methods that use data\naugmentation are most successful for image datasets. In contrast, texts do not\nhave consistent augmentation methods as images. Consequently, methods that use\naugmentation are not as effective in text data as they are in image data. In\nthis study, we compared SSL algorithms that do not require augmentation; these\nare self-training, co-training, tri-training, and tri-training with\ndisagreement. In the experiments, we used 4 different text datasets for\ndifferent tasks. We examined the algorithms from a variety of perspectives by\nasking experiment questions and suggested several improvements. Among the\nalgorithms, tri-training with disagreement showed the closest performance to\nthe Oracle; however, performance gap shows that new semi-supervised algorithms\nor improvements in existing methods are needed.",
+        "translated": ""
+    },
+    {
+        "title": "Iterative Mask Filling: An Effective Text Augmentation Method Using\n  Masked Language Modeling",
+        "url": "http://arxiv.org/abs/2401.01830v1",
+        "pub_date": "2024-01-03",
+        "summary": "Data augmentation is an effective technique for improving the performance of\nmachine learning models. However, it has not been explored as extensively in\nnatural language processing (NLP) as it has in computer vision. In this paper,\nwe propose a novel text augmentation method that leverages the Fill-Mask\nfeature of the transformer-based BERT model. Our method involves iteratively\nmasking words in a sentence and replacing them with language model predictions.\nWe have tested our proposed method on various NLP tasks and found it to be\neffective in many cases. Our results are presented along with a comparison to\nexisting augmentation methods. Experimental results show that our proposed\nmethod significantly improves performance, especially on topic classification\ndatasets.",
+        "translated": ""
+    },
+    {
+        "title": "Cross-target Stance Detection by Exploiting Target Analytical\n  Perspectives",
+        "url": "http://arxiv.org/abs/2401.01761v1",
+        "pub_date": "2024-01-03",
+        "summary": "Cross-target stance detection (CTSD) is an important task, which infers the\nattitude of the destination target by utilizing annotated data derived from the\nsource target. One important approach in CTSD is to extract domain-invariant\nfeatures to bridge the knowledge gap between multiple targets. However, the\nanalysis of informal and short text structure, and implicit expressions,\ncomplicate the extraction of domain-invariant knowledge. In this paper, we\npropose a Multi-Perspective Prompt-Tuning (MPPT) model for CTSD that uses the\nanalysis perspective as a bridge to transfer knowledge. First, we develop a\ntwo-stage instruct-based chain-of-thought method (TsCoT) to elicit target\nanalysis perspectives and provide natural language explanations (NLEs) from\nmultiple viewpoints by formulating instructions based on large language model\n(LLM). Second, we propose a multi-perspective prompt-tuning framework\n(MultiPLN) to fuse the NLEs into the stance predictor. Extensive experiments\nresults demonstrate the superiority of MPPT against the state-of-the-art\nbaseline methods.",
+        "translated": ""
+    },
+    {
+        "title": "VGA: Vision and Graph Fused Attention Network for Rumor Detection",
+        "url": "http://arxiv.org/abs/2401.01759v1",
+        "pub_date": "2024-01-03",
+        "summary": "With the development of social media, rumors have been spread broadly on\nsocial media platforms, causing great harm to society. Beside textual\ninformation, many rumors also use manipulated images or conceal textual\ninformation within images to deceive people and avoid being detected, making\nmultimodal rumor detection be a critical problem. The majority of multimodal\nrumor detection methods mainly concentrate on extracting features of source\nclaims and their corresponding images, while ignoring the comments of rumors\nand their propagation structures. These comments and structures imply the\nwisdom of crowds and are proved to be crucial to debunk rumors. Moreover, these\nmethods usually only extract visual features in a basic manner, seldom consider\ntampering or textual information in images. Therefore, in this study, we\npropose a novel Vision and Graph Fused Attention Network (VGA) for rumor\ndetection to utilize propagation structures among posts so as to obtain the\ncrowd opinions and further explore visual tampering features, as well as the\ntextual information hidden in images. We conduct extensive experiments on three\ndatasets, demonstrating that VGA can effectively detect multimodal rumors and\noutperform state-of-the-art methods significantly.",
+        "translated": ""
+    },
+    {
+        "title": "Evaluating Large Language Models in Semantic Parsing for Conversational\n  Question Answering over Knowledge Graphs",
+        "url": "http://arxiv.org/abs/2401.01711v1",
+        "pub_date": "2024-01-03",
+        "summary": "Conversational question answering systems often rely on semantic parsing to\nenable interactive information retrieval, which involves the generation of\nstructured database queries from a natural language input. For\ninformation-seeking conversations about facts stored within a knowledge graph,\ndialogue utterances are transformed into graph queries in a process that is\ncalled knowledge-based conversational question answering. This paper evaluates\nthe performance of large language models that have not been explicitly\npre-trained on this task. Through a series of experiments on an extensive\nbenchmark dataset, we compare models of varying sizes with different prompting\ntechniques and identify common issue types in the generated output. Our results\ndemonstrate that large language models are capable of generating graph queries\nfrom dialogues, with significant improvements achievable through few-shot\nprompting and fine-tuning techniques, especially for smaller models that\nexhibit lower zero-shot performance.",
+        "translated": ""
     }
 ]
