@@ -14474,5 +14474,40 @@
         "pub_date": "2024-01-05",
         "summary": "This paper introduces RAISE (Reasoning and Acting through Scratchpad and\nExamples), an advanced architecture enhancing the integration of Large Language\nModels (LLMs) like GPT-4 into conversational agents. RAISE, an enhancement of\nthe ReAct framework, incorporates a dual-component memory system, mirroring\nhuman short-term and long-term memory, to maintain context and continuity in\nconversations. It entails a comprehensive agent construction scenario,\nincluding phases like Conversation Selection, Scene Extraction, CoT Completion,\nand Scene Augmentation, leading to the LLMs Training phase. This approach\nappears to enhance agent controllability and adaptability in complex,\nmulti-turn dialogues. Our preliminary evaluations in a real estate sales\ncontext suggest that RAISE has some advantages over traditional agents,\nindicating its potential for broader applications. This work contributes to the\nAI field by providing a robust framework for developing more context-aware and\nversatile conversational agents.",
         "translated": ""
+    },
+    {
+        "title": "Variance Reduction in Ratio Metrics for Efficient Online Experiments",
+        "url": "http://arxiv.org/abs/2401.04062v1",
+        "pub_date": "2024-01-08",
+        "summary": "Online controlled experiments, such as A/B-tests, are commonly used by modern\ntech companies to enable continuous system improvements. Despite their\nparamount importance, A/B-tests are expensive: by their very definition, a\npercentage of traffic is assigned an inferior system variant. To ensure\nstatistical significance on top-level metrics, online experiments typically run\nfor several weeks. Even then, a considerable amount of experiments will lead to\ninconclusive results (i.e. false negatives, or type-II error). The main culprit\nfor this inefficiency is the variance of the online metrics. Variance reduction\ntechniques have been proposed in the literature, but their direct applicability\nto commonly used ratio metrics (e.g. click-through rate or user retention) is\nlimited.\n  In this work, we successfully apply variance reduction techniques to ratio\nmetrics on a large-scale short-video platform: ShareChat. Our empirical results\nshow that we can either improve A/B-test confidence in 77% of cases, or can\nretain the same level of confidence with 30% fewer data points. Importantly, we\nshow that the common approach of including as many covariates as possible in\nregression is counter-productive, highlighting that control variates based on\nGradient-Boosted Decision Tree predictors are most effective. We discuss the\npracticalities of implementing these methods at scale and showcase the cost\nreduction they beget.",
+        "translated": ""
+    },
+    {
+        "title": "Unveiling Bias in Fairness Evaluations of Large Language Models: A\n  Critical Literature Review of Music and Movie Recommendation Systems",
+        "url": "http://arxiv.org/abs/2401.04057v1",
+        "pub_date": "2024-01-08",
+        "summary": "The rise of generative artificial intelligence, particularly Large Language\nModels (LLMs), has intensified the imperative to scrutinize fairness alongside\naccuracy. Recent studies have begun to investigate fairness evaluations for\nLLMs within domains such as recommendations. Given that personalization is an\nintrinsic aspect of recommendation systems, its incorporation into fairness\nassessments is paramount. Yet, the degree to which current fairness evaluation\nframeworks account for personalization remains unclear. Our comprehensive\nliterature review aims to fill this gap by examining how existing frameworks\nhandle fairness evaluations of LLMs, with a focus on the integration of\npersonalization factors. Despite an exhaustive collection and analysis of\nrelevant works, we discovered that most evaluations overlook personalization, a\ncritical facet of recommendation systems, thereby inadvertently perpetuating\nunfair practices. Our findings shed light on this oversight and underscore the\nurgent need for more nuanced fairness evaluations that acknowledge\npersonalization. Such improvements are vital for fostering equitable\ndevelopment within the AI community.",
+        "translated": ""
+    },
+    {
+        "title": "Sparse Meets Dense: A Hybrid Approach to Enhance Scientific Document\n  Retrieval",
+        "url": "http://arxiv.org/abs/2401.04055v1",
+        "pub_date": "2024-01-08",
+        "summary": "Traditional information retrieval is based on sparse bag-of-words vector\nrepresentations of documents and queries. More recent deep-learning approaches\nhave used dense embeddings learned using a transformer-based large language\nmodel. We show that on a classic benchmark on scientific document retrieval in\nthe medical domain of cystic fibrosis, that both of these models perform\nroughly equivalently. Notably, dense vectors from the state-of-the-art SPECTER2\nmodel do not significantly enhance performance. However, a hybrid model that we\npropose combining these methods yields significantly better results,\nunderscoring the merits of integrating classical and contemporary deep learning\ntechniques in information retrieval in the domain of specialized scientific\ndocuments.",
+        "translated": ""
+    },
+    {
+        "title": "Learning-to-Rank with Nested Feedback",
+        "url": "http://arxiv.org/abs/2401.04053v1",
+        "pub_date": "2024-01-08",
+        "summary": "Many platforms on the web present ranked lists of content to users, typically\noptimized for engagement-, satisfaction- or retention- driven metrics. Advances\nin the Learning-to-Rank (LTR) research literature have enabled rapid growth in\nthis application area. Several popular interfaces now include nested lists,\nwhere users can enter a 2nd-level feed via any given 1st-level item. Naturally,\nthis has implications for evaluation metrics, objective functions, and the\nranking policies we wish to learn. We propose a theoretically grounded method\nto incorporate 2nd-level feedback into any 1st-level ranking model. Online\nexperiments on a large-scale recommendation system confirm our theoretical\nfindings.",
+        "translated": ""
+    },
+    {
+        "title": "The Impact of Differential Privacy on Recommendation Accuracy and\n  Popularity Bias",
+        "url": "http://arxiv.org/abs/2401.03883v1",
+        "pub_date": "2024-01-08",
+        "summary": "Collaborative filtering-based recommender systems leverage vast amounts of\nbehavioral user data, which poses severe privacy risks. Thus, often, random\nnoise is added to the data to ensure Differential Privacy (DP). However, to\ndate, it is not well understood, in which ways this impacts personalized\nrecommendations. In this work, we study how DP impacts recommendation accuracy\nand popularity bias, when applied to the training data of state-of-the-art\nrecommendation models. Our findings are three-fold: First, we find that nearly\nall users' recommendations change when DP is applied. Second, recommendation\naccuracy drops substantially while recommended item popularity experiences a\nsharp increase, suggesting that popularity bias worsens. Third, we find that DP\nexacerbates popularity bias more severely for users who prefer unpopular items\nthan for users that prefer popular items.",
+        "translated": ""
     }
 ]
