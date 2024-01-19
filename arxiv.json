@@ -15104,5 +15104,40 @@
         "pub_date": "2024-01-17",
         "summary": "Question Answering (QA) is increasingly used by search engines to provide\nresults to their end-users, yet very few websites currently use QA technologies\nfor their search functionality. To illustrate the potential of QA technologies\nfor the website search practitioner, we demonstrate web searches that combine\nQA over knowledge graphs and QA over free text -- each being usually tackled\nseparately. We also discuss the different benefits and drawbacks of both\napproaches for web site searches. We use the case studies made of websites\nhosted by the Wikimedia Foundation (namely Wikipedia and Wikidata). Differently\nfrom a search engine (e.g. Google, Bing, etc), the data are indexed integrally,\ni.e. we do not index only a subset, and they are indexed exclusively, i.e. we\nindex only data available on the corresponding website.",
         "translated": ""
+    },
+    {
+        "title": "ChatQA: Building GPT-4 Level Conversational QA Models",
+        "url": "http://arxiv.org/abs/2401.10225v1",
+        "pub_date": "2024-01-18",
+        "summary": "In this work, we introduce ChatQA, a family of conversational question\nanswering (QA) models, that obtain GPT-4 level accuracies. Specifically, we\npropose a two-stage instruction tuning method that can significantly improve\nthe zero-shot conversational QA results from large language models (LLMs). To\nhandle retrieval in conversational QA, we fine-tune a dense retriever on a\nmulti-turn QA dataset, which provides comparable results to using the\nstate-of-the-art query rewriting model while largely reducing deployment cost.\nNotably, our ChatQA-70B can outperform GPT-4 in terms of average score on 10\nconversational QA datasets (54.14 vs. 53.90), without relying on any synthetic\ndata from OpenAI GPT models.",
+        "translated": ""
+    },
+    {
+        "title": "Comparing Traditional and LLM-based Search for Image Geolocation",
+        "url": "http://arxiv.org/abs/2401.10184v1",
+        "pub_date": "2024-01-18",
+        "summary": "Web search engines have long served as indispensable tools for information\nretrieval; user behavior and query formulation strategies have been well\nstudied. The introduction of search engines powered by large language models\n(LLMs) suggested more conversational search and new types of query strategies.\nIn this paper, we compare traditional and LLM-based search for the task of\nimage geolocation, i.e., determining the location where an image was captured.\nOur work examines user interactions, with a particular focus on query\nformulation strategies. In our study, 60 participants were assigned either\ntraditional or LLM-based search engines as assistants for geolocation.\nParticipants using traditional search more accurately predicted the location of\nthe image compared to those using the LLM-based search. Distinct strategies\nemerged between users depending on the type of assistant. Participants using\nthe LLM-based search issued longer, more natural language queries, but had\nshorter search sessions. When reformulating their search queries, traditional\nsearch participants tended to add more terms to their initial queries, whereas\nparticipants using the LLM-based search consistently rephrased their initial\nqueries.",
+        "translated": ""
+    },
+    {
+        "title": "LOCALINTEL: Generating Organizational Threat Intelligence from Global\n  and Local Cyber Knowledge",
+        "url": "http://arxiv.org/abs/2401.10036v1",
+        "pub_date": "2024-01-18",
+        "summary": "Security Operations Center (SoC) analysts gather threat reports from openly\naccessible global threat databases and customize them manually to suit a\nparticular organization's needs. These analysts also depend on internal\nrepositories, which act as private local knowledge database for an\norganization. Credible cyber intelligence, critical operational details, and\nrelevant organizational information are all stored in these local knowledge\ndatabases. Analysts undertake a labor intensive task utilizing these global and\nlocal knowledge databases to manually create organization's unique threat\nresponse and mitigation strategies. Recently, Large Language Models (LLMs) have\nshown the capability to efficiently process large diverse knowledge sources. We\nleverage this ability to process global and local knowledge databases to\nautomate the generation of organization-specific threat intelligence.\n  In this work, we present LOCALINTEL, a novel automated knowledge\ncontextualization system that, upon prompting, retrieves threat reports from\nthe global threat repositories and uses its local knowledge database to\ncontextualize them for a specific organization. LOCALINTEL comprises of three\nkey phases: global threat intelligence retrieval, local knowledge retrieval,\nand contextualized completion generation. The former retrieves intelligence\nfrom global threat repositories, while the second retrieves pertinent knowledge\nfrom the local knowledge database. Finally, the fusion of these knowledge\nsources is orchestrated through a generator to produce a contextualized\ncompletion.",
+        "translated": ""
+    },
+    {
+        "title": "HGAttack: Transferable Heterogeneous Graph Adversarial Attack",
+        "url": "http://arxiv.org/abs/2401.09945v1",
+        "pub_date": "2024-01-18",
+        "summary": "Heterogeneous Graph Neural Networks (HGNNs) are increasingly recognized for\ntheir performance in areas like the web and e-commerce, where resilience\nagainst adversarial attacks is crucial. However, existing adversarial attack\nmethods, which are primarily designed for homogeneous graphs, fall short when\napplied to HGNNs due to their limited ability to address the structural and\nsemantic complexity of HGNNs. This paper introduces HGAttack, the first\ndedicated gray box evasion attack method for heterogeneous graphs. We design a\nnovel surrogate model to closely resemble the behaviors of the target HGNN and\nutilize gradient-based methods for perturbation generation. Specifically, the\nproposed surrogate model effectively leverages heterogeneous information by\nextracting meta-path induced subgraphs and applying GNNs to learn node\nembeddings with distinct semantics from each subgraph. This approach improves\nthe transferability of generated attacks on the target HGNN and significantly\nreduces memory costs. For perturbation generation, we introduce a\nsemantics-aware mechanism that leverages subgraph gradient information to\nautonomously identify vulnerable edges across a wide range of relations within\na constrained perturbation budget. We validate HGAttack's efficacy with\ncomprehensive experiments on three datasets, providing empirical analyses of\nits generated perturbations. Outperforming baseline methods, HGAttack\ndemonstrated significant efficacy in diminishing the performance of target HGNN\nmodels, affirming the effectiveness of our approach in evaluating the\nrobustness of HGNNs against adversarial attacks.",
+        "translated": ""
+    },
+    {
+        "title": "Source Code Clone Detection Using Unsupervised Similarity Measures",
+        "url": "http://arxiv.org/abs/2401.09885v1",
+        "pub_date": "2024-01-18",
+        "summary": "Assessing similarity in source code has gained significant attention in\nrecent years due to its importance in software engineering tasks such as clone\ndetection and code search and recommendation. This work presents a comparative\nanalysis of unsupervised similarity measures for identifying source code clone\ndetection. The goal is to overview the current state-of-the-art techniques,\ntheir strengths, and weaknesses. To do that, we compile the existing\nunsupervised strategies and evaluate their performance on a benchmark dataset\nto guide software engineers in selecting appropriate methods for their specific\nuse cases. The source code of this study is available at\n\\url{https://github.com/jorge-martinez-gil/codesim}",
+        "translated": ""
     }
 ]
