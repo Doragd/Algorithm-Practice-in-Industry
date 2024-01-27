@@ -63,6 +63,11 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 360 | [360信息流推荐Mind召回](https://mp.weixin.qq.com/s/Hy9yZ8yOF2FwQ9FIn3DQTw) | 召回 | 2024-01-19 |
+| 百度 | [百度搜索Push个性化](https://mp.weixin.qq.com/s/nly7Za8Ei29lx6HBuimBTQ) | 搜索 | 2024-01-17 |
+| 小红书 | [小红书推荐用户及内容冷启动实践](https://www.bilibili.com/video/BV1fe41127m1) | 冷启动 | 2024-01-12 |
+| 百度 | [百度feed图模型演进](https://mp.weixin.qq.com/s/k78RRpvDrP3GlsdBV3B3sg) | 推荐 | 2024-01-11 |
+| 百度 | [百度推荐排序技术的思考与实践](https://mp.weixin.qq.com/s/JTNmYJNgoQr26fkT-Oy35g) | 推荐 | 2024-01-07 |
 | OPPO | [OPPO 广告召回算法实践与探索](https://mp.weixin.qq.com/s/4TtGHY3Rc9Ui_1jkOKSx5Q) | 召回 | 2023-12-30 |
 | 得物 | [粗排优化探讨｜得物技术](https://mp.weixin.qq.com/s/JX8adK0y-AtsoRRxx4734Q) | 粗排 | 2023-12-20 |
 | 腾讯 | [AI大模型「改造」QQ浏览器搜索](https://mp.weixin.qq.com/s/DSfo8AXIV_QMyBX4EOfe7A) | 搜索 | 2023-11-19 |
