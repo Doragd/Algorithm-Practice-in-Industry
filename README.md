@@ -63,6 +63,13 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 美团 | [美团交易视频推荐探索与实践](https://www.bilibili.com/video/BV1N64y1H7mc) | 推荐 | 2023-12-23 |
+| 美团 | [内容搜索算法优化的探索与实践](https://www.bilibili.com/video/BV1Yb4y137a3) | 搜索 | 2023-12-23 |
+| 百度 | [百度视频推荐跨域多目标预估与融合的实践和思考](https://mp.weixin.qq.com/s/YXPmZn3ujbBavFsmnf5Vzw) | 推荐 | 2023-11-29 |
+| 网易 | [网易云音乐推荐系统的冷启动技术](https://mp.weixin.qq.com/s/EDkoe3nxvQ_24nxC8ktd7g) | 冷启动 | 2023-11-10 |
+| 华为 | [多任务和多场景在华为推荐系统中的应用](https://mp.weixin.qq.com/s/c7xO71NEE2n-RbtRKItA) | 推荐 | 2023-11-09 |
+| 小红书 | [小红书推荐系统创新性探索](https://www.bilibili.com/video/BV1Zz4y1P7Tx) | 冷启动 | 2023-10-31 |
+| 快手 | [快手内容冷启动推荐模型实践](https://mp.weixin.qq.com/s/8MKoANEAw687FoeTasngpA) | 冷启动 | 2023-10-11 |
 | 360 | [360信息流推荐Mind召回](https://mp.weixin.qq.com/s/Hy9yZ8yOF2FwQ9FIn3DQTw) | 召回 | 2024-01-19 |
 | 百度 | [百度搜索Push个性化](https://mp.weixin.qq.com/s/nly7Za8Ei29lx6HBuimBTQ) | 搜索 | 2024-01-17 |
 | 小红书 | [小红书推荐用户及内容冷启动实践](https://www.bilibili.com/video/BV1fe41127m1) | 冷启动 | 2024-01-12 |
