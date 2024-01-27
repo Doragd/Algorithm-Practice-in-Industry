@@ -15650,5 +15650,75 @@
         "pub_date": "2024-01-24",
         "summary": "Efforts in the recommendation community are shifting from the sole emphasis\non utility to considering beyond-utility factors, such as fairness and\nrobustness. Robustness of recommendation models is typically linked to their\nability to maintain the original utility when subjected to attacks. Limited\nresearch has explored the robustness of a recommendation model in terms of\nfairness, e.g., the parity in performance across groups, under attack\nscenarios. In this paper, we aim to assess the robustness of graph-based\nrecommender systems concerning fairness, when exposed to attacks based on\nedge-level perturbations. To this end, we considered four different fairness\noperationalizations, including both consumer and provider perspectives.\nExperiments on three datasets shed light on the impact of perturbations on the\ntargeted fairness notion, uncovering key shortcomings in existing evaluation\nprotocols for robustness. As an example, we observed perturbations affect\nconsumer fairness on a higher extent than provider fairness, with alarming\nunfairness for the former. Source code:\nhttps://github.com/jackmedda/CPFairRobust",
         "translated": ""
+    },
+    {
+        "title": "Modular Adaptation of Multilingual Encoders to Written Swiss German\n  Dialect",
+        "url": "http://arxiv.org/abs/2401.14400v1",
+        "pub_date": "2024-01-25",
+        "summary": "Creating neural text encoders for written Swiss German is challenging due to\na dearth of training data combined with dialectal variation. In this paper, we\nbuild on several existing multilingual encoders and adapt them to Swiss German\nusing continued pre-training. Evaluation on three diverse downstream tasks\nshows that simply adding a Swiss German adapter to a modular encoder achieves\n97.5% of fully monolithic adaptation performance. We further find that for the\ntask of retrieving Swiss German sentences given Standard German queries,\nadapting a character-level model is more effective than the other adaptation\nstrategies. We release our code and the models trained for our experiments at\nhttps://github.com/ZurichNLP/swiss-german-text-encoders",
+        "translated": ""
+    },
+    {
+        "title": "TURNA: A Turkish Encoder-Decoder Language Model for Enhanced\n  Understanding and Generation",
+        "url": "http://arxiv.org/abs/2401.14373v1",
+        "pub_date": "2024-01-25",
+        "summary": "The recent advances in natural language processing have predominantly favored\nwell-resourced English-centric models, resulting in a significant gap with\nlow-resource languages. In this work, we introduce the language model TURNA,\nwhich is developed for the low-resource language Turkish and is capable of both\nnatural language understanding and generation tasks. TURNA is pretrained with\nan encoder-decoder architecture based on the unified framework UL2 with a\ndiverse corpus that we specifically curated for this purpose. We evaluated\nTURNA with three generation tasks and five understanding tasks for Turkish. The\nresults show that TURNA outperforms several multilingual models in both\nunderstanding and generation tasks, and competes with monolingual Turkish\nmodels in understanding tasks. TURNA is made available at\nhttps://huggingface.co/boun-tabi-LMG/TURNA .",
+        "translated": ""
+    },
+    {
+        "title": "Genie: Achieving Human Parity in Content-Grounded Datasets Generation",
+        "url": "http://arxiv.org/abs/2401.14367v1",
+        "pub_date": "2024-01-25",
+        "summary": "The lack of high-quality data for content-grounded generation tasks has been\nidentified as a major obstacle to advancing these tasks. To address this gap,\nwe propose Genie, a novel method for automatically generating high-quality\ncontent-grounded data. It consists of three stages: (a) Content Preparation,\n(b) Generation: creating task-specific examples from the content (e.g.,\nquestion-answer pairs or summaries). (c) Filtering mechanism aiming to ensure\nthe quality and faithfulness of the generated data. We showcase this\nmethodology by generating three large-scale synthetic data, making wishes, for\nLong-Form Question-Answering (LFQA), summarization, and information extraction.\nIn a human evaluation, our generated data was found to be natural and of high\nquality. Furthermore, we compare models trained on our data with models trained\non human-written data -- ELI5 and ASQA for LFQA and CNN-DailyMail for\nSummarization. We show that our models are on par with or outperforming models\ntrained on human-generated data and consistently outperforming them in\nfaithfulness. Finally, we applied our method to create LFQA data within the\nmedical domain and compared a model trained on it with models trained on other\ndomains.",
+        "translated": ""
+    },
+    {
+        "title": "A Comparative Analysis of Noise Reduction Methods in Sentiment Analysis\n  on Noisy Bengali Texts",
+        "url": "http://arxiv.org/abs/2401.14360v1",
+        "pub_date": "2024-01-25",
+        "summary": "While Bengali is considered a language with limited resources, sentiment\nanalysis has been a subject of extensive research in the literature.\nNevertheless, there is a scarcity of exploration into sentiment analysis\nspecifically in the realm of noisy Bengali texts. In this paper, we introduce a\ndataset (NC-SentNoB) that we annotated manually to identify ten different types\nof noise found in a pre-existing sentiment analysis dataset comprising of\naround 15K noisy Bengali texts. At first, given an input noisy text, we\nidentify the noise type, addressing this as a multi-label classification task.\nThen, we introduce baseline noise reduction methods to alleviate noise prior to\nconducting sentiment analysis. Finally, we assess the performance of fine-tuned\nsentiment analysis models with both noisy and noise-reduced texts to make\ncomparisons. The experimental findings indicate that the noise reduction\nmethods utilized are not satisfactory, highlighting the need for more suitable\nnoise reduction methods in future research endeavors. We have made the\nimplementation and dataset presented in this paper publicly available at\nhttps://github.com/ktoufiquee/A-Comparative-Analysis-of-Noise-Reduction-Methods-in-Sentiment-Analysis-on-Noisy-Bengali-Texts",
+        "translated": ""
+    },
+    {
+        "title": "Topologies of Reasoning: Demystifying Chains, Trees, and Graphs of\n  Thoughts",
+        "url": "http://arxiv.org/abs/2401.14295v1",
+        "pub_date": "2024-01-25",
+        "summary": "The field of natural language processing (NLP) has witnessed significant\nprogress in recent years, with a notable focus on improving large language\nmodels' (LLM) performance through innovative prompting techniques. Among these,\nprompt engineering coupled with structures has emerged as a promising paradigm,\nwith designs such as Chain-of-Thought, Tree of Thoughts, or Graph of Thoughts,\nin which the overall LLM reasoning is guided by a structure such as a graph. As\nillustrated with numerous examples, this paradigm significantly enhances the\nLLM's capability to solve numerous tasks, ranging from logical or mathematical\nreasoning to planning or creative writing. To facilitate the understanding of\nthis growing field and pave the way for future developments, we devise a\ngeneral blueprint for effective and efficient LLM reasoning schemes. For this,\nwe conduct an in-depth analysis of the prompt execution pipeline, clarifying\nand clearly defining different concepts. We then build the first taxonomy of\nstructure-enhanced LLM reasoning schemes. We focus on identifying fundamental\nclasses of harnessed structures, and we analyze the representations of these\nstructures, algorithms executed with these structures, and many others. We\nrefer to these structures as reasoning topologies, because their representation\nbecomes to a degree spatial, as they are contained within the LLM context. Our\nstudy compares existing prompting schemes using the proposed taxonomy,\ndiscussing how certain design choices lead to different patterns in performance\nand cost. We also outline theoretical underpinnings, relationships between\nprompting and others parts of the LLM ecosystem such as knowledge bases, and\nthe associated research challenges. Our work will help to advance future prompt\nengineering techniques.",
+        "translated": ""
+    },
+    {
+        "title": "RomanSetu: Efficiently unlocking multilingual capabilities of Large\n  Language Models models via Romanization",
+        "url": "http://arxiv.org/abs/2401.14280v1",
+        "pub_date": "2024-01-25",
+        "summary": "This study addresses the challenge of extending Large Language Models (LLMs)\nto non-English languages, specifically those using non-Latin scripts. We\npropose an innovative approach that utilizes the romanized form of text as an\ninterface for LLMs, hypothesizing that its frequent informal use and shared\ntokens with English enhance cross-lingual alignment. Focusing on Hindi, we\ndemonstrate through Hindi-to-English translation and sentiment analysis tasks\nthat romanized text not only significantly improves inference efficiency due to\nits lower fertility compared to native text but also achieves competitive\nperformance with limited pre-training. Additionally, our novel multi-script\nprompting approach, which combines romanized and native texts, shows promise in\nfurther enhancing task performance. These findings suggest the potential of\nromanization in bridging the language gap for LLM applications, with future\nwork aimed at expanding this approach to more languages and tasks.",
+        "translated": ""
+    },
+    {
+        "title": "Transformers and Cortical Waves: Encoders for Pulling In Context Across\n  Time",
+        "url": "http://arxiv.org/abs/2401.14267v1",
+        "pub_date": "2024-01-25",
+        "summary": "The capabilities of transformer networks such as ChatGPT and other Large\nLanguage Models (LLMs) have captured the world's attention. The crucial\ncomputational mechanism underlying their performance relies on transforming a\ncomplete input sequence - for example, all the words in a sentence into a long\n\"encoding vector\" - that allows transformers to learn long-range temporal\ndependencies in naturalistic sequences. Specifically, \"self-attention\" applied\nto this encoding vector enhances temporal context in transformers by computing\nassociations between pairs of words in the input sequence. We suggest that\nwaves of neural activity, traveling across single cortical regions or across\nmultiple regions at the whole-brain scale, could implement a similar encoding\nprinciple. By encapsulating recent input history into a single spatial pattern\nat each moment in time, cortical waves may enable temporal context to be\nextracted from sequences of sensory inputs, the same computational principle\nused in transformers.",
+        "translated": ""
+    },
+    {
+        "title": "Improving Natural Language Capability of Code Large Language Model",
+        "url": "http://arxiv.org/abs/2401.14242v1",
+        "pub_date": "2024-01-25",
+        "summary": "Code large language models (Code LLMs) have demonstrated remarkable\nperformance in code generation. Nonetheless, most existing works focus on\nboosting code LLMs from the perspective of programming capabilities, while\ntheir natural language capabilities receive less attention. To fill this gap,\nwe thus propose a novel framework, comprising two modules: AttentionExtractor,\nwhich is responsible for extracting key phrases from the user's natural\nlanguage requirements, and AttentionCoder, which leverages these extracted\nphrases to generate target code to solve the requirement. This framework\npioneers an innovative idea by seamlessly integrating code LLMs with\ntraditional natural language processing tools. To validate the effectiveness of\nthe framework, we craft a new code generation benchmark, called MultiNL-H,\ncovering five natural languages. Extensive experimental results demonstrate the\neffectiveness of our proposed framework.",
+        "translated": ""
+    },
+    {
+        "title": "Enhanced Labeling Technique for Reddit Text and Fine-Tuned Longformer\n  Models for Classifying Depression Severity in English and Luganda",
+        "url": "http://arxiv.org/abs/2401.14240v1",
+        "pub_date": "2024-01-25",
+        "summary": "Depression is a global burden and one of the most challenging mental health\nconditions to control. Experts can detect its severity early using the Beck\nDepression Inventory (BDI) questionnaire, administer appropriate medication to\npatients, and impede its progression. Due to the fear of potential\nstigmatization, many patients turn to social media platforms like Reddit for\nadvice and assistance at various stages of their journey. This research\nextracts text from Reddit to facilitate the diagnostic process. It employs a\nproposed labeling approach to categorize the text and subsequently fine-tunes\nthe Longformer model. The model's performance is compared against baseline\nmodels, including Naive Bayes, Random Forest, Support Vector Machines, and\nGradient Boosting. Our findings reveal that the Longformer model outperforms\nthe baseline models in both English (48%) and Luganda (45%) languages on a\ncustom-made dataset.",
+        "translated": ""
+    },
+    {
+        "title": "Assessing the Portability of Parameter Matrices Trained by\n  Parameter-Efficient Finetuning Methods",
+        "url": "http://arxiv.org/abs/2401.14228v1",
+        "pub_date": "2024-01-25",
+        "summary": "As the cost of training ever larger language models has grown, so has the\ninterest in reusing previously learnt knowledge. Transfer learning methods have\nshown how reusing non-task-specific knowledge can help in subsequent\ntask-specific learning. In this paper, we investigate the inverse: porting\nwhole functional modules that encode task-specific knowledge from one model to\nanother. We designed a study comprising 1,440 training/testing runs to test the\nportability of modules trained by parameter-efficient finetuning (PEFT)\ntechniques, using sentiment analysis as an example task. We test portability in\na wide range of scenarios, involving different PEFT techniques and different\npretrained host models, among other dimensions. We compare the performance of\nported modules with that of equivalent modules trained (i) from scratch, and\n(ii) from parameters sampled from the same distribution as the ported module.\nWe find that the ported modules far outperform the two alternatives tested, but\nthat there are interesting performance differences between the four PEFT\ntechniques. We conclude that task-specific knowledge in the form of\nstructurally modular sets of parameters as produced by PEFT techniques is\nhighly portable, but that degree of success depends on type of PEFT and on\ndifferences between originating and receiving pretrained models.",
+        "translated": ""
     }
 ]
