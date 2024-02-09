@@ -16588,5 +16588,68 @@
         "pub_date": "2024-02-07",
         "summary": "We present a theoretical and empirical analysis of the adaptive entry point\nselection for graph-based approximate nearest neighbor search (ANNS). We\nintroduce novel concepts: $b\\textit{-monotonic path}$ and $B\\textit{-MSNET}$,\nwhich better capture an actual graph in practical algorithms than existing\nconcepts like MSNET. We prove that adaptive entry point selection offers better\nperformance upper bound than the fixed central entry point under more general\nconditions than previous work. Empirically, we validate the method's\neffectiveness in accuracy, speed, and memory usage across various datasets,\nespecially in challenging scenarios with out-of-distribution data and hard\ninstances. Our comprehensive study provides deeper insights into optimizing\nentry points for graph-based ANNS for real-world high-dimensional data\napplications.",
         "translated": ""
+    },
+    {
+        "title": "Edu-ConvoKit: An Open-Source Library for Education Conversation Data",
+        "url": "http://arxiv.org/abs/2402.05111v1",
+        "pub_date": "2024-02-07",
+        "summary": "We introduce Edu-ConvoKit, an open-source library designed to handle\npre-processing, annotation and analysis of conversation data in education.\nResources for analyzing education conversation data are scarce, making the\nresearch challenging to perform and therefore hard to access. We address these\nchallenges with Edu-ConvoKit. Edu-ConvoKit is open-source\n(https://github.com/stanfordnlp/edu-convokit ), pip-installable\n(https://pypi.org/project/edu-convokit/ ), with comprehensive documentation\n(https://edu-convokit.readthedocs.io/en/latest/ ). Our demo video is available\nat: https://youtu.be/zdcI839vAko?si=h9qlnl76ucSuXb8- . We include additional\nresources, such as Colab applications of Edu-ConvoKit to three diverse\neducation datasets and a repository of Edu-ConvoKit related papers, that can be\nfound in our GitHub repository.",
+        "translated": ""
+    },
+    {
+        "title": "Image captioning for Brazilian Portuguese using GRIT model",
+        "url": "http://arxiv.org/abs/2402.05106v1",
+        "pub_date": "2024-02-07",
+        "summary": "This work presents the early development of a model of image captioning for\nthe Brazilian Portuguese language. We used the GRIT (Grid - and Region-based\nImage captioning Transformer) model to accomplish this work. GRIT is a\nTransformer-only neural architecture that effectively utilizes two visual\nfeatures to generate better captions. The GRIT method emerged as a proposal to\nbe a more efficient way to generate image captioning. In this work, we adapt\nthe GRIT model to be trained in a Brazilian Portuguese dataset to have an image\ncaptioning method for the Brazilian Portuguese Language.",
+        "translated": ""
+    },
+    {
+        "title": "SALAD-Bench: A Hierarchical and Comprehensive Safety Benchmark for Large\n  Language Models",
+        "url": "http://arxiv.org/abs/2402.05044v1",
+        "pub_date": "2024-02-07",
+        "summary": "In the rapidly evolving landscape of Large Language Models (LLMs), ensuring\nrobust safety measures is paramount. To meet this crucial need, we propose\n\\emph{SALAD-Bench}, a safety benchmark specifically designed for evaluating\nLLMs, attack, and defense methods. Distinguished by its breadth, SALAD-Bench\ntranscends conventional benchmarks through its large scale, rich diversity,\nintricate taxonomy spanning three levels, and versatile\nfunctionalities.SALAD-Bench is crafted with a meticulous array of questions,\nfrom standard queries to complex ones enriched with attack, defense\nmodifications and multiple-choice. To effectively manage the inherent\ncomplexity, we introduce an innovative evaluators: the LLM-based MD-Judge for\nQA pairs with a particular focus on attack-enhanced queries, ensuring a\nseamless, and reliable evaluation. Above components extend SALAD-Bench from\nstandard LLM safety evaluation to both LLM attack and defense methods\nevaluation, ensuring the joint-purpose utility. Our extensive experiments shed\nlight on the resilience of LLMs against emerging threats and the efficacy of\ncontemporary defense tactics. Data and evaluator are released under\n\\url{https://github.com/OpenSafetyLab/SALAD-BENCH}. Warning: this paper\nincludes examples that may be offensive or harmful.",
+        "translated": ""
+    },
+    {
+        "title": "How BERT Speaks Shakespearean English? Evaluating Historical Bias in\n  Contextual Language Models",
+        "url": "http://arxiv.org/abs/2402.05034v1",
+        "pub_date": "2024-02-07",
+        "summary": "In this paper, we explore the idea of analysing the historical bias of\ncontextual language models based on BERT by measuring their adequacy with\nrespect to Early Modern (EME) and Modern (ME) English. In our preliminary\nexperiments, we perform fill-in-the-blank tests with 60 masked sentences (20\nEME-specific, 20 ME-specific and 20 generic) and three different models (i.e.,\nBERT Base, MacBERTh, English HLM). We then rate the model predictions according\nto a 5-point bipolar scale between the two language varieties and derive a\nweighted score to measure the adequacy of each model to EME and ME varieties of\nEnglish.",
+        "translated": ""
+    },
+    {
+        "title": "Pedagogical Alignment of Large Language Models",
+        "url": "http://arxiv.org/abs/2402.05000v1",
+        "pub_date": "2024-02-07",
+        "summary": "In this paper, we introduce the novel concept of pedagogically aligned Large\nLanguage Models (LLMs) that signifies a transformative shift in the application\nof LLMs within educational contexts. Rather than providing direct responses to\nuser queries, pedagogically-aligned LLMs function as scaffolding tools,\nbreaking complex problems into manageable subproblems and guiding students\ntowards the final answer through constructive feedback and hints. The objective\nis to equip learners with problem-solving strategies that deepen their\nunderstanding and internalization of the subject matter. Previous research in\nthis field has primarily applied the supervised finetuning approach without\nframing the objective as an alignment problem, hence not employing\nreinforcement learning through human feedback (RLHF) methods. This study\nreinterprets the narrative by viewing the task through the lens of alignment\nand demonstrates how RLHF methods emerge naturally as a superior alternative\nfor aligning LLM behaviour. Building on this perspective, we propose a novel\napproach for constructing a reward dataset specifically designed for the\npedagogical alignment of LLMs. We apply three state-of-the-art RLHF algorithms\nand find that they outperform SFT significantly. Our qualitative analyses\nacross model differences and hyperparameter sensitivity further validate the\nsuperiority of RLHF over SFT. Also, our study sheds light on the potential of\nonline feedback for enhancing the performance of pedagogically-aligned LLMs,\nthus providing valuable insights for the advancement of these models in\neducational settings.",
+        "translated": ""
+    },
+    {
+        "title": "An Enhanced Prompt-Based LLM Reasoning Scheme via Knowledge\n  Graph-Integrated Collaboration",
+        "url": "http://arxiv.org/abs/2402.04978v1",
+        "pub_date": "2024-02-07",
+        "summary": "While Large Language Models (LLMs) demonstrate exceptional performance in a\nmultitude of Natural Language Processing (NLP) tasks, they encounter challenges\nin practical applications, including issues with hallucinations, inadequate\nknowledge updating, and limited transparency in the reasoning process. To\novercome these limitations, this study innovatively proposes a collaborative\ntraining-free reasoning scheme involving tight cooperation between Knowledge\nGraph (KG) and LLMs. This scheme first involves using LLMs to iteratively\nexplore KG, selectively retrieving a task-relevant knowledge subgraph to\nsupport reasoning. The LLMs are then guided to further combine inherent\nimplicit knowledge to reason on the subgraph while explicitly elucidating the\nreasoning process. Through such a cooperative approach, our scheme achieves\nmore reliable knowledge-based reasoning and facilitates the tracing of the\nreasoning results. Experimental results show that our scheme significantly\nprogressed across multiple datasets, notably achieving over a 10% improvement\non the QALD10 dataset compared to the best baseline and the fine-tuned\nstate-of-the-art (SOTA) work. Building on this success, this study hopes to\noffer a valuable reference for future research in the fusion of KG and LLMs,\nthereby enhancing LLMs' proficiency in solving complex issues.",
+        "translated": ""
+    },
+    {
+        "title": "Text or Image? What is More Important in Cross-Domain Generalization\n  Capabilities of Hate Meme Detection Models?",
+        "url": "http://arxiv.org/abs/2402.04967v1",
+        "pub_date": "2024-02-07",
+        "summary": "This paper delves into the formidable challenge of cross-domain\ngeneralization in multimodal hate meme detection, presenting compelling\nfindings. We provide enough pieces of evidence supporting the hypothesis that\nonly the textual component of hateful memes enables the existing multimodal\nclassifier to generalize across different domains, while the image component\nproves highly sensitive to a specific training dataset. The evidence includes\ndemonstrations showing that hate-text classifiers perform similarly to\nhate-meme classifiers in a zero-shot setting. Simultaneously, the introduction\nof captions generated from images of memes to the hate-meme classifier worsens\nperformance by an average F1 of 0.02. Through blackbox explanations, we\nidentify a substantial contribution of the text modality (average of 83%),\nwhich diminishes with the introduction of meme's image captions (52%).\nAdditionally, our evaluation on a newly created confounder dataset reveals\nhigher performance on text confounders as compared to image confounders with an\naverage $\\Delta$F1 of 0.18.",
+        "translated": ""
+    },
+    {
+        "title": "Reconfidencing LLMs from the Grouping Loss Perspective",
+        "url": "http://arxiv.org/abs/2402.04957v1",
+        "pub_date": "2024-02-07",
+        "summary": "Large Language Models (LLMs), including ChatGPT and LLaMA, are susceptible to\ngenerating hallucinated answers in a confident tone. While efforts to elicit\nand calibrate confidence scores have proven useful, recent findings show that\ncontrolling uncertainty must go beyond calibration: predicted scores may\ndeviate significantly from the actual posterior probabilities due to the impact\nof grouping loss. In this work, we construct a new evaluation dataset derived\nfrom a knowledge base to assess confidence scores given to answers of Mistral\nand LLaMA. Experiments show that they tend to be overconfident. Further, we\nshow that they are more overconfident on some answers than others, \\emph{eg}\ndepending on the nationality of the person in the query. In\nuncertainty-quantification theory, this is grouping loss. To address this, we\npropose a solution to reconfidence LLMs, canceling not only calibration but\nalso grouping loss. The LLMs, after the reconfidencing process, indicate\nimproved confidence alignment with the accuracy of their responses.",
+        "translated": ""
+    },
+    {
+        "title": "Prompting Implicit Discourse Relation Annotation",
+        "url": "http://arxiv.org/abs/2402.04918v1",
+        "pub_date": "2024-02-07",
+        "summary": "Pre-trained large language models, such as ChatGPT, archive outstanding\nperformance in various reasoning tasks without supervised training and were\nfound to have outperformed crowdsourcing workers. Nonetheless, ChatGPT's\nperformance in the task of implicit discourse relation classification, prompted\nby a standard multiple-choice question, is still far from satisfactory and\nconsiderably inferior to state-of-the-art supervised approaches. This work\ninvestigates several proven prompting techniques to improve ChatGPT's\nrecognition of discourse relations. In particular, we experimented with\nbreaking down the classification task that involves numerous abstract labels\ninto smaller subtasks. Nonetheless, experiment results show that the inference\naccuracy hardly changes even with sophisticated prompt engineering, suggesting\nthat implicit discourse relation classification is not yet resolvable under\nzero-shot or few-shot settings.",
+        "translated": ""
     }
 ]
