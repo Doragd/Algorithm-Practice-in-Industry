@@ -16854,5 +16854,40 @@
         "pub_date": "2024-02-09",
         "summary": "This study details our approach for the CASE 2024 Shared Task on Climate\nActivism Stance and Hate Event Detection, focusing on Hate Speech Detection,\nHate Speech Target Identification, and Stance Detection as classification\nchallenges. We explored the capability of Large Language Models (LLMs),\nparticularly GPT-4, in zero- or few-shot settings enhanced by retrieval\naugmentation and re-ranking for Tweet classification. Our goal was to determine\nif LLMs could match or surpass traditional methods in this context.\n  We conducted an ablation study with LLaMA for comparison, and our results\nindicate that our models significantly outperformed the baselines, securing\nsecond place in the Target Detection task. The code for our submission is\navailable at https://github.com/NaiveNeuron/bryndza-case-2024",
         "translated": ""
+    },
+    {
+        "title": "Retrieval-Augmented Thought Process as Sequential Decision Making",
+        "url": "http://arxiv.org/abs/2402.07812v1",
+        "pub_date": "2024-02-12",
+        "summary": "Large Language Models (LLMs) have demonstrated their strong ability to assist\npeople and show \"sparks of intelligence\". However, several open challenges\nhinder their wider application: such as concerns over privacy, tendencies to\nproduce hallucinations, and difficulties in handling long contexts. In this\nwork, we address those challenges by introducing the Retrieval-Augmented\nThought Process (RATP). Given access to external knowledge, RATP formulates the\nthought generation of LLMs as a multiple-step decision process. To optimize\nsuch a thought process, RATP leverages Monte-Carlo Tree Search, and learns a\nQ-value estimator that permits cost-efficient inference. In addressing the task\nof question-answering with private data, where ethical and security concerns\nlimit LLM training methods, RATP achieves a 50% improvement over existing\nin-context retrieval-augmented language models.",
+        "translated": ""
+    },
+    {
+        "title": "Quantitative knowledge retrieval from large language models",
+        "url": "http://arxiv.org/abs/2402.07770v1",
+        "pub_date": "2024-02-12",
+        "summary": "Large language models (LLMs) have been extensively studied for their\nabilities to generate convincing natural language sequences, however their\nutility for quantitative information retrieval is less well understood. In this\npaper we explore the feasibility of LLMs as a mechanism for quantitative\nknowledge retrieval to aid data analysis tasks such as elicitation of prior\ndistributions for Bayesian models and imputation of missing data. We present a\nprompt engineering framework, treating an LLM as an interface to a latent space\nof scientific literature, comparing responses in different contexts and domains\nagainst more established approaches. Implications and challenges of using LLMs\nas 'experts' are discussed.",
+        "translated": ""
+    },
+    {
+        "title": "Multimodal Learned Sparse Retrieval for Image Suggestion",
+        "url": "http://arxiv.org/abs/2402.07736v1",
+        "pub_date": "2024-02-12",
+        "summary": "Learned Sparse Retrieval (LSR) is a group of neural methods designed to\nencode queries and documents into sparse lexical vectors. These vectors can be\nefficiently indexed and retrieved using an inverted index. While LSR has shown\npromise in text retrieval, its potential in multi-modal retrieval remains\nlargely unexplored. Motivated by this, in this work, we explore the application\nof LSR in the multi-modal domain, i.e., we focus on Multi-Modal Learned Sparse\nRetrieval (MLSR). We conduct experiments using several MLSR model\nconfigurations and evaluate the performance on the image suggestion task. We\nfind that solving the task solely based on the image content is challenging.\nEnriching the image content with its caption improves the model performance\nsignificantly, implying the importance of image captions to provide\nfine-grained concepts and context information of images. Our approach presents\na practical and effective solution for training LSR retrieval models in\nmulti-modal settings.",
+        "translated": ""
+    },
+    {
+        "title": "Multi-Behavior Collaborative Filtering with Partial Order Graph\n  Convolutional Networks",
+        "url": "http://arxiv.org/abs/2402.07659v1",
+        "pub_date": "2024-02-12",
+        "summary": "Representing the information of multiple behaviors in the single graph\ncollaborative filtering (CF) vector has been a long-standing challenge. This is\nbecause different behaviors naturally form separate behavior graphs and learn\nseparate CF embeddings. Existing models merge the separate embeddings by\nappointing the CF embeddings for some behaviors as the primary embedding and\nutilizing other auxiliaries to enhance the primary embedding. However, this\napproach often results in the joint embedding performing well on the main tasks\nbut poorly on the auxiliary ones. To address the problem arising from the\nseparate behavior graphs, we propose the concept of Partial Order Graphs (POG).\nPOG defines the partial order relation of multiple behaviors and models\nbehavior combinations as weighted edges to merge separate behavior graphs into\na joint POG. Theoretical proof verifies that POG can be generalized to any\ngiven set of multiple behaviors. Based on POG, we propose the tailored Partial\nOrder Graph Convolutional Networks (POGCN) that convolute neighbors'\ninformation while considering the behavior relations between users and items.\nPOGCN also introduces a partial-order BPR sampling strategy for efficient and\neffective multiple-behavior CF training. POGCN has been successfully deployed\non the homepage of Alibaba for two months, providing recommendation services\nfor over one billion users. Extensive offline experiments conducted on three\npublic benchmark datasets demonstrate that POGCN outperforms state-of-the-art\nmulti-behavior baselines across all types of behaviors. Furthermore, online A/B\ntests confirm the superiority of POGCN in billion-scale recommender systems.",
+        "translated": ""
+    },
+    {
+        "title": "GRILLBot In Practice: Lessons and Tradeoffs Deploying Large Language\n  Models for Adaptable Conversational Task Assistants",
+        "url": "http://arxiv.org/abs/2402.07647v1",
+        "pub_date": "2024-02-12",
+        "summary": "We tackle the challenge of building real-world multimodal assistants for\ncomplex real-world tasks. We describe the practicalities and challenges of\ndeveloping and deploying GRILLBot, a leading (first and second prize winning in\n2022 and 2023) system deployed in the Alexa Prize TaskBot Challenge. Building\non our Open Assistant Toolkit (OAT) framework, we propose a hybrid architecture\nthat leverages Large Language Models (LLMs) and specialised models tuned for\nspecific subtasks requiring very low latency. OAT allows us to define when, how\nand which LLMs should be used in a structured and deployable manner. For\nknowledge-grounded question answering and live task adaptations, we show that\nLLM reasoning abilities over task context and world knowledge outweigh latency\nconcerns. For dialogue state management, we implement a code generation\napproach and show that specialised smaller models have 84% effectiveness with\n100x lower latency. Overall, we provide insights and discuss tradeoffs for\ndeploying both traditional models and LLMs to users in complex real-world\nmultimodal environments in the Alexa TaskBot challenge. These experiences will\ncontinue to evolve as LLMs become more capable and efficient -- fundamentally\nreshaping OAT and future assistant architectures.",
+        "translated": ""
     }
 ]
