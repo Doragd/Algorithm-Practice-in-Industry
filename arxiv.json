@@ -17477,5 +17477,40 @@
         "pub_date": "2024-02-19",
         "summary": "Large language models (LLMs) need to undergo safety alignment to ensure safe\nconversations with humans. However, in this work, we introduce an\ninference-time attack framework, demonstrating that safety alignment can also\nunintentionally facilitate harmful outcomes under adversarial manipulation.\nThis framework, named Emulated Disalignment (ED), adversely combines a pair of\nopen-source pre-trained and safety-aligned language models in the output space\nto produce a harmful language model without any training. Our experiments with\nED across three datasets and four model families (Llama-1, Llama-2, Mistral,\nand Alpaca) show that ED doubles the harmfulness of pre-trained models and\noutperforms strong baselines, achieving the highest harmful rate in 43 out of\n48 evaluation subsets by a large margin. Crucially, our findings highlight the\nimportance of reevaluating the practice of open-sourcing language models even\nafter safety alignment.",
         "translated": ""
+    },
+    {
+        "title": "Unlocking Insights: Semantic Search in Jupyter Notebooks",
+        "url": "http://arxiv.org/abs/2402.13234v1",
+        "pub_date": "2024-02-20",
+        "summary": "Semantic search, a process aimed at delivering highly relevant search results\nby comprehending the searcher's intent and the contextual meaning of terms\nwithin a searchable dataspace, plays a pivotal role in information retrieval.\nIn this paper, we investigate the application of large language models to\nenhance semantic search capabilities, specifically tailored for the domain of\nJupyter Notebooks. Our objective is to retrieve generated outputs, such as\nfigures or tables, associated functions and methods, and other pertinent\ninformation.\n  We demonstrate a semantic search framework that achieves a comprehensive\nsemantic understanding of the entire notebook's contents, enabling it to\neffectively handle various types of user queries. Key components of this\nframework include:\n  1). A data preprocessor is designed to handle diverse types of cells within\nJupyter Notebooks, encompassing both markdown and code cells. 2). An innovative\nmethodology is devised to address token size limitations that arise with\ncode-type cells. We implement a finer-grained approach to data input,\ntransitioning from the cell level to the function level, effectively resolving\nthese issues.",
+        "translated": ""
+    },
+    {
+        "title": "Mode Estimation with Partial Feedback",
+        "url": "http://arxiv.org/abs/2402.13079v1",
+        "pub_date": "2024-02-20",
+        "summary": "The combination of lightly supervised pre-training and online fine-tuning has\nplayed a key role in recent AI developments. These new learning pipelines call\nfor new theoretical frameworks. In this paper, we formalize core aspects of\nweakly supervised and active learning with a simple problem: the estimation of\nthe mode of a distribution using partial feedback. We show how entropy coding\nallows for optimal information acquisition from partial feedback, develop\ncoarse sufficient statistics for mode identification, and adapt bandit\nalgorithms to our new setting. Finally, we combine those contributions into a\nstatistically and computationally efficient solution to our problem.",
+        "translated": ""
+    },
+    {
+        "title": "Enhancing Real-World Complex Network Representations with Hyperedge\n  Augmentation",
+        "url": "http://arxiv.org/abs/2402.13033v1",
+        "pub_date": "2024-02-20",
+        "summary": "Graph augmentation methods play a crucial role in improving the performance\nand enhancing generalisation capabilities in Graph Neural Networks (GNNs).\nExisting graph augmentation methods mainly perturb the graph structures and are\nusually limited to pairwise node relations. These methods cannot fully address\nthe complexities of real-world large-scale networks that often involve\nhigher-order node relations beyond only being pairwise. Meanwhile, real-world\ngraph datasets are predominantly modelled as simple graphs, due to the scarcity\nof data that can be used to form higher-order edges. Therefore, reconfiguring\nthe higher-order edges as an integration into graph augmentation strategies\nlights up a promising research path to address the aforementioned issues. In\nthis paper, we present Hyperedge Augmentation (HyperAug), a novel graph\naugmentation method that constructs virtual hyperedges directly form the raw\ndata, and produces auxiliary node features by extracting from the virtual\nhyperedge information, which are used for enhancing GNN performances on\ndownstream tasks. We design three diverse virtual hyperedge construction\nstrategies to accompany the augmentation scheme: (1) via graph statistics, (2)\nfrom multiple data perspectives, and (3) utilising multi-modality. Furthermore,\nto facilitate HyperAug evaluation, we provide 23 novel real-world graph\ndatasets across various domains including social media, biology, and\ne-commerce. Our empirical study shows that HyperAug consistently and\nsignificantly outperforms GNN baselines and other graph augmentation methods,\nacross a variety of application contexts, which clearly indicates that it can\neffectively incorporate higher-order node relations into graph augmentation\nmethods for real-world complex networks.",
+        "translated": ""
+    },
+    {
+        "title": "Towards Trustworthy Reranking: A Simple yet Effective Abstention\n  Mechanism",
+        "url": "http://arxiv.org/abs/2402.12997v1",
+        "pub_date": "2024-02-20",
+        "summary": "Neural Information Retrieval (NIR) has significantly improved upon\nheuristic-based IR systems. Yet, failures remain frequent, the models used\noften being unable to retrieve documents relevant to the user's query. We\naddress this challenge by proposing a lightweight abstention mechanism tailored\nfor real-world constraints, with particular emphasis placed on the reranking\nphase. We introduce a protocol for evaluating abstention strategies in a\nblack-box scenario, demonstrating their efficacy, and propose a simple yet\neffective data-driven mechanism. We provide open-source code for experiment\nreplication and abstention implementation, fostering wider adoption and\napplication in diverse contexts.",
+        "translated": ""
+    },
+    {
+        "title": "Distributionally Robust Graph-based Recommendation System",
+        "url": "http://arxiv.org/abs/2402.12994v1",
+        "pub_date": "2024-02-20",
+        "summary": "With the capacity to capture high-order collaborative signals, Graph Neural\nNetworks (GNNs) have emerged as powerful methods in Recommender Systems (RS).\nHowever, their efficacy often hinges on the assumption that training and\ntesting data share the same distribution (a.k.a. IID assumption), and exhibits\nsignificant declines under distribution shifts. Distribution shifts commonly\narises in RS, often attributed to the dynamic nature of user preferences or\nubiquitous biases during data collection in RS. Despite its significance,\nresearches on GNN-based recommendation against distribution shift are still\nsparse. To bridge this gap, we propose Distributionally Robust GNN (DR-GNN)\nthat incorporates Distributional Robust Optimization (DRO) into the GNN-based\nrecommendation. DR-GNN addresses two core challenges: 1) To enable DRO to cater\nto graph data intertwined with GNN, we reinterpret GNN as a graph smoothing\nregularizer, thereby facilitating the nuanced application of DRO; 2) Given the\ntypically sparse nature of recommendation data, which might impede robust\noptimization, we introduce slight perturbations in the training distribution to\nexpand its support. Notably, while DR-GNN involves complex optimization, it can\nbe implemented easily and efficiently. Our extensive experiments validate the\neffectiveness of DR-GNN against three typical distribution shifts. The code is\navailable at https://github.com/WANGBohaO-jpg/DR-GNN .",
+        "translated": ""
     }
 ]
