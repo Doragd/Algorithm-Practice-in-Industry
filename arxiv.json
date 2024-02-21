@@ -17414,5 +17414,68 @@
         "pub_date": "2024-02-19",
         "summary": "With the continuous growth of large Knowledge Graphs (KGs), extractive KG\nsummarization becomes a trending task. Aiming at distilling a compact subgraph\nwith condensed information, it facilitates various downstream KG-based tasks.\nIn this survey paper, we are among the first to provide a systematic overview\nof its applications and define a taxonomy for existing methods from its\ninterdisciplinary studies. Future directions are also laid out based on our\nextensive and comparative review.",
         "translated": ""
+    },
+    {
+        "title": "Sequoia: Scalable, Robust, and Hardware-aware Speculative Decoding",
+        "url": "http://arxiv.org/abs/2402.12374v1",
+        "pub_date": "2024-02-19",
+        "summary": "As the usage of large language models (LLMs) grows, performing efficient\ninference with these models becomes increasingly important. While speculative\ndecoding has recently emerged as a promising direction for speeding up\ninference, existing methods are limited in their ability to scale to larger\nspeculation budgets, and adapt to different hyperparameters and hardware. This\npaper introduces Sequoia, a scalable, robust, and hardware-aware algorithm for\nspeculative decoding. To attain better scalability, Sequoia introduces a\ndynamic programming algorithm to find the optimal tree structure for the\nspeculated tokens. To achieve robust speculative performance, Sequoia uses a\nnovel sampling and verification method that outperforms prior work across\ndifferent decoding temperatures. Finally, Sequoia introduces a hardware-aware\ntree optimizer that maximizes speculative performance by automatically\nselecting the token tree size and depth for a given hardware platform.\nEvaluation shows that Sequoia improves the decoding speed of Llama2-7B,\nLlama2-13B, and Vicuna-33B on an A100 by up to $4.04\\times$, $3.84\\times$, and\n$2.37\\times$, and Llama2-70B offloading by up to $10.33\\times$ on L40.",
+        "translated": ""
+    },
+    {
+        "title": "HunFlair2 in a cross-corpus evaluation of named entity recognition and\n  normalization tools",
+        "url": "http://arxiv.org/abs/2402.12372v1",
+        "pub_date": "2024-02-19",
+        "summary": "With the exponential growth of the life science literature, biomedical text\nmining (BTM) has become an essential technology for accelerating the extraction\nof insights from publications. Identifying named entities (e.g., diseases,\ndrugs, or genes) in texts and their linkage to reference knowledge bases are\ncrucial steps in BTM pipelines to enable information aggregation from different\ndocuments. However, tools for these two steps are rarely applied in the same\ncontext in which they were developed. Instead, they are applied in the wild,\ni.e., on application-dependent text collections different from those used for\nthe tools' training, varying, e.g., in focus, genre, style, and text type. This\nraises the question of whether the reported performance of BTM tools can be\ntrusted for downstream applications. Here, we report on the results of a\ncarefully designed cross-corpus benchmark for named entity extraction, where\ntools were applied systematically to corpora not used during their training.\nBased on a survey of 28 published systems, we selected five for an in-depth\nanalysis on three publicly available corpora encompassing four different entity\ntypes. Comparison between tools results in a mixed picture and shows that, in a\ncross-corpus setting, the performance is significantly lower than the one\nreported in an in-corpus setting. HunFlair2 showed the best performance on\naverage, being closely followed by PubTator. Our results indicate that users of\nBTM tools should expect diminishing performances when applying them in the wild\ncompared to original publications and show that further research is necessary\nto make BTM tools more robust.",
+        "translated": ""
+    },
+    {
+        "title": "AnaloBench: Benchmarking the Identification of Abstract and Long-context\n  Analogies",
+        "url": "http://arxiv.org/abs/2402.12370v1",
+        "pub_date": "2024-02-19",
+        "summary": "Humans regularly engage in analogical thinking, relating personal experiences\nto current situations ($X$ is analogous to $Y$ because of $Z$). Analogical\nthinking allows humans to solve problems in creative ways, grasp difficult\nconcepts, and articulate ideas more effectively. Can language models (LMs) do\nthe same? To answer this question, we propose ANALOBENCH, a benchmark to\ndetermine analogical reasoning ability in LMs. Our benchmarking approach\nfocuses on aspects of this ability that are common among humans: (i) recalling\nrelated experiences from a large amount of information, and (ii) applying\nanalogical reasoning to complex and lengthy scenarios. We test a broad\ncollection of proprietary models (e.g., GPT family, Claude V2) and open source\nmodels such as LLaMA2. As in prior results, scaling up LMs results in some\nperformance boosts. Surprisingly, scale offers minimal gains when, (i)\nanalogies involve lengthy scenarios, or (ii) recalling relevant scenarios from\na large pool of information, a process analogous to finding a needle in a\nhaystack. We hope these observations encourage further research in this field.",
+        "translated": ""
+    },
+    {
+        "title": "A synthetic data approach for domain generalization of NLI models",
+        "url": "http://arxiv.org/abs/2402.12368v1",
+        "pub_date": "2024-02-19",
+        "summary": "Natural Language Inference (NLI) remains an important benchmark task for\nLLMs. NLI datasets are a springboard for transfer learning to other semantic\ntasks, and NLI models are standard tools for identifying the faithfulness of\nmodel-generated text. There are several large scale NLI datasets today, and\nmodels have improved greatly by hill-climbing on these collections. Yet their\nrealistic performance on out-of-distribution/domain data is less\nwell-understood. We present an in-depth exploration of the problem of domain\ngeneralization of NLI models. We demonstrate a new approach for generating\nsynthetic NLI data in diverse domains and lengths, so far not covered by\nexisting training sets. The resulting examples have meaningful premises, the\nhypotheses are formed in creative ways rather than simple edits to a few\npremise tokens, and the labels have high accuracy. We show that models trained\non this data ($685$K synthetic examples) have the best generalization to\ncompletely new downstream test settings. On the TRUE benchmark, a T5-small\nmodel trained with our data improves around $7\\%$ on average compared to\ntraining on the best alternative dataset. The improvements are more pronounced\nfor smaller models, while still meaningful on a T5 XXL model. We also\ndemonstrate gains on test sets when in-domain training data is augmented with\nour domain-general synthetic data.",
+        "translated": ""
+    },
+    {
+        "title": "A Critical Evaluation of AI Feedback for Aligning Large Language Models",
+        "url": "http://arxiv.org/abs/2402.12366v1",
+        "pub_date": "2024-02-19",
+        "summary": "Reinforcement learning with AI feedback (RLAIF) is a popular paradigm for\nimproving the instruction-following abilities of powerful pre-trained language\nmodels. RLAIF first performs supervised fine-tuning (SFT) using demonstrations\nfrom a teacher model and then further fine-tunes the model with reinforcement\nlearning (RL), using feedback from a critic model. While recent popular\nopen-source models have demonstrated substantial improvements in performance\nfrom the RL step, in this paper we question whether the complexity of this RL\nstep is truly warranted for AI feedback. We show that the improvements of the\nRL step are virtually entirely due to the widespread practice of using a weaker\nteacher model (e.g. GPT-3.5) for SFT data collection than the critic (e.g.,\nGPT-4) used for AI feedback generation. Specifically, we show that simple\nsupervised fine-tuning with GPT-4 as the teacher outperforms existing RLAIF\npipelines. More generally, we find that the gains from RLAIF vary substantially\nacross base model families, test-time evaluation protocols, and critic models.\nFinally, we provide a mechanistic explanation for when SFT may outperform the\nfull two-step RLAIF pipeline as well as suggestions for making RLAIF maximally\nuseful in practice.",
+        "translated": ""
+    },
+    {
+        "title": "Emergent Word Order Universals from Cognitively-Motivated Language\n  Models",
+        "url": "http://arxiv.org/abs/2402.12363v1",
+        "pub_date": "2024-02-19",
+        "summary": "The world's languages exhibit certain so-called typological or implicational\nuniversals; for example, Subject-Object-Verb (SOV) word order typically employs\npostpositions. Explaining the source of such biases is a key goal in\nlinguistics. We study the word-order universals through a computational\nsimulation with language models (LMs). Our experiments show that typologically\ntypical word orders tend to have lower perplexity estimated by LMs with\ncognitively plausible biases: syntactic biases, specific parsing strategies,\nand memory limitations. This suggests that the interplay of these cognitive\nbiases and predictability (perplexity) can explain many aspects of word-order\nuniversals. This also showcases the advantage of cognitively-motivated LMs,\nwhich are typically employed in cognitive modeling, in the computational\nsimulation of language universals.",
+        "translated": ""
+    },
+    {
+        "title": "LoRA+: Efficient Low Rank Adaptation of Large Models",
+        "url": "http://arxiv.org/abs/2402.12354v1",
+        "pub_date": "2024-02-19",
+        "summary": "In this paper, we show that Low Rank Adaptation (LoRA) as originally\nintroduced in Hu et al. (2021) leads to suboptimal finetuning of models with\nlarge width (embedding dimension). This is due to the fact that adapter\nmatrices A and B in LoRA are updated with the same learning rate. Using scaling\narguments for large width networks, we demonstrate that using the same learning\nrate for A and B does not allow efficient feature learning. We then show that\nthis suboptimality of LoRA can be corrected simply by setting different\nlearning rates for the LoRA adapter matrices A and B with a well-chosen ratio.\nWe call this proposed algorithm LoRA$+$. In our extensive experiments, LoRA$+$\nimproves performance (1-2 $\\%$ improvements) and finetuning speed (up to $\\sim$\n2X SpeedUp), at the same computational cost as LoRA.",
+        "translated": ""
+    },
+    {
+        "title": "GTBench: Uncovering the Strategic Reasoning Limitations of LLMs via\n  Game-Theoretic Evaluations",
+        "url": "http://arxiv.org/abs/2402.12348v1",
+        "pub_date": "2024-02-19",
+        "summary": "As Large Language Models (LLMs) are integrated into critical real-world\napplications, their strategic and logical reasoning abilities are increasingly\ncrucial. This paper evaluates LLMs' reasoning abilities in competitive\nenvironments through game-theoretic tasks, e.g., board and card games that\nrequire pure logic and strategic reasoning to compete with opponents. We first\npropose GTBench, a language-driven environment composing 10 widely-recognized\ntasks, across a comprehensive game taxonomy: complete versus incomplete\ninformation, dynamic versus static, and probabilistic versus deterministic\nscenarios. Then, we investigate two key problems: (1) Characterizing\ngame-theoretic reasoning of LLMs; (2) LLM-vs-LLM competitions as reasoning\nevaluation. We observe that (1) LLMs have distinct behaviors regarding various\ngaming scenarios; for example, LLMs fail in complete and deterministic games\nyet they are competitive in probabilistic gaming scenarios; (2) Open-source\nLLMs, e.g., CodeLlama-34b-Instruct, are less competitive than commercial LLMs,\ne.g., GPT-4, in complex games. In addition, code-pretraining greatly benefits\nstrategic reasoning, while advanced reasoning methods such as Chain-of-Thought\n(CoT) and Tree-of-Thought (ToT) do not always help. Detailed error profiles are\nalso provided for a better understanding of LLMs' behavior.",
+        "translated": ""
+    },
+    {
+        "title": "Emulated Disalignment: Safety Alignment for Large Language Models May\n  Backfire!",
+        "url": "http://arxiv.org/abs/2402.12343v1",
+        "pub_date": "2024-02-19",
+        "summary": "Large language models (LLMs) need to undergo safety alignment to ensure safe\nconversations with humans. However, in this work, we introduce an\ninference-time attack framework, demonstrating that safety alignment can also\nunintentionally facilitate harmful outcomes under adversarial manipulation.\nThis framework, named Emulated Disalignment (ED), adversely combines a pair of\nopen-source pre-trained and safety-aligned language models in the output space\nto produce a harmful language model without any training. Our experiments with\nED across three datasets and four model families (Llama-1, Llama-2, Mistral,\nand Alpaca) show that ED doubles the harmfulness of pre-trained models and\noutperforms strong baselines, achieving the highest harmful rate in 43 out of\n48 evaluation subsets by a large margin. Crucially, our findings highlight the\nimportance of reevaluating the practice of open-sourcing language models even\nafter safety alignment.",
+        "translated": ""
     }
 ]
