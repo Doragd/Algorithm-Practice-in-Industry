@@ -61,12 +61,7 @@ def main():
     )
 
 if __name__ == "__main__":
-    # main()
-    run(
-        confs_str='cikm',
-        start_year=2023,
-        filter_str='',
-    )
+    main()
 
 
 
