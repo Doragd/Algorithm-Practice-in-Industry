@@ -58,7 +58,7 @@
 |   [2021](./papers/cikm/cikm2021.md)  |   [2021](./papers/ecir/ecir2021.md)  |   [2021](./papers/kdd/kdd2021.md)  |   [2021](./papers/recsys/recsys2021.md)  |   [2021](./papers/sigir/sigir2021.md)  |   [2021](./papers/wsdm/wsdm2021.md)  |   [2021](./papers/www/www2021.md)  |   
 |   [2022](./papers/cikm/cikm2022.md)  |   [2022](./papers/ecir/ecir2022.md)  |   [2022](./papers/kdd/kdd2022.md)  |   [2022](./papers/recsys/recsys2022.md)  |   [2022](./papers/sigir/sigir2022.md)  |   [2022](./papers/wsdm/wsdm2022.md)  |   [2022](./papers/www/www2022.md)  |   
 |   [2023](./papers/cikm/cikm2023.md)  |   [2023](./papers/ecir/ecir2023.md)  |   [2023](./papers/kdd/kdd2023.md)  |   [2023](./papers/recsys/recsys2023.md)  |   [2023](./papers/sigir/sigir2023.md)  |   [2023](./papers/wsdm/wsdm2023.md)  |   [2023](./papers/www/www2023.md)  |   
-|   2024  |   [2024](./papers/ecir/ecir2024.md)  |   2024  |   2024  |   2024  |   2024  |   2024  |   
+|   2024  |   [2024](./papers/ecir/ecir2024.md)  |   2024  |   2024  |   2024  |   [2024](./papers/wsdm/wsdm2024.md)  |   2024  |   
 
 ## 大厂实践文章
 
