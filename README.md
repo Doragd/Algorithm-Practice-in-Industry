@@ -63,6 +63,8 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 美团 | [大众点评内容搜索算法优化的探索与实践](https://mp.weixin.qq.com/s/4gki0Ju82HnHV5Qze2faBw) | 搜索 | 2024-03-21 |
+| 美团 | [百亿大规模图在广告场景的应用](https://mp.weixin.qq.com/s/RCOcFFIYDylWg10ZG72_KA) | 图 | 2024-03-28 |
 | 360 | [360信息流推荐Mind召回](https://mp.weixin.qq.com/s/Hy9yZ8yOF2FwQ9FIn3DQTw) | 召回 | 2024-01-19 |
 | 百度 | [百度搜索Push个性化](https://mp.weixin.qq.com/s/nly7Za8Ei29lx6HBuimBTQ) | 搜索 | 2024-01-17 |
 | 小红书 | [小红书推荐用户及内容冷启动实践](https://www.bilibili.com/video/BV1fe41127m1) | 冷启动 | 2024-01-12 |
