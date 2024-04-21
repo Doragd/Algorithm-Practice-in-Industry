@@ -63,25 +63,25 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
-| 美团 | [美团交易视频推荐探索与实践](https://www.bilibili.com/video/BV1N64y1H7mc) | 推荐 | 2023-12-23 |
-| 美团 | [内容搜索算法优化的探索与实践](https://www.bilibili.com/video/BV1Yb4y137a3) | 搜索 | 2023-12-23 |
-| 百度 | [百度视频推荐跨域多目标预估与融合的实践和思考](https://mp.weixin.qq.com/s/YXPmZn3ujbBavFsmnf5Vzw) | 推荐 | 2023-11-29 |
-| 网易 | [网易云音乐推荐系统的冷启动技术](https://mp.weixin.qq.com/s/EDkoe3nxvQ_24nxC8ktd7g) | 冷启动 | 2023-11-10 |
-| 华为 | [多任务和多场景在华为推荐系统中的应用](https://mp.weixin.qq.com/s/c7xO71NEE2n-RbtRKItA) | 推荐 | 2023-11-09 |
-| 小红书 | [小红书推荐系统创新性探索](https://www.bilibili.com/video/BV1Zz4y1P7Tx) | 冷启动 | 2023-10-31 |
-| 快手 | [快手内容冷启动推荐模型实践](https://mp.weixin.qq.com/s/8MKoANEAw687FoeTasngpA) | 冷启动 | 2023-10-11 |
 | 360 | [360信息流推荐Mind召回](https://mp.weixin.qq.com/s/Hy9yZ8yOF2FwQ9FIn3DQTw) | 召回 | 2024-01-19 |
 | 百度 | [百度搜索Push个性化](https://mp.weixin.qq.com/s/nly7Za8Ei29lx6HBuimBTQ) | 搜索 | 2024-01-17 |
 | 小红书 | [小红书推荐用户及内容冷启动实践](https://www.bilibili.com/video/BV1fe41127m1) | 冷启动 | 2024-01-12 |
 | 百度 | [百度feed图模型演进](https://mp.weixin.qq.com/s/k78RRpvDrP3GlsdBV3B3sg) | 推荐 | 2024-01-11 |
 | 百度 | [百度推荐排序技术的思考与实践](https://mp.weixin.qq.com/s/JTNmYJNgoQr26fkT-Oy35g) | 推荐 | 2024-01-07 |
 | OPPO | [OPPO 广告召回算法实践与探索](https://mp.weixin.qq.com/s/4TtGHY3Rc9Ui_1jkOKSx5Q) | 召回 | 2023-12-30 |
+| 美团 | [美团交易视频推荐探索与实践](https://www.bilibili.com/video/BV1N64y1H7mc) | 推荐 | 2023-12-23 |
+| 美团 | [内容搜索算法优化的探索与实践](https://www.bilibili.com/video/BV1Yb4y137a3) | 搜索 | 2023-12-23 |
 | 得物 | [粗排优化探讨｜得物技术](https://mp.weixin.qq.com/s/JX8adK0y-AtsoRRxx4734Q) | 粗排 | 2023-12-20 |
+| 百度 | [百度视频推荐跨域多目标预估与融合的实践和思考](https://mp.weixin.qq.com/s/YXPmZn3ujbBavFsmnf5Vzw) | 推荐 | 2023-11-29 |
 | 腾讯 | [AI大模型「改造」QQ浏览器搜索](https://mp.weixin.qq.com/s/DSfo8AXIV_QMyBX4EOfe7A) | 搜索 | 2023-11-19 |
 | 阿里妈妈     | [HC^2：基于混合对比学习的多场景广告预估建模](https://mp.weixin.qq.com/s/8Mg3lt4t2j5dtFKCsRet4g) | 广告          | 2023-11-15 |
 | 阿里         | [融合复杂目标且支持实时调控的重排模型](https://mp.weixin.qq.com/s/kRmTthX9jLB8sHC32UJWfw) | 召回          | 2023-11-14 |
+| 网易 | [网易云音乐推荐系统的冷启动技术](https://mp.weixin.qq.com/s/EDkoe3nxvQ_24nxC8ktd7g) | 冷启动 | 2023-11-10 |
+| 华为 | [多任务和多场景在华为推荐系统中的应用](https://mp.weixin.qq.com/s/c7xO71NEE2n-RbtRKItA) | 推荐 | 2023-11-09 |
 | 阿里妈妈     | [BOMGraph：基于统一图神经网络的电商多场景召回方法](https://mp.weixin.qq.com/s/Grd0PyAYmrlvc6SQLASFrg) | 召回          | 2023-11-01 |
+| 小红书 | [小红书推荐系统创新性探索](https://www.bilibili.com/video/BV1Zz4y1P7Tx) | 冷启动 | 2023-10-31 |
 | 爱奇艺       | [爱奇艺效果广告双出价优化历程](https://mp.weixin.qq.com/s/brTPvcm6_yjwoXAme2kUdA) | 广告          | 2023-10-20 |
+| 快手 | [快手内容冷启动推荐模型实践](https://mp.weixin.qq.com/s/8MKoANEAw687FoeTasngpA) | 冷启动 | 2023-10-11 |
 | 百度         | [百度推荐排序技术的思考(提取码:r5kv)](https://pan.baidu.com/s/1kTbebwkDuZOuKS7INW1Jew) | 推荐          | 2023-08-26 |
 | 新浪         | [推荐系统大模型启发的MemoNet(提取码:ckpa)](https://pan.baidu.com/s/1iR6tdrD93o35WPKyievo7w) | CTR预估       | 2023-08-26 |
 | 网易         | [网易云音乐推荐的多模态冷启技术(提取码:x72d)](https://pan.baidu.com/s/1PnE89HVWg379ax9ewP8ydQ) | 冷启动        | 2023-08-26 |
