@@ -52,7 +52,7 @@ def get_paper(query):
         "filters": []
     }
     try:
-        r = requests.post(URL, data=json.dumps(req), headers=HEADERS, timeout=3)
+        r = requests.post(URL, data=json.dumps(req), headers=HEADERS, timeout=10)
         r.raise_for_status()
         ret = r.json()
         if 'data' in ret and 'hitList' in ret['data']:
