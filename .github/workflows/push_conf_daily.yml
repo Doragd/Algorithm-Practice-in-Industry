@@ -16,7 +16,7 @@ jobs:
       CAIYUN_TOKEN: ${{ secrets.CAIYUN_TOKEN }}
       CONF_URL: ${{ secrets.CONF_URL }}
       FEISHU_URL: ${{ secrets.FEISHU_URL }}
-      INTERVAL: 30
+      INTERVAL: 5
       LIMITS: 10
       ERROR_LIMITS: 5
 
