@@ -64,6 +64,8 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 百度 | [多域图大模型在百度推荐系统的实践与思考](https://mp.weixin.qq.com/s/6qanJ1tfV9AJF-Qbamezww) | 图推荐 | 2024-05-09 |
+| 百度 | [百度推荐资源冷启动实践](https://mp.weixin.qq.com/s/_3CkflIJtsyndBqHhm8w3Q) | 冷启动 | 2024-05-09 |
 | 小红书 | [小红书高时效推荐系统实践：从系统提效到内容冷启动](https://www.bilibili.com/video/BV1B142167Hu) | 冷启动 | 2024-05-07 |
 | 美团 | [大众点评内容搜索算法优化的探索与实践](https://mp.weixin.qq.com/s/4gki0Ju82HnHV5Qze2faBw) | 搜索 | 2024-03-21 |
 | 美团 | [百亿大规模图在广告场景的应用](https://mp.weixin.qq.com/s/RCOcFFIYDylWg10ZG72_KA) | 图 | 2024-03-28 |
