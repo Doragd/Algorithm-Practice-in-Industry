@@ -27,7 +27,7 @@ for conference, papers in data.items():
         paper_name = paper['paper_name']
         paper_authors = ', '.join(paper['paper_authors'])
         paper_org = "; ".join(list(set([item.get("org", "") for item in paper["authors_detail"]]))) if "authors_detail" in paper else ""
-        paper_abstract = paper['paper_abstract']
+        paper_abstract = ' '.join(paper['paper_abstract'].split())
         paper_translated = paper['translated'] if "translated" in paper else ""
         paper_url = paper['paper_url']
         paper_code = f'[code](https://paperswithcode.com/search?q_meta=&q_type=&q={paper_name.replace(" ", "+")})'
