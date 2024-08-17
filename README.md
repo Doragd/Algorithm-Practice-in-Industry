@@ -80,16 +80,12 @@
 | 腾讯音乐 | [音频表征大模型在QQ音乐歌曲冷启的应用与探索](https://mp.weixin.qq.com/s/xErp5lbsDWwCtRD8BUWuZw) | 冷启动 | 2024-06-30 |
 | 阿里妈妈 | [展示广告预估模型优势特征应用实践](https://mp.weixin.qq.com/s/5WDz015M3wY0ovdWqIHm7w) | 排序 | 2024-06-13 |
 | 阿里妈妈 | [展示广告多模态召回模型：混合模态专家模型](https://mp.weixin.qq.com/s/VGs-J1EQneGIxFhask9WCQ) | 召回 | 2024-05-29 |
-| 爱奇艺 | [稀疏大模型在爱奇艺广告排序场景中的实践](https://mp.weixin.qq.com/s/zyStqt3IYyhb_IXbMl8Dzg) | 排序 | 2024-03-01 |
-| BIGO | [BIGO | Graph Embedding在直播推荐召回的应用](https://mp.weixin.qq.com/s/364uvoiVmUrXhlM6W3yeGg) | 召回 | 2020-07-23 |
-| BIGO | [BIGO | 内容流多目标排序优化](https://mp.weixin.qq.com/s/3AMW-vUr2S9FBSDUr_JhpA) | 排序 | 2020-08-03 |
-| BIGO | [BIGO|万亿模型参数的训练](https://mp.weixin.qq.com/s/xC2eT_15Rtqc6Rri8p9xLQ) | 排序 | 2020-09-07 |
-| BIGO | [BIGO|万亿模型参数的在线服务](https://mp.weixin.qq.com/s/u5wiTKXyBic_ri4fvEDKqA) | 排序 | 2020-09-07 |
 | 百度 | [多域图大模型在百度推荐系统的实践与思考](https://mp.weixin.qq.com/s/6qanJ1tfV9AJF-Qbamezww) | 图推荐 | 2024-05-09 |
 | 百度 | [百度推荐资源冷启动实践](https://mp.weixin.qq.com/s/_3CkflIJtsyndBqHhm8w3Q) | 冷启动 | 2024-05-09 |
 | 小红书 | [小红书高时效推荐系统实践：从系统提效到内容冷启动](https://www.bilibili.com/video/BV1B142167Hu) | 冷启动 | 2024-05-07 |
 | 美团 | [大众点评内容搜索算法优化的探索与实践](https://mp.weixin.qq.com/s/4gki0Ju82HnHV5Qze2faBw) | 搜索 | 2024-03-21 |
 | 美团 | [百亿大规模图在广告场景的应用](https://mp.weixin.qq.com/s/RCOcFFIYDylWg10ZG72_KA) | 图 | 2024-03-28 |
+| 爱奇艺 | [稀疏大模型在爱奇艺广告排序场景中的实践](https://mp.weixin.qq.com/s/zyStqt3IYyhb_IXbMl8Dzg) | 排序 | 2024-03-01 |
 | 360 | [360信息流推荐Mind召回](https://mp.weixin.qq.com/s/Hy9yZ8yOF2FwQ9FIn3DQTw) | 召回 | 2024-01-19 |
 | 百度 | [百度搜索Push个性化](https://mp.weixin.qq.com/s/nly7Za8Ei29lx6HBuimBTQ) | 搜索 | 2024-01-17 |
 | 小红书 | [小红书推荐用户及内容冷启动实践](https://www.bilibili.com/video/BV1fe41127m1) | 冷启动 | 2024-01-12 |
@@ -443,6 +439,8 @@
 | Airbnb       | [搜索推荐广告排序艺术-Airbnb搜索结果多样性优化](https://zhuanlan.zhihu.com/p/239824669) | 搜索          | 2020-09-13 |
 | Airbnb       | [搜索推荐广告排序艺术-Airbnb搜索深度学习排序算法进化](https://zhuanlan.zhihu.com/p/238095817) | 搜索          | 2020-09-12 |
 | 腾讯看点     | [腾讯看点投放系统介绍：推荐系统的进化伙伴](http://mp.weixin.qq.com/s?__biz=MjM5ODYwMjI2MA==&mid=2649749269&idx=2&sn=deabfe04574815220abad87d9dc9d415&chksm=bed3646e89a4ed782643c014b20e5fb4b2fa114ba8280e168c9f9fbeeef85f6cf758c56fef4e&scene=27#wechat_redirect) | 推荐          | 2020-09-07 |
+| BIGO | [万亿模型参数的训练](https://mp.weixin.qq.com/s/xC2eT_15Rtqc6Rri8p9xLQ) | 排序 | 2020-09-07 |
+| BIGO | [万亿模型参数的在线服务](https://mp.weixin.qq.com/s/u5wiTKXyBic_ri4fvEDKqA) | 排序 | 2020-09-07 |
 | 蘑菇街       | [蘑菇街首页推荐视频流——增量学习与wide&deepFM实践（工程+算法）](https://zhuanlan.zhihu.com/p/212647751) | 推荐          | 2020-09-04 |
 | 阿里妈妈     | [阿里妈妈深度树匹配技术演进：TDM->JTM->BSAT](http://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247507022&idx=1&sn=aa4a99562a274b5fd07e5f987a5dc807&chksm=fbd76e22cca0e734f4bc319ec3b908b9b3f200bda80e20b8f65836aac4445bc6a14675aa174e&scene=27#wechat_redirect) | 召回          | 2020-09-04 |
 | 58同城       | [深度学习在商业排序的应用实践](http://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247506940&idx=2&sn=df6d88efa9f45dc7e2e4592018979692&chksm=fbd76990cca0e08637035afb74fb94cfaec3250c81c8744f41ac6be316d2bee96db16c9fc56c&scene=27#wechat_redirect) | 推荐          | 2020-09-03 |
@@ -456,7 +454,9 @@
 | 阿里妈妈     | [阿里定向广告最新突破：面向下一代的粗排排序系统COLD](http://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247505774&idx=1&sn=63efc686d3dda67fa4631e5550560476&chksm=fbd76502cca0ec141440482e048196119101abd0a56dd5dba7c9a18f46ba8f0358e3a458408b&scene=27#wechat_redirect) | 粗排          | 2020-08-18 |
 | 阿里妈妈     | [阿里妈妈：基于动态背包的多场景广告序列投放算法](http://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247505578&idx=1&sn=bc6f551bc83039cebe016ba87cdf8a46&chksm=fbd764c6cca0edd0befcbb887b5b15f10296de6cd6d92ed3382221fcb367c92079b99c895914&scene=27#wechat_redirect) | 广告          | 2020-08-15 |
 | 阿里淘系     | [EdgeRec：边缘计算在淘宝推荐系统中的大规模应用](http://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247504918&idx=1&sn=d4cb633276121dc4f09329cf9d231539&chksm=fbd7667acca0ef6cc9d0f21d309b5b28b15f0452f43d33055a1b9562a9519ad36c032ab961f0&scene=27#wechat_redirect) | 工程相关      | 2020-08-05 |
+| BIGO | [内容流多目标排序优化](https://mp.weixin.qq.com/s/3AMW-vUr2S9FBSDUr_JhpA) | 排序 | 2020-08-03 |
 | 58同城       | [多业务融合推荐策略实践与思考](http://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247504377&idx=1&sn=7ca002dd3bfd00a14c93a519b3765a04&chksm=fbd76395cca0ea83b55807543fde6e8fd7879af67d5a4079365493669752cdff06fac5d632c5&scene=27#wechat_redirect) | 多目标&多任务 | 2020-07-29 |
+| BIGO | [Graph Embedding在直播推荐召回的应用](https://mp.weixin.qq.com/s/364uvoiVmUrXhlM6W3yeGg) | 召回 | 2020-07-23 |
 | 腾讯微信     | [微信"看一看"个性化推荐：排序篇](http://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247504009&idx=2&sn=c3d07faaf34416790456eac5be094049&chksm=fbd762e5cca0ebf33eb7f3de1f9c1539ef5bf9fd7c8196bb85a9012ac7472f9c197b80ef8d56&scene=27#wechat_redirect) | 推荐          | 2020-07-21 |
 | 腾讯         | [推荐系统   Embedding 技术实践总结](http://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247503968&idx=1&sn=d8fac671af39a87c9a74fb1aff327e41&chksm=fbd7620ccca0eb1aab16ab0e7d06e9c8975749808ca8d1191b442458280ea227b8ce4d90d865&scene=27#wechat_redirect) | 召回          | 2020-07-20 |
 | 腾讯微信     | [微信"看一看"多模型内容策略与召回](http://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247503484&idx=2&sn=e2a2cdd3a517ab09e903e69ccb1e9f94&chksm=fbd77c10cca0f50642dde47439ed919aa2e61b7ff57bc4cbaacc3acaac3c620a1ed6f92684ab&scene=27#wechat_redirect) | 召回          | 2020-07-17 |
