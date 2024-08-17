@@ -64,6 +64,27 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 快手 | [推荐系统融合排序的多目标寻优技术](https://mp.weixin.qq.com/s/Wy4t_rn2h45mDwVnGWk57A) | 排序 | 2024-08-17 |
+| 淘宝 | [淘宝全域空间下的自适应连续迁移学习](https://mp.weixin.qq.com/s/Exo3zDwyzrwHeiMBVOHPLg) | 推荐 | 2024-08-15 |
+| 美团 | [信息流广告预估技术在美团外卖的实践](https://mp.weixin.qq.com/s/LqkYvp-OFEpWCcRzEy1b5Q) | 排序 | 2024-08-15 |
+| B站 | [B站搜索建库架构优化实践](https://mp.weixin.qq.com/s/Kd9hqXkTsP5Zu8dnFQfDwA) | 搜索 | 2024-08-13 |
+| 淘宝 | [触发式推荐场景的用户动态即时兴趣预估](https://mp.weixin.qq.com/s/t9MxXW-Hbo1uT_PCyJoVuQ) | 推荐 | 2024-08-08 |
+| 网易 | [多场景多任务统一建模在网易云音乐的算法实践](https://mp.weixin.qq.com/s/DBNNLe678gfZiOjf3Pm0ZQ) | 排序 | 2024-08-07 |
+| 阿里妈妈 | [展示广告预估技术最新突破：基于原生图文信息的多模态预估模型](https://mp.weixin.qq.com/s/XWMOSypjF9XrwqwZsEXF7g) | 排序 | 2024-08-02 |
+| 小红书 | [小红书搜索广告召回实践](https://mp.weixin.qq.com/s/h-zChStPhB7-11YtV5J9fg) | 召回 | 2024-08-01 |
+| 淘宝 | [认知推荐：基于LLM的首页推荐新范式](https://mp.weixin.qq.com/s/J2GVJcZoL5tSbgWR0qzZGQ) | 推荐 | 2024-08-01 |
+| 小红书 | [小红书去中心化内容分发技术](https://mp.weixin.qq.com/s/O9LueIBrh8AJ4omid-nBUA) | 排序 | 2024-07-31 |
+| 腾讯广告 | [腾讯广告推荐算法优化实践](https://mp.weixin.qq.com/s/dG_HVVTgQSmprezZnqzbCw) | 推荐 | 2024-07-17 |
+| 淘宝 | [淘宝“小时达”算法技术革新：精准匹配供需，重塑即时消费体验](https://mp.weixin.qq.com/s/TCcbyww79RryLvGfY_mPsA) | 推荐 | 2024-07-11 |
+| 美团 | [搜索广告召回技术在美团的实践](https://mp.weixin.qq.com/s/sCMsbMlcUlNHK0IOMQ3HkA) | 召回 | 2024-07-04 |
+| 腾讯音乐 | [音频表征大模型在QQ音乐歌曲冷启的应用与探索](https://mp.weixin.qq.com/s/xErp5lbsDWwCtRD8BUWuZw) | 冷启动 | 2024-06-30 |
+| 阿里妈妈 | [展示广告预估模型优势特征应用实践](https://mp.weixin.qq.com/s/5WDz015M3wY0ovdWqIHm7w) | 排序 | 2024-06-13 |
+| 阿里妈妈 | [展示广告多模态召回模型：混合模态专家模型](https://mp.weixin.qq.com/s/VGs-J1EQneGIxFhask9WCQ) | 召回 | 2024-05-29 |
+| 爱奇艺 | [稀疏大模型在爱奇艺广告排序场景中的实践](https://mp.weixin.qq.com/s/zyStqt3IYyhb_IXbMl8Dzg) | 排序 | 2024-03-01 |
+| BIGO | [BIGO | Graph Embedding在直播推荐召回的应用](https://mp.weixin.qq.com/s/364uvoiVmUrXhlM6W3yeGg) | 召回 | 2020-07-23 |
+| BIGO | [BIGO | 内容流多目标排序优化](https://mp.weixin.qq.com/s/3AMW-vUr2S9FBSDUr_JhpA) | 排序 | 2020-08-03 |
+| BIGO | [BIGO|万亿模型参数的训练](https://mp.weixin.qq.com/s/xC2eT_15Rtqc6Rri8p9xLQ) | 排序 | 2020-09-07 |
+| BIGO | [BIGO|万亿模型参数的在线服务](https://mp.weixin.qq.com/s/u5wiTKXyBic_ri4fvEDKqA) | 排序 | 2020-09-07 |
 | 百度 | [多域图大模型在百度推荐系统的实践与思考](https://mp.weixin.qq.com/s/6qanJ1tfV9AJF-Qbamezww) | 图推荐 | 2024-05-09 |
 | 百度 | [百度推荐资源冷启动实践](https://mp.weixin.qq.com/s/_3CkflIJtsyndBqHhm8w3Q) | 冷启动 | 2024-05-09 |
 | 小红书 | [小红书高时效推荐系统实践：从系统提效到内容冷启动](https://www.bilibili.com/video/BV1B142167Hu) | 冷启动 | 2024-05-07 |
