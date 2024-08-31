@@ -64,6 +64,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 京东 | [京东搜索重排：基于互信息的用户偏好导向模型](https://mp.weixin.qq.com/s/fjZ2UosY3lvBMvXzqrOrZg) | 重排 | 2024-08-31 |
 | 快手 | [推荐系统融合排序的多目标寻优技术](https://mp.weixin.qq.com/s/Wy4t_rn2h45mDwVnGWk57A) | 排序 | 2024-08-17 |
 | 淘宝 | [淘宝全域空间下的自适应连续迁移学习](https://mp.weixin.qq.com/s/Exo3zDwyzrwHeiMBVOHPLg) | 推荐 | 2024-08-15 |
 | 美团 | [信息流广告预估技术在美团外卖的实践](https://mp.weixin.qq.com/s/LqkYvp-OFEpWCcRzEy1b5Q) | 排序 | 2024-08-15 |
