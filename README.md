@@ -64,6 +64,22 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 小红书 | [小红书去中心化内容分发技术](https://mp.weixin.qq.com/s/LS_Y3IpO5cyJ7keyeGF_9w) | 推荐 | 2024-10-29 |
+| 淘宝 | [LAST——重排在线学习范式的全新可能](https://mp.weixin.qq.com/s/8x6trg0QQ3L6d0KK-EmYZA) | 重排 | 2024-10-24 |
+| 腾讯广告 | [腾讯广告基于长序列建模的落地实践](https://mp.weixin.qq.com/s/rNUvr1tHYd8jG4M5T5WHDw) | 推荐 | 2024-10-17 |
+| 腾讯广告 | [腾讯广告基于混元大模型的生成式召回落地实践](https://mp.weixin.qq.com/s/ClmjgRzpNIVjX0PrikS3qg) | 召回 | 2024-10-14 |
+| 淘宝 | [MNR—淘宝高效多场景近线召回框架](https://mp.weixin.qq.com/s/Co3KoTyqajXpOVarLxtWxA) | 召回 | 2024-10-10 |
+| 淘宝 | [多样性重排算法在淘宝首页信息流的创新应用](https://mp.weixin.qq.com/s/ddLJozxOGmA7ag2eEgKKfA) | 重排 | 2024-10-10 |
+| 爱奇艺 | [在线深度学习：爱奇艺效果广告分钟级模型优化](https://mp.weixin.qq.com/s/byDVm8MNu5HVo1iugXW6_g) | 广告 | 2024-10-10 |
+| 美团 | [全域用户建模在美团首页推荐的探索与实践](https://mp.weixin.qq.com/s/9KBcHCjfNad_Fp3-SZrG3Q) | 推荐 | 2024-10-10 |
+| 小红书 | [小红书搜索：生成式检索的探索与实践](https://mp.weixin.qq.com/s/yApGxCGxjWnZQu8PoO9Qeg) | 搜索 | 2024-10-05 |
+| 爱奇艺 | [AI技术在爱奇艺视频搜索中的应用](https://mp.weixin.qq.com/s/K02gGawk_4Ej5rWlPxfAZQ) | 搜索 | 2024-09-26 |
+| 小红书 | [多模态对齐在小红书推荐的研究及应用](https://mp.weixin.qq.com/s/tvaY4wAMf_kPjXCvHcXaUA) | 推荐 | 2024-09-23 |
+| 网易云 | [多模态推荐在网易云音乐社区的创新实践](https://mp.weixin.qq.com/s/_zAAMtAtGFcrtwTwZ1R6jg) | 推荐 | 2024-09-16 |
+| 京东 | [京东健康基于大模型的生成式推荐在电商标品推荐的应用](https://mp.weixin.qq.com/s/jN1OAKcRhJOt-qvPEE3gbg) | 推荐 | 2024-09-16 |
+| 爱奇艺 | [爱奇艺广告智能算力探索与实践](https://mp.weixin.qq.com/s/DU4uMuQ7WzU6bz1mAxsZug) | 广告 | 2024-09-12 |
+| 腾讯广告 | [推荐模型中的辅助排序损失](https://mp.weixin.qq.com/s/Y4ErK09-_TSJ2m6lC6UGCA) | 推荐 | 2024-08-27 |
+| 腾讯广告 | [跨领域迁移学习在广告用户价值预估场景应用探索](https://mp.weixin.qq.com/s/APaaHTYzRjEeE1pRTg0fXg) | 广告 | 2024-08-26 |
 | 京东 | [京东搜索重排：基于互信息的用户偏好导向模型](https://mp.weixin.qq.com/s/fjZ2UosY3lvBMvXzqrOrZg) | 重排 | 2024-08-31 |
 | 快手 | [推荐系统融合排序的多目标寻优技术](https://mp.weixin.qq.com/s/Wy4t_rn2h45mDwVnGWk57A) | 排序 | 2024-08-17 |
 | 淘宝 | [淘宝全域空间下的自适应连续迁移学习](https://mp.weixin.qq.com/s/Exo3zDwyzrwHeiMBVOHPLg) | 推荐 | 2024-08-15 |
