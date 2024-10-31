@@ -69,7 +69,6 @@
 | 淘宝 | [LAST——重排在线学习范式的全新可能](https://mp.weixin.qq.com/s/8x6trg0QQ3L6d0KK-EmYZA) | 重排 | 2024-10-24 |
 | 腾讯广告 | [腾讯广告基于长序列建模的落地实践](https://mp.weixin.qq.com/s/rNUvr1tHYd8jG4M5T5WHDw) | 推荐 | 2024-10-17 |
 | 腾讯广告 | [腾讯广告基于混元大模型的生成式召回落地实践](https://mp.weixin.qq.com/s/ClmjgRzpNIVjX0PrikS3qg) | 召回 | 2024-10-14 |
-| 淘宝 | [MNR—淘宝高效多场景近线召回框架](https://mp.weixin.qq.com/s/Co3KoTyqajXpOVarLxtWxA) | 召回 | 2024-10-10 |
 | 淘宝 | [多样性重排算法在淘宝首页信息流的创新应用](https://mp.weixin.qq.com/s/ddLJozxOGmA7ag2eEgKKfA) | 重排 | 2024-10-10 |
 | 爱奇艺 | [在线深度学习：爱奇艺效果广告分钟级模型优化](https://mp.weixin.qq.com/s/byDVm8MNu5HVo1iugXW6_g) | 广告 | 2024-10-10 |
 | 美团 | [全域用户建模在美团首页推荐的探索与实践](https://mp.weixin.qq.com/s/9KBcHCjfNad_Fp3-SZrG3Q) | 推荐 | 2024-10-10 |
