@@ -81,6 +81,7 @@
 | 京东 | [京东搜索重排：基于互信息的用户偏好导向模型](https://mp.weixin.qq.com/s/fjZ2UosY3lvBMvXzqrOrZg) | 重排 | 2024-08-31 |
 | 腾讯广告 | [推荐模型中的辅助排序损失](https://mp.weixin.qq.com/s/Y4ErK09-_TSJ2m6lC6UGCA) | 推荐 | 2024-08-27 |
 | 腾讯广告 | [跨领域迁移学习在广告用户价值预估场景应用探索](https://mp.weixin.qq.com/s/APaaHTYzRjEeE1pRTg0fXg) | 广告 | 2024-08-26 |
+| 淘宝 | [大语言模型改写技术在淘宝搜索中的应用](https://mp.weixin.qq.com/s/DfHWs_773gErF6o0y9cw9Q) | 搜索 | 2024-08-22 |
 | 快手 | [推荐系统融合排序的多目标寻优技术](https://mp.weixin.qq.com/s/Wy4t_rn2h45mDwVnGWk57A) | 排序 | 2024-08-17 |
 | 淘宝 | [淘宝全域空间下的自适应连续迁移学习](https://mp.weixin.qq.com/s/Exo3zDwyzrwHeiMBVOHPLg) | 推荐 | 2024-08-15 |
 | 美团 | [信息流广告预估技术在美团外卖的实践](https://mp.weixin.qq.com/s/LqkYvp-OFEpWCcRzEy1b5Q) | 排序 | 2024-08-15 |
