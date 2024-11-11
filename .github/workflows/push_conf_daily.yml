@@ -5,6 +5,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 on:      
+  workflow_dispatch:
   schedule:
     - cron: '0 4 * * *' # 每天 UTC 时间 04:00 触发, 即上海时间12点
 
