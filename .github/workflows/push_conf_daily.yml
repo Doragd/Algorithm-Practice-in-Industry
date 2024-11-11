@@ -34,7 +34,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           
       - name: Install dependencies
-        run: pip install tqdm requests
+        run: pip install tqdm requests openai
 
 
       - name: PUSH CONF DAILY
