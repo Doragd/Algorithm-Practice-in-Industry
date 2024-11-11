@@ -146,6 +146,7 @@ def update_results(results):
     return ret_items
 
 def cronjob(error_cnt):
+    print("[+] 开始加载历史数据")
     results = load_results()
     for key in results:
         results[key] = sorted(results[key], key=match_score, reverse=True)
@@ -194,6 +195,7 @@ def cronjob(error_cnt):
     return 1
 
 if __name__ == '__main__':
+    print("[+] 开始执行cronjob任务")
     error_cnt = 0
     code = -1
     while code == -1:
