@@ -17,6 +17,8 @@ jobs:
       QUERY: "cs.IR"
       LIMITS: 5
       FEISHU_URL: ${{ secrets.FEISHU_URL }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      MODEL_TYPE: "DeepSeek"
 
     permissions:
       issues: write

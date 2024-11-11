@@ -4,7 +4,8 @@ import time
 import requests
 import datetime
 from tqdm import tqdm
-from arxiv import translate, send_wechat_message, send_feishu_message
+from arxiv import send_wechat_message, send_feishu_message
+from translate import translate
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36",
@@ -16,8 +17,8 @@ SERVERCHAN_API_KEY = os.environ.get("SERVERCHAN_API_KEY", None)
 LIMITS = int(os.environ.get('LIMITS', 4))
 ERROR_LIMITS = int(os.environ.get('ERROR_LIMITS', 1))
 INTERVAL = int(os.environ.get("INTERVAL", 3))
-CAIYUN_TOKEN = os.environ.get("CAIYUN_TOKEN", None)
 FEISHU_URL = os.environ.get("FEISHU_URL", None)
+MODEL_TYPE = os.environ.get("MODEL_TYPE", "DeepSeek")
 
 def match_score(item):
     keywords = [
@@ -134,7 +135,7 @@ def update_results(results):
         if daily_limits:
             break
     source = [item[-1]["paper_abstract"] for item in ret_items]
-    target = translate(source, CAIYUN_TOKEN=CAIYUN_TOKEN)
+    target = translate(source)
     if len(target) == len(source):
         for i, _ in enumerate(ret_items):
             ret_items[i][-1].update({"translated": target[i]})
@@ -178,7 +179,7 @@ def cronjob(error_cnt):
         msg_org = f'ORG: {org}'
         msg_url = f'URL: {url}'
         msg_summary = f'Summary：\n\n{summary}'
-        msg_translated = f'Translated:\n\n{translated}'
+        msg_translated = f'Translated (Powered by {MODEL_TYPE}):\n\n{translated}'
 
         push_title = f'{conf}[{ii}]@{today}'
         msg_content = f"[{msg_title}]({url})\n\n{msg_author}\n\n{msg_org}\n\n{msg_url}\n\n{msg_translated}\n\n{msg_summary}\n\n"

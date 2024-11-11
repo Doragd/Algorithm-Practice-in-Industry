@@ -10,32 +10,13 @@ import time
 import json
 import datetime
 from tqdm import tqdm
+from translate import translate
 
 SERVERCHAN_API_KEY = os.environ.get("SERVERCHAN_API_KEY", None)
 QUERY = os.environ.get('QUERY', 'cs.IR')
 LIMITS = int(os.environ.get('LIMITS', 3))
-CAIYUN_TOKEN = os.environ.get("CAIYUN_TOKEN", None)
 FEISHU_URL = os.environ.get("FEISHU_URL", None)
-
-def translate(source, direction='en2zh', CAIYUN_TOKEN=CAIYUN_TOKEN):
-    url = "http://api.interpreter.caiyunai.com/v1/translator"
-
-    payload = {
-        "source": source,
-        "trans_type": direction,
-        "request_id": "demo",
-        "detect": True,
-    }
-
-    headers = {
-        "content-type": "application/json",
-        "x-authorization": "token " + CAIYUN_TOKEN,
-    }
-    try:
-        response = requests.request("POST", url, data=json.dumps(payload), headers=headers)
-        return json.loads(response.text)["target"]
-    except:
-        return []
+MODEL_TYPE = os.environ.get("MODEL_TYPE", "DeepSeek")
 
 def get_yesterday():
     today = datetime.datetime.now()
@@ -67,7 +48,7 @@ def search_arxiv_papers(search_term, max_results=10):
     for entry in entries:
 
         title = entry.split('<title>')[1].split('</title>')[0].strip()
-        summary = entry.split('<summary>')[1].split('</summary>')[0].strip()
+        summary = entry.split('<summary>')[1].split('</summary>')[0].strip().replace('\n', ' ').replace('\r', '')
         url = entry.split('<id>')[1].split('</id>')[0].strip()
         pub_date = entry.split('<published>')[1].split('</published>')[0]
         pub_date = datetime.datetime.strptime(pub_date, "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d")
@@ -208,7 +189,7 @@ def cronjob():
         msg_url = f'URL: {url}'
         msg_pub_date = f'Pub Date：{pub_date}'
         msg_summary = f'Summary：\n\n{summary}'
-        msg_translated = f'Translated:\n\n{translated}'
+        msg_translated = f'Translated (Powered by {MODEL_TYPE}):\n\n{translated}'
 
         push_title = f'Arxiv:{QUERY}[{ii}]@{today}'
         msg_content = f"[{msg_title}]({url})\n\n{msg_pub_date}\n\n{msg_url}\n\n{msg_translated}\n\n{msg_summary}\n\n"
