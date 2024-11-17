@@ -19,6 +19,8 @@
 
 - [搜广推算法系列串讲](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/%E6%90%9C%E5%B9%BF%E6%8E%A8%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B8%B2%E8%AE%B2.md)
 
+[![Star History Chart](https://api.star-history.com/svg?repos=Doragd/Algorithm-Practice-in-Industry&type=Date)](https://star-history.com/#Doragd/Algorithm-Practice-in-Industry&Date)
+
 ## 贡献新文章
 提交issue，利用github action自动更新readme和source.xlsx内容
 
