@@ -95,7 +95,7 @@ def parse_item(item):
 
 def update_results(results):
     # confs = ['kdd', 'cikm', 'sigir', 'www', 'wsdm', 'ecir', 'recsys']
-    confs = ['www', 'cikm', 'recsys', 'wsdm', 'kdd', 'sigir', 'ecir']
+    confs = ['kdd', 'www', 'cikm', 'recsys', 'wsdm', 'sigir', 'ecir']
     years = list(range(2025, 2010, -1))
     count = 0
     daily_limits = False
