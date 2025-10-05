@@ -61,7 +61,7 @@
 |   [2022](./papers/cikm/cikm2022.md)  |   [2022](./papers/ecir/ecir2022.md)  |   [2022](./papers/kdd/kdd2022.md)  |   [2022](./papers/recsys/recsys2022.md)  |   [2022](./papers/sigir/sigir2022.md)  |   [2022](./papers/wsdm/wsdm2022.md)  |   [2022](./papers/www/www2022.md)  |   
 |   [2023](./papers/cikm/cikm2023.md)  |   [2023](./papers/ecir/ecir2023.md)  |   [2023](./papers/kdd/kdd2023.md)  |   [2023](./papers/recsys/recsys2023.md)  |   [2023](./papers/sigir/sigir2023.md)  |   [2023](./papers/wsdm/wsdm2023.md)  |   [2023](./papers/www/www2023.md)  |   
 |   [2024](./papers/cikm/cikm2024.md)  |   [2024](./papers/ecir/ecir2024.md)  |   [2024](./papers/kdd/kdd2024.md)  |   [2024](./papers/recsys/recsys2024.md)  |   [2024](./papers/sigir/sigir2024.md)  |   [2024](./papers/wsdm/wsdm2024.md)  |   [2024](./papers/www/www2024.md)  |   
-|   2025  |   [2025](./papers/ecir/ecir2025.md)  |   [2025](./papers/kdd/kdd2025.md)  |   [2025](./papers/recsys/recsys2025.md)  |   2025  |   [2025](./papers/wsdm/wsdm2025.md)  |   [2025](./papers/www/www2025.md)  |   
+|   2025  |   [2025](./papers/ecir/ecir2025.md)  |   [2025](./papers/kdd/kdd2025.md)  |   [2025](./papers/recsys/recsys2025.md)  |   [2025](./papers/sigir/sigir2025.md)  |   [2025](./papers/wsdm/wsdm2025.md)  |   [2025](./papers/www/www2025.md)  |   
 
 ## 大厂实践文章
 
