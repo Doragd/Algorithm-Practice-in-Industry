@@ -47,4 +47,4 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
         run: |
           cd paperBotV2
-          python arxiv_send_feishu_message
+          python arxiv_send_feishu_message.py
