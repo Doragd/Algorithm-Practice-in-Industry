@@ -45,6 +45,6 @@ jobs:
           FEISHU_URL: ${{ secrets.FEISHU_URL }}
           # 确保脚本可以找到所需模块
           PYTHONPATH: ${{ github.workspace }}
-        run:
+        run: |
           cd paperBotV2
-          python -m arxiv_send_feishu_message
+          python arxiv_send_feishu_message
