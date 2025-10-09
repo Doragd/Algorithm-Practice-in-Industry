@@ -6,8 +6,8 @@ env:
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *' # 每天 UTC 时间 00:00 触发, 即上海时间8点00
+  # schedule:
+  #   - cron: '0 0 * * *' # 每天 UTC 时间 00:00 触发, 即上海时间8点00 - 已禁用
 
 jobs:
   daily-push:
@@ -33,7 +33,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           
       - name: Install dependencies
-        run: pip install tqdm requests openai
+        run: pip install -r requirements.txt
 
 
       - name: PUSH ARXIV DAILY

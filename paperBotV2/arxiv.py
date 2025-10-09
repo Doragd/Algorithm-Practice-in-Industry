@@ -10,89 +10,17 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 from tenacity import retry, stop_after_attempt, wait_random_exponential
 from openai import APIConnectionError, RateLimitError, APIStatusError
+from prompts import PRERANK_PROMPT, FINERANK_PROMPT
 
-PRERANK_PROMPT = """
-# Role
-You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems, with deep knowledge of the search, recommendation, and advertising domains.
-
-# My Current Focus
-
-- **Core Domain Advances:** Core advances within RecSys, Search, or Ads itself, even if they do not involve LLMs.
-- **Enabling LLM Tech:** Trends and Foundational progress in the core LLM which must have potential applications in RecSys, Search or Ads.
-- **Enabling Transformer Tech: Advances in Transformer architecture (e.g., efficiency, new attention mechanisms, MoE, etc.).
-- **Direct LLM Applications:* Novel ideas and direct applications of LLM technology for RecSys, Search or Ads.
-- **VLM Analogy for Heterogeneous Data:** Ideas inspired by **Vision-Language Models** that treat heterogeneous data (like context features and user sequences) as distinct modalities for unified modeling. 
-
-# Irrelevant Topics
-- Federated learning, Security, Privacy, Fairness, Ethics, or other non-technical topics
-- Medical, Biology, Chemistry, Physics or other domain-specific applications
-- Neural Architectures Search (NAS) or general AutoML
-- Purely theoretical papers without clear practical implications
-- Hallucination, Evaluation benchmarks, or other purely NLP-centric topics
-- Purely Vision、3D Vision, Graphic or Speech papers without clear relevance to RecSys/Search/Ads
-- Ads creative generation, auction, bidding or other Non-Ranking Ads topics 
-- AIGC, Content generation, Summarization, or other purely LLM-centric topics
-- Reinforcement Learning (RL) papers without clear relevance to RecSys/Search/Ads
-
-# Goal
-Screen new papers based on my focus. DO NOT include irrelevant topics.
-
-# Task
-Based ONLY on the paper's title, provide a quick evaluation.
-1. **Academic Translation**: Translate the title into professional Chinese, prioritizing accurate technical terms and faithful meaning.
-2. **Relevance Score (1-10)**: How relevant is it to **My Current Focus**?
-3. **Reasoning**: A 2-3 sentence explanation for your score. **For "Enabling Tech" papers, you MUST explain their potential application in RecSys/Search/Ads.**
-
-# Input Paper
-- **Title**: {title}
-
-# Output Format
-Provide your analysis strictly in the following JSON format.
-{{
-  "translation": "...",
-  "relevance_score": <integer>,
-  "reasoning": "..."
-}}
-"""
-
-FINERANK_PROMPT = """
-# Role
-You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems, with deep knowledge of the search, recommendation, and advertising domains.
-
-# My Current Focus
-
-- **Core Domain Advances:** Core advances within RecSys, Search, or Ads itself, even if they do not involve LLMs.
-- **Enabling LLM Tech:** Trends and Foundational progress in the core LLM which must have potential applications in RecSys, Search or Ads.
-- **Enabling Transformer Tech: Advances in Transformer architecture (e.g., efficiency, new attention mechanisms, MoE, etc.).
-- **Direct LLM Applications:* Novel ideas and direct applications of LLM technology for RecSys, Search or Ads.
-- **VLM Analogy for Heterogeneous Data:** Ideas inspired by **Vision-Language Models** that treat heterogeneous data (like context features and user sequences) as distinct modalities for unified modeling. 
-
-# Goal
-Perform a detailed analysis of the provided paper based on its title and abstract. Identify its core contributions and relevance to my focus areas.
-
-# Task
-Based on the paper's **Title** and **Abstract**, provide a comprehensive analysis.
-1.  **Relevance Score (1-10)**: Re-evaluate the relevance score (1-10) based on the detailed information in the abstract.
-2.  **Reasoning**: A 2-3 sentence explanation for your score in Chinese.
-3.  **Summary**: Distill the abstract into a high-density summary of no more than 150 Chinese words, prioritizing accurate technical terms and faithful meaning.
-
-# Input Paper
-- **Title**: {title}
-- **Abstract**: {summary}
-
-# Output Format
-Provide your analysis strictly in the following JSON format.
-{{
-  "rerank_relevance_score": <integer>,
-  "rerank_reasoning": "...",
-  "summary": "..."
-}}
-"""
-
+# 从环境变量获取配置，同时提供默认值
 FEISHU_URL = os.environ.get("FEISHU_URL", None)
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", None)
-TARGET_CATEGORYS = ['cs.IR']
-MAX_PAPERS = 100
+# TARGET_CATEGORYS 使用逗号分隔的字符串格式
+TARGET_CATEGORYS = os.environ.get("TARGET_CATEGORYS", "cs.IR,cs.CL,cs.CV")
+TARGET_CATEGORYS = [cat.strip() for cat in TARGET_CATEGORYS.split(',')]
+MAX_PAPERS = int(os.environ.get("MAX_PAPERS", "100"))
+ROUGH_SCORE_THRESHOLD = int(os.environ.get("ROUGH_SCORE_THRESHOLD", "4"))
+RETURN_PAPERS = int(os.environ.get("RETURN_PAPERS", "20"))
 
 @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(5))
 def call_deepseek_api(prompt_content: str,
@@ -114,7 +42,7 @@ def call_deepseek_api(prompt_content: str,
     if api_key is None:
         api_key = os.getenv("DEEPSEEK_API_KEY")
     if not api_key:
-        print("错误：API Key 未提供。请设置 DEEPSEEK_API_KEY 环境变量或通过参数传入。")
+        print("🔑 错误: API Key 未提供。请设置 DEEPSEEK_API_KEY 环境变量或通过参数传入。")
         return None
     try:
         client = OpenAI(api_key=api_key, base_url=base_url)
@@ -129,13 +57,13 @@ def call_deepseek_api(prompt_content: str,
         response_content = response.choices[0].message.content
         return json.loads(response_content)
     except (APIConnectionError, RateLimitError, APIStatusError) as e:
-        print(f"API 遇到可重试错误: {e}。正在由 tenacity 进行重试...")
+        print(f"🔄 API 遇到可重试错误: {e}。正在由 tenacity 进行重试...")
         raise  # 必须重新抛出异常，tenacity 才能捕获并执行重试策略
     except ImportError:
-        print("错误：'openai' 库未安装。请运行 'pip install openai'。")
+        print("📦 错误：'openai' 库未安装。请运行 'pip install openai'。")
         return None
     except Exception as e:
-        print(f"调用 API 时发生错误: {e}")
+        print(f"❌ 调用 API 时发生错误: {e}")
         return None
 
 
@@ -183,7 +111,7 @@ def get_daily_arxiv_papers(category='cs.CL', max_results=20):
         response = requests.get(base_url, params=query_params)
         response.raise_for_status()  # 如果请求失败 (例如 404, 500), 会抛出异常
     except requests.exceptions.RequestException as e:
-        print(f"请求失败: {e}")
+        print(f"❌ 请求失败: {e}")
         return {}
 
     # 4. 使用 feedparser 解析返回的 XML 数据
@@ -194,7 +122,7 @@ def get_daily_arxiv_papers(category='cs.CL', max_results=20):
     print("=" * 50)
 
     if not feed.entries:
-        print("今天还没有新论文，或者查询范围有误。")
+        print("📭 今天还没有新论文，或者查询范围有误。")
         return {}
 
     for i, entry in enumerate(feed.entries):
@@ -216,7 +144,13 @@ def get_daily_arxiv_papers(category='cs.CL', max_results=20):
             'authors': authors,
             'categories': categories,
             'pub_date': published_str,
-            'summary': summary
+            'ori_summary': summary,
+            'summary': '',  # 占位，后续由 LLM 填充
+            'translation': '',  # 占位，后续由 LLM 填充
+            'relevance_score': 0,  # 占位，后续由 LLM 填充
+            'reasoning': '',  # 占位，后续由 LLM 填充
+            'rerank_relevance_score': 0,  # 占位，后续由 LLM 填充
+            'rerank_reasoning': '',  # 占位，后续由 LLM 填充
         }
 
     return results
@@ -253,9 +187,9 @@ def rough_analyze_papers_cocurrent(results, max_workers=10):
                     analyzed_papers.append(updated_paper)
             except Exception as exc:
                 paper_info = future_to_paper[future]
-                print(f"处理论文 {paper_info['title']} 时产生异常: {exc}")
+                print(f"⚠️ 处理论文 {paper_info['title']} 时产生异常: {exc}")
     if not analyzed_papers:
-        print("\n没有成功分析任何论文。")
+        print("📭 \n没有成功分析任何论文。")
         return []
     print(f"\n✅ 所有论文分析完成，成功处理 {len(analyzed_papers)} 篇。")
     return analyzed_papers
@@ -290,7 +224,7 @@ def rough_rank_papers(results, filter_threshold=2, max_workers=10):
 
 def fine_analyze_paper(arxiv_id, paper):
     prompt = FINERANK_PROMPT.format(
-        title=paper['title'], summary=paper['summary'])
+        title=paper['title'], summary=paper['ori_summary'])
     analysis = call_deepseek_api(
         prompt, api_key=DEEPSEEK_API_KEY)
     if analysis:
@@ -347,7 +281,7 @@ def fine_rank_papers(papers, max_workers=10, paper_count=5):
         print(f"  - 翻译: {paper.get('translation', 'N/A')}")
         print(f"  - 精排相关性评分: {paper.get('rerank_relevance_score', 'N/A')}/10")
         print(f"  - 理由: {paper.get('rerank_reasoning', 'N/A')}")
-        print(f"  - 摘要: {paper.get('summary', 'N/A')}")
+        print(f"  - 总结: {paper.get('summary', 'N/A')}")
     print("-" * 60)
 
     return analyzed_papers
@@ -390,24 +324,137 @@ def send_papers_to_feishu(papers, feishu_url=FEISHU_URL):
     body = json.dumps({"msg_type": "interactive", "card": card})
     headers = {"Content-Type": "application/json"}
     ret = requests.post(url=feishu_url, data=body, headers=headers)
-    print(f"飞书推送返回状态: {ret.status_code}")
+    print(f"✉️ 飞书推送返回状态: {ret.status_code}")
+
+def get_papers_from_all_categories():
+    """从所有指定分类获取论文并初始化状态标记，去除与前一天重复的论文"""
+    all_papers = {}
+    
+    # 获取前一天的日期
+    yesterday = datetime.now() - timedelta(days=1)
+    yesterday_file = os.path.join("arxiv_daily", f"{yesterday.strftime('%Y%m%d')}.json")
+    
+    # 读取前一天的论文ID集合（用于去重）
+    yesterday_paper_ids = set()
+    if os.path.exists(yesterday_file):
+        try:
+            with open(yesterday_file, 'r', encoding='utf-8') as f:
+                yesterday_data = json.load(f)
+                yesterday_paper_ids = set(yesterday_data.keys())
+            print(f"📋 已加载前一天的论文ID集合，共 {len(yesterday_paper_ids)} 篇论文。")
+        except Exception as e:
+            print(f"❌ 读取前一天论文文件失败: {e}")
+    
+    # 获取当前日期的所有分类论文
+    for category in TARGET_CATEGORYS:
+        category_results = get_daily_arxiv_papers(category=category, max_results=MAX_PAPERS)
+        
+        # 添加到all_papers并初始化状态标记，跳过与前一天重复的论文
+        for arxiv_id, paper in category_results.items():
+            if arxiv_id not in yesterday_paper_ids:
+                paper['is_filtered'] = False  # 默认为未过滤
+                paper['is_fine_ranked'] = False  # 默认为未精排
+                all_papers[arxiv_id] = paper
+        
+        time.sleep(3)  # 避免请求过于频繁
+    
+    print(f"📚 获取到 {len(all_papers)} 篇论文（已去除与前一天重复的论文）。")
+    return all_papers
+
+
+def perform_rough_ranking(all_papers):
+    """执行粗排并标记过滤状态"""
+    filtered_papers = []
+    
+    for arxiv_id, paper in all_papers.items():
+        analyzed_paper = rough_analyze_paper(arxiv_id, paper.copy())
+        if analyzed_paper:
+            all_papers[arxiv_id].update(analyzed_paper)
+            # 标记过滤状态
+            if analyzed_paper.get('relevance_score', 0) >= ROUGH_SCORE_THRESHOLD:
+                all_papers[arxiv_id]['is_filtered'] = False
+                filtered_papers.append(analyzed_paper)
+            else:
+                all_papers[arxiv_id]['is_filtered'] = True
+    
+    print(f"✨ 粗排筛选 {len(filtered_papers)} 篇高质量论文。")
+    return filtered_papers
+
+
+def perform_fine_ranking(filtered_papers, all_papers):
+    """执行精排并标记精排状态"""
+    final_papers = fine_rank_papers(filtered_papers, paper_count=RETURN_PAPERS)
+    
+    for paper in final_papers:
+        arxiv_id = paper['arxiv_id']
+        all_papers[arxiv_id].update(paper)  # 更新精排信息
+        all_papers[arxiv_id]['is_fine_ranked'] = True  # 标记为已精排
+    
+    print(f"🏆 精排得到 {len(final_papers)} 篇顶级论文。")
+    return final_papers
+
+
+def save_results_to_json(all_papers):
+    """保存所有结果到指定路径的JSON文件，包括天级文件和全量文件"""
+    # 确保目录存在 - 相对路径从当前工作目录(paperBotV2)开始计算
+    save_dir = "arxiv_daily"
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+    
+    # 1. 保存当天的结果到日期格式的文件
+    daily_file = os.path.join(save_dir, f"{datetime.now().strftime('%Y%m%d')}.json")
+    with open(daily_file, 'w', encoding='utf-8') as f:
+        json.dump(all_papers, f, ensure_ascii=False, indent=2)
+    
+    print(f"💾 当天论文结果已保存到 {daily_file}")
+    
+    # 2. 保存/更新全量results.json文件
+    all_results_file = os.path.join(save_dir, "results.json")
+    
+    # 读取已有全量结果（如果存在）
+    all_results = {}
+    if os.path.exists(all_results_file):
+        try:
+            with open(all_results_file, 'r', encoding='utf-8') as f:
+                all_results = json.load(f)
+            print(f"📋 已加载现有全量结果，共 {len(all_results)} 篇论文。")
+        except Exception as e:
+            print(f"❌ 读取全量结果文件失败: {e}")
+    
+    # 增量更新全量结果（使用arxiv_id作为唯一标识）
+    new_papers_count = 0
+    for arxiv_id, paper in all_papers.items():
+        if arxiv_id not in all_results:
+            all_results[arxiv_id] = paper
+            new_papers_count += 1
+    
+    # 保存更新后的全量结果
+    with open(all_results_file, 'w', encoding='utf-8') as f:
+        json.dump(all_results, f, ensure_ascii=False, indent=2)
+    
+    print(f"📊 全量结果已更新到 {all_results_file}，新增 {new_papers_count} 篇论文，总论文数: {len(all_results)}")
+
+
+def process_papers():
+    """处理并保存论文的主函数 - 协调各个子函数的执行"""
+    # 1. 获取论文
+    all_papers = get_papers_from_all_categories()
+    
+    # 2. 粗排
+    filtered_papers = perform_rough_ranking(all_papers)
+    
+    # 3. 精排
+    final_papers = perform_fine_ranking(filtered_papers, all_papers)
+    
+    # 4. 保存结果
+    save_results_to_json(all_papers)
+    
+    print("✅ 论文处理流程已全部完成！")
+    
+    # 5. 发送到飞书
+    send_papers_to_feishu(final_papers)
 
 
 # --- 主程序入口 ---
 if __name__ == "__main__":
-    results = {}
-    for TARGET_CATEGORY in TARGET_CATEGORYS:
-        results.update(get_daily_arxiv_papers(
-            category=TARGET_CATEGORY, max_results=MAX_PAPERS))
-        time.sleep(3)  # 避免请求过于频繁
-    print(f"召回到 {len(results)} 篇论文。")
-
-    filtered_papers = rough_rank_papers(results, filter_threshold=4)
-    print(f"粗排筛选 {len(filtered_papers)} 篇高质量论文。")
-
-    final_papers = fine_rank_papers(filtered_papers, paper_count=20)
-    print(f"精排得到 {len(final_papers)} 篇顶级论文。")
-
-    send_papers_to_feishu(final_papers)
-    
-    print("所有操作完成！")
+    process_papers()

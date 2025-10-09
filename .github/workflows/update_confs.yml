@@ -25,7 +25,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           
       - name: Install dependencies
-        run: pip install openpyxl tqdm requests aiohttp beautifulsoup4 openai
+        run: pip install -r requirements.txt
 
 
       - name: Update the cache file from the issue

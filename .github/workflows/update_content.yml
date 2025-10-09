@@ -27,7 +27,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           
       - name: Install dependencies
-        run: pip install openpyxl requests openai
+        run: pip install -r requirements.txt
 
       - name: Update the cache file from the issue
         run: python maintain.py --issue ${{ toJson(github.event.issue.body) }}
