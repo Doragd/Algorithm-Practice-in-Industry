@@ -1,5 +1,5 @@
 # 合并后的完整工作流：处理arxiv论文、生成HTML并部署到GitHub Pages
-name: ArXiv Daily Full
+name: arxiv_daily_full
 on:
   # 定时触发
   schedule:
@@ -51,6 +51,8 @@ jobs:
           ROUGH_SCORE_THRESHOLD: "4"
           # 返回论文数量
           RETURN_PAPERS: "20"
+          # 确保脚本可以找到paperBotV2模块
+          PYTHONPATH: ${{ github.workspace }}
         run:
           python -m paperBotV2.arxiv
 
@@ -99,7 +101,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./paperBotV2/arxiv_output
-          destination_dir: arxiv_output
           publish_branch: gh-pages
           commit_message: "docs: update arXiv papers HTML pages"
           full_commit_message: "docs: update arXiv papers HTML pages ${{ github.sha }}"

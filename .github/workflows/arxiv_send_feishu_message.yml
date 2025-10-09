@@ -1,8 +1,9 @@
 # 这个工作流负责在arxiv处理和网页生成完成后发送飞书消息
+name: arxiv_send_feishu_message
 on:
   # 在完整的arxiv处理工作流完成后触发
   workflow_run:
-    workflows: ["ArXiv Daily Full"]
+    workflows: ["arxiv_daily_full"]
     types:
       - completed
   # 手动触发
@@ -42,7 +43,8 @@ jobs:
         env:
           # 可配置的环境变量
           FEISHU_URL: ${{ secrets.FEISHU_URL }}
-          # 获取最新论文并发送消息
-        run: |
+          # 确保脚本可以找到所需模块
+          PYTHONPATH: ${{ github.workspace }}
+        run:
           cd paperBotV2
-          python -m paperBotV2.arxiv_send_feishu_message
+          python -m arxiv_send_feishu_message
