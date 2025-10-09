@@ -16,8 +16,8 @@ env:
 jobs:
   send_feishu_notification:
     runs-on: ubuntu-latest
-    # 只有在前一个工作流成功时才运行
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # 当自动触发时检查前一个工作流成功，手动触发时无条件运行
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     permissions:
       issues: write
       contents: read
