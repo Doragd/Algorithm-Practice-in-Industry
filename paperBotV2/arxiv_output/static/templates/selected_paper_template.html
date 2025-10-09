@@ -1,0 +1,56 @@
+
+<div class="paper-card p-4 {{DISPLAY_CLASS}}">
+    <div class="flex justify-between items-start mb-2">
+        <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
+            <a href="{{URL}}" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-star text-yellow-400 mr-1"></i>{{TRANSLATION}}
+            </a>
+        </h3>
+        <span class="score-badge {{SCORE_COLOR}}">
+            <i class="fa fa-star mr-1"></i>{{SCORE}}/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            {{TITLE}}
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>{{AUTHORS}}
+        </div>
+        
+        {# 核心总结（如果summary不为空则显示） #}
+        {% if SUMMARY %}
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-lightbulb-o text-yellow-500 mr-1"></i>核心总结:</strong>
+            <p class="text-gray-600 text-sm mt-1">{{SUMMARY}}</p>
+        </div>
+        {% endif %}
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1">{{REASONING}}</p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> {{PUB_DATE}}
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/{{ARXIV_ID}}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:{{ARXIV_ID}}
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap">{{CATEGORY_TAGS}}</div>
+            </div>
+            
+            {# 查看完整摘要另起一行 #}
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    {{ORI_SUMMARY}}
+                </div>
+            </details>
+    </div>
+</div>

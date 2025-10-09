@@ -1,0 +1,48 @@
+/* 工具类 */
+.content-auto {
+    content-visibility: auto;
+}
+.paper-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 300ms ease;
+    border: 1px solid #f3f4f6;
+}
+.paper-card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.simple-paper-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 300ms ease;
+    border: 1px solid #f3f4f6;
+}
+.simple-paper-card:hover {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.score-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+.badge精选 {
+    background-color: #dcfce7;
+    color: #166534;
+}
+.category-tag {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+    background-color: #f3f4f6;
+    color: #374151;
+    border-radius: 9999px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+}

@@ -1,0 +1,121 @@
+# 合并后的完整工作流：处理arxiv论文、生成HTML并部署到GitHub Pages
+name: ArXiv Daily Full
+on:
+  # 定时触发
+  schedule:
+    # 每天UTC时间10:00（北京时间18:00）执行
+    - cron: '0 10 * * *'
+  # 手动触发
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: "3.8"
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  process_and_deploy_arxiv:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
+      pages: write
+      id-token: write
+    steps:
+      # 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 设置Python环境
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      # 安装依赖
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 执行脚本生成JSON数据
+      - name: Run arxiv.py to generate JSON
+        env:
+          # 可配置的环境变量
+          FEISHU_URL: ${{ secrets.FEISHU_URL }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          # 目标分类，使用逗号分隔的字符串格式
+          TARGET_CATEGORYS: "cs.IR,cs.CL,cs.CV"
+          # 最大论文数量
+          MAX_PAPERS: "100"
+          # 粗排分数阈值
+          ROUGH_SCORE_THRESHOLD: "4"
+          # 返回论文数量
+          RETURN_PAPERS: "20"
+        run:
+          python -m paperBotV2.arxiv
+
+      # 生成HTML页面
+      - name: Generate HTML pages
+        run: |
+          cd paperBotV2
+          python generate_arxiv_html.py
+        env:
+          # 确保脚本可以找到JSON文件
+          PYTHONPATH: ${{ github.workspace }}
+
+      # 检查是否生成了HTML文件
+      - name: Check generated files
+        run: |
+          echo "检查生成的HTML文件："
+          ls -la paperBotV2/arxiv_output/
+          echo "检查生成的JSON文件："
+          ls -la paperBotV2/arxiv_daily/
+
+      # Commit files
+      - name: Commit files
+        id: commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add --all
+          if [ -z "$(git status --porcelain)" ]; then
+             echo "::set-output name=push::false"
+          else
+             git commit -m "chore: update arxiv papers and HTML" -a
+             echo "::set-output name=push::true"
+          fi
+        shell: bash
+
+      # Push changes
+      - name: Push changes
+        if: steps.commit.outputs.push == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 创建或更新gh-pages分支
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./paperBotV2/arxiv_output
+          publish_branch: gh-pages
+          commit_message: "docs: update arXiv papers HTML pages"
+          full_commit_message: "docs: update arXiv papers HTML pages ${{ github.sha }}"
+          force_orphan: false
+
+      # 更新README或其他地方的链接，指向最新的HTML页面
+      - name: Update latest paper link
+        if: always()
+        run: |
+          # 获取最新的HTML文件名
+          LATEST_HTML=$(ls -t paperBotV2/arxiv_output/*.html 2>/dev/null | head -n 1)
+          if [ -n "$LATEST_HTML" ]; then
+            LATEST_HTML_NAME=$(basename "$LATEST_HTML")
+            REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+            echo "最新HTML文件: $LATEST_HTML_NAME"
+            echo "GitHub Pages URL: $REPO_URL/$LATEST_HTML_NAME"
+            
+            # 这里可以添加更新README等文件的逻辑，例如：
+            # sed -i "s|https://.*arxiv_[0-9]\{8\}\.html|$REPO_URL/$LATEST_HTML_NAME|g" README.md
+          fi

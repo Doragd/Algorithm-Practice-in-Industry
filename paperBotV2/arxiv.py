@@ -367,18 +367,19 @@ def get_papers_from_all_categories():
 
 def perform_rough_ranking(all_papers):
     """执行粗排并标记过滤状态"""
-    filtered_papers = []
+    # 直接使用rough_rank_papers函数进行并发粗排，获取过滤后的论文
+    filtered_papers = rough_rank_papers(all_papers, filter_threshold=ROUGH_SCORE_THRESHOLD, max_workers=10)
     
+    # 更新all_papers中的论文信息并标记过滤状态
+    for paper in filtered_papers:
+        arxiv_id = paper['arxiv_id']
+        all_papers[arxiv_id].update(paper)
+        all_papers[arxiv_id]['is_filtered'] = False  # 通过粗排的论文
+    
+    # 标记未通过粗排的论文
     for arxiv_id, paper in all_papers.items():
-        analyzed_paper = rough_analyze_paper(arxiv_id, paper.copy())
-        if analyzed_paper:
-            all_papers[arxiv_id].update(analyzed_paper)
-            # 标记过滤状态
-            if analyzed_paper.get('relevance_score', 0) >= ROUGH_SCORE_THRESHOLD:
-                all_papers[arxiv_id]['is_filtered'] = False
-                filtered_papers.append(analyzed_paper)
-            else:
-                all_papers[arxiv_id]['is_filtered'] = True
+        if arxiv_id not in [p['arxiv_id'] for p in filtered_papers]:
+            all_papers[arxiv_id]['is_filtered'] = True  # 未通过粗排的论文
     
     print(f"✨ 粗排筛选 {len(filtered_papers)} 篇高质量论文。")
     return filtered_papers
@@ -457,8 +458,8 @@ def process_papers():
     
     print("✅ 论文处理流程已全部完成！")
     
-    # 5. 发送到飞书
-    send_papers_to_feishu(final_papers)
+    # 注意：飞书消息发送功能已移至独立脚本 send_feishu_message.py
+    # 在GitHub Actions工作流中，将在网页生成完成后触发发送
 
 
 # --- 主程序入口 ---
