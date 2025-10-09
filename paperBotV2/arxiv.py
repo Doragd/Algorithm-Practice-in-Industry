@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 from tenacity import retry, stop_after_attempt, wait_random_exponential
 from openai import APIConnectionError, RateLimitError, APIStatusError
-from prompts import PRERANK_PROMPT, FINERANK_PROMPT
+from .prompts import PRERANK_PROMPT, FINERANK_PROMPT
 
 # 从环境变量获取配置，同时提供默认值
 FEISHU_URL = os.environ.get("FEISHU_URL", None)
@@ -330,9 +330,12 @@ def get_papers_from_all_categories():
     """从所有指定分类获取论文并初始化状态标记，去除与前一天重复的论文"""
     all_papers = {}
     
+    # 获取当前脚本所在目录（paperBotV2目录）
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    
     # 获取前一天的日期
     yesterday = datetime.now() - timedelta(days=1)
-    yesterday_file = os.path.join("arxiv_daily", f"{yesterday.strftime('%Y%m%d')}.json")
+    yesterday_file = os.path.join(current_dir, "arxiv_daily", f"{yesterday.strftime('%Y%m%d')}.json")
     
     # 读取前一天的论文ID集合（用于去重）
     yesterday_paper_ids = set()
@@ -396,8 +399,11 @@ def perform_fine_ranking(filtered_papers, all_papers):
 
 def save_results_to_json(all_papers):
     """保存所有结果到指定路径的JSON文件，包括天级文件和全量文件"""
-    # 确保目录存在 - 相对路径从当前工作目录(paperBotV2)开始计算
-    save_dir = "arxiv_daily"
+    # 获取当前脚本所在目录（paperBotV2目录）
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # 确保arxiv_daily目录存在于paperBotV2目录下
+    save_dir = os.path.join(current_dir, "arxiv_daily")
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     

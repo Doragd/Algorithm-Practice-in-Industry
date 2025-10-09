@@ -50,8 +50,7 @@ jobs:
           # 返回论文数量
           RETURN_PAPERS: "20"
         run:
-          cd paperBotV2
-          python arxiv.py
+          python -m paperBotV2.arxiv
 
       - name: Commit files
         id: commit
