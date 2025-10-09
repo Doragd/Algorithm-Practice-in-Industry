@@ -99,6 +99,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./paperBotV2/arxiv_output
+          destination_dir: arxiv_output
           publish_branch: gh-pages
           commit_message: "docs: update arXiv papers HTML pages"
           full_commit_message: "docs: update arXiv papers HTML pages ${{ github.sha }}"
