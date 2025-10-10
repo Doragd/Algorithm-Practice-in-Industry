@@ -66,7 +66,7 @@ def send_papers_to_feishu(papers, feishu_url=FEISHU_URL):
         "type": "template",
         "data": {
             "template_id": "AAqxH62u1uNko",
-            "template_version_name": "1.0.6",
+            "template_version_name": "1.0.7",
             "template_variable": {
                 "loop": [],
                 "date": date
