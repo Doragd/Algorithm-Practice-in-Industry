@@ -270,7 +270,7 @@ def generate_html(papers, date_str, script_dir, output_file=None):
     
     # 如果未指定输出文件，则自动生成
     if output_file is None:
-        output_dir = os.path.join(script_dir, "arxiv_output")
+        output_dir = os.path.join(script_dir, "output")
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
         output_file = os.path.join(output_dir, f"arxiv_{date_str}.html")
@@ -802,7 +802,7 @@ def main():
     
     # 获取脚本所在目录
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    json_dir = os.path.join(script_dir, "arxiv_daily")
+    json_dir = os.path.join(script_dir, "data")
     
     # 确保JSON目录存在
     if not os.path.exists(json_dir):

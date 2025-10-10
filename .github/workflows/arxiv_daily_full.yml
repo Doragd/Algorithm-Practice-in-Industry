@@ -54,12 +54,12 @@ jobs:
           # 确保脚本可以找到paperBotV2模块
           PYTHONPATH: ${{ github.workspace }}
         run:
-          python -m paperBotV2.arxiv
+          python -m paperBotV2.arxiv_daily.arxiv
 
       # 生成HTML页面
       - name: Generate HTML pages
         run: |
-          cd paperBotV2
+          cd paperBotV2/arxiv_daily
           python generate_arxiv_html.py
         env:
           # 确保脚本可以找到JSON文件
@@ -69,9 +69,9 @@ jobs:
       - name: Check generated files
         run: |
           echo "检查生成的HTML文件："
-          ls -la paperBotV2/arxiv_output/
+          ls -la paperBotV2/arxiv_daily/output/
           echo "检查生成的JSON文件："
-          ls -la paperBotV2/arxiv_daily/
+          ls -la paperBotV2/arxiv_daily/data/
 
       # Commit files
       - name: Commit files
@@ -100,7 +100,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./paperBotV2/arxiv_output
+          publish_dir: ./paperBotV2/arxiv_daily/output
+          destination_dir: arxiv_daily
           publish_branch: gh-pages
           commit_message: "docs: update arXiv papers HTML pages"
           full_commit_message: "docs: update arXiv papers HTML pages ${{ github.sha }}"
@@ -111,10 +112,10 @@ jobs:
         if: always()
         run: |
           # 获取最新的HTML文件名
-          LATEST_HTML=$(ls -t paperBotV2/arxiv_output/*.html 2>/dev/null | head -n 1)
+          LATEST_HTML=$(ls -t paperBotV2/arxiv_daily/output/*.html 2>/dev/null | head -n 1)
           if [ -n "$LATEST_HTML" ]; then
             LATEST_HTML_NAME=$(basename "$LATEST_HTML")
-            REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+            REPO_URL="https://${{ github.repository_owner }}.github.io/Algorithm-Practice-in-Industry/arxiv_daily"
             echo "最新HTML文件: $LATEST_HTML_NAME"
             echo "GitHub Pages URL: $REPO_URL/$LATEST_HTML_NAME"
             

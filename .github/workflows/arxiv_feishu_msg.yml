@@ -1,5 +1,5 @@
 # 这个工作流负责在arxiv处理和网页生成完成后发送飞书消息
-name: arxiv_send_feishu_message
+name: arxiv_feishu_msg
 on:
   # 在完整的arxiv处理工作流完成后触发
   workflow_run:
@@ -46,5 +46,5 @@ jobs:
           # 确保脚本可以找到所需模块
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          cd paperBotV2
+          cd paperBotV2/arxiv_daily
           python arxiv_send_feishu_message.py

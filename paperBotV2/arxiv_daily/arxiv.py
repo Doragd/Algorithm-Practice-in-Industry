@@ -400,11 +400,11 @@ def perform_fine_ranking(filtered_papers, all_papers):
 
 def save_results_to_json(all_papers):
     """保存所有结果到指定路径的JSON文件，包括天级文件和全量文件"""
-    # 获取当前脚本所在目录（paperBotV2目录）
+    # 获取当前脚本所在目录（paperBotV2/arxiv_daily目录）
     current_dir = os.path.dirname(os.path.abspath(__file__))
     
-    # 确保arxiv_daily目录存在于paperBotV2目录下
-    save_dir = os.path.join(current_dir, "arxiv_daily")
+    # 确保data目录存在于paperBotV2/arxiv_daily目录下
+    save_dir = os.path.join(current_dir, "data")
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     

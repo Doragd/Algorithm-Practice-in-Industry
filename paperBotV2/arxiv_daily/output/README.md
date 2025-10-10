@@ -3,7 +3,7 @@
  * @Date: 2025-10-10 02:18:25
  * @LastEditors: Doragd doragd@users.noreply.github.com
  * @LastEditTime: 2025-10-10 03:32:43
- * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/arxiv_output/README.md
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/arxiv_daily/output/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 # arXiv 每日论文精选 - GitHub Pages
@@ -19,13 +19,13 @@
 部署到GitHub Pages后，可以通过以下URL访问最新的论文精选页面：
 
 ```
-https://[GitHub用户名].github.io/[仓库名]/arxiv_output/arxiv_YYYYMMDD.html
+https://[GitHub用户名].github.io/Algorithm-Practice-in-Industry/arxiv_daily/arxiv_YYYYMMDD.html
 ```
 
 首页地址为：
 
 ```
-https://[GitHub用户名].github.io/[仓库名]/arxiv_output/index.html
+https://[GitHub用户名].github.io/Algorithm-Practice-in-Industry/arxiv_daily/index.html
 ```
 
 ## 页面功能
@@ -60,7 +60,7 @@ HTML页面通过`.github/workflows/arxiv_daily_full.yml`工作流自动生成和
 
 ```bash
 # 直接用浏览器打开
-open paperBotV2/arxiv_output/arxiv_YYYYMMDD.html
+open paperBotV2/arxiv_daily/output/arxiv_YYYYMMDD.html
 ```
 
 ## 自定义配置

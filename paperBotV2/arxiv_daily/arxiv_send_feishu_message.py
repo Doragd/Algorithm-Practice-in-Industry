@@ -100,9 +100,9 @@ def send_papers_to_feishu(papers, feishu_url=FEISHU_URL):
 
 def main():
     """主函数，读取最新论文数据并发送飞书消息"""
-    # 获取当前脚本所在目录（paperBotV2目录）
+    # 获取当前脚本所在目录（paperBotV2/arxiv_daily目录）
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_dir = os.path.join(current_dir, "arxiv_daily")
+    json_dir = os.path.join(current_dir, "data")
     
     # 获取最新的JSON文件
     latest_json_file = get_latest_json_file(json_dir)
