@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大厂实践文章精选</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css?v={{TIMESTAMP}}">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div class="text-3xl font-bold text-gray-900">
+                    大厂实践文章精选
+                </div>
+                <div class="mt-4 md:mt-0 text-sm text-gray-500">
+                    <p>最后更新时间: {{LAST_UPDATED}}</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <!-- 筛选器区域 -->
+        <div class="bg-white p-6 rounded-lg shadow mb-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <div class="text-xl font-semibold text-gray-900 mb-4 md:mb-0">
+                    筛选条件
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <i class="fa fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" id="search-input" placeholder="搜索文章标题..." 
+                            class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full sm:w-64">
+                    </div>
+                    <button id="reset-filter" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-700 font-medium transition-colors">
+                        重置筛选
+                    </button>
+                </div>
+            </div>
+
+            <!-- 公司筛选 -->
+            <div class="mb-6">
+                <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-2">
+                    按公司筛选
+                </h3>
+                <div class="flex flex-wrap gap-2" id="company-filters">
+                    <button class="tag bg-blue-100 text-blue-800 selected" data-filter-type="company" data-filter-value="all">
+                        全部公司
+                    </button>
+                    {% for company in companies %}
+                    <button class="tag bg-gray-100 text-gray-800" data-filter-type="company" data-filter-value="{{company}}">
+                        {{company}}
+                    </button>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- 标签筛选 -->
+            <div>
+                <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-2">
+                    按标签筛选
+                </h3>
+                <div class="flex flex-wrap gap-2" id="tag-filters">
+                    <button class="tag bg-blue-100 text-blue-800 selected" data-filter-type="tag" data-filter-value="all">
+                        全部标签
+                    </button>
+                    {% for tag in tags %}
+                    <button class="tag bg-gray-100 text-gray-800" data-filter-type="tag" data-filter-value="{{tag}}">
+                        {{tag}}
+                    </button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- 统计信息 -->
+        <div class="bg-white p-4 rounded-lg shadow mb-6">
+            <div class="text-sm text-gray-500" id="display-count">
+                显示 {{total_items}} 篇文章
+            </div>
+        </div>
+
+        <!-- 文章表格 -->
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200 papers-table">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">序号</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">公司</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">标题</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">标签</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">发布时间</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="papers-container">
+                        {{table_rows}}
+                    </tbody>
+                </table>
+            </div>
+            <div id="empty-state" class="empty-state hidden py-12 px-4 text-center">
+                <i class="fa fa-folder-open-o text-4xl text-gray-300 mb-4"></i>
+                <p class="text-lg text-gray-500">暂无符合条件的文章</p>
+                <p class="text-sm text-gray-400 mt-2">请尝试调整筛选条件</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript数据 -->
+    <script id="articles-data" type="application/json">{{articles_json}}</script>
+
+    <!-- 静态资源 -->
+    <script src="static/app.js?v={{TIMESTAMP}}"></script>
+</body>
+</html>
