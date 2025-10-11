@@ -63,7 +63,7 @@
 |   [2024](./papers/cikm/cikm2024.md)  |   [2024](./papers/ecir/ecir2024.md)  |   [2024](./papers/kdd/kdd2024.md)  |   [2024](./papers/recsys/recsys2024.md)  |   [2024](./papers/sigir/sigir2024.md)  |   [2024](./papers/wsdm/wsdm2024.md)  |   [2024](./papers/www/www2024.md)  |   
 |   2025  |   [2025](./papers/ecir/ecir2025.md)  |   [2025](./papers/kdd/kdd2025.md)  |   [2025](./papers/recsys/recsys2025.md)  |   [2025](./papers/sigir/sigir2025.md)  |   [2025](./papers/wsdm/wsdm2025.md)  |   [2025](./papers/www/www2025.md)  |   
 
-## 大厂实践文章【✨网页版本=>🥹[点击查看]🥹(https://doragd.github.io/Algorithm-Practice-in-Industry/industry_practice/)】
+## 大厂实践文章【✨Newest:网页版本🥹=>[点击查看](https://doragd.github.io/Algorithm-Practice-in-Industry/industry_practice/)】
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
