@@ -67,6 +67,7 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 美团 | [可验证过程奖励在提升大模型推理效率中的探索与实践](https://mp.weixin.qq.com/s/0NIfezMIEcCIDGt85WmrHg) | 美团 | 2025-10-09 |
 | 快手 | [快手广告领域的大模型技术探索与实践](https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247771028&idx=3&sn=d9ad144b9b42ae58ac3026c286093b8a&chksm=fa4c6fae679b80110a5a6cbbd7bc60f36a3864b5bb2a003cf27c3e3ef9383bbca7b8c2860585&mpshare=1&scene=1&srcid=1007QhBxL0YfYUBaKKtuPk9I&sharer_shareinfo=23930b1de7c787411d0f95c1bd59c650&sharer_shareinfo_first=23930b1de7c787411d0f95c1bd59c650#rd) | 广告 | 2025-10-05 |
 | 小红书 | [AIGC 赋能展示广告：大模型在小红书标题生成中的深度实践](https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg==&mid=2247491121&idx=1&sn=a4463386920e58676f74d25b0f05ae19&chksm=ce5b60139cdf007e93ac885d0460880e3d0ee85caa6d6101f485cb813dc6b81446e567417e1d&mpshare=1&scene=1&srcid=1007ltuHALzt7NsvV1RmOH5u&sharer_shareinfo=80f3af230ca7b68ba82db1716b654ff2&sharer_shareinfo_first=80f3af230ca7b68ba82db1716b654ff2#rd) | 广告 | 2025-10-05 |
 | 阿里 | [对话淘宝姜宇宁：如果你只推低价商品，是不需要用大语言模型的](https://mp.weixin.qq.com/s?__biz=MzkyNzY3NjQ1MA==&mid=2247487526&idx=1&sn=e0495d4caf65b94c7228c743ef53d10e&chksm=c3ac05f2dc5d2d3f7d0ce49aa224336fbc69d808a1d6ec934c81aa96d5728fa3b60550420cbe&mpshare=1&scene=1&srcid=1007HvLIFOyTCQcGk077IW3p&sharer_shareinfo=046a6db2a5b99f530d4cf10b0ca090e9&sharer_shareinfo_first=046a6db2a5b99f530d4cf10b0ca090e9#rd) | 推荐 | 2025-10-01 |
