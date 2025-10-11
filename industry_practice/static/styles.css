@@ -48,6 +48,12 @@ body {
     vertical-align: top;
 }
 
+/* 公司列特殊样式 */
+.papers-table td:nth-child(2) {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 .papers-table tr:hover {
     background-color: #f9fafb;
 }
