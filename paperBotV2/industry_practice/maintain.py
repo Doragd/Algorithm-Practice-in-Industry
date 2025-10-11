@@ -286,7 +286,7 @@ def update_message(args):
             [{
                 "tag": "a",
                 "text": "➡️ 点击查看完整大厂实践文章列表",
-                "href": "https://github.com/Doragd/Algorithm-Practice-in-Industry"
+                "href": "https://doragd.github.io/Algorithm-Practice-in-Industry/industry_practice/"
             }]
         )
         send_feishu_message(title, content, url=FEISHU_URL)

@@ -12,8 +12,8 @@
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                <div class="text-3xl font-bold text-gray-900">
-                    大厂实践文章精选
+                <div class="text-3xl font-bold text-gray-800">
+                    <i class="fa fa-book mr-2 text-blue-600"></i>大厂实践文章精选
                 </div>
                 <div class="mt-4 md:mt-0 text-sm text-gray-500">
                     <p>最后更新时间: {{LAST_UPDATED}}</p>
@@ -61,7 +61,7 @@
             </div>
 
             <!-- 标签筛选 -->
-            <div>
+            <div class="mb-6">
                 <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-2">
                     按标签筛选
                 </h3>
@@ -74,6 +74,23 @@
                         {{tag}}
                     </button>
                     {% endfor %}
+                </div>
+            </div>
+
+            <!-- 日期范围筛选 -->
+            <div class="mb-4">
+                <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-2">
+                    按日期筛选
+                </h3>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div>
+                        <label for="date-from" class="block text-xs text-gray-500 mb-1">开始日期</label>
+                        <input type="date" id="date-from" class="px-2 py-1.5 border border-gray-300 text-sm rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full sm:w-40 appearance-none">
+                    </div>
+                    <div>
+                        <label for="date-to" class="block text-xs text-gray-500 mb-1">结束日期</label>
+                        <input type="date" id="date-to" class="px-2 py-1.5 border border-gray-300 text-sm rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full sm:w-40 appearance-none">
+                    </div>
                 </div>
             </div>
         </div>

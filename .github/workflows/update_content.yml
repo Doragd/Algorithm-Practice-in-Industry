@@ -11,7 +11,7 @@ on:
       - labeled
 
 jobs:
-  update-conf-list:
+  update-content:
     if: github.event.label.name == 'require to update content'
     runs-on: ubuntu-latest
     env:
@@ -61,7 +61,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./paperBotV2/industry_practice/output
-          destination_dir: industry_pratice
+          destination_dir: industry_practice
           publish_branch: gh-pages
           force_orphan: false
           keep_files: false

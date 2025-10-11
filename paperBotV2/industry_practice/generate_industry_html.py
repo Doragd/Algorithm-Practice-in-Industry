@@ -59,20 +59,26 @@ def load_article_data(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         
-        # 转换中文键名为英文键名
+        # 转换中文键名为英文键名，同时处理中英文混合的情况
         converted_data = []
         for item in data:
+            # 智能处理中英文键名，优先使用英文键名
+            title = item.get('title', item.get('内容', '无标题'))
+            link = item.get('link', item.get('链接', '#'))
+            company = item.get('company', item.get('公司', '未知'))
+            tags = item.get('tags', item.get('标签', []))
+            date = item.get('date', item.get('时间', ''))
+            
             # 确保公司名称是字符串类型
-            company = item.get('公司', '未知')
             if not isinstance(company, str):
                 company = str(company) if company is not None else '未知'
                 
             converted_item = {
-                'title': item.get('内容', '无标题'),
-                'link': item.get('链接', '#'),
+                'title': title,
+                'link': link,
                 'company': company,
-                'tags': item.get('标签', []),
-                'date': item.get('时间', '')
+                'tags': tags,
+                'date': date
             }
             converted_data.append(converted_item)
             
