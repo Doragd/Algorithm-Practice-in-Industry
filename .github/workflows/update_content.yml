@@ -30,7 +30,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Update the cache file from the issue
-        run: python maintain.py --issue ${{ toJson(github.event.issue.body) }}
+        run: python paperBotV2/industry_practice/maintain.py --issue ${{ toJson(github.event.issue.body) }}
         
         
       - name: Commit files
@@ -52,3 +52,16 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          force: false
+
+      - name: Deploy to GitHub Pages
+        if: steps.commit.outputs.push == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./paperBotV2/industry_practice/output
+          destination_dir: industry_pratice
+          publish_branch: gh-pages
+          force_orphan: false
+          keep_files: false

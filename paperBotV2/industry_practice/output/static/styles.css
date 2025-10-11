@@ -1,0 +1,68 @@
+/* 基础样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 标签样式 */
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.tag.selected {
+    font-weight: 600;
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+/* 表格样式 */
+.papers-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.papers-table th {
+    background-color: #f9fafb;
+    text-align: left;
+    padding: 0.75rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.papers-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+}
+
+.papers-table tr:hover {
+    background-color: #f9fafb;
+}
+
+/* 空状态样式 */
+.empty-state {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+/* 响应式调整 */
+@media (max-width: 640px) {
+    .papers-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
