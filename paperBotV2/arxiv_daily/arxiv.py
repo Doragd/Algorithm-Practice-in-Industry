@@ -13,7 +13,8 @@ from openai import APIConnectionError, RateLimitError, APIStatusError
 from .prompts import PRERANK_PROMPT, FINERANK_PROMPT
 
 # 从环境变量获取配置，同时提供默认值
-FEISHU_URL = os.environ.get("FEISHU_URL", None)
+# 支持多个飞书URL，用逗号分隔
+FEISHU_URLS = [url.strip() for url in os.environ.get("FEISHU_URL", "").split(',') if url.strip()]
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", None)
 # TARGET_CATEGORYS 使用逗号分隔的字符串格式
 TARGET_CATEGORYS = os.environ.get("TARGET_CATEGORYS", "cs.IR,cs.CL,cs.CV")
@@ -287,7 +288,15 @@ def fine_rank_papers(papers, max_workers=10, paper_count=5):
     return analyzed_papers
 
 
-def send_papers_to_feishu(papers, feishu_url=FEISHU_URL):
+def send_papers_to_feishu(papers, feishu_urls=None):
+    # 如果没有指定URL列表，使用默认的FEISHU_URLS
+    if feishu_urls is None:
+        feishu_urls = FEISHU_URLS
+    
+    # 如果没有设置飞书URL，跳过发送
+    if not feishu_urls:
+        print("[-] 没有设置飞书URL，跳过发送消息")
+        return
     
     date = datetime.now().strftime('%Y-%m-%d')
     
@@ -310,21 +319,28 @@ def send_papers_to_feishu(papers, feishu_url=FEISHU_URL):
         summary = paper.get('summary', 'N/A')
         url = paper['url']
         
-        paper = f"[{title}]({url})"
-        score = "⭐️" * score + f" <text_tag color='blue'>{score}分</text_tag>" if isinstance(score, int) else "N/A"
+        paper_formatted = f"[{title}]({url})"
+        score_formatted = "⭐️" * score + f" <text_tag color='blue'>{score}分</text_tag>" if isinstance(score, int) else "N/A"
         
         card_data['data']['template_variable']['loop'].append({
-            "paper": paper,
+            "paper": paper_formatted,
             "translation": translation,
-            "score": score,
+            "score": score_formatted,
             "summary": summary
         })
         
     card = json.dumps(card_data)
     body = json.dumps({"msg_type": "interactive", "card": card})
     headers = {"Content-Type": "application/json"}
-    ret = requests.post(url=feishu_url, data=body, headers=headers)
-    print(f"✉️ 飞书推送返回状态: {ret.status_code}")
+    
+    # 循环发送到所有飞书URL
+    for idx, url in enumerate(feishu_urls):
+        try:
+            # 设置超时时间为10秒
+            ret = requests.post(url=url, data=body, headers=headers, timeout=10)
+            print(f"✉️ 飞书推送[{idx+1}/{len(feishu_urls)}]返回状态: {ret.status_code}")
+        except Exception as e:
+            print(f"❌ 飞书推送[{idx+1}/{len(feishu_urls)}]失败: {e}")
 
 def get_papers_from_all_categories():
     """从所有指定分类获取论文并初始化状态标记，去除与前一天重复的论文"""

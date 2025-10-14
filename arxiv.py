@@ -15,7 +15,10 @@ from translate import translate
 SERVERCHAN_API_KEY = os.environ.get("SERVERCHAN_API_KEY", None)
 QUERY = os.environ.get('QUERY', 'cs.IR')
 LIMITS = int(os.environ.get('LIMITS', 3))
-FEISHU_URL = os.environ.get("FEISHU_URL", None)
+# 支持多个飞书URL，使用逗号分隔
+FEISHU_URLS = os.environ.get("FEISHU_URL", "").split(',')
+# 去除空字符串和空格
+FEISHU_URLS = [url.strip() for url in FEISHU_URLS if url.strip()]
 MODEL_TYPE = os.environ.get("MODEL_TYPE", "DeepSeek")
 
 def get_yesterday():
@@ -76,7 +79,16 @@ def send_wechat_message(title, content, SERVERCHAN_API_KEY):
     }
     requests.post(url, params=params)
 
-def send_feishu_message(title, content, url=FEISHU_URL):
+def send_feishu_message(title, content, urls=None):
+    # 如果没有指定URL列表，使用默认的FEISHU_URLS
+    if urls is None:
+        urls = FEISHU_URLS
+    
+    # 如果没有有效的飞书URL，直接返回
+    if not urls:
+        print("⚠️ 没有有效的飞书URL，跳过发送消息")
+        return
+    
     card_data = {
         "config": {
             "wide_screen_mode": True
@@ -108,7 +120,14 @@ def send_feishu_message(title, content, url=FEISHU_URL):
     card = json.dumps(card_data)
     body =json.dumps({"msg_type": "interactive","card":card})
     headers = {"Content-Type":"application/json"}
-    requests.post(url=url, data=body, headers=headers)
+    
+    # 向每个飞书URL发送消息
+    for idx, url in enumerate(urls):
+        try:
+            requests.post(url=url, data=body, headers=headers, timeout=10)
+            print(f"✉️ 飞书推送[{idx+1}/{len(urls)}]已发送")
+        except Exception as e:
+            print(f"❌ 飞书推送[{idx+1}/{len(urls)}]失败: {e}")
 
 
 def save_and_translate(papers, filename='arxiv.json'):
@@ -195,7 +214,7 @@ def cronjob():
         msg_content = f"[{msg_title}]({url})\n\n{msg_pub_date}\n\n{msg_url}\n\n{msg_translated}\n\n{msg_summary}\n\n"
 
         # send_wechat_message(push_title, msg_content, SERVERCHAN_API_KEY)
-        send_feishu_message(push_title, msg_content, FEISHU_URL)
+        send_feishu_message(push_title, msg_content)
 
         time.sleep(12)
 

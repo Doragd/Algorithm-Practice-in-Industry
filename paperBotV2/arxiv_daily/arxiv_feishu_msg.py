@@ -4,7 +4,10 @@ import requests
 from datetime import datetime, timedelta
 
 # 从环境变量获取配置，同时提供默认值
-FEISHU_URL = os.environ.get("FEISHU_URL", None)
+# 支持多个飞书URL，使用逗号分隔
+FEISHU_URLS = os.environ.get("FEISHU_URL", "").split(',')
+# 去除空字符串和空格
+FEISHU_URLS = [url.strip() for url in FEISHU_URLS if url.strip()]
 RETURN_PAPERS = int(os.environ.get("RETURN_PAPERS", "20"))
 
 
@@ -58,7 +61,15 @@ def load_paper_data(file_path):
         return []
 
 
-def send_papers_to_feishu(papers, feishu_url=FEISHU_URL):
+def send_papers_to_feishu(papers, feishu_urls=None):
+    # 如果没有指定URL列表，使用默认的FEISHU_URLS
+    if feishu_urls is None:
+        feishu_urls = FEISHU_URLS
+    
+    # 如果没有有效的飞书URL，直接返回
+    if not feishu_urls:
+        print("⚠️ 没有有效的飞书URL，跳过发送消息")
+        return
     
     date = datetime.now().strftime('%Y-%m-%d')
     
@@ -94,8 +105,14 @@ def send_papers_to_feishu(papers, feishu_url=FEISHU_URL):
     card = json.dumps(card_data)
     body = json.dumps({"msg_type": "interactive", "card": card})
     headers = {"Content-Type": "application/json"}
-    ret = requests.post(url=feishu_url, data=body, headers=headers)
-    print(f"✉️ 飞书推送返回状态: {ret.status_code}")
+    
+    # 向每个飞书URL发送消息
+    for idx, url in enumerate(feishu_urls):
+        try:
+            ret = requests.post(url=url, data=body, headers=headers, timeout=10)
+            print(f"✉️ 飞书推送[{idx+1}/{len(feishu_urls)}]返回状态: {ret.status_code}")
+        except Exception as e:
+            print(f"❌ 飞书推送[{idx+1}/{len(feishu_urls)}]失败: {e}")
 
 
 def main():
@@ -137,7 +154,12 @@ def main():
     papers_with_score.sort(key=lambda x: x['rerank_relevance_score'], reverse=True)
     selected_papers = papers_with_score[:RETURN_PAPERS]
     
-    print(f"📤 准备发送 {len(selected_papers)} 篇论文到飞书...")
+    # 检查是否有有效的飞书URL
+    if not FEISHU_URLS:
+        print("⚠️ 环境变量FEISHU_URL未设置或为空，无法发送飞书消息")
+        return
+        
+    print(f"📤 准备发送 {len(selected_papers)} 篇论文到 {len(FEISHU_URLS)} 个飞书URL...")
     
     # 发送到飞书
     if selected_papers:

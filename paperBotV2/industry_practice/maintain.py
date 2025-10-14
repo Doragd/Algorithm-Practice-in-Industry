@@ -22,7 +22,10 @@ ARTICLE_JSON_FILE = os.path.join(DATA_DIR, "article.json")
 # 正确指向根目录的README.md
 README_FILE = os.path.join(PROJECT_ROOT, "README.md")
 
-FEISHU_URL = os.environ.get("FEISHU_URL", None)
+# 支持多个飞书URL，使用逗号分隔
+FEISHU_URLS = os.environ.get("FEISHU_URL", "").split(',')
+# 去除空字符串和空格
+FEISHU_URLS = [url.strip() for url in FEISHU_URLS if url.strip()]
 
 def set_args():
     parser = argparse.ArgumentParser()
@@ -215,9 +218,9 @@ def update_message(args):
     print("[+] 开始更新消息通知...")
     
     try:
-        # 如果没有设置FEISHU_URL，跳过发送消息
-        if not FEISHU_URL:
-            print("[-] FEISHU_URL未设置，跳过发送消息")
+        # 如果没有设置FEISHU_URLS，跳过发送消息
+        if not FEISHU_URLS:
+            print("[-] FEISHU_URL未设置或为空，跳过发送消息")
             return
         
         # 解析issue数据
@@ -289,14 +292,23 @@ def update_message(args):
                 "href": "https://doragd.github.io/Algorithm-Practice-in-Industry/industry_practice/"
             }]
         )
-        send_feishu_message(title, content, url=FEISHU_URL)
+        send_feishu_message(title, content)
         print("[+] 消息通知发送成功！")
     except Exception as e:
         print(f"[-] 更新消息通知失败: {e}")
         import traceback
         print(f"[-] 错误详情: {traceback.format_exc()}")
 
-def send_feishu_message(title, content, url=FEISHU_URL):
+def send_feishu_message(title, content, urls=None):
+    # 如果没有指定URL列表，使用默认的FEISHU_URLS
+    if urls is None:
+        urls = FEISHU_URLS
+    
+    # 如果没有有效的飞书URL，直接返回
+    if not urls:
+        print("⚠️ 没有有效的飞书URL，跳过发送消息")
+        return
+    
     raw_data = {
         "msg_type": "post",
         "content": {
@@ -310,8 +322,14 @@ def send_feishu_message(title, content, url=FEISHU_URL):
     }  
     body = json.dumps(raw_data)
     headers = {"Content-Type":"application/json"}
-    ret = requests.post(url=url, data=body, headers=headers)
-    print(ret.text)
+    
+    # 向每个飞书URL发送消息
+    for idx, url in enumerate(urls):
+        try:
+            ret = requests.post(url=url, data=body, headers=headers, timeout=10)
+            print(f"✉️ 飞书推送[{idx+1}/{len(urls)}]返回: {ret.text}")
+        except Exception as e:
+            print(f"❌ 飞书推送[{idx+1}/{len(urls)}]失败: {e}")
 
 
 

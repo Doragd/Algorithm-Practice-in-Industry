@@ -17,7 +17,8 @@ SERVERCHAN_API_KEY = os.environ.get("SERVERCHAN_API_KEY", None)
 LIMITS = int(os.environ.get('LIMITS', 4))
 ERROR_LIMITS = int(os.environ.get('ERROR_LIMITS', 1))
 INTERVAL = int(os.environ.get("INTERVAL", 3))
-FEISHU_URL = os.environ.get("FEISHU_URL", None)
+# 支持多个飞书URL，用逗号分隔
+FEISHU_URLS = [url.strip() for url in os.environ.get("FEISHU_URL", "").split(',') if url.strip()]
 MODEL_TYPE = os.environ.get("MODEL_TYPE", "DeepSeek")
 
 def match_score(item):
@@ -186,7 +187,8 @@ def cronjob(error_cnt):
         msg_content = f"[{msg_title}]({url})\n\n{msg_author}\n\n{msg_org}\n\n{msg_url}\n\n{msg_translated}\n\n{msg_summary}\n\n"
 
         # send_wechat_message(push_title, msg_content, SERVERCHAN_API_KEY)
-        send_feishu_message(push_title, msg_content, FEISHU_URL)
+        # 从arxiv模块导入的send_feishu_message函数已经支持多个URL
+        send_feishu_message(push_title, msg_content)
 
         time.sleep(12)
 
