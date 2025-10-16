@@ -72,6 +72,11 @@ jobs:
           ls -la paperBotV2/arxiv_daily/output/
           echo "检查生成的JSON文件："
           ls -la paperBotV2/arxiv_daily/data/
+          
+      # Pull remote changes to ensure there are no conflicts
+      - name: Pull remote changes
+        run: |
+          git pull origin main --rebase  # 使用 --rebase 来避免额外的 merge 提交
 
       # Commit files
       - name: Commit files
