@@ -131,7 +131,7 @@ def main():
     if not papers:
         print("未加载到论文数据，程序退出")
         return
-    
+
     # 按照精排分数排序并选择前N篇论文
     papers_with_score = [p for p in papers if 'rerank_relevance_score' in p and p.get('is_fine_ranked', False)]
     papers_with_score.sort(key=lambda x: x['rerank_relevance_score'], reverse=True)

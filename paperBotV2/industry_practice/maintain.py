@@ -211,6 +211,8 @@ def update_readme(args, info=None):
         print("[-] Table not found!")
 
 def update_message(args):
+    from datetime import datetime, timedelta
+
     "更新消息通知"
     print("[+] 开始更新消息通知...")
     
@@ -224,58 +226,64 @@ def update_message(args):
         infos = parse_issue(args.issue)
         print(f"[+] 解析到 {len(infos)} 条新文章数据")
         
-        today = datetime.datetime.now().strftime('%Y-%m-%d')
-        title = f"🌸大厂实践文章自动更新@{today}"
+        # 获取当前日期并计算最近 N 天的日期
+        today = datetime.now()
+        n_days = 30
+        five_days_ago = today - timedelta(days=n_days)
+        five_days_ago_str = five_days_ago.strftime('%Y-%m-%d')
+        
+        # 筛选出最近 N 天的文章
+        recent_infos = [
+            info for info in infos
+            if get_sortable_date(info['时间']) >= five_days_ago_str
+        ]
+        
+        print(f"[+] 过滤出最近 {n_days} 天的 {len(recent_infos)} 条文章")
+        
+        # 如果没有符合条件的文章，跳过
+        if not recent_infos:
+            print("[-] 没有符合条件的文章，跳过发送消息")
+            return
+        
+        title = f"🌸大厂实践文章自动更新@{today.strftime('%Y-%m-%d')}"
         content = []
-        for info in infos:
+        
+        max_message_size = 3000  # 每条消息最大字符数限制
+        current_message = []
+        
+        for info in recent_infos:
+            # 拼接文章信息
             emoji = random.choice("🌱🌿🍀🪴🎋🍃🪷🌸✨")
             meta_info = f"🥹 {info['公司']}  📆 {info['时间']}  🍉 {info['标签']}"
             info_title = f"✅ {info['内容']}"
-            line_len = max(len(meta_info), len(info_title))
-            sepline = emoji * line_len
-            content.append(
-                [{
+            sepline = emoji * max(len(meta_info), len(info_title))
+            
+            # 计算当前信息是否超出限制
+            current_message.append(meta_info)
+            current_message.append(info_title)
+            current_message.append(f"[链接]({info['链接']})\n")
+            
+            # 如果超出限制，则发送当前内容并清空
+            if len("\n".join(current_message)) > max_message_size:
+                content.append([{
                     "tag": "text",
-                    "text": ""
-                }]
-            )
-            # content.append(
-            #     [{
-            #         "tag": "text",
-            #         "text": sepline
-            #     }]
-            # )
-            # content.append(
-            #     [{
-            #         "tag": "text",
-            #         "text": ""
-            #     }]
-            # )
-            content.append(
-                [{
-                    "tag": "text",
-                    "text": meta_info
-                }]
-            )
-            content.append(
-                [{
-                    "tag": "text",
-                    "text": ""
-                }]
-            )
-            content.append(
-                [{
-                    "tag": "a",
-                    "text": info_title,
-                    "href": f"{info['链接']}"
-                }]
-            )
-            content.append(
-                [{
-                    "tag": "text",
-                    "text": ""
-                }]
-            )
+                    "text": "\n".join(current_message)
+                }])
+                current_message = [meta_info, info_title]  # 开始新的消息
+        
+        # 发送最后一条消息
+        if current_message:
+            content.append([{
+                "tag": "text",
+                "text": "\n".join(current_message)
+            }])
+        
+        # 添加空白间隔
+        content.append([{
+            "tag": "text", 
+            "text": ""  # 这里添加空行
+        }])
+        
         content.append(
             [{
                 "tag": "text",
@@ -289,12 +297,14 @@ def update_message(args):
                 "href": "https://doragd.github.io/Algorithm-Practice-in-Industry/industry_practice/"
             }]
         )
+        
         send_feishu_message(title, content, url=FEISHU_URL)
         print("[+] 消息通知发送成功！")
     except Exception as e:
         print(f"[-] 更新消息通知失败: {e}")
         import traceback
         print(f"[-] 错误详情: {traceback.format_exc()}")
+
 
 def send_feishu_message(title, content, url=FEISHU_URL):
     raw_data = {

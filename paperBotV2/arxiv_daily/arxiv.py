@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 from tenacity import retry, stop_after_attempt, wait_random_exponential
 from openai import APIConnectionError, RateLimitError, APIStatusError
-from .prompts import PRERANK_PROMPT, FINERANK_PROMPT
+from prompts import PRERANK_PROMPT, FINERANK_PROMPT
 
 # 从环境变量获取配置，同时提供默认值
 FEISHU_URL = os.environ.get("FEISHU_URL", None)

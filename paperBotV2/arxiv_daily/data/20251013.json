@@ -1,1 +1,19 @@
-{}
+{
+  "2510.08252v1": {
+    "title": "ReasonEmbed: Enhanced Text Embeddings for Reasoning-Intensive Document Retrieval",
+    "url": "https://www.alphaxiv.org/abs/2510.08252v1",
+    "arxiv_id": "2510.08252v1",
+    "authors": "Jianlyu Chen, Junwei Lan, Chaofan Li, Defu Lian, Zheng Liu",
+    "categories": "cs.IR, cs.CL",
+    "pub_date": "2025-10-09 14:10:26",
+    "ori_summary": "In this paper, we introduce ReasonEmbed, a novel text embedding model developed for reasoning-intensive document retrieval. Our work includes three key technical contributions. First, we propose ReMixer, a new data synthesis method that overcomes the triviality problem prevalent in previous synthetic datasets, enabling large-scale production of 82K high-quality training samples. Second, we design Redapter, a self-adaptive learning algorithm that dynamically adjusts training each sample's weight based on its reasoning intensity. This allows the model to effectively capture the complex semantic relationships between queries and documents. Third, we implement ReasonEmbed across multiple backbones of varying sizes, all of which achieve superior performance on reasoning-intensive retrieval tasks. Notably, our ReasonEmbed-Qwen3-8B model offers a record-high nDCG@10 score of 38.1 on the BRIGHT benchmark, which significantly outperforms existing text embedding models. We will fully open-source our created resources in ReasonEmbed to push forward the research advancement in this field.",
+    "summary": "该论文研究推理密集型文档检索中的文本嵌入问题，核心方法是提出ReMixer数据合成技术解决合成数据简单化问题，并设计Redapter自适应学习算法动态调整训练权重以捕捉复杂语义关系。",
+    "translation": "ReasonEmbed：用于推理密集型文档检索的增强文本嵌入",
+    "relevance_score": 8,
+    "reasoning": "该论文专注于增强文本嵌入技术，这属于核心LLM技术的进步，对搜索系统具有直接应用价值。改进的文本嵌入可以显著提升文档检索的准确性和推理能力，在搜索和推荐系统中能够更好地理解用户查询意图和文档语义，从而提高检索质量。",
+    "rerank_relevance_score": 8,
+    "rerank_reasoning": "该论文专注于推理密集型文档检索的文本嵌入技术，其数据合成和自适应学习算法在搜索和推荐系统中具有直接应用价值。",
+    "is_filtered": false,
+    "is_fine_ranked": true
+  }
+}
