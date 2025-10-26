@@ -416,6 +416,11 @@ def perform_fine_ranking(filtered_papers, all_papers):
 
 def save_results_to_json(all_papers):
     """保存所有结果到指定路径的JSON文件，包括天级文件和全量文件"""
+    # 如果没有新论文，直接返回
+    if not all_papers:
+        print("📭 今天没有新论文，跳过保存JSON文件")
+        return
+    
     # 获取当前脚本所在目录（paperBotV2/arxiv_daily目录）
     current_dir = os.path.dirname(os.path.abspath(__file__))
     

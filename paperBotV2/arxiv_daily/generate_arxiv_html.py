@@ -604,9 +604,36 @@ def generate_html(papers, date_str, script_dir, output_file=None):
         });
     </script>'''
     
-    # 将日历相关的JavaScript代码直接嵌入到HTML文件中
+    # 获取有论文数据的日期列表
+    def get_available_dates(json_dir):
+        available_dates = []
+        if os.path.exists(json_dir):
+            for file in os.listdir(json_dir):
+                if file.endswith('.json') and len(file) == 13 and file != 'results.json':  # 格式: YYYYMMDD.json
+                    date_str = file[:-5]  # 移除.json
+                    available_dates.append(date_str)
+        return available_dates
+    
+    # 根据script_dir计算json_dir
+    json_dir = os.path.join(script_dir, "data")
+    
+    # 获取有论文数据的日期列表
+    available_dates = get_available_dates(json_dir)
+    available_dates_js = '[' + ','.join(f'"{date}"' for date in available_dates) + ']'
+    
+    # 将日历相关的JavaScript代码直接嵌入到HTML文件中，添加论文数据存在性检查
     calendar_js = '''
     <script>
+    
+    // 初始化日历
+    document.addEventListener('DOMContentLoaded', () => {
+        try {
+            console.log('Attempting to initialize calendar...');
+            initCalendar();
+        } catch (error) {
+            console.error('Error initializing calendar:', error);
+        }
+    });
     
     // 日历初始化函数
     function initCalendar() {
@@ -619,11 +646,34 @@ def generate_html(papers, date_str, script_dir, output_file=None):
         const selectedDateText = document.getElementById('selected-date-text');
         
         // 当前显示的日期（从页面获取）
-        const currentDateStr = document.getElementById('current-date').textContent.trim().replace(/^\\d+年|月|日/g, '');
+        const currentDateStr = document.getElementById('current-date').textContent.trim().replace(/^\d+年|月|日/g, '');
         const currentDate = new Date(currentDateStr);
         let displayYear = currentDate.getFullYear();
         let displayMonth = currentDate.getMonth();
         
+        // 有论文数据的日期列表
+        const availableDates = ''' + available_dates_js + ''';
+        
+        // 尝试从localStorage恢复选择状态
+        const savedDate = localStorage.getItem('selectedDate');
+        const savedYear = localStorage.getItem('selectedYear');
+        const savedMonth = localStorage.getItem('selectedMonth');
+        
+        // 确保页面加载时显示当前选中的日期
+        // 修复持久化问题：确保每次加载都能正确恢复选中状态
+        if (savedDate) {
+            selectedDateText.textContent = savedDate;
+            if (savedYear) displayYear = parseInt(savedYear);
+            if (savedMonth) displayMonth = parseInt(savedMonth);
+        } else {
+            // 首次加载时，将当前页面日期保存到localStorage
+            const currentPageDate = currentDateStr.replace(/\//g, '-');
+            selectedDateText.textContent = currentPageDate;
+            localStorage.setItem('selectedDate', currentPageDate);
+            localStorage.setItem('selectedYear', currentDate.getFullYear().toString());
+            localStorage.setItem('selectedMonth', currentDate.getMonth().toString());
+        }
+    
         // 切换日历显示状态
         toggleBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -679,7 +729,7 @@ def generate_html(papers, date_str, script_dir, output_file=None):
             
             // 更新当前月份显示
             const monthNames = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
-            currentMonthEl.textContent = `${displayYear}年${monthNames[displayMonth]}`;
+            currentMonthEl.textContent = displayYear + '年' + monthNames[displayMonth];
             
             // 计算当前月份的第一天是星期几
             const firstDay = new Date(displayYear, displayMonth, 1);
@@ -703,48 +753,64 @@ def generate_html(papers, date_str, script_dir, output_file=None):
             for (let day = 1; day <= daysInMonth; day++) {
                 const dayElement = document.createElement('div');
                 const currentDateObj = new Date(displayYear, displayMonth, day);
-                const dateStr = `${displayYear}${String(displayMonth + 1).padStart(2, '0')}${String(day).padStart(2, '0')}`;
-                const displayDateStr = `${displayYear}-${String(displayMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dateStr = displayYear + String(displayMonth + 1).padStart(2, '0') + String(day).padStart(2, '0');
+                const displayDateStr = displayYear + '-' + String(displayMonth + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
                 
-                // 设置日期元素样式
+                // 设置日期元素基本样式
                 dayElement.textContent = day;
-                dayElement.classList.add('py-1', 'cursor-pointer', 'hover:bg-gray-100', 'rounded');
                 
-                // 高亮显示当天日期
+                // 检查该日期是否有论文数据
+                const hasPapers = availableDates.includes(dateStr);
+                
+                if (hasPapers) {
+                    // 有论文数据的日期样式
+                    dayElement.classList.add('py-1', 'cursor-pointer', 'hover:bg-gray-100', 'rounded', 'bg-blue-50', 'font-medium');
+                    
+                    // 添加点击事件，跳转到对应日期的页面
+                    dayElement.addEventListener('click', () => {
+                        console.log('Date clicked:', displayDateStr);
+                        selectedDateText.textContent = displayDateStr;
+                        
+                        // 保存选择状态到localStorage
+                        localStorage.setItem('selectedDate', displayDateStr);
+                        localStorage.setItem('selectedYear', displayYear.toString());
+                        localStorage.setItem('selectedMonth', displayMonth.toString());
+                        
+                        datePicker.classList.add('hidden');
+                        
+                        // 构造目标URL并跳转
+                        const targetUrl = 'arxiv_' + dateStr + '.html';
+                        window.location.href = targetUrl;
+                    });
+                } else {
+                    // 没有论文数据的日期样式（置灰不可点击）
+                    dayElement.classList.add('py-1', 'text-gray-400', 'cursor-not-allowed');
+                }
+                
+                // 高亮显示当天日期（覆盖之前的样式）
                 if (currentDateObj.getTime() === today.getTime()) {
-                    dayElement.classList.add('bg-primary', 'text-white');
+                    dayElement.classList.remove('bg-blue-50');
+                    dayElement.classList.add('bg-primary', 'text-white', 'font-bold', 'shadow');
+                    if (!hasPapers) {
+                        // 当天没有论文时，仍然置灰但保持背景色
+                        dayElement.classList.add('opacity-70');
+                    }
                 }
                 
                 // 高亮显示当前选中的日期
                 if (displayDateStr === selectedDateText.textContent) {
-                    dayElement.classList.add('font-bold', 'border', 'border-primary');
+                    dayElement.classList.add('font-bold', 'border-2', 'border-primary', 'rounded-lg', 'shadow-md');
                 }
                 
-                // 添加点击事件，跳转到对应日期的页面
-                dayElement.addEventListener('click', () => {
-                    console.log('Date clicked:', displayDateStr);
-                    selectedDateText.textContent = displayDateStr;
-                    datePicker.classList.add('hidden');
-                    
-                    // 构造目标URL并跳转
-                    const targetUrl = `arxiv_${dateStr}.html`;
-                    window.location.href = targetUrl;
-                });
+                // 增强有论文数据的日期样式，使其更明显
+                if (hasPapers && currentDateObj.getTime() !== today.getTime()) {
+                    dayElement.classList.add('bg-blue-100', 'hover:bg-blue-200', 'transition-colors', 'duration-200');
+                }
                 
                 calendarGrid.appendChild(dayElement);
             }
         }
     }
-    
-    // 初始化日历
-    document.addEventListener('DOMContentLoaded', () => {
-        try {
-            console.log('Attempting to initialize calendar...');
-            initCalendar();
-        } catch (error) {
-            console.error('Error initializing calendar:', error);
-        }
-    });
     </script>
     '''
     
