@@ -7,7 +7,7 @@
     <title>arXiv 每日论文精选</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/styles.css?v=1760483757">
+    <link rel="stylesheet" href="static/styles.css?v=1761467347">
     <script src="static/tailwind.config.js"></script>
 
     <style>
@@ -11683,7 +11683,7 @@
         let displayMonth = currentDate.getMonth();
         
         // 有论文数据的日期列表
-        const availableDates = ["20251014","20251009","20251010"];
+        const availableDates = ["20251014","20251022","20251023","20251015","20251024","20251009","20251010","20251016","20251021","20251017"];
         
         // 尝试从localStorage恢复选择状态
         const savedDate = localStorage.getItem('selectedDate');
@@ -11692,14 +11692,12 @@
         
         // 确保页面加载时显示当前选中的日期
         // 修复持久化问题：确保每次加载都能正确恢复选中状态
-        if (savedDate && savedYear && savedMonth) {
+        if (savedDate) {
             selectedDateText.textContent = savedDate;
-            displayYear = parseInt(savedYear);
-            displayMonth = parseInt(savedMonth);
-        }
-        
-        // 首次加载时，将当前页面日期保存到localStorage
-        if (!savedDate) {
+            if (savedYear) displayYear = parseInt(savedYear);
+            if (savedMonth) displayMonth = parseInt(savedMonth);
+        } else {
+            // 首次加载时，将当前页面日期保存到localStorage
             const currentPageDate = currentDateStr.replace(/\//g, '-');
             selectedDateText.textContent = currentPageDate;
             localStorage.setItem('selectedDate', currentPageDate);
