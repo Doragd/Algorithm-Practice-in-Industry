@@ -191,7 +191,7 @@ def update_readme(args, info=None):
     table_title = "## 大厂实践文章"
     table_index = None
     for i, line in enumerate(lines):
-        if line.strip() == table_title:
+        if table_title in line.strip():
             table_index = i
             break
 
