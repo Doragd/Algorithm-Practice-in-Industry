@@ -1,0 +1,39 @@
+name: test
+
+env:
+  PYTHON_VERSION: "3.8" # set this to the Python version to use
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+on:      
+  workflow_dispatch:
+
+jobs:
+  daily-push:
+    runs-on: ubuntu-latest
+    env:
+      SERVERCHAN_API_KEY: ${{ secrets.SERVERCHAN_API_KEY }}
+      CAIYUN_TOKEN: ${{ secrets.CAIYUN_TOKEN }}
+      CONF_URL: ${{ secrets.CONF_URL }}
+      FEISHU_URL: ${{ secrets.FEISHU_URL }}
+      INTERVAL: 5
+      LIMITS: 10
+      ERROR_LIMITS: 5
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      MODEL_TYPE: "DeepSeek"
+
+    permissions:
+      issues: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python version
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: PUSH CONF DAILY
+        run: |
+          python test.py
+        
+
