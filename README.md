@@ -67,6 +67,8 @@
 
 | 公司         | 内容                                                         | 标签          | 时间       |
 | ------------ | ------------------------------------------------------------ | ------------- | ---------- |
+| 百度 | [基于统一语义空间的搜索广告生成式排序](https://mp.weixin.qq.com/s/fz_Ggh3qeF9D0dt_wFTqwQ) | 广告 | 2025-10-30 |
+| 快手 | [端到端短视频多目标排序机制框架EMER详解](https://mp.weixin.qq.com/s/vQfH48o-A6kQR4duYoWbIQ) | 推荐 | 2025-10-30 |
 | 美团 | [可验证过程奖励在提升大模型推理效率中的探索与实践](https://mp.weixin.qq.com/s/0NIfezMIEcCIDGt85WmrHg) | 大模型 | 2025-10-09 |
 | 快手 | [快手广告领域的大模型技术探索与实践](https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247771028&idx=3&sn=d9ad144b9b42ae58ac3026c286093b8a&chksm=fa4c6fae679b80110a5a6cbbd7bc60f36a3864b5bb2a003cf27c3e3ef9383bbca7b8c2860585&mpshare=1&scene=1&srcid=1007QhBxL0YfYUBaKKtuPk9I&sharer_shareinfo=23930b1de7c787411d0f95c1bd59c650&sharer_shareinfo_first=23930b1de7c787411d0f95c1bd59c650#rd) | 广告 | 2025-10-05 |
 | 小红书 | [AIGC 赋能展示广告：大模型在小红书标题生成中的深度实践](https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg==&mid=2247491121&idx=1&sn=a4463386920e58676f74d25b0f05ae19&chksm=ce5b60139cdf007e93ac885d0460880e3d0ee85caa6d6101f485cb813dc6b81446e567417e1d&mpshare=1&scene=1&srcid=1007ltuHALzt7NsvV1RmOH5u&sharer_shareinfo=80f3af230ca7b68ba82db1716b654ff2&sharer_shareinfo_first=80f3af230ca7b68ba82db1716b654ff2#rd) | 广告 | 2025-10-05 |

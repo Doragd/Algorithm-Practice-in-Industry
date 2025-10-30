@@ -1,5 +1,23 @@
 [
   {
+    "company": "百度",
+    "link": "https://mp.weixin.qq.com/s/fz_Ggh3qeF9D0dt_wFTqwQ",
+    "title": "基于统一语义空间的搜索广告生成式排序",
+    "tags": [
+      "广告"
+    ],
+    "date": "2025-10-30"
+  },
+  {
+    "company": "快手",
+    "link": "https://mp.weixin.qq.com/s/vQfH48o-A6kQR4duYoWbIQ",
+    "title": "端到端短视频多目标排序机制框架EMER详解",
+    "tags": [
+      "推荐"
+    ],
+    "date": "2025-10-30"
+  },
+  {
     "company": "美团",
     "link": "https://mp.weixin.qq.com/s/0NIfezMIEcCIDGt85WmrHg",
     "title": "可验证过程奖励在提升大模型推理效率中的探索与实践",
