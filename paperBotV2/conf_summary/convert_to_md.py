@@ -37,11 +37,11 @@ def clean_text(text):
 def generate_md_table(papers_list):
     """生成Markdown表格，包含所有字段"""
     # 表格头部
-    table = "| 标题 | 链接 | 推荐理由 | 推荐度 | 摘要 | 作者 | 组织 |\n"
-    table += "| --- | --- | --- | --- | --- | --- | --- |\n"
+    table = "| 序号 | 标题 | 链接 | 推荐理由 | 推荐度 | 摘要 | 作者 | 组织 |\n"
+    table += "| --- | --- | --- | --- | --- | --- | --- | --- |\n"
     
     # 表格内容
-    for paper in papers_list:
+    for index, paper in enumerate(papers_list, start=1):
         title = clean_text(paper.get('paper_name', ''))
         authors = clean_text(', '.join(paper.get('paper_authors', [])))
         url = paper.get('paper_url', '')
@@ -61,13 +61,12 @@ def generate_md_table(papers_list):
         else:
             authors_detail_text = ''
         
-        abstract_translation = clean_text(paper.get('abstract_translation', ''))
         title_translation = clean_text(paper.get('title_translation', ''))
         relevance_score = paper.get('relevance_score', 0)
         reasoning = clean_text(paper.get('reasoning', ''))
         
         # 保留完整内容，不进行长度限制
-        table += f"| {title_translation} |  [{title}]({url}) | {reasoning} | {relevance_score} | {abstract} | {authors} | {authors_detail_text} |\n"
+        table += f"| {index} | {title_translation} |  [{title}]({url}) | {reasoning} | {relevance_score} | {abstract} | {authors} | {authors_detail_text} |\n"
     
     return table
 
