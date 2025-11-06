@@ -447,10 +447,10 @@ def parse_args():
         解析后的参数对象
     """
     parser = argparse.ArgumentParser(description='从论文会议网站爬取免费摘要')
-    parser.add_argument('--threads', type=int, default=10, help='并发线程数')
+    parser.add_argument('--threads', type=int, default=50, help='并发线程数')
     parser.add_argument('--conf-type', type=str, default=None, choices=['acl', 'iclr', 'all'],
                         help='会议类型，默认为None（自动检测）')
-    parser.add_argument('--max-papers', type=int, default=None, help='最大处理论文数量')
+    parser.add_argument('--max-papers', type=int, default=500, help='最大处理论文数量')
     parser.add_argument('--save-to-file', action='store_true', help='是否保存结果到文件（默认不保存）')
     parser.add_argument('--file-path', type=str, default=RESULTS_FILE_PATH, help='结果保存文件路径')
     return parser.parse_args()
@@ -478,5 +478,5 @@ if __name__ == '__main__':
         threads=args.threads,
         conf_type=args.conf_type,
         max_papers=args.max_papers,
-        save_to_file=args.save_to_file
+        save_to_file=True
     )
