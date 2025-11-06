@@ -212,7 +212,7 @@ main_loop() {
         
         # 4. 短暂休息一段时间
         # 延迟时间：60-180秒（1-3分钟）
-        local sleep_time=$((60 + RANDOM % 61))
+        local sleep_time=$((60 + RANDOM % 11))
         log "INFO" "休息 ${sleep_time} 秒后进行下一轮处理..."
         echo -e "${YELLOW}休息 ${sleep_time} 秒后进行下一轮处理...${NC}"
         sleep $sleep_time
