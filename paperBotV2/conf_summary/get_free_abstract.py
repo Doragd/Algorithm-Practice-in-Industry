@@ -145,6 +145,7 @@ async def get_acl_abstract(session, url, max_retries=3, initial_delay=1):
                         span = abstract.find("span")
                         if span:
                             return span.get_text().strip(), None
+                    print(f"[警告] 未找到摘要内容: {url}")
                     return None, "未找到摘要内容"
                 else:
                     last_error = f"状态码: {response.status}"
