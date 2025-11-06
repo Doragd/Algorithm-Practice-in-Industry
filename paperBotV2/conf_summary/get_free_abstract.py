@@ -318,4 +318,4 @@ if __name__ == "__main__":
     print(f"使用User-Agent: {HEADERS['User-Agent']}")
     
     # 执行主函数
-    main()
+    main(threads=50, max_papers=500)
