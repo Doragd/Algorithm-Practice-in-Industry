@@ -139,7 +139,8 @@ git_commit_push() {
         git add .
         
         # 提交变更
-        local commit_message="自动提交：处理批次 $iteration 的结果 $(date '+%Y-%m-%d %H:%M:%S')"
+        local datetime=$(date '+%m%d%H%M')
+        local commit_message="update new conf summary $datetime"
         git commit -m "$commit_message"
         local commit_exit_code=$?
         
