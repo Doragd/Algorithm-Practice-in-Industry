@@ -127,9 +127,10 @@ async def get_acl_abstract(session, url, max_retries=3, initial_delay=1):
         initial_delay: 初始延迟时间（秒）
         
     Returns:
-        摘要文本，如果获取失败则返回None
+        (摘要文本, 错误信息)：如果成功，错误信息为None；如果失败，错误信息包含状态码或异常信息
     """
     retry_count = 0
+    last_error = None
     
     while retry_count <= max_retries:
         try:
@@ -143,19 +144,25 @@ async def get_acl_abstract(session, url, max_retries=3, initial_delay=1):
                     if abstract:
                         span = abstract.find("span")
                         if span:
-                            return span.get_text().strip()
-                    return None
-                # 仅在最后一次重试失败时打印错误信息
-                elif retry_count == max_retries:
-                    print(f"[错误] 获取页面失败: {url}, 状态码: {response.status}")
-        except Exception as e:
-            # 仅在最后一次重试失败时打印错误信息
-            if retry_count == max_retries:
-                if isinstance(e, asyncio.TimeoutError):
-                    print(f"[超时] {url}")
-                elif isinstance(e, aiohttp.ClientError):
-                    print(f"[客户端错误] {url}")
+                            return span.get_text().strip(), None
+                    return None, "未找到摘要内容"
                 else:
+                    last_error = f"状态码: {response.status}"
+                    # 仅在最后一次重试失败时打印错误信息
+                    if retry_count == max_retries:
+                        print(f"[错误] 获取页面失败: {url}, 状态码: {response.status}")
+        except Exception as e:
+            if isinstance(e, asyncio.TimeoutError):
+                last_error = "超时"
+                if retry_count == max_retries:
+                    print(f"[超时] {url}")
+            elif isinstance(e, aiohttp.ClientError):
+                last_error = f"客户端错误: {str(e)}"
+                if retry_count == max_retries:
+                    print(f"[客户端错误] {url}")
+            else:
+                last_error = f"未知错误: {str(e)}"
+                if retry_count == max_retries:
                     print(f"[未知错误] {url}: {str(e)}")
         
         retry_count += 1
@@ -164,7 +171,7 @@ async def get_acl_abstract(session, url, max_retries=3, initial_delay=1):
             delay = initial_delay + random.uniform(0, 1)
             await asyncio.sleep(delay)
     
-    return None
+    return None, last_error
 
 async def get_iclr_abstract(session, url, max_retries=3, initial_delay=1):
     """从ICLR页面获取摘要（异步版本）
@@ -176,9 +183,10 @@ async def get_iclr_abstract(session, url, max_retries=3, initial_delay=1):
         initial_delay: 初始延迟时间（秒）
         
     Returns:
-        摘要文本，如果获取失败则返回None
+        (摘要文本, 错误信息)：如果成功，错误信息为None；如果失败，错误信息包含状态码或异常信息
     """
     retry_count = 0
+    last_error = None
     
     while retry_count <= max_retries:
         try:
@@ -190,20 +198,26 @@ async def get_iclr_abstract(session, url, max_retries=3, initial_delay=1):
                     # 从meta标签中提取摘要
                     meta_abstract = soup.find("meta", {"name": "citation_abstract"})
                     if meta_abstract and meta_abstract.get("content"):
-                        return meta_abstract["content"].strip()
+                        return meta_abstract["content"].strip(), None
                     
-                    return None
-                # 仅在最后一次重试失败时打印错误信息
-                elif retry_count == max_retries:
-                    print(f"[错误] 获取ICLR页面失败: {url}, 状态码: {response.status}")
-        except Exception as e:
-            # 仅在最后一次重试失败时打印错误信息
-            if retry_count == max_retries:
-                if isinstance(e, asyncio.TimeoutError):
-                    print(f"[超时] {url}")
-                elif isinstance(e, aiohttp.ClientError):
-                    print(f"[客户端错误] {url}")
+                    return None, "未找到摘要内容"
                 else:
+                    last_error = f"状态码: {response.status}"
+                    # 仅在最后一次重试失败时打印错误信息
+                    if retry_count == max_retries:
+                        print(f"[错误] 获取ICLR页面失败: {url}, 状态码: {response.status}")
+        except Exception as e:
+            if isinstance(e, asyncio.TimeoutError):
+                last_error = "超时"
+                if retry_count == max_retries:
+                    print(f"[超时] {url}")
+            elif isinstance(e, aiohttp.ClientError):
+                last_error = f"客户端错误: {str(e)}"
+                if retry_count == max_retries:
+                    print(f"[客户端错误] {url}")
+            else:
+                last_error = f"未知错误: {str(e)}"
+                if retry_count == max_retries:
                     print(f"[未知错误] {url}: {str(e)}")
         
         retry_count += 1
@@ -212,7 +226,7 @@ async def get_iclr_abstract(session, url, max_retries=3, initial_delay=1):
             delay = initial_delay + random.uniform(0, 1)
             await asyncio.sleep(delay)
     
-    return None
+    return None, last_error
 
 
 async def process_single_paper(session, conf_name, paper, sem, save_to_file=False):
@@ -246,25 +260,25 @@ async def process_single_paper(session, conf_name, paper, sem, save_to_file=Fals
         async with aiohttp.ClientSession() as new_session:
             async with sem:
                 # 获取摘要
-                abstract = await get_abstract_func(new_session, paper_url)
+                abstract, error = await get_abstract_func(new_session, paper_url)
                 if abstract:
                     # 测试模式下只输出摘要长度和会议名
                     if not save_to_file:
                         print(f"会议: {conf_name} - 摘要长度: {len(abstract)} 字符")
                     paper['paper_abstract'] = abstract
                     return True, paper, None
-                return False, paper, f"{conf_type}摘要获取失败（会话已关闭）"
+                return False, paper, f"{conf_type}摘要获取失败（会话已关闭）: {error}"
     
     async with sem:
         # 获取摘要
-        abstract = await get_abstract_func(session, paper_url)
+        abstract, error = await get_abstract_func(session, paper_url)
         if abstract:
             # 测试模式下只输出摘要长度和会议名
             if not save_to_file:
                 print(f"会议: {conf_name} - 摘要长度: {len(abstract)} 字符")
             paper['paper_abstract'] = abstract
             return True, paper, None
-        return False, paper, f"{conf_type}摘要获取失败"
+        return False, paper, f"{conf_type}摘要获取失败: {error}"
 
 async def crawl_papers_abstracts(papers_to_process, threads=10, save_to_file=False):
     """并发爬取论文摘要（支持ACL和ICLR）
@@ -331,18 +345,14 @@ async def crawl_papers_abstracts(papers_to_process, threads=10, save_to_file=Fal
     
     # 打印失败统计
     if failure_reasons:
-        print("\n处理失败统计：")
-        for reason, count in failure_reasons.items():
-            print(f"  - {reason}: {count} 篇")
+        print("\n错误统计：")
+        # 添加错误码和详细分类
+        for idx, (reason, count) in enumerate(failure_reasons.items(), 1):
+            print(f"  错误 {idx}: {reason} - 发生次数: {count}")
         
-        if len(failed_papers) <= 10:  # 只显示前10篇失败的论文
-            print("\n失败的论文示例：")
-            for conf_name, paper_name in failed_papers[:10]:
-                print(f"  - {conf_name}: {paper_name}")
-        else:
-            print(f"\n显示前10篇失败的论文（共{len(failed_papers)}篇）：")
-            for conf_name, paper_name in failed_papers[:10]:
-                print(f"  - {conf_name}: {paper_name}")
+        # 统计总失败数
+        total_failures = sum(failure_reasons.values())
+        print(f"\n总失败次数: {total_failures}")
     
     return updated_count
 
