@@ -37,7 +37,7 @@ def clean_text(text):
     text = ' '.join(text.split())
     return text
 
-def truncate_text(text, max_length=500):
+def truncate_text(text, max_length=1000):
     """截断文本到指定长度"""
     if not text:
         return ''
@@ -80,7 +80,7 @@ def generate_md_table(papers_list, conf_folder):
         
         # 只对黑名单会议的摘要进行长度限制
         if conf_folder.lower() in ABSTRACT_TRUNCATE_BLACKLIST:
-            abstract_display = truncate_text(abstract, max_length=500)
+            abstract_display = truncate_text(abstract, max_length=1000)
         else:
             abstract_display = abstract
             
