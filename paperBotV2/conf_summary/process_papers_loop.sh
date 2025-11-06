@@ -92,6 +92,85 @@ run_script() {
     fi
 }
 
+# 执行Git拉取操作
+git_pull() {
+    log "INFO" "开始执行 git pull 拉取变更"
+    
+    # 输出分隔线
+    echo -e "\n=================================================="
+    echo -e "执行 git pull..."
+    echo -e "==================================================\n"
+    
+    # 执行git pull
+    git pull
+    local exit_code=$?
+    
+    # 检查执行状态
+    if [ $exit_code -eq 0 ]; then
+        echo -e "\n=================================================="
+        echo -e "${GREEN}git pull 执行完成${NC}"
+        echo -e "==================================================\n"
+        log "INFO" "git pull 执行成功"
+        return 0
+    else
+        echo -e "\n=================================================="
+        echo -e "${YELLOW}git pull 执行失败，返回码: $exit_code${NC}"
+        echo -e "${YELLOW}可能存在合并冲突，继续尝试...${NC}"
+        echo -e "==================================================\n"
+        log "WARNING" "git pull 执行失败，返回码: $exit_code，可能存在合并冲突"
+        return 1
+    fi
+}
+
+# 执行Git提交和推送操作
+git_commit_push() {
+    local iteration=$1
+    log "INFO" "开始执行 git commit 和 git push 保存变更"
+    
+    # 输出分隔线
+    echo -e "\n=================================================="
+    echo -e "执行 git commit 和 git push..."
+    echo -e "==================================================\n"
+    
+    # 检查是否有变更
+    git status --porcelain
+    if [ $? -eq 0 ] && [ -n "$(git status --porcelain)" ]; then
+        # 添加所有变更
+        git add .
+        
+        # 提交变更
+        local commit_message="自动提交：处理批次 $iteration 的结果 $(date '+%Y-%m-%d %H:%M:%S')"
+        git commit -m "$commit_message"
+        local commit_exit_code=$?
+        
+        if [ $commit_exit_code -eq 0 ]; then
+            echo -e "${GREEN}git commit 成功${NC}"
+            
+            # 推送变更
+            git push
+            local push_exit_code=$?
+            
+            if [ $push_exit_code -eq 0 ]; then
+                echo -e "${GREEN}git push 成功${NC}"
+                log "INFO" "git commit 和 git push 执行成功"
+                return 0
+            else
+                echo -e "${RED}git push 失败，返回码: $push_exit_code${NC}"
+                log "ERROR" "git push 执行失败，返回码: $push_exit_code"
+                return 2
+            fi
+        else
+            echo -e "${RED}git commit 失败，返回码: $commit_exit_code${NC}"
+            log "ERROR" "git commit 执行失败，返回码: $commit_exit_code"
+            return 1
+        fi
+    else
+        echo -e "${YELLOW}没有检测到需要提交的变更${NC}"
+        log "INFO" "没有需要提交的变更"
+        return 0
+    fi
+}
+
 # 主循环函数
 main_loop() {
     if ! check_scripts_exist; then
@@ -108,21 +187,29 @@ main_loop() {
         iteration=$((iteration + 1))
         log "INFO" "===== 循环迭代 ${iteration} 开始 ====="
         
-        # 1. 执行 get_free_abstract.py
+        # 0. 首先执行 git pull 拉取变更
+        log "INFO" "[$(date '+%Y-%m-%d %H:%M:%S')] 开始拉取最新代码"
+        git_pull
+        
+        # 1. 执行 get_free_abstract.py 获取论文摘要
         log "INFO" "[$(date '+%Y-%m-%d %H:%M:%S')] 开始获取论文摘要"
         if ! run_script "$GET_FREE_ABSTRACT_SCRIPT"; then
             log "WARNING" "获取摘要失败，继续尝试下一轮"
         fi
         
-        # 2. 执行 convert_to_md.py
+        # 2. 执行 convert_to_md.py 将结果转换为Markdown格式
         log "INFO" "[$(date '+%Y-%m-%d %H:%M:%S')] 开始转换为Markdown格式"
         if ! run_script "$CONVERT_TO_MD_SCRIPT"; then
             log "WARNING" "转换为Markdown失败，继续尝试下一轮"
         fi
         
+        # 3. 保存变更，commit，然后push
+        log "INFO" "[$(date '+%Y-%m-%d %H:%M:%S')] 开始保存变更"
+        git_commit_push $iteration
+        
         log "INFO" "===== 循环迭代 ${iteration} 完成 ====="
         
-        # 3. 随机延迟一段时间，避免过于频繁执行
+        # 4. 短暂休息一段时间
         # 延迟时间：60-180秒（1-3分钟）
         local sleep_time=$((60 + RANDOM % 121))
         log "INFO" "休息 ${sleep_time} 秒后进行下一轮处理..."
