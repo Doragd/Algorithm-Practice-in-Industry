@@ -5,6 +5,7 @@ import os
 import asyncio
 import aiohttp
 import random
+import argparse
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 
@@ -43,12 +44,17 @@ def save_results(data: dict, file_path: str) -> bool:
         return False
 
 
-def get_papers_with_empty_abstracts(results_data: dict, url_pattern_func, max_papers=None) -> list:
-    """获取所有摘要为空且URL匹配特定模式的论文
+def is_supported_conf(conf_name: str) -> bool:
+    """检查会议类型是否支持（ICLR或ACL）"""
+    return is_iclr_conf(conf_name) or is_acl_conf(conf_name)
+
+
+def get_papers_with_empty_abstracts(results_data: dict, conf_pattern_func=None, max_papers=None) -> list:
+    """获取所有摘要为空且会议类型支持的论文
     
     Args:
         results_data: 会议数据字典
-        url_pattern_func: URL匹配函数
+        conf_pattern_func: 会议名称匹配函数，None表示处理所有会议
         max_papers: 限制返回的最大论文数量，None表示不限制
         
     Returns:
@@ -56,47 +62,59 @@ def get_papers_with_empty_abstracts(results_data: dict, url_pattern_func, max_pa
     """
     papers_to_process = []
     skipped_count = 0
+    unsupported_conf_count = 0
     
     for conf_name, papers in results_data.items():
+        # 如果提供了会议名称匹配函数，则只处理匹配的会议
+        if conf_pattern_func and not conf_pattern_func(conf_name):
+            continue
+        
+        # 检查会议类型是否支持（仅ICLR或ACL）
+        if not is_supported_conf(conf_name):
+            unsupported_conf_count += len(papers)
+            continue
+            
         for paper in papers:
-            paper_url = paper.get('paper_url', '')
             paper_name = paper.get('paper_name', '').strip()
             
             # 过滤条件：
-            # 1. URL需要匹配模式
-            # 2. 摘要需要为空
-            # 3. 论文名称不能仅包含'Frontmatter'，这通常不是真正的论文
-            if (url_pattern_func(paper_url) and 
-                not paper.get('paper_abstract', '').strip() and 
+            # 1. 摘要需要为空
+            # 2. 论文名称不能仅包含'Frontmatter'，这通常不是真正的论文
+            if (not paper.get('paper_abstract', '').strip() and 
                 paper_name.lower() != 'frontmatter'):
                 papers_to_process.append((conf_name, paper))
                 # 如果达到最大数量限制，就停止添加
                 if max_papers is not None and len(papers_to_process) >= max_papers:
                     print(f"找到 {len(papers_to_process)} 篇符合条件的论文需要处理（限制为 {max_papers} 篇）")
                     print(f"跳过了 {skipped_count} 篇不符合条件的论文（如Frontmatter）")
+                    print(f"跳过了 {unsupported_conf_count} 篇不支持的会议类型的论文")
                     return papers_to_process
             else:
-                if url_pattern_func(paper_url) and not paper.get('paper_abstract', '').strip():
+                if not paper.get('paper_abstract', '').strip():
                     skipped_count += 1
     
     print(f"找到 {len(papers_to_process)} 篇符合条件的论文需要处理")
     print(f"跳过了 {skipped_count} 篇不符合条件的论文（如Frontmatter）")
+    print(f"跳过了 {unsupported_conf_count} 篇不支持的会议类型的论文")
     return papers_to_process
 
 
 # ========================== ACL会议专用函数 ==========================
 
-def is_acl_url(url: str) -> bool:
-    """判断URL是否为ACL会议URL"""
-    flag = False
-    keywords = ['aclanthology', 'findings', 'acl', 'naacl', 'emnlp', 'conll']
+def is_acl_conf(conf_name: str) -> bool:
+    """判断会议名称是否为ACL系列会议"""
     # 转换为小写以进行大小写不敏感匹配
-    url_lower = url.lower()
-    for keyword in keywords:
-        if keyword.lower() in url_lower:
-            flag = True
-            break
-    return flag
+    conf_lower = conf_name.lower()
+    # ACL系列会议通常包含以下关键词
+    acl_keywords = ['acl', 'naacl', 'emnlp', 'conll', 'findings', 'semeval', 'eacl', 'coling']
+    for keyword in acl_keywords:
+        if keyword in conf_lower:
+            return True
+    return False
+
+def is_iclr_conf(conf_name: str) -> bool:
+    """判断会议名称是否为ICLR会议"""
+    return 'iclr' in conf_name.lower()
 
 
 async def get_acl_abstract(session, url, max_retries=3, initial_delay=1):
@@ -148,48 +166,113 @@ async def get_acl_abstract(session, url, max_retries=3, initial_delay=1):
     
     return None
 
+async def get_iclr_abstract(session, url, max_retries=3, initial_delay=1):
+    """从ICLR页面获取摘要（异步版本）
+    
+    Args:
+        session: aiohttp.ClientSession对象
+        url: 论文URL
+        max_retries: 最大重试次数
+        initial_delay: 初始延迟时间（秒）
+        
+    Returns:
+        摘要文本，如果获取失败则返回None
+    """
+    retry_count = 0
+    
+    while retry_count <= max_retries:
+        try:
+            async with session.get(url, headers=HEADERS, timeout=15) as response:
+                if response.status == 200:
+                    html_content = await response.text()
+                    soup = BeautifulSoup(html_content, "html.parser")
+                    
+                    # 从meta标签中提取摘要
+                    meta_abstract = soup.find("meta", {"name": "citation_abstract"})
+                    if meta_abstract and meta_abstract.get("content"):
+                        return meta_abstract["content"].strip()
+                    
+                    return None
+                # 仅在最后一次重试失败时打印错误信息
+                elif retry_count == max_retries:
+                    print(f"[错误] 获取ICLR页面失败: {url}, 状态码: {response.status}")
+        except Exception as e:
+            # 仅在最后一次重试失败时打印错误信息
+            if retry_count == max_retries:
+                if isinstance(e, asyncio.TimeoutError):
+                    print(f"[超时] {url}")
+                elif isinstance(e, aiohttp.ClientError):
+                    print(f"[客户端错误] {url}")
+                else:
+                    print(f"[未知错误] {url}: {str(e)}")
+        
+        retry_count += 1
+        if retry_count <= max_retries:
+            # 静默重试，不打印详细信息
+            delay = initial_delay + random.uniform(0, 1)
+            await asyncio.sleep(delay)
+    
+    return None
 
-async def process_single_paper(session, conf_name, paper, sem):
-    """处理单篇论文（ACL）
+
+async def process_single_paper(session, conf_name, paper, sem, save_to_file=False):
+    """处理单篇论文（支持ACL和ICLR）
     
     Args:
         session: aiohttp.ClientSession对象
         conf_name: 会议名称
         paper: 论文对象
         sem: 信号量，控制并发
+        save_to_file: 是否保存结果到文件，测试时可设为False
         
     Returns:
-        (是否成功, 论文对象)
+        (是否成功, 论文对象, 失败原因)
     """
+    # 获取论文URL
     paper_url = paper.get('paper_url', '')
+    
+    # 根据会议名称选择适当的摘要获取函数
+    # 由于在get_papers_with_empty_abstracts中已经进行了支持类型的筛选，这里只需要判断是ICLR还是ACL
+    if is_iclr_conf(conf_name):
+        get_abstract_func = get_iclr_abstract
+        conf_type = "ICLR"
+    else:  # 因为已经筛选过，这里必然是ACL类型
+        get_abstract_func = get_acl_abstract
+        conf_type = "ACL"
     
     # 检查会话是否已关闭
     if session.closed:
-        # 静默创建新会话
+        # 创建新会话
         async with aiohttp.ClientSession() as new_session:
             async with sem:
                 # 获取摘要
-                abstract = await get_acl_abstract(new_session, paper_url)
+                abstract = await get_abstract_func(new_session, paper_url)
                 if abstract:
+                    # 测试模式下只输出摘要长度和会议名
+                    if not save_to_file:
+                        print(f"会议: {conf_name} - 摘要长度: {len(abstract)} 字符")
                     paper['paper_abstract'] = abstract
-                    return True, paper
-                return False, paper
+                    return True, paper, None
+                return False, paper, f"{conf_type}摘要获取失败（会话已关闭）"
     
     async with sem:
-        # 获取摘要（静默执行）
-        abstract = await get_acl_abstract(session, paper_url)
+        # 获取摘要
+        abstract = await get_abstract_func(session, paper_url)
         if abstract:
+            # 测试模式下只输出摘要长度和会议名
+            if not save_to_file:
+                print(f"会议: {conf_name} - 摘要长度: {len(abstract)} 字符")
             paper['paper_abstract'] = abstract
-            return True, paper
-        return False, paper
+            return True, paper, None
+        return False, paper, f"{conf_type}摘要获取失败"
 
-
-async def crawl_acl_abstracts(papers_to_process, threads=10):
-    """并发爬取ACL论文摘要
+async def crawl_papers_abstracts(papers_to_process, threads=10, save_to_file=False):
+    """并发爬取论文摘要（支持ACL和ICLR）
     
     Args:
         papers_to_process: 论文对象和会议名称的元组列表
         threads: 并发线程数
+        save_to_file: 是否保存结果到文件，测试时可设为False
         
     Returns:
         更新后的论文字典
@@ -197,6 +280,8 @@ async def crawl_acl_abstracts(papers_to_process, threads=10):
     updated_count = 0
     sem = asyncio.Semaphore(threads)  # 限制并发请求数
     total_papers = len(papers_to_process)
+    failure_reasons = {}
+    failed_papers = []
     
     print(f"准备处理 {total_papers} 篇论文，设置并发数为 {threads}")
     
@@ -214,7 +299,7 @@ async def crawl_acl_abstracts(papers_to_process, threads=10):
             async with aiohttp.ClientSession() as session:
                 # 为当前批次的论文创建任务
                 current_batch_tasks = [
-                    process_single_paper(session, conf_name, paper, sem)
+                    process_single_paper(session, conf_name, paper, sem, save_to_file)
                     for conf_name, paper in batch
                 ]
                 
@@ -222,46 +307,70 @@ async def crawl_acl_abstracts(papers_to_process, threads=10):
                 results = await asyncio.gather(*current_batch_tasks)
                 
                 # 处理结果
-                for success, _ in results:
+                for idx, (success, paper, reason) in enumerate(results):
+                    conf_name, original_paper = batch[idx]
                     if success:
                         updated_count += 1
-                    pbar.update(1)
+                        # 更新原始论文对象
+                        original_paper.update(paper)
+                    else:
+                        # 记录失败原因和论文信息
+                        paper_name = paper.get('paper_name', 'Unknown')
+                        failed_papers.append((conf_name, paper_name))
+                        # 统计失败原因
+                        if reason not in failure_reasons:
+                            failure_reasons[reason] = 0
+                        failure_reasons[reason] += 1
+                    pbar.update(1)  # 进度条更新所有尝试处理的论文，无论成功与否
                 
                 # 每批次处理后短暂暂停，避免请求过于频繁
                 if i + batch_size < total_papers:
                     await asyncio.sleep(random.uniform(1, 2))
     
     print(f"处理完成，成功更新 {updated_count} 篇论文摘要")
+    
+    # 打印失败统计
+    if failure_reasons:
+        print("\n处理失败统计：")
+        for reason, count in failure_reasons.items():
+            print(f"  - {reason}: {count} 篇")
+        
+        if len(failed_papers) <= 10:  # 只显示前10篇失败的论文
+            print("\n失败的论文示例：")
+            for conf_name, paper_name in failed_papers[:10]:
+                print(f"  - {conf_name}: {paper_name}")
+        else:
+            print(f"\n显示前10篇失败的论文（共{len(failed_papers)}篇）：")
+            for conf_name, paper_name in failed_papers[:10]:
+                print(f"  - {conf_name}: {paper_name}")
+    
     return updated_count
 
 
 # ========================== 主函数 ==========================
 
-async def process_abstracts(results_data, url_pattern_func=is_acl_url, threads=10, max_papers=None):
-    """处理摘要的主函数（可扩展支持其他会议）
+async def process_abstracts(results_data, conf_pattern_func=None, threads=10, max_papers=None, save_to_file=False):
+    """处理摘要的主函数（支持ACL和ICLR）
     
     Args:
         results_data: 会议数据字典
-        url_pattern_func: URL匹配函数
+        conf_pattern_func: 会议名称匹配函数，None表示处理所有会议
         threads: 并发线程数
         max_papers: 限制处理的最大论文数量，None表示不限制
+        save_to_file: 是否保存结果到文件，测试时可设为False
         
     Returns:
         更新的论文数量
     """
     # 获取需要处理的论文
-    papers_to_process = get_papers_with_empty_abstracts(results_data, url_pattern_func, max_papers)
+    papers_to_process = get_papers_with_empty_abstracts(results_data, conf_pattern_func, max_papers)
     
     if not papers_to_process:
         print("没有需要处理的论文")
         return 0
     
-    # 目前仅支持ACL，后续可以根据URL模式选择不同的处理函数
-    # 例如：if is_acl_url == url_pattern_func: 处理ACL
-    #      elif is_other_conf_url == url_pattern_func: 处理其他会议
-    
-    # 处理ACL论文
-    updated_count = await crawl_acl_abstracts(papers_to_process, threads)
+    # 调用通用的摘要爬取函数
+    updated_count = await crawl_papers_abstracts(papers_to_process, threads, save_to_file)
     
     return updated_count
 
@@ -269,16 +378,18 @@ async def process_abstracts(results_data, url_pattern_func=is_acl_url, threads=1
 def main(
     file_path=RESULTS_FILE_PATH,
     threads=10,
-    conf_type="acl",  # 可以是 'acl', 'all' 或其他自定义类型
-    max_papers=None  # 限制处理的最大论文数量，None表示处理所有论文
+    conf_type=None,  # 可以是 'acl', 'iclr', 'all' 或None（自动检测）
+    max_papers=None,  # 限制处理的最大论文数量，None表示处理所有论文
+    save_to_file=True  # 是否保存结果到文件，测试时可设为False
 ):
     """主函数
     
     Args:
         file_path: 数据文件路径
         threads: 并发线程数
-        conf_type: 会议类型，'acl'表示仅处理ACL会议
+        conf_type: 会议类型，None表示自动检测，'acl'表示仅处理ACL会议，'iclr'表示仅处理ICLR会议
         max_papers: 限制处理的最大论文数量，None表示处理所有论文
+        save_to_file: 是否保存结果到文件，测试时可设为False
     """
     # 加载数据
     results_data = load_results(file_path)
@@ -286,25 +397,59 @@ def main(
         print("没有数据可处理")
         return
     
-    # 根据会议类型选择处理函数
-    url_pattern_func = is_acl_url  # 默认处理ACL会议
+    # 根据会议类型选择匹配函数
+    if conf_type and conf_type.lower() == "iclr":
+        conf_pattern_func = is_iclr_conf
+        print(f"开始处理ICLR会议论文摘要")
+    elif conf_type and conf_type.lower() == "acl":
+        conf_pattern_func = is_acl_conf
+        print(f"开始处理ACL系列会议论文摘要")
+    else:  # None或"all"或其他类型
+        conf_pattern_func = None  # None表示处理所有会议，会自动检测每个会议类型
+        print(f"开始处理所有会议论文摘要，将自动检测会议类型")
     
-    # 执行异步处理
-    print(f"开始处理 {conf_type.upper()} 会议论文摘要")
     print(f"并发线程数: {threads}")
     if max_papers:
         print(f"限制处理论文数量: {max_papers}")
     
-    updated_count = asyncio.run(process_abstracts(results_data, url_pattern_func, threads, max_papers))
+    # 显示是否保存结果的设置
+    if save_to_file:
+        print(f"结果将保存到: {file_path}")
+    else:
+        print("结果不会保存到文件（测试模式）")
     
-    # 如果有更新，则保存结果
+    updated_count = asyncio.run(process_abstracts(results_data, conf_pattern_func, threads, max_papers, save_to_file))
+    
+    # 如果有更新且允许保存，则保存结果
     if updated_count > 0:
-        save_results(results_data, file_path)
+        if save_to_file:
+            save_results(results_data, file_path)
+        else:
+            print(f"成功处理了 {updated_count} 篇论文，但由于save_to_file=False，结果未保存")
     else:
         print("没有更新任何论文摘要，无需保存")
 
 
-if __name__ == "__main__":
+def parse_args():
+    """解析命令行参数
+    
+    Returns:
+        解析后的参数对象
+    """
+    parser = argparse.ArgumentParser(description='从论文会议网站爬取免费摘要')
+    parser.add_argument('--threads', type=int, default=10, help='并发线程数')
+    parser.add_argument('--conf-type', type=str, default=None, choices=['acl', 'iclr', 'all'],
+                        help='会议类型，默认为None（自动检测）')
+    parser.add_argument('--max-papers', type=int, default=None, help='最大处理论文数量')
+    parser.add_argument('--save-to-file', action='store_true', help='是否保存结果到文件（默认不保存）')
+    parser.add_argument('--file-path', type=str, default=RESULTS_FILE_PATH, help='结果保存文件路径')
+    return parser.parse_args()
+
+# 主函数调用
+if __name__ == '__main__':
+    # 解析命令行参数
+    args = parse_args()
+    
     # 添加请求头轮换，模拟不同浏览器
     user_agents = [
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -317,5 +462,11 @@ if __name__ == "__main__":
     HEADERS["User-Agent"] = random.choice(user_agents)
     print(f"使用User-Agent: {HEADERS['User-Agent']}")
     
-    # 执行主函数
-    main(threads=50, max_papers=1000)
+    # 执行主函数，使用命令行参数
+    main(
+        file_path=args.file_path,
+        threads=args.threads,
+        conf_type=args.conf_type,
+        max_papers=args.max_papers,
+        save_to_file=args.save_to_file
+    )
