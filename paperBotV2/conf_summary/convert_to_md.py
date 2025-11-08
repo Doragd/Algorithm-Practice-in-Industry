@@ -7,7 +7,7 @@ results_file = 'data/results.json'
 papers_dir = 'data/papers'
 
 # 黑名单会议列表，只对这些会议的摘要进行长度限制
-ABSTRACT_TRUNCATE_BLACKLIST = ['acl', 'emnlp', 'naacl']
+ABSTRACT_TRUNCATE_BLACKLIST = ['acl', 'emnlp', 'naacl', 'iclr']
 
 # 目标文件大小限制（字节）
 TARGET_FILE_SIZE_BYTES = 1.3 * 1024 * 1024  # 1.3MB
@@ -98,7 +98,8 @@ def generate_md_table(papers_list, conf_folder):
     # 表格内容
     for index, paper in enumerate(papers_list, start=1):
         title = clean_text(paper.get('paper_name', ''))
-        authors = clean_text(', '.join(paper.get('paper_authors', [])))
+        sorted_authors = sorted(paper.get('paper_authors', []))
+        authors = clean_text(', '.join(sorted_authors))
         url = paper.get('paper_url', '')
         abstract = clean_text(paper.get('paper_abstract', ''))
         
@@ -112,6 +113,7 @@ def generate_md_table(papers_list, conf_folder):
                     org = author.get('org', '')
                     if org:
                         authors_detail_str.add(org)
+            authors_detail_str = sorted(list(authors_detail_str))
             authors_detail_text = clean_text('; '.join(authors_detail_str))
         else:
             authors_detail_text = ''
