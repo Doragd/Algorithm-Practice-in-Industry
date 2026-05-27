@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arXiv 每日论文精选</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css?v=1779868596">
+    <script src="static/tailwind.config.js"></script>
+
+    <style>
+        /* 分级折叠功能样式 */
+        .collapsed-level-1 .paper-details {
+            display: none;
+        }
+        
+        .collapsed-level-2 {
+            display: none !important;
+        }
+        
+        /* 展开/折叠图标样式 */
+        .expand-icon {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            margin-right: 5px;
+        }
+        
+        /* 展开/折叠按钮样式 */
+        .expand-toggle {
+            cursor: pointer;
+            padding: 8px 12px;
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            text-align: center;
+            font-weight: 500;
+            color: #4b5563;
+            transition: all 0.2s ease;
+        }
+        
+        .expand-toggle:hover {
+            background-color: #e5e7eb;
+        }
+        
+        /* 分割线样式 */
+        .papers-divider {
+            height: 1px;
+            background-color: #e5e7eb;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .papers-divider-label {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 0 12px;
+            color: #9ca3af;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .papers-divider-label:hover {
+            color: #4b5563;
+        }
+        
+        /* 展开后的样式 */
+        .expanded-all .collapsed-level-1 .paper-details,
+        .expanded-all .collapsed-level-2 {
+            display: block;
+        }
+        
+        .expanded-level-2 .collapsed-level-2 {
+            display: block;
+        }
+    </style>
+    </head>
+
+<body class="bg-gray-50 font-sans text-dark">
+    <!-- 顶部导航与统计信息合并 -->
+    <header class="bg-white shadow-sm sticky top-0 z-10 border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-3">
+                <div class="flex items-center">
+                    <i class="fa fa-book text-primary text-xl mr-2"></i>
+                    <h1 class="text-lg md:text-xl font-bold text-gray-800">arXiv 每日论文精选</h1>
+                </div>
+                <div class="flex items-center mt-2 md:mt-0">
+                    <span id="current-date" class="text-gray-600 text-sm">
+                        <i class="fa fa-calendar-o mr-1"></i>2026-05-27
+                    </span>
+                    <div class="ml-3 relative" id="date-picker-container">
+                        <button id="date-picker-toggle" class="bg-light border border-gray-300 text-gray-700 py-1 px-3 pr-6 rounded text-sm leading-tight focus:outline-none focus:bg-white inline-flex items-center">
+                            <i class="fa fa-calendar mr-2"></i>
+                            <span id="selected-date-text">2026-05-27</span>
+                            <i class="fa fa-chevron-down ml-2 text-xs"></i>
+                        </button>
+                        <div id="date-picker" class="hidden absolute right-0 mt-1 bg-white border border-gray-300 rounded shadow-lg p-2 z-20 w-56">
+                            <div class="flex justify-between items-center mb-2">
+                                <button id="prev-month" class="text-gray-500 hover:text-gray-700"><i class="fa fa-chevron-left"></i></button>
+                                <h4 id="current-month">2026-05-27</h4>
+                                <button id="next-month" class="text-gray-500 hover:text-gray-700"><i class="fa fa-chevron-right"></i></button>
+                            </div>
+                            <div class="grid grid-cols-7 gap-1 text-center text-xs mb-1">
+                                <div class="text-gray-500">日</div>
+                                <div class="text-gray-500">一</div>
+                                <div class="text-gray-500">二</div>
+                                <div class="text-gray-500">三</div>
+                                <div class="text-gray-500">四</div>
+                                <div class="text-gray-500">五</div>
+                                <div class="text-gray-500">六</div>
+                            </div>
+                            <div id="calendar-grid" class="grid grid-cols-7 gap-1 text-center text-sm">
+                                <!-- 日历格子将通过JavaScript动态生成 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 统计信息 -->
+            <div class="flex flex-wrap gap-4 text-sm">
+                <div class="flex items-center">
+                    <span class="text-gray-500 mr-1"><i class="fa fa-file-text-o"></i> 总论文数:</span>
+                    <span id="total-papers" class="font-semibold text-primary">17</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="text-gray-500 mr-1"><i class="fa fa-star"></i> 精选论文数:</span>
+                    <span id="selected-papers" class="font-semibold text-accent">0</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="text-gray-500 mr-1"><i class="fa fa-line-chart"></i> 平均评分:</span>
+                    <span id="avg-score" class="font-semibold text-secondary">0.0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-5">
+        <!-- 筛选器 -->
+        <div class="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+            <div class="text-gray-700 text-sm mb-2 sm:mb-0">
+                <span id="display-count" class="font-medium">显示 17 篇论文 (共 17 篇)</span>
+            </div>
+            <div class="flex space-x-2">
+                <button id="show-all"
+                    class="px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary/90 transition-colors">
+                    全部论文
+                </button>
+                <button id="show-selected"
+                    class="px-3 py-1 bg-gray-200 text-gray-700 rounded text-sm hover:bg-gray-300 transition-colors">
+                    仅显示精选
+                </button>
+            </div>
+        </div>
+
+        <!-- 论文列表 -->
+        <div id="papers-container" class="grid grid-cols-1 gap-4">
+            <!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.27294v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            Separating Semantic Competition from Context Length in RAG Reading
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Vyzantinos Repantis, Ameya Gawde, Harshvardhan Singh, Rohit Alekar, Cien Zhang, ...
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 17:06:55
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.27294v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.27294v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.CL</span><span class="category-tag">cs.IR</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Retrieval-augmented generation (RAG) systems can respond incorrectly even when the correct passage was retrieved. The model must still read the retrieved passages and identify which one contains the answer among others that look relevant. This passage-reading model is called the reader. Does it fail simply because the context is longer or because the other passages genuinely compete with the correct one? We introduce and demonstrate a matched-control protocol for RAG reading: we keep the number and length of passages fixed, but replace hard competitors with less competitive real passages. We apply this control across two compact open models on SQuAD. This replacement partially restores performance, with the strongest effects on F1 and answer inclusion. For Phi-2, this recovers +6.0 EM points, +7.0 answer-inclusion points, and +0.057 F1. For Qwen2.5-1.5B, it recovers +4.5 EM points, +9.0 answer-inclusion points, and +0.068 F1. To track how performance changes as competitors accumulate, we also report retention curves and summarize them with a right-censored half-life when the curves do not cross half-retention. Together, these results show the protocol isolates a competition effect distinct from context length, though the effect is clearer for F1 and answer inclusion than for exact match, and also varies with snippet length.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.27220v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            The Coverage Illusion: From Pre-retrieval Routing Failure to Post-retrieval Cascades in a Production RAG System
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Zafar Hussain, Kristoffer Nielbo
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 16:08:34
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.27220v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.27220v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.CL</span><span class="category-tag">cs.IR</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    In modern RAG pipelines, query augmentation methods such as HyDE and query expansion are applied to every query, resulting in substantial LLM inference costs and increased end-to-end latency. The empirical justification for this overhead in real production traffic remains largely unexplored. We present a case study of the Danish National Encyclopedia, evaluating five retrieval workflows over 20,000 query-workflow pairs from production traffic and synthetic conditions. In this system, synthetic queries suggest that LLM augmentation is needed for over 90% of queries to achieve high retrieval coverage. However, under our production deferral policy, only 27.8% of real user queries need LLM augmentation. We call this gap the Coverage Illusion and attribute it to a structural mismatch between synthetic and real query distributions. Pre-retrieval routing cannot resolve this gap, as the need for LLM augmentation is only revealed after searching the index, a result confirmed by our evaluation of four machine learning paradigms. The coverage gap, undetectable from the query alone, motivates a post-retrieval cascade that runs workflows in cheapest-first order and escalates to LLM augmentation only when a step returns no documents. Operating entirely without training overhead or secondary serving infrastructure, the cascade improves quality by +0.140 Composite Overall points over Always-HyDE, reduces latency by 31.8%, and serves 72.2% of real user queries without LLM augmentation.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.27204v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            GraphReview: Scientific Paper Evaluation via LLM-Based Graph Message Passing
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Pujun Zheng, Wanying Ren, Jiacheng Yao, Guoxiu He, Star X. Zhao
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 15:58:49
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.27204v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.27204v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.CL</span><span class="category-tag">cs.IR</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Scientific paper evaluation often involves not only assessing a manuscript itself, but also relating it to contemporaneous research and prior literature. However, existing LLM-based methods typically model these signals separately and lack a unified mechanism for propagating review evidence across papers. We propose $\textbf{GraphReview}$, a graph-based LLM framework that formulates paper evaluation as review-signal message passing over a semantic paper graph. The graph jointly captures intrinsic quality, synchronic links among contemporaneous papers, and diachronic links to prior work. LLMs are used to estimate node-level quality priors and generate edge-level comparative evidence through pairwise paper comparisons, while Personalized PageRank integrates review signals for quality ranking, decision prediction, and review generation. To produce higher-quality graph evidence, we propose reward-induced maximum likelihood objectives for training the LLM backbones. Experiments show that GraphReview consistently outperforms the strongest baseline, achieving average improvements of 29.7% on decision and ranking metrics, including gains of 23.7% in Accuracy and 57.6% in Spearman's $ρ$. It also produces higher-quality review texts and generalizes effectively across time periods and conference venues. The code is available at https://github.com/ECNU-Text-Computing/GraphReview.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.27123v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            Rethinking Agentic RAG: Toward LLM-Driven Logical Retrieval Beyond Embeddings
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Yuqi Zeng, Qixiang Deng, Yulei Wan, Ruiquan Jiang, Xiaoqing Zheng, Xuanjing Huan...
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 14:57:21
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.27123v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.27123v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.IR</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Recent advances in RAG have shifted toward an agentic paradigm, where LLMs interact with retrieval systems over multiple turns and iteratively refine queries based on intermediate results. At the same time, LLMs have demonstrated a strong ability to construct structured queries that precisely express their information needs. However, contemporary RAG systems remain heavily focused on engineering complex retrieval backends, including dense, hybrid, and graph-based retrieval architectures. In this study, we argue that agentic RAG should delegate greater control to the LLM to steer the retrieval process, while relying on a lightweight retrieval interface that provides fine-grained control and faithfully executes the LLM's structured intent. Guided by this principle, we propose an agentic RAG framework that enables LLMs to formulate retrieval intents using logical expressions while simplifying the retrieval backend to an inverted-index-based system. Extensive experiments show that our framework matches a strong agentic hybrid baseline, while substantially reducing construction and serving cost. Moreover, we show that anchoring the retrieval process in logical queries substantially reduces hallucinations in generated responses.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.27105v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            Lost in the Evidence? Reproducing Document Position and Context Size Effects in RAG
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Jorge Gabín, Anxo Perez, Javier Parapar
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 14:44:19
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.27105v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.27105v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.IR</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Retrieval-Augmented Generation (RAG) systems rely on retrieved documents being concatenated into a model's input context, making both document ordering and context size critical yet controversial design choices. Prior work reports position-based effects such as lost in the middle and related long-context phenomena. However, empirical findings remain inconsistent and hard to reproduce across models, datasets, and evaluation protocols. In this paper, we present a systematic reproducibility study that revisits these claims and examines how they evolve with contemporary LLMs under a controlled evaluation framework. We first show that topic sampling is a major source of variance: small topic sets can mask or exaggerate ordering effects. Based on repeated subset sampling across multiple topic budgets, we provide a practical calibration procedure that identifies topic counts yielding stable trends at feasible cost. Using these fixed topic sets, we then reproduce and extend results on position sensitivity, re-evaluating lost in the middle and positional biases in modern LLMs. Then, we also study a more realistic RAG scenario in which relevance is mediated by a retriever rather than oracle access to ground-truth documents. In this setting, we re-examine a recent industry study and identify discrepancies to evaluation choices such as limited topic coverage and reliance on LLM-based judges. Finally, we conduct an analysis of how retrieval order and context size affect downstream LLM performance under imperfect retrieval. Our results demonstrate that both factors interact strongly with retrieval quality and model choice, and that conclusions drawn from idealised setups do not always transfer to real-world RAG pipelines. We release all code and configurations to support reproducibility and future work on robust RAG evaluation.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.27103v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            MuChator: Enabling Active Music Discovery via Conversational Music LLMs in Douyin Music
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Jiahao Liang, Linzhi Huang, Xuannan Liu, Xukai Wang, Xuanpu Luo, Yongchun Zhu, J...
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 14:42:52
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.27103v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.27103v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.IR</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Douyin Music, a large-scale platform with millions of daily users, adopts an immersive, feed-based discovery paradigm, where users passively explore music through continuous recommendations. While effective for passive music discovery, this paradigm restricts users to recommendation results and provides limited support for explicitly specifying listening intents. Unlike conventional search, where users express well-defined intents through explicit queries such as specific songs or artists, real-world active music discovery is often situational and colloquial, involving vague or underspecified requests. While LLMs enable natural language interaction, their direct use in music discovery remains limited by insufficient music-domain knowledge, lack of music-query collaborative reasoning, and shallow understanding of personalized preferences. To address these challenges, we introduce MuChator, an interactive MusicLLM-based framework that enables users to actively express situational music intents in natural language. MuChator incorporates three key components: (1) Music Knowledge Pre-training, a three-stage scheme that incrementally injects objective music knowledge, subjective music knowledge, and personalized music preferences into LLMs; (2) Context-aware Instruction Tuning, which constructs high-quality user-query-music triplets through an automated synthesis pipeline to align LLMs with active and situational user intents; and (3) Preference Alignment with Hybrid RM, which jointly models intent relevance, personalized preferences, and basic constraints, and is optimized using GRPO-based reinforcement learning. Extensive evaluations on industrial music recommendation datasets demonstrate that MuChator outperforms leading proprietary models, such as Gemini-3-Pro. The model has been deployed on Douyin Music App within ByteDance, with 46.49\% improvement of user active days in online A/B test.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.27066v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            Large Language Model-Powered Query-Driven Event Timeline Summarization in Industrial Search
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Mingyue Wang, Xingyu Xie, Hang Yang, Li Gao, Lixin Su, Ge Chen, Dawei Yin, Daiti...
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 14:16:27
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.27066v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.27066v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.CL</span><span class="category-tag">cs.IR</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Understanding how events evolve over time is essential for search engines handling queries about trending news. We present QDET (Query-Driven Event Timeline Summarization), a production system deployed on Baidu Search that constructs focused event timelines to explain specific query events. Unlike traditional topic-centric approaches that aim for comprehensive coverage, QDET identifies and organizes sub-events closely relevant to the query from noisy candidate sets formed by millions of documents retrieved daily. QDET incorporates two key innovations: (1) multi-task supervised fine-tuning with three auxiliary tasks-temporal ordering, causal judgment, and timeline completion-that enable compact models to match the performance of much larger general-purpose models in specialized domains; (2) reinforcement learning-based event concise summarization that enforces strict length constraints while maintaining semantic quality, achieving 88.2% length compliance and outperforming 671B-scale models by 7.7 points in constraint satisfaction. Our fine-tuned 7B parameter model achieves 76.2% F1 score on timeline summarization, slightly surpassing the zero-shot performance of DeepSeek-R1-671B (76.1% F1) while using only 1% of its parameters-demonstrating that domain-specific optimization enables production-ready models with comparable quality at drastically reduced computational costs. Online A/B tests on Baidu Search validate real-world effectiveness, showing 5.5% CTR improvement, 4.6% longer dwell time, and 4.4% deeper exploration compared to single-task baselines. We further demonstrate that timeline understanding transfers to heat prediction, confirming effective knowledge transfer to downstream tasks.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.26941v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            The 2nd EReL@MIR Workshop on Efficient Representation Learning for Multimodal Information Retrieval
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Junchen Fu, Xuri Ge, Xin Xin, Alexandros Karatzoglou, Ioannis Arapakis, Xi Wang,...
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 12:31:48
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.26941v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.26941v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.IR</span><span class="category-tag">cs.MM</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Multimodal representation learning has attracted increasing attention in AI, driven by the strong performance of large, pretrained multimodal foundation models such as Qwen, LLaVA, and CLIP. These models deliver impressive performance on a range of multimodal information retrieval (MIR) tasks, including web search, cross-modal retrieval, and recommender systems. Yet their massive parameter counts create major efficiency bottlenecks when adapting their representations for IR tasks during training, deployment, and inference. These limitations hinder the practical use of foundation models for representation learning in information retrieval. To address these issues, we propose organizing the EReL@MIR workshop at MM 2026, bringing together researchers from academia and industry to discuss emerging solutions, open challenges, and new efficiency metrics and benchmarks for multimodal IR representation learning in the foundation-model era. The workshop's official website is available at https://erel-mir.github.io/.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.26902v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            ICICLE: Expanding Retrieval with In-Context Documents
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Yu-Chen Den, Yung-Yu Shih, Zhi Rui Tam, Kuan-Yu Chen, Pu-Jen Cheng, Yun-Nung Che...
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 12:01:44
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.26902v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.26902v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.IR</span><span class="category-tag">cs.AI</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Generative retrieval (GR) maps queries directly to document identifiers (docids) using parametric knowledge, However, this design makes corpus expansion costly: adding new documents requires updating model parameters to encode new document-docid associations incurs repeated training and catastrophic forgetting of previously indexed documents. In this work, we revisit incremental GR as an in-context retrieval problem, where newly added documents are supplied as inference-time document-docid evidence. We propose ICICLE, an in-context indexing framework that performs source-aware docid generation over both parametric memory and context-provided document-docid pairs. ICICLE combines a `[COPY]`-based routing mechanism, preference-based calibration, and large context adaptation to distinguish context-grounded retrieval from parametric retrieval. Experiments on MS MARCO and NQ320K show that ICICLE improves retrieval of newly introduced documents while preserving seen-document retention without corpus-specific retraining. Our analysis further shows that high-shot degradation is mainly caused by routing failure, highlighting source-selection calibration as a key bottleneck for scaling in-context generative retrieval.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.26819v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            RAGEAR: Retrieval-Augmented Graph-Enhanced Academic Recommender
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Francesco Granata, Lorenzo Lamazzi, Misael Mongiovì, Francesco Poggi, Valeria Se...
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 10:37:44
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.26819v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.26819v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.IR</span><span class="category-tag">cs.AI</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    We present RAGEAR (Retrieval-Augmented Graph-Enhanced Academic Recommender), a neurosymbolic recommender system for academic course recommendation. RAGEAR combines dense retrieval over full lecture transcripts with a symbolic Knowledge Graph modelling courses, lessons, transcript chunks, credits, study plans, and curricular information. The Knowledge Graph supports symbolic filtering and contextualisation based on structured constraints, such as credits, academic disciplines, study plans, and prerequisites. Unlike metadata-based approaches, it exploits fine-grained instructional content by retrieving transcript chunks semantically aligned with a student's query. The main contribution is a graph-aware aggregation function that propagates chunk-level evidence to course-level recommendations. The score combines three factors: the share of retrieved similarity associated with a course, the rank-based strength of its relevant chunks, and the distribution of evidence across lessons. We evaluate RAGEAR on 152 student-like queries through a human evaluation sample and a large-scale LLM-based relevance assessment. Results show that lecture transcripts improve over metadata-only retrieval, and that RAGEAR further improves ranking quality over a transcript-based normalized SumP baseline, especially for top-ranked recommendations.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.26717v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            L2Rec: Towards Dual-View Understanding of LLMs for Personalized Recommendation
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Pingjun Pan, Tingting Zhou, Peiyao Lu, Tingting Fei, Hongxiang Chen, Chuanjiang ...
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 08:57:19
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.26717v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.26717v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.IR</span><span class="category-tag">cs.AI</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Adapting large language models (LLMs) for personalized recommendation requires aligning their general-purpose capabilities with user-specific preferences while effectively leveraging both behavioral and semantic signals. Existing approaches typically integrate these signals at either the input level (e.g., injecting behavioral embeddings into the token space) or the output level (e.g., contrastive alignment of separate encoders), suffering from distribution gaps or lack of end-to-end task supervision. In this work, we introduce L2Rec, which unifies behavioral and semantic understanding at the parameter level of LLMs. Our key insight is that the same set of Transformer parameters can serve as a shared medium for both views: by applying view-specific, personalized low-rank perturbations via a Dual-view Personalized Mixture-of-Experts (DPMoE) mechanism, L2Rec enables a single LLM backbone to produce complementary behavioral and semantic adaptations for each user with minimal representation-level misalignment. An adaptive cross-view fusion module further integrates the dual-view outputs into a unified user preference. Experiments on four datasets show that L2Rec consistently outperforms state-of-the-art baselines, and online A/B testing on a large-scale industrial platform validates significant improvements in key engagement metrics.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.26663v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            Evidence Absence Is Not Evidence Insufficiency: Diagnosing NEI Construction Artifacts in Fact Verification
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Jingxi Qiu, Zeyu Han, Cheng Huang
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 07:51:33
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.26663v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.26663v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.CL</span><span class="category-tag">cs.IR</span><span class="category-tag">cs.SE</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Evidence absence is not evidence insufficiency, but fact verification benchmarks can make them observationally similar. The Not Enough Information (NEI) label is often operationalized through different evidence conditions, and that choice silently determines what a verifier learns and what its score can hide. We introduce NEI-CAP, a construction-aware diagnostic protocol for insufficient-evidence evaluation. Each NEI example carries the construction family that produced it; NEI-CAP audits shortcut cues, validates hard cases through human adjudication, and tests whether competence transfers across constructions. We instantiate the protocol in SciFact-style scientific verification, with FEVER and HoVer as bounded external controls. Across these settings, NEI competence does not transfer reliably: models trained on shortcut-prone constructions fail to recognize semantically related insufficient evidence, and mixed-construction training narrows but does not close the gap. Fixed-claim diagnostics further show that the evidence condition shifts confidence in the reference Support/Refute label, not only NEI recall, so an aggregate NEI score can hide which problem a model has actually solved.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.26578v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            Is Position Bias in Dense Retrievers Built In-or Learned from Data?
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Daegon Yu, SeungYoon Han, Woomyoung Park
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 05:50:16
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.26578v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.26578v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.IR</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Dense retrievers exhibit positional bias, favoring documents whose query-relevant information appears near the beginning and degrading retrieval performance when the information appears later. While prior work on positional bias in dense retrievers has largely focused on architectural explanations, we study how the positional distribution of evidence in training data affects retrieval-level bias direction. To test this, we construct synthetic position-targeted training sets in which query-relevant evidence appears at the beginning, middle, or end of documents, and fine-tune eight architecturally diverse pretrained models under position-skewed and balanced training distributions. At the ranking level, we observe a strong directional pattern across the examined models: skewed training distributions favor evidence at the corresponding positions. Position-balanced training reduces positional sensitivity by 57--87\% on position-aware benchmarks, with competitive mean retrieval performance in our controlled setting. Representation-level analyses further suggest that fine-tuning often reshapes learned positional preferences, although pre-existing architectural or pretraining-specific tendencies persist in some models. These results identify training-position distribution as a major controllable factor in retrieval-level position bias and suggest balanced data curation as a practical mitigation strategy.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.26476v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            FAB-Bench: A Framework for Adaptive RAG Benchmarking in Semiconductor Manufacturing
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Jingbin Qian, Congwen Yi, Min Xia, Wen Wu, Jun Zhu, Jian Guan
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 02:32:51
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.26476v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.26476v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.CL</span><span class="category-tag">cs.IR</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Retrieval-Augmented Generation (RAG) has become critical for knowledge-intensive applications, yet evaluating its performance in vertical domains remains difficult due to domain complexity, diverse context scales, and heavy reliance on expert assessments that are costly, inconsistent, and non-scalable. We introduce FAB-Bench, an end-to-end framework for adaptive benchmarking of RAG systems in semiconductor manufacturing. FAB-Bench defines six diagnostic metrics measuring factual accuracy, contextual utilization, completeness, retrieval relevance, technical depth, and reasoning consistency. The framework couples retriever diagnostics with generator-level reasoning analysis across context windows of 4K-32K tokens, quantifying how retrieval precision and generative fidelity co-evolve as contextual scope expands. From over 1,300 generated candidates, we curated a high-quality benchmark of 200 query-answer pairs spanning three synthesis strategies: needle-in-haystack, intra-document multi-topic, and cross-document multi-hop. Systematic evaluation across four LLMs and four RAG frameworks reveals three distinct context-scaling behaviors: logarithmic growth, early saturation, and cold-start dynamics, and identifies attention dilution as the primary mechanism behind performance degradation at extreme context lengths. Cross-framework validation on three additional production RAG systems confirms evaluation portability.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.26474v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            Generalized Range Filtering Approximate Nearest Neighbor Search: Containment and Overlap [Technical Report]
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Yingfan Liu, Tong Wu, Jiadong Xie, Yang Zhao, Jeffrey Xu Yu, Jiangtao Cui
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 02:31:27
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.26474v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.26474v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.DB</span><span class="category-tag">cs.IR</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    Approximate nearest neighbor (ANN) search with range filters has recently garnered significant attention. This paper delves into a generalized form of this problem, i.e., ANN search with exact range-range (RR) predicates on a range-valued attribute, named RR filtering ANN (RRANN). Specifically, given $n$ vectors in $\mathbb{R}^d$, each vector $v_i$ is associated with a numeric range $[l_i, r_i]$, symbolizing aspects like a price range or time interval. An RRANN query $(v_q, l_q, r_q)$ aims at finding $k$ vectors closest to $v_q$ within the vectors satisfying an arbitrary RR predicate defined between the query range $[l_q, r_q]$ and the object range $[l_i, r_i]$. The RR predicate remains unspecified, enabling user-defined conditions. It may encompass containment ($[l_i, r_i] \subseteq [l_q, r_q]$ or $[l_q, r_q] \subseteq [l_i, r_i]$), overlap ($l_i \le l_q \le r_i \le r_q$ or $l_q \le l_i \le r_q \le r_i$), or a disjunction of them. RRANN has broad applications in queries related to price ranges or time intervals, and it generalizes existing variants of ANN search with range filters. However, existing dedicated approaches for these problems lack the capacity to support queries with arbitrary RR predicates. Hence, we introduce a new approach, labeled multi-segment tree graph. It efficiently handles arbitrary RR predicates by avoiding traversal through non-predicate-satisfied nodes, and keeps equivalent index size and construction time to state-of-the-art methods for RFANN. Extensive experiments on real-world data demonstrate the efficacy of our approach in RRANN queries, achieving up to 12.5x speedups with the same accuracy as the baselines. Moreover, our approach attains comparable RFANN search performance and notably superior IFANN and TSANN search performance compared to the respective state-of-the-art approaches. Our code is available at https://github.com/FanEDG/MSTG.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.26424v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            Uniboost: Global Coordination with Value Alignment for Fair and Efficient Traffic Allocation
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Ge Fan, Nan Zhao, Kai Meng, Cong Luo, Yang Fu, Huiping Chu, Jialin Liu, Yuning J...
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 01:22:04
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.26424v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.26424v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.IR</span><span class="category-tag">cs.AI</span><span class="category-tag">cs.LG</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    With the rapid evolution of internet services, recommendation systems have become indispensable. In particular, the blending (re-ranking) stage plays a pivotal role in allocating traffic across diverse business objectives. However, existing approaches often suffer from coupled allocation plans, score inflation, and a lack of interpretability. To address these challenges, we propose Uniboost, a unified traffic allocation framework. Uniboost introduces a posterior value alignment mechanism that calibrates abstract model scores to anchor metrics with explicit business semantics, significantly enhancing interpretability. Furthermore, it employs an independent linear boosting paradigm to decouple complex weighting schemes, enabling precise attribution of each plan's contribution. We validate the effectiveness of Uniboost through online A/B tests and in-depth data analysis, demonstrating three key findings: 1) Reducing the overall weight of weighted scores effectively mitigates unintended business interference, yielding a more efficient micro-level traffic allocation strategy; 2) Post-hoc analyses and aggregated dashboards provide intuitive, macro-level insights that guide the design of the overall traffic allocation mechanism; 3) The proposed "Effective Completion Score" serves as an easily obtainable post-metric that offers a reliable anchor for content recommendation pipelines. Collectively, our experiments show that Uniboost not only improves traffic allocation efficiency and recommendation performance at the micro level but also provides macro-level guidance for system iteration. Thus, this work provides an efficient and controllable traffic regulation solution for large-scale industrial recommendation systems.
+                </div>
+            </details>
+    </div>
+</div><!--
+ * @Author: Doragd doragd@users.noreply.github.com
+ * @Date: 2025-10-09 23:23:38
+ * @LastEditors: Doragd doragd@users.noreply.github.com
+ * @LastEditTime: 2025-10-10 00:41:41
+ * @FilePath: /Algorithm-Practice-in-Industry/paperBotV2/frontend/templates/normal_paper_template.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="simple-paper-card p-3 collapsed-level-2">
+    <div class="flex justify-between items-start mb-1">
+        <h3 class="text-base font-medium text-primary hover:underline transition-colors">
+            <a href="https://www.alphaxiv.org/abs/2605.26400v1" target="_blank" rel="noopener noreferrer">
+                
+            </a>
+        </h3>
+        <span class="score-badge bg-gray-100 text-gray-800">
+            <i class="fa fa-star mr-1"></i>0/10
+        </span>
+    </div>
+    
+    <div class="paper-details">
+        <div class="mb-2 text-base text-gray-700">
+            Plans for Evaluating Structured Generative Search Summaries
+        </div>
+        
+        <div class="mb-2 text-sm text-gray-600 italic">
+            <i class="fa fa-user-circle-o text-gray-500 mr-1"></i>Tetsuya Sakai, Jina Lee, Hanpei Fang, Young-In Song
+        </div>
+        
+        
+        
+        
+        <div class="mb-2">
+            <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
+            <p class="text-gray-600 text-sm mt-1"></p>
+        </div>
+        
+        <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
+                <i class="fa fa-calendar-o mr-1"></i> 2026-05-26 00:08:21
+                <span class="mx-2">|</span>
+                <a href="https://arxiv.org/abs/2605.26400v1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                    arXiv:2605.26400v1
+                </a>
+                <span class="mx-2">|</span>
+                <div class="flex flex-wrap"><span class="category-tag">cs.IR</span><span class="category-tag">cs.AI</span></div>
+            </div>
+            
+            
+            <details class="border-t border-gray-200 pt-4 mt-4">
+                 <summary class="text-sm text-primary cursor-pointer"> 
+                     查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
+                 </summary> 
+                 <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
+                    We propose a framework for evaluating structured generative search summaries that are placed atop organic web search results. A structured summary, generated by a large language model, typically consists of an overview, several sections with section titles, and a list of source documents that are cited within the summary. We then describe our plans for implementing and evaluating the framework.
+                </div>
+            </details>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <!-- 加载论文数据和JavaScript逻辑 -->
+    <script src="static/app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 在精选论文和普通论文之间添加展开/折叠按钮
+            const papersContainer = document.querySelector('#papers-container');
+            if (papersContainer) {
+                // 添加展开/折叠全部按钮
+                const expandAllButton = document.createElement('div');
+                expandAllButton.className = 'expand-toggle';
+                expandAllButton.textContent = '展开/折叠全部非精选论文';
+                expandAllButton.addEventListener('click', function() {
+                    papersContainer.classList.toggle('expanded-all');
+                    this.textContent = papersContainer.classList.contains('expanded-all') ? 
+                        '收起全部非精选论文' : '展开全部非精选论文';
+                    
+                    // 更新所有论文标题前的图标状态
+                    const collapsedPapers = papersContainer.querySelectorAll('.collapsed-level-1');
+                    collapsedPapers.forEach(paper => {
+                        const iconElement = paper.querySelector('.expand-icon');
+                        if (iconElement) {
+                            iconElement.className = papersContainer.classList.contains('expanded-all') ? 
+                                'expand-icon fa fa-eye' : 'expand-icon fa fa-eye-slash';
+                        }
+                    });
+                });
+                
+                // 找到第一个非精选论文的位置
+                const firstNormalPaper = papersContainer.querySelector('.simple-paper-card');
+                if (firstNormalPaper) {
+                    papersContainer.insertBefore(expandAllButton, firstNormalPaper);
+                }
+                
+                // 添加分割线用于展开分数<=1的论文
+                const divider = document.createElement('div');
+                divider.className = 'papers-divider';
+                
+                const dividerLabel = document.createElement('div');
+                dividerLabel.className = 'papers-divider-label';
+                dividerLabel.textContent = '点击展开更多论文（评分较低）';
+                dividerLabel.addEventListener('click', function() {
+                    papersContainer.classList.toggle('expanded-level-2');
+                    this.textContent = papersContainer.classList.contains('expanded-level-2') ? 
+                        '点击收起低分论文' : '点击展开更多论文（评分较低）';
+                });
+                
+                divider.appendChild(dividerLabel);
+                
+                // 在所有非精选论文的最后一个元素后面添加分割线
+                const normalPapers = papersContainer.querySelectorAll('.simple-paper-card');
+                if (normalPapers.length > 0) {
+                    const lastNormalPaper = normalPapers[normalPapers.length - 1];
+                    papersContainer.insertBefore(divider, lastNormalPaper.nextSibling);
+                }
+            }
+            
+            // 为每个非精选论文添加点击标题展开/折叠详情的功能
+            const collapsedPapers = document.querySelectorAll('.collapsed-level-1');
+            collapsedPapers.forEach(paper => {
+                const titleElement = paper.querySelector('h3');
+                if (titleElement) {
+                    titleElement.style.cursor = 'pointer';
+                    
+                    // 创建展开/折叠图标元素并设置样式
+                    const iconElement = document.createElement('i');
+                    iconElement.className = 'expand-icon fa fa-eye-slash cursor-pointer';
+                    iconElement.style.marginRight = '8px';
+                    
+                    // 将图标插入到标题链接之前，作为同级元素
+                    const linkElement = titleElement.querySelector('a');
+                    if (linkElement) {
+                        // 将图标直接添加到标题元素中，位于链接之前
+                        titleElement.insertBefore(iconElement, linkElement);
+                        
+                        // 为图标单独添加点击事件处理展开/折叠
+                        iconElement.addEventListener('click', function(e) {
+                            e.stopPropagation(); // 阻止事件冒泡到标题元素
+                            const details = paper.querySelector('.paper-details');
+                            if (details) {
+                                const isExpanded = details.style.display === 'block';
+                                details.style.display = isExpanded ? 'none' : 'block';
+                                
+                                // 更新图标状态
+                                this.className = isExpanded ? 
+                                    'expand-icon fa fa-eye-slash cursor-pointer' : 'expand-icon fa fa-eye cursor-pointer';
+                                this.style.marginRight = '8px';
+                            }
+                        });
+                    }
+                    
+                    // 为标题元素添加点击事件，也可以展开/折叠，但会检查点击目标
+                    titleElement.addEventListener('click', function(e) {
+                        // 仅当点击的是标题本身（非链接、非图标）时才展开/折叠
+                        if (!e.target.closest('a') && !e.target.closest('.expand-icon')) {
+                            const details = paper.querySelector('.paper-details');
+                            if (details) {
+                                const isExpanded = details.style.display === 'block';
+                                details.style.display = isExpanded ? 'none' : 'block';
+                                
+                                // 更新图标状态
+                                const iconElement = this.querySelector('.expand-icon');
+                                if (iconElement) {
+                                    iconElement.className = isExpanded ? 
+                                        'expand-icon fa fa-eye-slash cursor-pointer' : 'expand-icon fa fa-eye cursor-pointer';
+                                    iconElement.style.marginRight = '8px';
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+            
+            // 实现"仅显示精选"按钮功能
+            const showSelectedButton = document.getElementById('show-selected');
+            if (showSelectedButton) {
+                showSelectedButton.addEventListener('click', function() {
+                    // 显示所有精选论文，隐藏所有普通论文
+                    const selectedPapers = document.querySelectorAll('.paper-card');
+                    const normalPapers = document.querySelectorAll('.simple-paper-card');
+                    
+                    selectedPapers.forEach(paper => {
+                        paper.style.display = 'block';
+                    });
+                    
+                    normalPapers.forEach(paper => {
+                        paper.style.display = 'none';
+                    });
+                    
+                    // 更新显示计数
+                    const displayCountElement = document.getElementById('display-count');
+                    if (displayCountElement) {
+                        displayCountElement.textContent = `显示 ${selectedPapers.length} 篇论文 (共 ${selectedPapers.length + normalPapers.length} 篇)`;
+                    }
+                    
+                    // 更新按钮样式
+                    this.className = 'px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary/90 transition-colors';
+                    document.getElementById('show-all').className = 'px-3 py-1 bg-gray-200 text-gray-700 rounded text-sm hover:bg-gray-300 transition-colors';
+                    
+                    // 隐藏展开/折叠按钮和分割线
+                    const expandToggle = document.querySelector('.expand-toggle');
+                    if (expandToggle) expandToggle.style.display = 'none';
+                    
+                    const papersDivider = document.querySelector('.papers-divider');
+                    if (papersDivider) papersDivider.style.display = 'none';
+                });
+            }
+            
+            // 实现"全部论文"按钮功能
+            const showAllButton = document.getElementById('show-all');
+            if (showAllButton) {
+                showAllButton.addEventListener('click', function() {
+                    // 显示所有论文
+                    const allPapers = document.querySelectorAll('.paper-card, .simple-paper-card');
+                    allPapers.forEach(paper => {
+                        paper.style.display = 'block';
+                    });
+                    
+                    // 重置折叠状态
+                    papersContainer.classList.remove('expanded-all');
+                    
+                    // 更新显示计数
+                    const displayCountElement = document.getElementById('display-count');
+                    if (displayCountElement) {
+                        displayCountElement.textContent = `显示 ${allPapers.length} 篇论文 (共 ${allPapers.length} 篇)`;
+                    }
+                    
+                    // 更新按钮样式
+                    this.className = 'px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary/90 transition-colors';
+                    document.getElementById('show-selected').className = 'px-3 py-1 bg-gray-200 text-gray-700 rounded text-sm hover:bg-gray-300 transition-colors';
+                    
+                    // 重新显示展开/折叠按钮和分割线
+                    const expandToggle = document.querySelector('.expand-toggle');
+                    if (expandToggle) {
+                        expandToggle.style.display = 'block';
+                        expandToggle.textContent = '展开全部非精选论文';
+                    }
+                    
+                    const papersDivider = document.querySelector('.papers-divider');
+                    if (papersDivider) papersDivider.style.display = 'block';
+                });
+            }
+        });
+    </script>
+    <script>
+    
+    // 初始化日历
+    document.addEventListener('DOMContentLoaded', () => {
+        try {
+            console.log('Attempting to initialize calendar...');
+            initCalendar();
+        } catch (error) {
+            console.error('Error initializing calendar:', error);
+        }
+    });
+    
+    // 日历初始化函数
+    function initCalendar() {
+        const toggleBtn = document.getElementById('date-picker-toggle');
+        const datePicker = document.getElementById('date-picker');
+        const calendarGrid = document.getElementById('calendar-grid');
+        const prevMonthBtn = document.getElementById('prev-month');
+        const nextMonthBtn = document.getElementById('next-month');
+        const currentMonthEl = document.getElementById('current-month');
+        const selectedDateText = document.getElementById('selected-date-text');
+        
+        // 当前显示的日期（从页面获取）
+        const currentDateStr = document.getElementById('current-date').textContent.trim().replace(/^\d+年|月|日/g, '');
+        const currentDate = new Date(currentDateStr);
+        let displayYear = currentDate.getFullYear();
+        let displayMonth = currentDate.getMonth();
+        
+        // 有论文数据的日期列表
+        const availableDates = ["20251216","20260424","20251205","20260508","20260501","20251119","20260513","20260128","20251225","20260430","20251202","20260421","20260108","20260220","20251106","20260403","20260224","20260317","20260203","20260226","20251114","20251017","20260109","20260115","20260520","20260212","20260122","20251212","20251024","20251210","20260310","20251125","20260519","20251010","20260410","20260521","20260408","20260324","20260123","20260319","20251022","20260210","20260106","20260114","20260318","20251014","20251111","20260304","20260305","20260312","20260113","20260303","20260320","20260206","20260227","20260428","20260101","20251021","20260116","20251112","20260213","20251118","20260313","20260327","20260225","20251031","20251224","20260306","20260527","20260331","20251223","20251218","20251023","20260506","20260121","20251009","20260415","20260526","20251016","20251015","20260218","20251219","20260127","20260512","20251217","20260325","20260217","20260505","20260417","20251120","20260507","20251121","20260429","20251030","20251127","20260414","20251107","20260107","20251126","20251204","20260129","20260205","20251209","20260311","20260416","20260326","20251211","20260422","20260211","20251230","20251028","20260204","20260409","20260130","20251113","20251105","20251029","20260423"];
+        
+        // 尝试从localStorage恢复选择状态
+        const savedDate = localStorage.getItem('selectedDate');
+        const savedYear = localStorage.getItem('selectedYear');
+        const savedMonth = localStorage.getItem('selectedMonth');
+        
+        // 确保页面加载时显示当前选中的日期
+        // 修复持久化问题：确保每次加载都能正确恢复选中状态
+        if (savedDate) {
+            selectedDateText.textContent = savedDate;
+            if (savedYear) displayYear = parseInt(savedYear);
+            if (savedMonth) displayMonth = parseInt(savedMonth);
+        } else {
+            // 首次加载时，将当前页面日期保存到localStorage
+            const currentPageDate = currentDateStr.replace(/\//g, '-');
+            selectedDateText.textContent = currentPageDate;
+            localStorage.setItem('selectedDate', currentPageDate);
+            localStorage.setItem('selectedYear', currentDate.getFullYear().toString());
+            localStorage.setItem('selectedMonth', currentDate.getMonth().toString());
+        }
+    
+        // 切换日历显示状态
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            // 显式控制hidden类的添加和移除
+            if (datePicker.classList.contains('hidden')) {
+                // 显示日历 - 确保移除hidden类
+                datePicker.classList.remove('hidden');
+                renderCalendar();
+            } else {
+                // 隐藏日历
+                datePicker.classList.add('hidden');
+            }
+        });
+        
+        // 点击其他区域关闭日历
+        document.addEventListener('click', () => {
+            if (!datePicker.classList.contains('hidden')) {
+                datePicker.classList.add('hidden');
+            }
+        });
+        
+        // 阻止日历内部点击事件冒泡
+        datePicker.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        
+        // 上月和下月按钮
+        prevMonthBtn.addEventListener('click', () => {
+            displayMonth--;
+            if (displayMonth < 0) {
+                displayMonth = 11;
+                displayYear--;
+            }
+            renderCalendar();
+        });
+        
+        nextMonthBtn.addEventListener('click', () => {
+            displayMonth++;
+            if (displayMonth > 11) {
+                displayMonth = 0;
+                displayYear++;
+            }
+            renderCalendar();
+        });
+        
+        /**
+         * 渲染日历
+         */
+        function renderCalendar() {
+            // 清空日历网格
+            calendarGrid.innerHTML = '';
+            
+            // 更新当前月份显示
+            const monthNames = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+            currentMonthEl.textContent = displayYear + '年' + monthNames[displayMonth];
+            
+            // 计算当前月份的第一天是星期几
+            const firstDay = new Date(displayYear, displayMonth, 1);
+            const firstDayOfWeek = firstDay.getDay();
+            
+            // 计算当前月份的天数
+            const daysInMonth = new Date(displayYear, displayMonth + 1, 0).getDate();
+            
+            // 添加上月的占位天数
+            for (let i = 0; i < firstDayOfWeek; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.classList.add('py-1', 'text-gray-300');
+                calendarGrid.appendChild(emptyDay);
+            }
+            
+            // 获取当前日期（用于高亮显示）
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            // 添加当前月份的天数
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = document.createElement('div');
+                const currentDateObj = new Date(displayYear, displayMonth, day);
+                const dateStr = displayYear + String(displayMonth + 1).padStart(2, '0') + String(day).padStart(2, '0');
+                const displayDateStr = displayYear + '-' + String(displayMonth + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+                
+                // 设置日期元素基本样式
+                dayElement.textContent = day;
+                
+                // 检查该日期是否有论文数据
+                const hasPapers = availableDates.includes(dateStr);
+                
+                if (hasPapers) {
+                    // 有论文数据的日期样式
+                    dayElement.classList.add('py-1', 'cursor-pointer', 'hover:bg-gray-100', 'rounded', 'bg-blue-50', 'font-medium');
+                    
+                    // 添加点击事件，跳转到对应日期的页面
+                    dayElement.addEventListener('click', () => {
+                        console.log('Date clicked:', displayDateStr);
+                        selectedDateText.textContent = displayDateStr;
+                        
+                        // 保存选择状态到localStorage
+                        localStorage.setItem('selectedDate', displayDateStr);
+                        localStorage.setItem('selectedYear', displayYear.toString());
+                        localStorage.setItem('selectedMonth', displayMonth.toString());
+                        
+                        datePicker.classList.add('hidden');
+                        
+                        // 构造目标URL并跳转
+                        const targetUrl = 'arxiv_' + dateStr + '.html';
+                        window.location.href = targetUrl;
+                    });
+                } else {
+                    // 没有论文数据的日期样式（置灰不可点击）
+                    dayElement.classList.add('py-1', 'text-gray-400', 'cursor-not-allowed');
+                }
+                
+                // 高亮显示当天日期（覆盖之前的样式）
+                if (currentDateObj.getTime() === today.getTime()) {
+                    dayElement.classList.remove('bg-blue-50');
+                    dayElement.classList.add('bg-primary', 'text-white', 'font-bold', 'shadow');
+                    if (!hasPapers) {
+                        // 当天没有论文时，仍然置灰但保持背景色
+                        dayElement.classList.add('opacity-70');
+                    }
+                }
+                
+                // 高亮显示当前选中的日期
+                if (displayDateStr === selectedDateText.textContent) {
+                    dayElement.classList.add('font-bold', 'border-2', 'border-primary', 'rounded-lg', 'shadow-md');
+                }
+                
+                // 增强有论文数据的日期样式，使其更明显
+                if (hasPapers && currentDateObj.getTime() !== today.getTime()) {
+                    dayElement.classList.add('bg-blue-100', 'hover:bg-blue-200', 'transition-colors', 'duration-200');
+                }
+                
+                calendarGrid.appendChild(dayElement);
+            }
+        }
+    }
+    </script>
+    </body>
+
+</html>
