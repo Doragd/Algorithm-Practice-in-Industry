@@ -7,7 +7,7 @@
     <title>arXiv 每日论文精选</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/styles.css?v=1767674421">
+    <link rel="stylesheet" href="static/styles.css?v=1779944917">
     <script src="static/tailwind.config.js"></script>
 
     <style>
@@ -17,7 +17,7 @@
         }
         
         .collapsed-level-2 {
-            display: none !important;
+            display: none;
         }
         
         /* 展开/折叠图标样式 */
@@ -167,7 +167,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01753v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01753v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>MergeRec：面向数据隔离跨域序列推荐的模型融合方法
             </a>
         </h3>
@@ -222,7 +222,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02144v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02144v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>基于类比的专家路由：用于混合专家的k近邻增强专家分配
             </a>
         </h3>
@@ -269,7 +269,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Mixture-of-Experts (MoE) architectures scale large language models efficiently by employing a parametric "router" to dispatch tokens to a sparse subset of experts. Typically, this router is trained once and then frozen, rendering routing decisions brittle under distribution shifts. We address this limitation by introducing kNN-MoE, a retrieval-augmented routing framework that reuses optimal expert assignments from a memory of similar past cases. This memory is constructed offline by directly optimizing token-wise routing logits to maximize the likelihood on a reference set. Crucially, we use the aggregate similarity of retrieved neighbors as a confidence-driven mixing coefficient, thus allowing the method to fall back to the frozen router when no relevant cases are found. Experiments show kNN-MoE outperforms zero-shot baselines and rivals computationally expensive supervised fine-tuning.
+                    Mixture-of-Experts (MoE) architectures scale large language models efficiently by employing a parametric &#34;router&#34; to dispatch tokens to a sparse subset of experts. Typically, this router is trained once and then frozen, rendering routing decisions brittle under distribution shifts. We address this limitation by introducing kNN-MoE, a retrieval-augmented routing framework that reuses optimal expert assignments from a memory of similar past cases. This memory is constructed offline by directly optimizing token-wise routing logits to maximize the likelihood on a reference set. Crucially, we use the aggregate similarity of retrieved neighbors as a confidence-driven mixing coefficient, thus allowing the method to fall back to the frozen router when no relevant cases are found. Experiments show kNN-MoE outperforms zero-shot baselines and rivals computationally expensive supervised fine-tuning.
                 </div>
             </details>
     </div>
@@ -277,7 +277,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01885v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01885v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>智能体记忆：为大语言模型智能体学习统一的长短期记忆管理
             </a>
         </h3>
@@ -324,7 +324,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Large language model (LLM) agents face fundamental limitations in long-horizon reasoning due to finite context windows, making effective memory management critical. Existing methods typically handle long-term memory (LTM) and short-term memory (STM) as separate components, relying on heuristics or auxiliary controllers, which limits adaptability and end-to-end optimization. In this paper, we propose Agentic Memory (AgeMem), a unified framework that integrates LTM and STM management directly into the agent's policy. AgeMem exposes memory operations as tool-based actions, enabling the LLM agent to autonomously decide what and when to store, retrieve, update, summarize, or discard information. To train such unified behaviors, we propose a three-stage progressive reinforcement learning strategy and design a step-wise GRPO to address sparse and discontinuous rewards induced by memory operations. Experiments on five long-horizon benchmarks demonstrate that AgeMem consistently outperforms strong memory-augmented baselines across multiple LLM backbones, achieving improved task performance, higher-quality long-term memory, and more efficient context usage.
+                    Large language model (LLM) agents face fundamental limitations in long-horizon reasoning due to finite context windows, making effective memory management critical. Existing methods typically handle long-term memory (LTM) and short-term memory (STM) as separate components, relying on heuristics or auxiliary controllers, which limits adaptability and end-to-end optimization. In this paper, we propose Agentic Memory (AgeMem), a unified framework that integrates LTM and STM management directly into the agent&#39;s policy. AgeMem exposes memory operations as tool-based actions, enabling the LLM agent to autonomously decide what and when to store, retrieve, update, summarize, or discard information. To train such unified behaviors, we propose a three-stage progressive reinforcement learning strategy and design a step-wise GRPO to address sparse and discontinuous rewards induced by memory operations. Experiments on five long-horizon benchmarks demonstrate that AgeMem consistently outperforms strong memory-augmented baselines across multiple LLM backbones, achieving improved task performance, higher-quality long-term memory, and more efficient context usage.
                 </div>
             </details>
     </div>
@@ -332,7 +332,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01708v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01708v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>一种基于免训练大型推理模型的知识追踪框架，用于统一预测与处方
             </a>
         </h3>
@@ -379,7 +379,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Knowledge Tracing (KT) aims to estimate a learner's evolving mastery based on interaction histories. Recent studies have explored Large Language Models (LLMs) for KT via autoregressive nature, but such approaches typically require fine-tuning and exhibit unstable or near-random performance. Moreover, prior KT systems primarily focus on prediction and rely on multi-stage pipelines for feedback and recommendation, resulting in increased system complexity and resources. To address this gap, we propose Thinking-KT, a training-free KT framework that incorporates Test-Time Scaling (TTS), enabling even small LLMs to achieve competitive KT performance. Moreover, in this framework, a small LLM can jointly perform KT prediction, personalized feedback generation, and learning recommendation in a unified output without degrading prediction accuracy. Beyond performance, we present the systematic analysis of reasoning traces in KT. Our results demonstrate that TTS is a critical yet underexplored factor in LLM-based KT, and that small LLMs can serve as unified ITS engines.
+                    Knowledge Tracing (KT) aims to estimate a learner&#39;s evolving mastery based on interaction histories. Recent studies have explored Large Language Models (LLMs) for KT via autoregressive nature, but such approaches typically require fine-tuning and exhibit unstable or near-random performance. Moreover, prior KT systems primarily focus on prediction and rely on multi-stage pipelines for feedback and recommendation, resulting in increased system complexity and resources. To address this gap, we propose Thinking-KT, a training-free KT framework that incorporates Test-Time Scaling (TTS), enabling even small LLMs to achieve competitive KT performance. Moreover, in this framework, a small LLM can jointly perform KT prediction, personalized feedback generation, and learning recommendation in a unified output without degrading prediction accuracy. Beyond performance, we present the systematic analysis of reasoning traces in KT. Our results demonstrate that TTS is a critical yet underexplored factor in LLM-based KT, and that small LLMs can serve as unified ITS engines.
                 </div>
             </details>
     </div>
@@ -387,7 +387,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01997v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01997v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>探索ChatGPT推荐中的多样性、新颖性与流行度偏差
             </a>
         </h3>
@@ -398,7 +398,7 @@
     
     <div class="paper-details">
         <div class="mb-2 text-base text-gray-700">
-            Exploring Diversity, Novelty, and Popularity Bias in ChatGPT's Recommendations
+            Exploring Diversity, Novelty, and Popularity Bias in ChatGPT&#39;s Recommendations
         </div>
         
         <div class="mb-2 text-sm text-gray-600 italic">
@@ -434,7 +434,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    ChatGPT has emerged as a versatile tool, demonstrating capabilities across diverse domains. Given these successes, the Recommender Systems (RSs) community has begun investigating its applications within recommendation scenarios primarily focusing on accuracy. While the integration of ChatGPT into RSs has garnered significant attention, a comprehensive analysis of its performance across various dimensions remains largely unexplored. Specifically, the capabilities of providing diverse and novel recommendations or exploring potential biases such as popularity bias have not been thoroughly examined. As the use of these models continues to expand, understanding these aspects is crucial for enhancing user satisfaction and achieving long-term personalization. This study investigates the recommendations provided by ChatGPT-3.5 and ChatGPT-4 by assessing ChatGPT's capabilities in terms of diversity, novelty, and popularity bias. We evaluate these models on three distinct datasets and assess their performance in Top-N recommendation and cold-start scenarios. The findings reveal that ChatGPT-4 matches or surpasses traditional recommenders, demonstrating the ability to balance novelty and diversity in recommendations. Furthermore, in the cold-start scenario, ChatGPT models exhibit superior performance in both accuracy and novelty, suggesting they can be particularly beneficial for new users. This research highlights the strengths and limitations of ChatGPT's recommendations, offering new perspectives on the capacity of these models to provide recommendations beyond accuracy-focused metrics.
+                    ChatGPT has emerged as a versatile tool, demonstrating capabilities across diverse domains. Given these successes, the Recommender Systems (RSs) community has begun investigating its applications within recommendation scenarios primarily focusing on accuracy. While the integration of ChatGPT into RSs has garnered significant attention, a comprehensive analysis of its performance across various dimensions remains largely unexplored. Specifically, the capabilities of providing diverse and novel recommendations or exploring potential biases such as popularity bias have not been thoroughly examined. As the use of these models continues to expand, understanding these aspects is crucial for enhancing user satisfaction and achieving long-term personalization. This study investigates the recommendations provided by ChatGPT-3.5 and ChatGPT-4 by assessing ChatGPT&#39;s capabilities in terms of diversity, novelty, and popularity bias. We evaluate these models on three distinct datasets and assess their performance in Top-N recommendation and cold-start scenarios. The findings reveal that ChatGPT-4 matches or surpasses traditional recommenders, demonstrating the ability to balance novelty and diversity in recommendations. Furthermore, in the cold-start scenario, ChatGPT models exhibit superior performance in both accuracy and novelty, suggesting they can be particularly beneficial for new users. This research highlights the strengths and limitations of ChatGPT&#39;s recommendations, offering new perspectives on the capacity of these models to provide recommendations beyond accuracy-focused metrics.
                 </div>
             </details>
     </div>
@@ -442,7 +442,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01751v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01751v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>基于查询-文档稠密向量的LLM相关性判断偏差分析
             </a>
         </h3>
@@ -497,7 +497,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02298v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02298v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>大语言模型中的二幂量化感知训练
             </a>
         </h3>
@@ -552,7 +552,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02204v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02204v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>NextFlow：统一序列建模激活多模态理解与生成
             </a>
         </h3>
@@ -607,7 +607,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01750v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01750v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>当注意力机制在生成式搜索中成为曝光机制时
             </a>
         </h3>
@@ -662,7 +662,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02031v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02031v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>面向稳定大语言模型预训练的输出嵌入中心化
             </a>
         </h3>
@@ -709,7 +709,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Pretraining of large language models is not only expensive but also prone to certain training instabilities. A specific instability that often occurs for large learning rates at the end of training is output logit divergence. The most widely used mitigation strategy, z-loss, merely addresses the symptoms rather than the underlying cause of the problem. In this paper, we analyze the instability from the perspective of the output embeddings' geometry and identify its cause. Based on this, we propose output embedding centering (OEC) as a new mitigation strategy, and prove that it suppresses output logit divergence. OEC can be implemented in two different ways, as a deterministic operation called μ-centering, or a regularization method called μ-loss. Our experiments show that both variants outperform z-loss in terms of training stability and learning rate sensitivity. In particular, they ensure that training converges even for large learning rates when z-loss fails. Furthermore, we find that μ-loss is significantly less sensitive to regularization hyperparameter tuning than z-loss.
+                    Pretraining of large language models is not only expensive but also prone to certain training instabilities. A specific instability that often occurs for large learning rates at the end of training is output logit divergence. The most widely used mitigation strategy, z-loss, merely addresses the symptoms rather than the underlying cause of the problem. In this paper, we analyze the instability from the perspective of the output embeddings&#39; geometry and identify its cause. Based on this, we propose output embedding centering (OEC) as a new mitigation strategy, and prove that it suppresses output logit divergence. OEC can be implemented in two different ways, as a deterministic operation called μ-centering, or a regularization method called μ-loss. Our experiments show that both variants outperform z-loss in terms of training stability and learning rate sensitivity. In particular, they ensure that training converges even for large learning rates when z-loss fails. Furthermore, we find that μ-loss is significantly less sensitive to regularization hyperparameter tuning than z-loss.
                 </div>
             </details>
     </div>
@@ -717,7 +717,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01714v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01714v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>基于熵对齐解码的语言模型用于提升写作与推理能力
             </a>
         </h3>
@@ -764,7 +764,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Language models (LMs) are trained on billions of tokens in an attempt to recover the true language distribution. Still, vanilla random sampling from LMs yields low quality generations. Decoding algorithms attempt to restrict the LM distribution to a set of high-probability continuations, but rely on greedy heuristics that introduce myopic distortions, yielding sentences that are homogeneous, repetitive and incoherent. In this paper, we introduce EPIC, a hyperparameter-free decoding approach that incorporates the entropy of future trajectories into LM decoding. EPIC explicitly regulates the amount of uncertainty expressed at every step of generation, aligning the sampling distribution's entropy to the aleatoric (data) uncertainty. Through Entropy-Aware Lazy Gumbel-Max sampling, EPIC manages to be exact, while also being efficient, requiring only a sublinear number of entropy evaluations per step. Unlike current baselines, EPIC yields sampling distributions that are empirically well-aligned with the entropy of the underlying data distribution. Across creative writing and summarization tasks, EPIC consistently improves LM-as-judge preference win-rates over widely used decoding strategies. These preference gains are complemented by automatic metrics, showing that EPIC produces more diverse generations and more faithful summaries. We also evaluate EPIC on mathematical reasoning, where it outperforms all baselines.
+                    Language models (LMs) are trained on billions of tokens in an attempt to recover the true language distribution. Still, vanilla random sampling from LMs yields low quality generations. Decoding algorithms attempt to restrict the LM distribution to a set of high-probability continuations, but rely on greedy heuristics that introduce myopic distortions, yielding sentences that are homogeneous, repetitive and incoherent. In this paper, we introduce EPIC, a hyperparameter-free decoding approach that incorporates the entropy of future trajectories into LM decoding. EPIC explicitly regulates the amount of uncertainty expressed at every step of generation, aligning the sampling distribution&#39;s entropy to the aleatoric (data) uncertainty. Through Entropy-Aware Lazy Gumbel-Max sampling, EPIC manages to be exact, while also being efficient, requiring only a sublinear number of entropy evaluations per step. Unlike current baselines, EPIC yields sampling distributions that are empirically well-aligned with the entropy of the underlying data distribution. Across creative writing and summarization tasks, EPIC consistently improves LM-as-judge preference win-rates over widely used decoding strategies. These preference gains are complemented by automatic metrics, showing that EPIC produces more diverse generations and more faithful summaries. We also evaluate EPIC on mathematical reasoning, where it outperforms all baselines.
                 </div>
             </details>
     </div>
@@ -772,7 +772,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01827v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01827v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>电商产品与服务评论中的方面提取
             </a>
         </h3>
@@ -827,7 +827,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01768v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01768v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>大型语言模型能否追踪其输出长度？一种用于精确长度调控的动态反馈机制
             </a>
         </h3>
@@ -882,7 +882,7 @@
 <div class="paper-card p-4 expanded">
     <div class="flex justify-between items-start mb-2">
         <h3 class="text-lg font-semibold text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01930v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01930v1" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-star text-yellow-400 mr-1"></i>MCGI：面向十亿级磁盘驻留向量搜索的流形一致图索引
             </a>
         </h3>
@@ -929,7 +929,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Graph-based Approximate Nearest Neighbor (ANN) search often suffers from performance degradation in high-dimensional spaces due to the ``Euclidean-Geodesic mismatch,'' where greedy routing diverges from the underlying data manifold. To address this, we propose Manifold-Consistent Graph Indexing (MCGI), a geometry-aware and disk-resident indexing method that leverages Local Intrinsic Dimensionality (LID) to dynamically adapt search strategies to the data's intrinsic geometry. Unlike standard algorithms that treat dimensions uniformly, MCGI modulates its beam search budget based on in situ geometric analysis, eliminating dependency on static hyperparameters. Theoretical analysis confirms that MCGI enables improved approximation guarantees by preserving manifold-consistent topological connectivity. Empirically, MCGI achieves 5.8$\times$ higher throughput at 95\% recall on high-dimensional GIST1M compared to state-of-the-art DiskANN. On the billion-scale SIFT1B dataset, MCGI further validates its scalability by reducing high-recall query latency by 3$\times$, while maintaining performance parity on standard lower-dimensional datasets.
+                    Graph-based Approximate Nearest Neighbor (ANN) search often suffers from performance degradation in high-dimensional spaces due to the ``Euclidean-Geodesic mismatch,&#39;&#39; where greedy routing diverges from the underlying data manifold. To address this, we propose Manifold-Consistent Graph Indexing (MCGI), a geometry-aware and disk-resident indexing method that leverages Local Intrinsic Dimensionality (LID) to dynamically adapt search strategies to the data&#39;s intrinsic geometry. Unlike standard algorithms that treat dimensions uniformly, MCGI modulates its beam search budget based on in situ geometric analysis, eliminating dependency on static hyperparameters. Theoretical analysis confirms that MCGI enables improved approximation guarantees by preserving manifold-consistent topological connectivity. Empirically, MCGI achieves 5.8$\times$ higher throughput at 95\% recall on high-dimensional GIST1M compared to state-of-the-art DiskANN. On the billion-scale SIFT1B dataset, MCGI further validates its scalability by reducing high-recall query latency by 3$\times$, while maintaining performance parity on standard lower-dimensional datasets.
                 </div>
             </details>
     </div>
@@ -944,7 +944,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02306v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02306v1" target="_blank" rel="noopener noreferrer">
                 基于多任务学习的Spotify播客广告与推广冷启动
             </a>
         </h3>
@@ -1001,7 +1001,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02002v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02002v1" target="_blank" rel="noopener noreferrer">
                 探索检测大型语言模型中推荐系统数据记忆化的方法
             </a>
         </h3>
@@ -1024,7 +1024,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文涉及LLM记忆化检测，属于LLM评估范畴，与用户关注的RecSys核心进展、LLM技术应用或Transformer架构改进等焦点领域关联较弱。虽然提及推荐系统数据，但重点在于记忆化检测方法而非RecSys技术本身，且记忆化检测属于LLM评估的子领域，与用户明确排除的'评估基准'等NLP中心话题相关。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文涉及LLM记忆化检测，属于LLM评估范畴，与用户关注的RecSys核心进展、LLM技术应用或Transformer架构改进等焦点领域关联较弱。虽然提及推荐系统数据，但重点在于记忆化检测方法而非RecSys技术本身，且记忆化检测属于LLM评估的子领域，与用户明确排除的&#39;评估基准&#39;等NLP中心话题相关。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -1058,7 +1058,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01897v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01897v1" target="_blank" rel="noopener noreferrer">
                 一种用于多阶段索赔文档理解的混合架构：结合视觉语言模型与机器学习实现实时处理
             </a>
         </h3>
@@ -1081,7 +1081,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文涉及视觉语言模型（VLM）和实时处理，与'VLM Analogy for Heterogeneous Data'有一定相关性，但主要针对特定文档处理任务而非推荐/搜索/广告场景。标题未明确提及推荐系统、搜索或广告应用，且文档理解可能偏向特定领域而非通用异构数据处理。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文涉及视觉语言模型（VLM）和实时处理，与&#39;VLM Analogy for Heterogeneous Data&#39;有一定相关性，但主要针对特定文档处理任务而非推荐/搜索/广告场景。标题未明确提及推荐系统、搜索或广告应用，且文档理解可能偏向特定领域而非通用异构数据处理。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -1115,7 +1115,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01703v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01703v1" target="_blank" rel="noopener noreferrer">
                 超越同质性：异质性图上的社区搜索
             </a>
         </h3>
@@ -1172,7 +1172,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02179v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02179v1" target="_blank" rel="noopener noreferrer">
                 大语言模型在多轮交互中的置信度估计
             </a>
         </h3>
@@ -1214,7 +1214,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    While confidence estimation is a promising direction for mitigating hallucinations in Large Language Models (LLMs), current research dominantly focuses on single-turn settings. The dynamics of model confidence in multi-turn conversations, where context accumulates and ambiguity is progressively resolved, remain largely unexplored. Reliable confidence estimation in multi-turn settings is critical for many downstream applications, such as autonomous agents and human-in-the-loop systems. This work presents the first systematic study of confidence estimation in multi-turn interactions, establishing a formal evaluation framework grounded in two key desiderata: per-turn calibration and monotonicity of confidence as more information becomes available. To facilitate this, we introduce novel metrics, including a length-normalized Expected Calibration Error (InfoECE), and a new "Hinter-Guesser" paradigm for generating controlled evaluation datasets. Our experiments reveal that widely-used confidence techniques struggle with calibration and monotonicity in multi-turn dialogues. We propose P(Sufficient), a logit-based probe that achieves comparatively better performance, although the task remains far from solved. Our work provides a foundational methodology for developing more reliable and trustworthy conversational agents.
+                    While confidence estimation is a promising direction for mitigating hallucinations in Large Language Models (LLMs), current research dominantly focuses on single-turn settings. The dynamics of model confidence in multi-turn conversations, where context accumulates and ambiguity is progressively resolved, remain largely unexplored. Reliable confidence estimation in multi-turn settings is critical for many downstream applications, such as autonomous agents and human-in-the-loop systems. This work presents the first systematic study of confidence estimation in multi-turn interactions, establishing a formal evaluation framework grounded in two key desiderata: per-turn calibration and monotonicity of confidence as more information becomes available. To facilitate this, we introduce novel metrics, including a length-normalized Expected Calibration Error (InfoECE), and a new &#34;Hinter-Guesser&#34; paradigm for generating controlled evaluation datasets. Our experiments reveal that widely-used confidence techniques struggle with calibration and monotonicity in multi-turn dialogues. We propose P(Sufficient), a logit-based probe that achieves comparatively better performance, although the task remains far from solved. Our work provides a foundational methodology for developing more reliable and trustworthy conversational agents.
                 </div>
             </details>
     </div>
@@ -1229,7 +1229,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02163v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02163v1" target="_blank" rel="noopener noreferrer">
                 EverMemOS：一种用于结构化长程推理的自组织内存操作系统
             </a>
         </h3>
@@ -1286,7 +1286,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02151v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02151v1" target="_blank" rel="noopener noreferrer">
                 熵自适应微调：解决置信冲突以缓解遗忘
             </a>
         </h3>
@@ -1328,7 +1328,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Supervised Fine-Tuning (SFT) is the standard paradigm for domain adaptation, yet it frequently incurs the cost of catastrophic forgetting. In sharp contrast, on-policy Reinforcement Learning (RL) effectively preserves general capabilities. We investigate this discrepancy and identify a fundamental distributional gap: while RL aligns with the model's internal belief, SFT forces the model to fit external supervision. This mismatch often manifests as "Confident Conflicts" tokens characterized by low probability but low entropy. In these instances, the model is highly confident in its own prediction but is forced to learn a divergent ground truth, triggering destructive gradient updates. To address this, we propose Entropy-Adaptive Fine-Tuning (EAFT). Unlike methods relying solely on prediction probability, EAFT utilizes token-level entropy as a gating mechanism to distinguish between epistemic uncertainty and knowledge conflict. This allows the model to learn from uncertain samples while suppressing gradients on conflicting data. Extensive experiments on Qwen and GLM series (ranging from 4B to 32B parameters) across mathematical, medical, and agentic domains confirm our hypothesis. EAFT consistently matches the downstream performance of standard SFT while significantly mitigating the degradation of general capabilities.
+                    Supervised Fine-Tuning (SFT) is the standard paradigm for domain adaptation, yet it frequently incurs the cost of catastrophic forgetting. In sharp contrast, on-policy Reinforcement Learning (RL) effectively preserves general capabilities. We investigate this discrepancy and identify a fundamental distributional gap: while RL aligns with the model&#39;s internal belief, SFT forces the model to fit external supervision. This mismatch often manifests as &#34;Confident Conflicts&#34; tokens characterized by low probability but low entropy. In these instances, the model is highly confident in its own prediction but is forced to learn a divergent ground truth, triggering destructive gradient updates. To address this, we propose Entropy-Adaptive Fine-Tuning (EAFT). Unlike methods relying solely on prediction probability, EAFT utilizes token-level entropy as a gating mechanism to distinguish between epistemic uncertainty and knowledge conflict. This allows the model to learn from uncertain samples while suppressing gradients on conflicting data. Extensive experiments on Qwen and GLM series (ranging from 4B to 32B parameters) across mathematical, medical, and agentic domains confirm our hypothesis. EAFT consistently matches the downstream performance of standard SFT while significantly mitigating the degradation of general capabilities.
                 </div>
             </details>
     </div>
@@ -1343,7 +1343,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02076v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02076v1" target="_blank" rel="noopener noreferrer">
                 基于置信度感知滑动窗口的扩散语言模型延迟承诺解码
             </a>
         </h3>
@@ -1400,7 +1400,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01792v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01792v1" target="_blank" rel="noopener noreferrer">
                 超大规模语言模型CLOVA X 8B全模态
             </a>
         </h3>
@@ -1423,7 +1423,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该标题表明这是一个8B参数规模的语言模型，可能属于'Enabling LLM Tech'范畴，但缺乏具体技术细节。仅从标题无法判断其架构创新或与推荐/搜索/广告系统的具体应用关联，因此相关性较低。需要更多信息才能评估其作为基础模型在目标领域的潜在应用价值。</p>
+            <p class="text-gray-600 text-sm mt-1">该标题表明这是一个8B参数规模的语言模型，可能属于&#39;Enabling LLM Tech&#39;范畴，但缺乏具体技术细节。仅从标题无法判断其架构创新或与推荐/搜索/广告系统的具体应用关联，因此相关性较低。需要更多信息才能评估其作为基础模型在目标领域的潜在应用价值。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -1457,7 +1457,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01754v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01754v1" target="_blank" rel="noopener noreferrer">
                 基于Transformer的无上下文识别
             </a>
         </h3>
@@ -1480,7 +1480,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该标题涉及Transformer架构，属于'Enabling Transformer Tech'范畴，可能探讨注意力机制或效率改进。然而，'Context-Free Recognition'暗示可能专注于形式语言理论或句法分析等基础NLP任务，与推荐/搜索/广告系统的实际应用关联较弱，除非能明确展示如何提升序列建模效率或处理异构数据。</p>
+            <p class="text-gray-600 text-sm mt-1">该标题涉及Transformer架构，属于&#39;Enabling Transformer Tech&#39;范畴，可能探讨注意力机制或效率改进。然而，&#39;Context-Free Recognition&#39;暗示可能专注于形式语言理论或句法分析等基础NLP任务，与推荐/搜索/广告系统的实际应用关联较弱，除非能明确展示如何提升序列建模效率或处理异构数据。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -1499,7 +1499,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Transformers excel on tasks that process well-formed inputs according to some grammar, such as natural language and code. However, it remains unclear how they can process grammatical syntax. In fact, under standard complexity conjectures, standard transformers cannot recognize context-free languages (CFLs), a canonical formalism to describe syntax, or even regular languages, a subclass of CFLs (Merrill et al., 2022). Merrill & Sabharwal (2024) show that $\mathcal{O}(\log n)$ looping layers (w.r.t. input length $n$) allows transformers to recognize regular languages, but the question of context-free recognition remained open. In this work, we show that looped transformers with $\mathcal{O}(\log n)$ looping layers and $\mathcal{O}(n^6)$ padding tokens can recognize all CFLs. However, training and inference with $\mathcal{O}(n^6)$ padding tokens is potentially impractical. Fortunately, we show that, for natural subclasses such as unambiguous CFLs, the recognition problem on transformers becomes more tractable, requiring $\mathcal{O}(n^3)$ padding. We empirically validate our results and show that looping helps on a language that provably requires logarithmic depth. Overall, our results shed light on the intricacy of CFL recognition by transformers: While general recognition may require an intractable amount of padding, natural constraints such as unambiguity yield efficient recognition algorithms.
+                    Transformers excel on tasks that process well-formed inputs according to some grammar, such as natural language and code. However, it remains unclear how they can process grammatical syntax. In fact, under standard complexity conjectures, standard transformers cannot recognize context-free languages (CFLs), a canonical formalism to describe syntax, or even regular languages, a subclass of CFLs (Merrill et al., 2022). Merrill &amp; Sabharwal (2024) show that $\mathcal{O}(\log n)$ looping layers (w.r.t. input length $n$) allows transformers to recognize regular languages, but the question of context-free recognition remained open. In this work, we show that looped transformers with $\mathcal{O}(\log n)$ looping layers and $\mathcal{O}(n^6)$ padding tokens can recognize all CFLs. However, training and inference with $\mathcal{O}(n^6)$ padding tokens is potentially impractical. Fortunately, we show that, for natural subclasses such as unambiguous CFLs, the recognition problem on transformers becomes more tractable, requiring $\mathcal{O}(n^3)$ padding. We empirically validate our results and show that looping helps on a language that provably requires logarithmic depth. Overall, our results shed light on the intricacy of CFL recognition by transformers: While general recognition may require an intractable amount of padding, natural constraints such as unambiguity yield efficient recognition algorithms.
                 </div>
             </details>
     </div>
@@ -1514,7 +1514,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02147v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02147v1" target="_blank" rel="noopener noreferrer">
                 BiPrompt：面向视觉语言模型中视觉与文本去偏的双边提示优化
             </a>
         </h3>
@@ -1571,7 +1571,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01984v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01984v1" target="_blank" rel="noopener noreferrer">
                 蓝图思维：通过结构化对象表示辅助视觉语言模型进行空间推理
             </a>
         </h3>
@@ -1594,7 +1594,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文涉及视觉语言模型（VLM）和空间推理，与'VLM类比异构数据'焦点有一定关联，但主要针对视觉空间任务而非推荐/搜索/广告中的异构数据建模。虽然结构化表示思想可能启发推荐系统中的特征处理，但论文标题明确指向视觉空间推理，与当前聚焦领域的直接应用距离较远。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文涉及视觉语言模型（VLM）和空间推理，与&#39;VLM类比异构数据&#39;焦点有一定关联，但主要针对视觉空间任务而非推荐/搜索/广告中的异构数据建模。虽然结构化表示思想可能启发推荐系统中的特征处理，但论文标题明确指向视觉空间推理，与当前聚焦领域的直接应用距离较远。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -1628,7 +1628,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01892v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01892v1" target="_blank" rel="noopener noreferrer">
                 通过层级关系向父节点学习以减少遗忘
             </a>
         </h3>
@@ -1685,7 +1685,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01862v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01862v1" target="_blank" rel="noopener noreferrer">
                 基于个性与置信度的判断：个性条件化大语言模型相关性评估研究
             </a>
         </h3>
@@ -1742,7 +1742,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01785v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01785v1" target="_blank" rel="noopener noreferrer">
                 SRAS：一种基于轻量级强化学习的文档选择器，用于边缘原生RAG管道
             </a>
         </h3>
@@ -1784,7 +1784,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Retrieval-Augmented Generation (RAG) systems often rely on fixed top-k document selection mechanisms that ignore downstream generation quality and impose computational overheads. We propose SRAS (Sparse Reward-Aware Selector), a lightweight document selector trained via reinforcement learning (RL) for edge-native RAG deployment. Unlike prior RL-based retrievers that assume large memory and latency budgets, SRAS learns a compact (~0.76MB) policy using Proximal Policy Optimization (PPO), guided by a hybrid reward signal combining Relaxed F1 and BERTScore. Our method operates under tight token and compute constraints, maintaining <1s latency on CPU. SRAS outperforms supervised and random selectors on a synthetic QA benchmark, and generalizes to real-world data, achieving BERTScore F1 of 0.8546 on SQuAD v2 without domain-specific tuning. This work is the first to demonstrate that RL-based document selection can be made ultra-lightweight, latency-aware, and effective for on-device RAG pipelines.
+                    Retrieval-Augmented Generation (RAG) systems often rely on fixed top-k document selection mechanisms that ignore downstream generation quality and impose computational overheads. We propose SRAS (Sparse Reward-Aware Selector), a lightweight document selector trained via reinforcement learning (RL) for edge-native RAG deployment. Unlike prior RL-based retrievers that assume large memory and latency budgets, SRAS learns a compact (~0.76MB) policy using Proximal Policy Optimization (PPO), guided by a hybrid reward signal combining Relaxed F1 and BERTScore. Our method operates under tight token and compute constraints, maintaining &lt;1s latency on CPU. SRAS outperforms supervised and random selectors on a synthetic QA benchmark, and generalizes to real-world data, achieving BERTScore F1 of 0.8546 on SQuAD v2 without domain-specific tuning. This work is the first to demonstrate that RL-based document selection can be made ultra-lightweight, latency-aware, and effective for on-device RAG pipelines.
                 </div>
             </details>
     </div>
@@ -1799,7 +1799,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02337v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02337v1" target="_blank" rel="noopener noreferrer">
                 基于提示优化与学习式集成方法的鲁棒性人物角色感知毒性检测
             </a>
         </h3>
@@ -1841,7 +1841,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Toxicity detection is inherently subjective, shaped by the diverse perspectives and social priors of different demographic groups. While ``pluralistic'' modeling as used in economics and the social sciences aims to capture perspective differences across contexts, current Large Language Model (LLM) prompting techniques have different results across different personas and base models. In this work, we conduct a systematic evaluation of persona-aware toxicity detection, showing that no single prompting method, including our proposed automated prompt optimization strategy, uniformly dominates across all model-persona pairs. To exploit complementary errors, we explore ensembling four prompting variants and propose a lightweight meta-ensemble: an SVM over the 4-bit vector of prompt predictions. Our results demonstrate that the proposed SVM ensemble consistently outperforms individual prompting methods and traditional majority-voting techniques, achieving the strongest overall performance across diverse personas. This work provides one of the first systematic comparisons of persona-conditioned prompting for toxicity detection and offers a robust method for pluralistic evaluation in subjective NLP tasks.
+                    Toxicity detection is inherently subjective, shaped by the diverse perspectives and social priors of different demographic groups. While ``pluralistic&#39;&#39; modeling as used in economics and the social sciences aims to capture perspective differences across contexts, current Large Language Model (LLM) prompting techniques have different results across different personas and base models. In this work, we conduct a systematic evaluation of persona-aware toxicity detection, showing that no single prompting method, including our proposed automated prompt optimization strategy, uniformly dominates across all model-persona pairs. To exploit complementary errors, we explore ensembling four prompting variants and propose a lightweight meta-ensemble: an SVM over the 4-bit vector of prompt predictions. Our results demonstrate that the proposed SVM ensemble consistently outperforms individual prompting methods and traditional majority-voting techniques, achieving the strongest overall performance across diverse personas. This work provides one of the first systematic comparisons of persona-conditioned prompting for toxicity detection and offers a robust method for pluralistic evaluation in subjective NLP tasks.
                 </div>
             </details>
     </div>
@@ -1856,7 +1856,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02236v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02236v1" target="_blank" rel="noopener noreferrer">
                 CD4LM：扩散语言模型的一致性蒸馏与自适应解码
             </a>
         </h3>
@@ -1898,7 +1898,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Autoregressive large language models achieve strong results on many benchmarks, but decoding remains fundamentally latency-limited by sequential dependence on previously generated tokens. Diffusion language models (DLMs) promise parallel generation but suffer from a fundamental static-to-dynamic misalignment: Training optimizes local transitions under fixed schedules, whereas efficient inference requires adaptive "long-jump" refinements through unseen states. Our goal is to enable highly parallel decoding for DLMs with low number of function evaluations while preserving generation quality. To achieve this, we propose CD4LM, a framework that decouples training from inference via Discrete-Space Consistency Distillation (DSCD) and Confidence-Adaptive Decoding (CAD). Unlike standard objectives, DSCD trains a student to be trajectory-invariant, mapping diverse noisy states directly to the clean distribution. This intrinsic robustness enables CAD to dynamically allocate compute resources based on token confidence, aggressively skipping steps without the quality collapse typical of heuristic acceleration. On GSM8K, CD4LM matches the LLaDA baseline with a 5.18x wall-clock speedup; across code and math benchmarks, it strictly dominates the accuracy-efficiency Pareto frontier, achieving a 3.62x mean speedup while improving average accuracy. Code is available at https://github.com/yihao-liang/CDLM
+                    Autoregressive large language models achieve strong results on many benchmarks, but decoding remains fundamentally latency-limited by sequential dependence on previously generated tokens. Diffusion language models (DLMs) promise parallel generation but suffer from a fundamental static-to-dynamic misalignment: Training optimizes local transitions under fixed schedules, whereas efficient inference requires adaptive &#34;long-jump&#34; refinements through unseen states. Our goal is to enable highly parallel decoding for DLMs with low number of function evaluations while preserving generation quality. To achieve this, we propose CD4LM, a framework that decouples training from inference via Discrete-Space Consistency Distillation (DSCD) and Confidence-Adaptive Decoding (CAD). Unlike standard objectives, DSCD trains a student to be trajectory-invariant, mapping diverse noisy states directly to the clean distribution. This intrinsic robustness enables CAD to dynamically allocate compute resources based on token confidence, aggressively skipping steps without the quality collapse typical of heuristic acceleration. On GSM8K, CD4LM matches the LLaDA baseline with a 5.18x wall-clock speedup; across code and math benchmarks, it strictly dominates the accuracy-efficiency Pareto frontier, achieving a 3.62x mean speedup while improving average accuracy. Code is available at https://github.com/yihao-liang/CDLM
                 </div>
             </details>
     </div>
@@ -1913,7 +1913,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02128v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02128v1" target="_blank" rel="noopener noreferrer">
                 迈向多层次转录文本分割：基于LoRA微调技术的目录生成
             </a>
         </h3>
@@ -1970,7 +1970,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02065v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02065v1" target="_blank" rel="noopener noreferrer">
                 面向低资源语言的成本高效跨语言检索增强生成：以孟加拉语农业咨询为例
             </a>
         </h3>
@@ -2027,7 +2027,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02043v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02043v1" target="_blank" rel="noopener noreferrer">
                 模拟推理即推理
             </a>
         </h3>
@@ -2050,7 +2050,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该标题暗示了关于推理过程模拟或形式化的理论讨论，可能涉及LLM的推理能力。虽然与'Enabling LLM Tech'有一定关联（如提升LLM的推理能力），但缺乏明确的RecSys/Search/Ads应用指向，更偏向于LLM的基础能力研究，与直接应用或异构数据建模等焦点领域关联较弱。</p>
+            <p class="text-gray-600 text-sm mt-1">该标题暗示了关于推理过程模拟或形式化的理论讨论，可能涉及LLM的推理能力。虽然与&#39;Enabling LLM Tech&#39;有一定关联（如提升LLM的推理能力），但缺乏明确的RecSys/Search/Ads应用指向，更偏向于LLM的基础能力研究，与直接应用或异构数据建模等焦点领域关联较弱。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -2069,7 +2069,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Reasoning has long been understood as a pathway between stages of understanding. Proper reasoning leads to understanding of a given subject. This reasoning was conceptualized as a process of understanding in a particular way, i.e., "symbolic reasoning". Foundational Models (FM) demonstrate that this is not a necessary condition for many reasoning tasks: they can "reason" by way of imitating the process of "thinking out loud", testing the produced pathways, and iterating on these pathways on their own. This leads to some form of reasoning that can solve problems on its own or with few-shot learning, but appears fundamentally different from human reasoning due to its lack of grounding and common sense, leading to brittleness of the reasoning process. These insights promise to substantially alter our assessment of reasoning and its necessary conditions, but also inform the approaches to safety and robust defences against this brittleness of FMs. This paper offers and discusses several philosophical interpretations of this phenomenon, argues that the previously apt metaphor of the "stochastic parrot" has lost its relevance and thus should be abandoned, and reflects on different normative elements in the safety- and appropriateness-considerations emerging from these reasoning models and their growing capacity.
+                    Reasoning has long been understood as a pathway between stages of understanding. Proper reasoning leads to understanding of a given subject. This reasoning was conceptualized as a process of understanding in a particular way, i.e., &#34;symbolic reasoning&#34;. Foundational Models (FM) demonstrate that this is not a necessary condition for many reasoning tasks: they can &#34;reason&#34; by way of imitating the process of &#34;thinking out loud&#34;, testing the produced pathways, and iterating on these pathways on their own. This leads to some form of reasoning that can solve problems on its own or with few-shot learning, but appears fundamentally different from human reasoning due to its lack of grounding and common sense, leading to brittleness of the reasoning process. These insights promise to substantially alter our assessment of reasoning and its necessary conditions, but also inform the approaches to safety and robust defences against this brittleness of FMs. This paper offers and discusses several philosophical interpretations of this phenomenon, argues that the previously apt metaphor of the &#34;stochastic parrot&#34; has lost its relevance and thus should be abandoned, and reflects on different normative elements in the safety- and appropriateness-considerations emerging from these reasoning models and their growing capacity.
                 </div>
             </details>
     </div>
@@ -2084,7 +2084,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01896v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01896v1" target="_blank" rel="noopener noreferrer">
                 解决RAG中噪声过滤的固有难题
             </a>
         </h3>
@@ -2126,7 +2126,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Retrieval-Augmented Generation (RAG) has become a widely adopted approach to enhance Large Language Models (LLMs) by incorporating external knowledge and reducing hallucinations. However, noisy or irrelevant documents are often introduced during RAG, potentially degrading performance and even causing hallucinated outputs. While various methods have been proposed to filter out such noise, we argue that identifying irrelevant information from retrieved content is inherently difficult and limited number of transformer layers can hardly solve this. Consequently, retrievers fail to filter out irrelevant documents entirely. Therefore, LLMs must be robust against such noise, but we demonstrate that standard fine-tuning approaches are often ineffective in enabling the model to selectively utilize relevant information while ignoring irrelevant content due to the structural constraints of attention patterns. To address this, we propose a novel fine-tuning method designed to enhance the model's ability to distinguish between relevant and irrelevant information within retrieved documents. Extensive experiments across multiple benchmarks show that our approach significantly improves the robustness and performance of LLMs.
+                    Retrieval-Augmented Generation (RAG) has become a widely adopted approach to enhance Large Language Models (LLMs) by incorporating external knowledge and reducing hallucinations. However, noisy or irrelevant documents are often introduced during RAG, potentially degrading performance and even causing hallucinated outputs. While various methods have been proposed to filter out such noise, we argue that identifying irrelevant information from retrieved content is inherently difficult and limited number of transformer layers can hardly solve this. Consequently, retrievers fail to filter out irrelevant documents entirely. Therefore, LLMs must be robust against such noise, but we demonstrate that standard fine-tuning approaches are often ineffective in enabling the model to selectively utilize relevant information while ignoring irrelevant content due to the structural constraints of attention patterns. To address this, we propose a novel fine-tuning method designed to enhance the model&#39;s ability to distinguish between relevant and irrelevant information within retrieved documents. Extensive experiments across multiple benchmarks show that our approach significantly improves the robustness and performance of LLMs.
                 </div>
             </details>
     </div>
@@ -2141,7 +2141,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01828v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01828v1" target="_blank" rel="noopener noreferrer">
                 大型语言模型中的涌现自省意识
             </a>
         </h3>
@@ -2183,7 +2183,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    We investigate whether large language models can introspect on their internal states. It is difficult to answer this question through conversation alone, as genuine introspection cannot be distinguished from confabulations. Here, we address this challenge by injecting representations of known concepts into a model's activations, and measuring the influence of these manipulations on the model's self-reported states. We find that models can, in certain scenarios, notice the presence of injected concepts and accurately identify them. Models demonstrate some ability to recall prior internal representations and distinguish them from raw text inputs. Strikingly, we find that some models can use their ability to recall prior intentions in order to distinguish their own outputs from artificial prefills. In all these experiments, Claude Opus 4 and 4.1, the most capable models we tested, generally demonstrate the greatest introspective awareness; however, trends across models are complex and sensitive to post-training strategies. Finally, we explore whether models can explicitly control their internal representations, finding that models can modulate their activations when instructed or incentivized to "think about" a concept. Overall, our results indicate that current language models possess some functional introspective awareness of their own internal states. We stress that in today's models, this capacity is highly unreliable and context-dependent; however, it may continue to develop with further improvements to model capabilities.
+                    We investigate whether large language models can introspect on their internal states. It is difficult to answer this question through conversation alone, as genuine introspection cannot be distinguished from confabulations. Here, we address this challenge by injecting representations of known concepts into a model&#39;s activations, and measuring the influence of these manipulations on the model&#39;s self-reported states. We find that models can, in certain scenarios, notice the presence of injected concepts and accurately identify them. Models demonstrate some ability to recall prior internal representations and distinguish them from raw text inputs. Strikingly, we find that some models can use their ability to recall prior intentions in order to distinguish their own outputs from artificial prefills. In all these experiments, Claude Opus 4 and 4.1, the most capable models we tested, generally demonstrate the greatest introspective awareness; however, trends across models are complex and sensitive to post-training strategies. Finally, we explore whether models can explicitly control their internal representations, finding that models can modulate their activations when instructed or incentivized to &#34;think about&#34; a concept. Overall, our results indicate that current language models possess some functional introspective awareness of their own internal states. We stress that in today&#39;s models, this capacity is highly unreliable and context-dependent; however, it may continue to develop with further improvements to model capabilities.
                 </div>
             </details>
     </div>
@@ -2198,7 +2198,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02358v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02358v1" target="_blank" rel="noopener noreferrer">
                 VINO：一种具有交错全模态上下文的统一视觉生成器
             </a>
         </h3>
@@ -2255,7 +2255,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02356v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02356v1" target="_blank" rel="noopener noreferrer">
                 Talk2Move：基于强化学习的文本指令场景物体级几何变换
             </a>
         </h3>
@@ -2312,7 +2312,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02289v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02289v1" target="_blank" rel="noopener noreferrer">
                 基于排序的地理正则化：重新审视多光谱遥感影像的对比自监督学习
             </a>
         </h3>
@@ -2369,7 +2369,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02281v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02281v1" target="_blank" rel="noopener noreferrer">
                 InfiniteVGGT：面向无限数据流的视觉几何基础Transformer
             </a>
         </h3>
@@ -2411,7 +2411,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    The grand vision of enabling persistent, large-scale 3D visual geometry understanding is shackled by the irreconcilable demands of scalability and long-term stability. While offline models like VGGT achieve inspiring geometry capability, their batch-based nature renders them irrelevant for live systems. Streaming architectures, though the intended solution for live operation, have proven inadequate. Existing methods either fail to support truly infinite-horizon inputs or suffer from catastrophic drift over long sequences. We shatter this long-standing dilemma with InfiniteVGGT, a causal visual geometry transformer that operationalizes the concept of a rolling memory through a bounded yet adaptive and perpetually expressive KV cache. Capitalizing on this, we devise a training-free, attention-agnostic pruning strategy that intelligently discards obsolete information, effectively ``rolling'' the memory forward with each new frame. Fully compatible with FlashAttention, InfiniteVGGT finally alleviates the compromise, enabling infinite-horizon streaming while outperforming existing streaming methods in long-term stability. The ultimate test for such a system is its performance over a truly infinite horizon, a capability that has been impossible to rigorously validate due to the lack of extremely long-term, continuous benchmarks. To address this critical gap, we introduce the Long3D benchmark, which, for the first time, enables a rigorous evaluation of continuous 3D geometry estimation on sequences about 10,000 frames. This provides the definitive evaluation platform for future research in long-term 3D geometry understanding. Code is available at: https://github.com/AutoLab-SAI-SJTU/InfiniteVGGT
+                    The grand vision of enabling persistent, large-scale 3D visual geometry understanding is shackled by the irreconcilable demands of scalability and long-term stability. While offline models like VGGT achieve inspiring geometry capability, their batch-based nature renders them irrelevant for live systems. Streaming architectures, though the intended solution for live operation, have proven inadequate. Existing methods either fail to support truly infinite-horizon inputs or suffer from catastrophic drift over long sequences. We shatter this long-standing dilemma with InfiniteVGGT, a causal visual geometry transformer that operationalizes the concept of a rolling memory through a bounded yet adaptive and perpetually expressive KV cache. Capitalizing on this, we devise a training-free, attention-agnostic pruning strategy that intelligently discards obsolete information, effectively ``rolling&#39;&#39; the memory forward with each new frame. Fully compatible with FlashAttention, InfiniteVGGT finally alleviates the compromise, enabling infinite-horizon streaming while outperforming existing streaming methods in long-term stability. The ultimate test for such a system is its performance over a truly infinite horizon, a capability that has been impossible to rigorously validate due to the lack of extremely long-term, continuous benchmarks. To address this critical gap, we introduce the Long3D benchmark, which, for the first time, enables a rigorous evaluation of continuous 3D geometry estimation on sequences about 10,000 frames. This provides the definitive evaluation platform for future research in long-term 3D geometry understanding. Code is available at: https://github.com/AutoLab-SAI-SJTU/InfiniteVGGT
                 </div>
             </details>
     </div>
@@ -2426,7 +2426,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02273v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02273v1" target="_blank" rel="noopener noreferrer">
                 TopoLoRA-SAM：面向细长结构与跨域二值语义分割的拓扑感知参数高效基础分割器适配方法
             </a>
         </h3>
@@ -2483,7 +2483,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02253v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02253v1" target="_blank" rel="noopener noreferrer">
                 神经通道网络：一种基于生物信号传输的无乘法架构
             </a>
         </h3>
@@ -2525,7 +2525,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    The rapid proliferation of Deep Learning is increasingly constrained by its heavy reliance on high-performance hardware, particularly Graphics Processing Units (GPUs). These specialized accelerators are not only prohibitively expensive and energy-intensive but also suffer from significant supply scarcity, limiting the ubiquity of Artificial Intelligence (AI) deployment on edge devices. The core of this inefficiency stems from the standard artificial perceptron's dependence on intensive matrix multiplications. However, biological nervous systems achieve unparalleled efficiency without such arithmetic intensity; synaptic signal transmission is regulated by physical ion channel limits and chemical neurotransmitter levels rather than a process that can be analogous to arithmetic multiplication. Inspired by this biological mechanism, we propose Neuro-Channel Networks (NCN), a novel multiplication-free architecture designed to decouple AI from expensive hardware dependencies. In our model, weights are replaced with Channel Widths that physically limit the signal magnitude, while a secondary parameter acts as a Neurotransmitter to regulate Signal Transmission based on sign logic. The forward pass relies exclusively on addition, subtraction, and bitwise operations (minimum, sign), eliminating floating-point multiplication entirely. In this proof-of-concept study, we demonstrate that NCNs can solve non-linearly separable problems like XOR and the Majority function with 100% accuracy using standard backpropagation, proving their capability to form complex decision boundaries without multiplicative weights. This architecture offers a highly efficient alternative for next-generation neuromorphic hardware, paving the way for running complex models on commodity CPUs or ultra-low-power chips without relying on costly GPU clusters.
+                    The rapid proliferation of Deep Learning is increasingly constrained by its heavy reliance on high-performance hardware, particularly Graphics Processing Units (GPUs). These specialized accelerators are not only prohibitively expensive and energy-intensive but also suffer from significant supply scarcity, limiting the ubiquity of Artificial Intelligence (AI) deployment on edge devices. The core of this inefficiency stems from the standard artificial perceptron&#39;s dependence on intensive matrix multiplications. However, biological nervous systems achieve unparalleled efficiency without such arithmetic intensity; synaptic signal transmission is regulated by physical ion channel limits and chemical neurotransmitter levels rather than a process that can be analogous to arithmetic multiplication. Inspired by this biological mechanism, we propose Neuro-Channel Networks (NCN), a novel multiplication-free architecture designed to decouple AI from expensive hardware dependencies. In our model, weights are replaced with Channel Widths that physically limit the signal magnitude, while a secondary parameter acts as a Neurotransmitter to regulate Signal Transmission based on sign logic. The forward pass relies exclusively on addition, subtraction, and bitwise operations (minimum, sign), eliminating floating-point multiplication entirely. In this proof-of-concept study, we demonstrate that NCNs can solve non-linearly separable problems like XOR and the Majority function with 100% accuracy using standard backpropagation, proving their capability to form complex decision boundaries without multiplicative weights. This architecture offers a highly efficient alternative for next-generation neuromorphic hardware, paving the way for running complex models on commodity CPUs or ultra-low-power chips without relying on costly GPU clusters.
                 </div>
             </details>
     </div>
@@ -2540,7 +2540,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02249v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02249v1" target="_blank" rel="noopener noreferrer">
                 SLGNet：融合结构先验与语言引导调制的多模态目标检测
             </a>
         </h3>
@@ -2597,7 +2597,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02246v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02246v1" target="_blank" rel="noopener noreferrer">
                 跨多个视觉数据集的自定义CNN、预训练模型与迁移学习的比较研究
             </a>
         </h3>
@@ -2654,7 +2654,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02211v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02211v1" target="_blank" rel="noopener noreferrer">
                 解构MMDiT模块：基于文本条件的扩散模型的无训练分析与增强
             </a>
         </h3>
@@ -2696,7 +2696,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Recent breakthroughs of transformer-based diffusion models, particularly with Multimodal Diffusion Transformers (MMDiT) driven models like FLUX and Qwen Image, have facilitated thrilling experiences in text-to-image generation and editing. To understand the internal mechanism of MMDiT-based models, existing methods tried to analyze the effect of specific components like positional encoding and attention layers. Yet, a comprehensive understanding of how different blocks and their interactions with textual conditions contribute to the synthesis process remains elusive. In this paper, we first develop a systematic pipeline to comprehensively investigate each block's functionality by removing, disabling and enhancing textual hidden-states at corresponding blocks. Our analysis reveals that 1) semantic information appears in earlier blocks and finer details are rendered in later blocks, 2) removing specific blocks is usually less disruptive than disabling text conditions, and 3) enhancing textual conditions in selective blocks improves semantic attributes. Building on these observations, we further propose novel training-free strategies for improved text alignment, precise editing, and acceleration. Extensive experiments demonstrated that our method outperforms various baselines and remains flexible across text-to-image generation, image editing, and inference acceleration. Our method improves T2I-Combench++ from 56.92% to 63.00% and GenEval from 66.42% to 71.63% on SD3.5, without sacrificing synthesis quality. These results advance understanding of MMDiT models and provide valuable insights to unlock new possibilities for further improvements.
+                    Recent breakthroughs of transformer-based diffusion models, particularly with Multimodal Diffusion Transformers (MMDiT) driven models like FLUX and Qwen Image, have facilitated thrilling experiences in text-to-image generation and editing. To understand the internal mechanism of MMDiT-based models, existing methods tried to analyze the effect of specific components like positional encoding and attention layers. Yet, a comprehensive understanding of how different blocks and their interactions with textual conditions contribute to the synthesis process remains elusive. In this paper, we first develop a systematic pipeline to comprehensively investigate each block&#39;s functionality by removing, disabling and enhancing textual hidden-states at corresponding blocks. Our analysis reveals that 1) semantic information appears in earlier blocks and finer details are rendered in later blocks, 2) removing specific blocks is usually less disruptive than disabling text conditions, and 3) enhancing textual conditions in selective blocks improves semantic attributes. Building on these observations, we further propose novel training-free strategies for improved text alignment, precise editing, and acceleration. Extensive experiments demonstrated that our method outperforms various baselines and remains flexible across text-to-image generation, image editing, and inference acceleration. Our method improves T2I-Combench++ from 56.92% to 63.00% and GenEval from 66.42% to 71.63% on SD3.5, without sacrificing synthesis quality. These results advance understanding of MMDiT models and provide valuable insights to unlock new possibilities for further improvements.
                 </div>
             </details>
     </div>
@@ -2711,7 +2711,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02098v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02098v1" target="_blank" rel="noopener noreferrer">
                 InpaintHuman：基于多尺度UV映射与身份保持扩散修复的遮挡人体重建
             </a>
         </h3>
@@ -2768,7 +2768,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02036v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02036v1" target="_blank" rel="noopener noreferrer">
                 GDRO：适用于扩散模型的群体级奖励后训练方法
             </a>
         </h3>
@@ -2825,7 +2825,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02018v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02018v1" target="_blank" rel="noopener noreferrer">
                 通过生成式与自适应潜在空间增强实现任意质量图像分割
             </a>
         </h3>
@@ -2882,7 +2882,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02016v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02016v1" target="_blank" rel="noopener noreferrer">
                 利用特权信息增强目标检测：一种模型无关的师生方法
             </a>
         </h3>
@@ -2939,7 +2939,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01963v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01963v1" target="_blank" rel="noopener noreferrer">
                 通过概念整合共同学习以减少遗忘
             </a>
         </h3>
@@ -2996,7 +2996,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01957v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01957v1" target="_blank" rel="noopener noreferrer">
                 AFTER：通过自适应事实引导的激活编辑缓解大型视觉语言模型的对象幻觉
             </a>
         </h3>
@@ -3053,7 +3053,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01955v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01955v1" target="_blank" rel="noopener noreferrer">
                 MotionAdapter：基于内容感知注意力定制的视频运动迁移
             </a>
         </h3>
@@ -3110,7 +3110,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01926v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01926v1" target="_blank" rel="noopener noreferrer">
                 MacVQA：持续视觉问答中的自适应内存分配与全局噪声过滤
             </a>
         </h3>
@@ -3167,7 +3167,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01914v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01914v1" target="_blank" rel="noopener noreferrer">
                 通过混合几何扩散学习动作层次结构
             </a>
         </h3>
@@ -3224,7 +3224,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01874v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01874v1" target="_blank" rel="noopener noreferrer">
                 CogFlow：通过知识内化连接感知与推理，用于视觉数学问题求解
             </a>
         </h3>
@@ -3281,7 +3281,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01804v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01804v1" target="_blank" rel="noopener noreferrer">
                 面向视频大语言模型的因果感知时序投影视频理解方法
             </a>
         </h3>
@@ -3304,7 +3304,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文主要关注视频理解和视频大语言模型，属于纯粹的视觉领域研究，与RecSys/Search/Ads的核心关注点（如用户行为建模、内容排序、广告投放等）没有直接关联。虽然标题中提到'因果感知'和'时序投影'等概念，但这些技术并未明确指向推荐、搜索或广告领域的应用场景。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文主要关注视频理解和视频大语言模型，属于纯粹的视觉领域研究，与RecSys/Search/Ads的核心关注点（如用户行为建模、内容排序、广告投放等）没有直接关联。虽然标题中提到&#39;因果感知&#39;和&#39;时序投影&#39;等概念，但这些技术并未明确指向推荐、搜索或广告领域的应用场景。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -3338,7 +3338,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01784v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01784v1" target="_blank" rel="noopener noreferrer">
                 DDNet：一种用于时序伪造定位的双流图学习与解耦框架
             </a>
         </h3>
@@ -3395,7 +3395,7 @@
 <div class="simple-paper-card p-3 collapsed-level-1">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01747v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01747v1" target="_blank" rel="noopener noreferrer">
                 利用黑盒优化为大型视觉语言模型构建对抗性输入
             </a>
         </h3>
@@ -3452,7 +3452,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01944v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01944v1" target="_blank" rel="noopener noreferrer">
                 AI库的无形之手：塑造开源项目与社区
             </a>
         </h3>
@@ -3509,7 +3509,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01921v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01921v1" target="_blank" rel="noopener noreferrer">
                 缺陷正在形成：我们距离有多近？一种时间敏感的预测方法
             </a>
         </h3>
@@ -3566,7 +3566,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01831v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01831v1" target="_blank" rel="noopener noreferrer">
                 ARIES：一种用于实时流行病学监测和疫情监控的可扩展多智能体编排框架
             </a>
         </h3>
@@ -3623,7 +3623,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02320v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02320v1" target="_blank" rel="noopener noreferrer">
                 估计文本温度
             </a>
         </h3>
@@ -3680,7 +3680,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02303v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02303v1" target="_blank" rel="noopener noreferrer">
                 多种纳瓦特尔方言变体的分类研究
             </a>
         </h3>
@@ -3737,7 +3737,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02285v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02285v1" target="_blank" rel="noopener noreferrer">
                 pdfQA：基于PDF文档的多样化、挑战性及现实性问答
             </a>
         </h3>
@@ -3794,7 +3794,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02224v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02224v1" target="_blank" rel="noopener noreferrer">
                 从可解释人工智能到故事：LLM生成解释质量的因子研究
             </a>
         </h3>
@@ -3851,7 +3851,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02209v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02209v1" target="_blank" rel="noopener noreferrer">
                 ARCADE：用于细粒度阿拉伯语方言标注的城市规模语料库
             </a>
         </h3>
@@ -3908,7 +3908,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02186v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02186v1" target="_blank" rel="noopener noreferrer">
                 迈向医学领域的全球性大规模语言模型
             </a>
         </h3>
@@ -3965,7 +3965,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02158v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02158v1" target="_blank" rel="noopener noreferrer">
                 FormationEval：一个用于石油地质科学的开放式多项选择题基准
             </a>
         </h3>
@@ -4022,7 +4022,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02123v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02123v1" target="_blank" rel="noopener noreferrer">
                 DeCode：用于医学问答的内容与传递解耦
             </a>
         </h3>
@@ -4064,7 +4064,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Large language models (LLMs) exhibit strong medical knowledge and can generate factually accurate responses. However, existing models often fail to account for individual patient contexts, producing answers that are clinically correct yet poorly aligned with patients' needs. In this work, we introduce DeCode, a training-free, model-agnostic framework that adapts existing LLMs to produce contextualized answers in clinical settings. We evaluate DeCode on OpenAI HealthBench, a comprehensive and challenging benchmark designed to assess clinical relevance and validity of LLM responses. DeCode improves the previous state of the art from $28.4\%$ to $49.8\%$, corresponding to a $75\%$ relative improvement. Experimental results suggest the effectiveness of DeCode in improving clinical question answering of LLMs.
+                    Large language models (LLMs) exhibit strong medical knowledge and can generate factually accurate responses. However, existing models often fail to account for individual patient contexts, producing answers that are clinically correct yet poorly aligned with patients&#39; needs. In this work, we introduce DeCode, a training-free, model-agnostic framework that adapts existing LLMs to produce contextualized answers in clinical settings. We evaluate DeCode on OpenAI HealthBench, a comprehensive and challenging benchmark designed to assess clinical relevance and validity of LLM responses. DeCode improves the previous state of the art from $28.4\%$ to $49.8\%$, corresponding to a $75\%$ relative improvement. Experimental results suggest the effectiveness of DeCode in improving clinical question answering of LLMs.
                 </div>
             </details>
     </div>
@@ -4079,8 +4079,8 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02023v1" target="_blank" rel="noopener noreferrer">
-                并非所有针都能被找到：事实分布与'勿虚构'提示如何影响长上下文大语言模型中的字面提取、逻辑推理与幻觉风险
+            <a href="https://arxiv.org/abs/2601.02023v1" target="_blank" rel="noopener noreferrer">
+                并非所有针都能被找到：事实分布与&#39;勿虚构&#39;提示如何影响长上下文大语言模型中的字面提取、逻辑推理与幻觉风险
             </a>
         </h3>
         <span class="score-badge bg-gray-100 text-gray-800">
@@ -4090,7 +4090,7 @@
     
     <div class="paper-details">
         <div class="mb-2 text-base text-gray-700">
-            Not All Needles Are Found: How Fact Distribution and Don't Make It Up Prompts Shape Literal Extraction, Logical Inference, and Hallucination Risks in Long-Context LLMs
+            Not All Needles Are Found: How Fact Distribution and Don&#39;t Make It Up Prompts Shape Literal Extraction, Logical Inference, and Hallucination Risks in Long-Context LLMs
         </div>
         
         <div class="mb-2 text-sm text-gray-600 italic">
@@ -4102,7 +4102,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文标题明确涉及'幻觉风险'和'长上下文LLMs'，这属于'幻觉、评估基准或其他纯NLP中心主题'的无关主题范畴。虽然提到了长上下文处理，但核心焦点是幻觉问题而非推荐/搜索/广告应用，且未提及任何潜在的应用场景。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文标题明确涉及&#39;幻觉风险&#39;和&#39;长上下文LLMs&#39;，这属于&#39;幻觉、评估基准或其他纯NLP中心主题&#39;的无关主题范畴。虽然提到了长上下文处理，但核心焦点是幻觉问题而非推荐/搜索/广告应用，且未提及任何潜在的应用场景。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -4121,7 +4121,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Large language models (LLMs) increasingly support very long input contexts. Yet it remains unclear how reliably they extract and infer information at scale. Performance varies with context length and strongly interacts with how information is distributed in real-world corpora. Motivated by these observations, we study how fact placement, corpus-level fact distributions, and Don't Make It Up prompts influence model behavior. We introduce an extended needle-in-a-haystack benchmark across four production-scale models: Gemini-2.5-flash, ChatGPT-5-mini, Claude-4.5-haiku, and Deepseek-v3.2-chat. Unlike prior work, we separately evaluate literal extraction, logical inference, and hallucination risk. Our study considers both positional effects and realistic distributions of evidence across long contexts, as well as prompts that explicitly discourage fabrication. We find that longer contexts alone do not guarantee better performance and can be detrimental when relevant evidence is diluted or widely dispersed. Performance varies substantially across models: some show severe degradation under realistic conditions, while others remain more robust at longer context lengths. Anti-hallucination (AH) instructions can make some models overly conservative, sharply reducing accuracy in literal extraction and logical inference. While we do not directly compare retrieval-augmented generation (RAG) and cache-augmented generation (CAG), our results suggest many failures stem from ineffective context utilization. Models often struggle to identify and prioritize relevant information even when it is present. These findings have direct practical implications, as enterprise workflows increasingly involve pasting large volumes of unfiltered documents into LLM prompts. Effective context length and model-specific robustness to long contexts are therefore critical for reliable LLM deployment in research and business.
+                    Large language models (LLMs) increasingly support very long input contexts. Yet it remains unclear how reliably they extract and infer information at scale. Performance varies with context length and strongly interacts with how information is distributed in real-world corpora. Motivated by these observations, we study how fact placement, corpus-level fact distributions, and Don&#39;t Make It Up prompts influence model behavior. We introduce an extended needle-in-a-haystack benchmark across four production-scale models: Gemini-2.5-flash, ChatGPT-5-mini, Claude-4.5-haiku, and Deepseek-v3.2-chat. Unlike prior work, we separately evaluate literal extraction, logical inference, and hallucination risk. Our study considers both positional effects and realistic distributions of evidence across long contexts, as well as prompts that explicitly discourage fabrication. We find that longer contexts alone do not guarantee better performance and can be detrimental when relevant evidence is diluted or widely dispersed. Performance varies substantially across models: some show severe degradation under realistic conditions, while others remain more robust at longer context lengths. Anti-hallucination (AH) instructions can make some models overly conservative, sharply reducing accuracy in literal extraction and logical inference. While we do not directly compare retrieval-augmented generation (RAG) and cache-augmented generation (CAG), our results suggest many failures stem from ineffective context utilization. Models often struggle to identify and prioritize relevant information even when it is present. These findings have direct practical implications, as enterprise workflows increasingly involve pasting large volumes of unfiltered documents into LLM prompts. Effective context length and model-specific robustness to long contexts are therefore critical for reliable LLM deployment in research and business.
                 </div>
             </details>
     </div>
@@ -4136,7 +4136,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02015v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02015v1" target="_blank" rel="noopener noreferrer">
                 惊奇度与隐喻新颖性：中等相关性及发散性缩放效应
             </a>
         </h3>
@@ -4193,7 +4193,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02010v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02010v1" target="_blank" rel="noopener noreferrer">
                 一种用于建模人类概念形成、理解与交流的神经网络
             </a>
         </h3>
@@ -4250,7 +4250,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01972v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01972v1" target="_blank" rel="noopener noreferrer">
                 针对基于Mamba架构的语言模型的隐藏状态投毒攻击
             </a>
         </h3>
@@ -4292,7 +4292,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    State space models (SSMs) like Mamba offer efficient alternatives to Transformer-based language models, with linear time complexity. Yet, their adversarial robustness remains critically unexplored. This paper studies the phenomenon whereby specific short input phrases induce a partial amnesia effect in such models, by irreversibly overwriting information in their hidden states, referred to as a Hidden State Poisoning Attack (HiSPA). Our benchmark RoBench25 allows evaluating a model's information retrieval capabilities when subject to HiSPAs, and confirms the vulnerability of SSMs against such attacks. Even a recent 52B hybrid SSM-Transformer model from the Jamba family collapses on RoBench25 under optimized HiSPA triggers, whereas pure Transformers do not. We also observe that HiSPA triggers significantly weaken the Jamba model on the popular Open-Prompt-Injections benchmark, unlike pure Transformers. Finally, our interpretability study reveals patterns in Mamba's hidden layers during HiSPAs that could be used to build a HiSPA mitigation system. The full code and data to reproduce the experiments can be found at https://anonymous.4open.science/r/hispa_anonymous-5DB0.
+                    State space models (SSMs) like Mamba offer efficient alternatives to Transformer-based language models, with linear time complexity. Yet, their adversarial robustness remains critically unexplored. This paper studies the phenomenon whereby specific short input phrases induce a partial amnesia effect in such models, by irreversibly overwriting information in their hidden states, referred to as a Hidden State Poisoning Attack (HiSPA). Our benchmark RoBench25 allows evaluating a model&#39;s information retrieval capabilities when subject to HiSPAs, and confirms the vulnerability of SSMs against such attacks. Even a recent 52B hybrid SSM-Transformer model from the Jamba family collapses on RoBench25 under optimized HiSPA triggers, whereas pure Transformers do not. We also observe that HiSPA triggers significantly weaken the Jamba model on the popular Open-Prompt-Injections benchmark, unlike pure Transformers. Finally, our interpretability study reveals patterns in Mamba&#39;s hidden layers during HiSPAs that could be used to build a HiSPA mitigation system. The full code and data to reproduce the experiments can be found at https://anonymous.4open.science/r/hispa_anonymous-5DB0.
                 </div>
             </details>
     </div>
@@ -4307,7 +4307,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01964v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01964v1" target="_blank" rel="noopener noreferrer">
                 CSF：基于对比语义特征的多语言手语直接生成
             </a>
         </h3>
@@ -4364,7 +4364,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01868v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01868v1" target="_blank" rel="noopener noreferrer">
                 DermoGPT：用于形态学基础皮肤病学推理的多模态大语言模型的开源权重与数据
             </a>
         </h3>
@@ -4421,7 +4421,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01842v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01842v1" target="_blank" rel="noopener noreferrer">
                 迈向自动化词典编纂：为学习者词典生成与评估定义
             </a>
         </h3>
@@ -4432,7 +4432,7 @@
     
     <div class="paper-details">
         <div class="mb-2 text-base text-gray-700">
-            Towards Automated Lexicography: Generating and Evaluating Definitions for Learner's Dictionaries
+            Towards Automated Lexicography: Generating and Evaluating Definitions for Learner&#39;s Dictionaries
         </div>
         
         <div class="mb-2 text-sm text-gray-600 italic">
@@ -4463,7 +4463,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    We study dictionary definition generation (DDG), i.e., the generation of non-contextualized definitions for given headwords. Dictionary definitions are an essential resource for learning word senses, but manually creating them is costly, which motivates us to automate the process. Specifically, we address learner's dictionary definition generation (LDDG), where definitions should consist of simple words. First, we introduce a reliable evaluation approach for DDG, based on our new evaluation criteria and powered by an LLM-as-a-judge. To provide reference definitions for the evaluation, we also construct a Japanese dataset in collaboration with a professional lexicographer. Validation results demonstrate that our evaluation approach agrees reasonably well with human annotators. Second, we propose an LDDG approach via iterative simplification with an LLM. Experimental results indicate that definitions generated by our approach achieve high scores on our criteria while maintaining lexical simplicity.
+                    We study dictionary definition generation (DDG), i.e., the generation of non-contextualized definitions for given headwords. Dictionary definitions are an essential resource for learning word senses, but manually creating them is costly, which motivates us to automate the process. Specifically, we address learner&#39;s dictionary definition generation (LDDG), where definitions should consist of simple words. First, we introduce a reliable evaluation approach for DDG, based on our new evaluation criteria and powered by an LLM-as-a-judge. To provide reference definitions for the evaluation, we also construct a Japanese dataset in collaboration with a professional lexicographer. Validation results demonstrate that our evaluation approach agrees reasonably well with human annotators. Second, we propose an LDDG approach via iterative simplification with an LLM. Experimental results indicate that definitions generated by our approach achieve high scores on our criteria while maintaining lexical simplicity.
                 </div>
             </details>
     </div>
@@ -4478,7 +4478,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01825v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01825v1" target="_blank" rel="noopener noreferrer">
                 CSCBench：一个用于商品供应链推理的PVC诊断基准
             </a>
         </h3>
@@ -4501,7 +4501,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文标题明确指向特定领域（商品供应链）的诊断基准，属于供应链管理或物流优化领域，与推荐系统、搜索或广告的核心技术进展完全无关。标题中提到的"PVC诊断"和"商品供应链推理"表明这是针对特定行业应用的专业基准测试，不属于LLM技术、Transformer架构进展或推荐/搜索/广告系统的任何相关技术范畴。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文标题明确指向特定领域（商品供应链）的诊断基准，属于供应链管理或物流优化领域，与推荐系统、搜索或广告的核心技术进展完全无关。标题中提到的&#34;PVC诊断&#34;和&#34;商品供应链推理&#34;表明这是针对特定行业应用的专业基准测试，不属于LLM技术、Transformer架构进展或推荐/搜索/广告系统的任何相关技术范畴。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -4520,7 +4520,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Large Language Models (LLMs) have achieved remarkable success in general benchmarks, yet their competence in commodity supply chains (CSCs) -- a domain governed by institutional rule systems and feasibility constraints -- remains under-explored. CSC decisions are shaped jointly by process stages (e.g., planning, procurement, delivery), variety-specific rules (e.g., contract specifications and delivery grades), and reasoning depth (from retrieval to multi-step analysis and decision selection). We introduce CSCBench, a 2.3K+ single-choice benchmark for CSC reasoning, instantiated through our PVC 3D Evaluation Framework (Process, Variety, and Cognition). The Process axis aligns tasks with SCOR+Enable; the Variety axis operationalizes commodity-specific rule systems under coupled material-information-financial constraints, grounded in authoritative exchange guidebooks/rulebooks and industry reports; and the Cognition axis follows Bloom's revised taxonomy. Evaluating representative LLMs under a direct prompting setting, we observe strong performance on the Process and Cognition axes but substantial degradation on the Variety axis, especially on Freight Agreements. CSCBench provides a diagnostic yardstick for measuring and improving LLM capabilities in this high-stakes domain.
+                    Large Language Models (LLMs) have achieved remarkable success in general benchmarks, yet their competence in commodity supply chains (CSCs) -- a domain governed by institutional rule systems and feasibility constraints -- remains under-explored. CSC decisions are shaped jointly by process stages (e.g., planning, procurement, delivery), variety-specific rules (e.g., contract specifications and delivery grades), and reasoning depth (from retrieval to multi-step analysis and decision selection). We introduce CSCBench, a 2.3K+ single-choice benchmark for CSC reasoning, instantiated through our PVC 3D Evaluation Framework (Process, Variety, and Cognition). The Process axis aligns tasks with SCOR+Enable; the Variety axis operationalizes commodity-specific rule systems under coupled material-information-financial constraints, grounded in authoritative exchange guidebooks/rulebooks and industry reports; and the Cognition axis follows Bloom&#39;s revised taxonomy. Evaluating representative LLMs under a direct prompting setting, we observe strong performance on the Process and Cognition axes but substantial degradation on the Variety axis, especially on Freight Agreements. CSCBench provides a diagnostic yardstick for measuring and improving LLM capabilities in this high-stakes domain.
                 </div>
             </details>
     </div>
@@ -4535,7 +4535,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01778v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01778v1" target="_blank" rel="noopener noreferrer">
                 BanglaIPA：通过上下文重写在孟加拉语中实现鲁棒的文本到国际音标转写
             </a>
         </h3>
@@ -4592,7 +4592,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01745v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01745v1" target="_blank" rel="noopener noreferrer">
                 用于残差层次化发音评估的多粒度交互注意力框架
             </a>
         </h3>
@@ -4649,7 +4649,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01739v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01739v1" target="_blank" rel="noopener noreferrer">
                 K-EXAONE技术报告
             </a>
         </h3>
@@ -4706,7 +4706,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02359v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02359v1" target="_blank" rel="noopener noreferrer">
                 ExposeAnyone：个性化音频到表情扩散模型作为鲁棒的零样本人脸伪造检测器
             </a>
         </h3>
@@ -4763,7 +4763,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02353v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02353v1" target="_blank" rel="noopener noreferrer">
                 面向边缘设备上少样本植物病理学的元学习引导剪枝
             </a>
         </h3>
@@ -4820,7 +4820,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02339v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02339v1" target="_blank" rel="noopener noreferrer">
                 基于各向异性局部编码的3D高斯建模中联合语义与渲染增强
             </a>
         </h3>
@@ -4877,7 +4877,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02329v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02329v1" target="_blank" rel="noopener noreferrer">
                 BEDS：贝叶斯涌现耗散结构
             </a>
         </h3>
@@ -4919,7 +4919,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    We present BEDS (Bayesian Emergent Dissipative Structures), a theoretical framework that unifies concepts from non-equilibrium thermodynamics, Bayesian inference, information geometry, and machine learning. The central thesis proposes that learning, across physical, biological, and computational systems, fundamentally constitutes the conversion of flux into structure through entropy export. Building on Prigogine's theory of dissipative structures, we establish a formal isomorphism between thermodynamic processes and Bayesian updating, demonstrating that sustainable learning systems must follow dissipative patterns where crystallized posteriors become priors for subsequent levels of emergence. We derive fundamental mathematical constants (e, π, φ) as fixed points of Bayesian inference under minimal axioms, suggesting these constants emerge necessarily from any system capable of representing and updating uncertainty. Furthermore, we propose a conjecture linking Gödel's incompleteness theorems to thermodynamic constraints, hypothesizing that pathologies of formal systems (incompleteness, undecidability) are structurally analogous to dissipation deficits in physical systems. As practical validation, we present a peer-to-peer network architecture implementing BEDS principles, achieving six orders of magnitude improvement in energy efficiency compared to existing distributed consensus systems while enabling continuous learning. This work bridges fundamental physics, mathematical logic, and practical system design, offering both theoretical insights into the nature of learning and computation, and a concrete pathway toward sustainable artificial intelligence.
+                    We present BEDS (Bayesian Emergent Dissipative Structures), a theoretical framework that unifies concepts from non-equilibrium thermodynamics, Bayesian inference, information geometry, and machine learning. The central thesis proposes that learning, across physical, biological, and computational systems, fundamentally constitutes the conversion of flux into structure through entropy export. Building on Prigogine&#39;s theory of dissipative structures, we establish a formal isomorphism between thermodynamic processes and Bayesian updating, demonstrating that sustainable learning systems must follow dissipative patterns where crystallized posteriors become priors for subsequent levels of emergence. We derive fundamental mathematical constants (e, π, φ) as fixed points of Bayesian inference under minimal axioms, suggesting these constants emerge necessarily from any system capable of representing and updating uncertainty. Furthermore, we propose a conjecture linking Gödel&#39;s incompleteness theorems to thermodynamic constraints, hypothesizing that pathologies of formal systems (incompleteness, undecidability) are structurally analogous to dissipation deficits in physical systems. As practical validation, we present a peer-to-peer network architecture implementing BEDS principles, achieving six orders of magnitude improvement in energy efficiency compared to existing distributed consensus systems while enabling continuous learning. This work bridges fundamental physics, mathematical logic, and practical system design, offering both theoretical insights into the nature of learning and computation, and a concrete pathway toward sustainable artificial intelligence.
                 </div>
             </details>
     </div>
@@ -4934,7 +4934,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02318v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02318v1" target="_blank" rel="noopener noreferrer">
                 Fusion2Print：用于非接触式指纹匹配的深度闪光-非闪光融合技术
             </a>
         </h3>
@@ -4991,7 +4991,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02315v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02315v1" target="_blank" rel="noopener noreferrer">
                 Prithvi-互补自适应融合编码器（CAFE）：释放洪水淹没测绘的全部潜力
             </a>
         </h3>
@@ -5033,7 +5033,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Geo-Foundation Models (GFMs), have proven effective in diverse downstream applications, including semantic segmentation, classification, and regression tasks. However, in case of flood mapping using Sen1Flood11 dataset as a downstream task, GFMs struggles to outperform the baseline U-Net, highlighting model's limitation in capturing critical local nuances. To address this, we present the Prithvi-Complementary Adaptive Fusion Encoder (CAFE), which integrate Prithvi GFM pretrained encoder with a parallel CNN residual branch enhanced by Convolutional Attention Modules (CAM). Prithvi-CAFE enables fast and efficient fine-tuning through adapters in Prithvi and performs multi-scale, multi-level fusion with CNN features, capturing critical local details while preserving long-range dependencies. We achieve state-of-the-art results on two comprehensive flood mapping datasets: Sen1Flood11 and FloodPlanet. On Sen1Flood11 test data, Prithvi-CAFE (IoU 83.41) outperforms the original Prithvi (IoU 82.50) and other major GFMs (TerraMind 82.90, DOFA 81.54, spectralGPT: 81.02). The improvement is even more pronounced on the hold-out test site, where Prithvi-CAFE achieves an IoU of 81.37 compared to the baseline U-Net (70.57) and original Prithvi (72.42). On FloodPlanet, Prithvi-CAFE also surpasses the baseline U-Net and other GFMs, achieving an IoU of 64.70 compared to U-Net (60.14), Terramind (62.33), DOFA (59.15) and Prithvi 2.0 (61.91). Our proposed simple yet effective Prithvi-CAFE demonstrates strong potential for improving segmentation tasks where multi-channel and multi-modal data provide complementary information and local details are critical. The code is released on \href{https://github.com/Sk-2103/Prithvi-CAFE}{Prithvi-CAFE Github}
+                    Geo-Foundation Models (GFMs), have proven effective in diverse downstream applications, including semantic segmentation, classification, and regression tasks. However, in case of flood mapping using Sen1Flood11 dataset as a downstream task, GFMs struggles to outperform the baseline U-Net, highlighting model&#39;s limitation in capturing critical local nuances. To address this, we present the Prithvi-Complementary Adaptive Fusion Encoder (CAFE), which integrate Prithvi GFM pretrained encoder with a parallel CNN residual branch enhanced by Convolutional Attention Modules (CAM). Prithvi-CAFE enables fast and efficient fine-tuning through adapters in Prithvi and performs multi-scale, multi-level fusion with CNN features, capturing critical local details while preserving long-range dependencies. We achieve state-of-the-art results on two comprehensive flood mapping datasets: Sen1Flood11 and FloodPlanet. On Sen1Flood11 test data, Prithvi-CAFE (IoU 83.41) outperforms the original Prithvi (IoU 82.50) and other major GFMs (TerraMind 82.90, DOFA 81.54, spectralGPT: 81.02). The improvement is even more pronounced on the hold-out test site, where Prithvi-CAFE achieves an IoU of 81.37 compared to the baseline U-Net (70.57) and original Prithvi (72.42). On FloodPlanet, Prithvi-CAFE also surpasses the baseline U-Net and other GFMs, achieving an IoU of 64.70 compared to U-Net (60.14), Terramind (62.33), DOFA (59.15) and Prithvi 2.0 (61.91). Our proposed simple yet effective Prithvi-CAFE demonstrates strong potential for improving segmentation tasks where multi-channel and multi-modal data provide complementary information and local details are critical. The code is released on \href{https://github.com/Sk-2103/Prithvi-CAFE}{Prithvi-CAFE Github}
                 </div>
             </details>
     </div>
@@ -5048,7 +5048,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02309v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02309v1" target="_blank" rel="noopener noreferrer">
                 360DVO：用于单目360度相机的深度视觉里程计
             </a>
         </h3>
@@ -5105,7 +5105,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02299v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02299v1" target="_blank" rel="noopener noreferrer">
                 SortWaste：一个用于工业废物分拣中目标检测的密集标注数据集
             </a>
         </h3>
@@ -5147,7 +5147,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    The increasing production of waste, driven by population growth, has created challenges in managing and recycling materials effectively. Manual waste sorting is a common practice; however, it remains inefficient for handling large-scale waste streams and presents health risks for workers. On the other hand, existing automated sorting approaches still struggle with the high variability, clutter, and visual complexity of real-world waste streams. The lack of real-world datasets for waste sorting is a major reason automated systems for this problem are underdeveloped. Accordingly, we introduce SortWaste, a densely annotated object detection dataset collected from a Material Recovery Facility. Additionally, we contribute to standardizing waste detection in sorting lines by proposing ClutterScore, an objective metric that gauges the scene's hardness level using a set of proxies that affect visual complexity (e.g., object count, class and size entropy, and spatial overlap). In addition to these contributions, we provide an extensive benchmark of state-of-the-art object detection models, detailing their results with respect to the hardness level assessed by the proposed metric. Despite achieving promising results (mAP of 59.7% in the plastic-only detection task), performance significantly decreases in highly cluttered scenes. This highlights the need for novel and more challenging datasets on the topic.
+                    The increasing production of waste, driven by population growth, has created challenges in managing and recycling materials effectively. Manual waste sorting is a common practice; however, it remains inefficient for handling large-scale waste streams and presents health risks for workers. On the other hand, existing automated sorting approaches still struggle with the high variability, clutter, and visual complexity of real-world waste streams. The lack of real-world datasets for waste sorting is a major reason automated systems for this problem are underdeveloped. Accordingly, we introduce SortWaste, a densely annotated object detection dataset collected from a Material Recovery Facility. Additionally, we contribute to standardizing waste detection in sorting lines by proposing ClutterScore, an objective metric that gauges the scene&#39;s hardness level using a set of proxies that affect visual complexity (e.g., object count, class and size entropy, and spatial overlap). In addition to these contributions, we provide an extensive benchmark of state-of-the-art object detection models, detailing their results with respect to the hardness level assessed by the proposed metric. Despite achieving promising results (mAP of 59.7% in the plastic-only detection task), performance significantly decreases in highly cluttered scenes. This highlights the need for novel and more challenging datasets on the topic.
                 </div>
             </details>
     </div>
@@ -5162,7 +5162,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02267v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02267v1" target="_blank" rel="noopener noreferrer">
                 DiffProxy：通过扩散生成密集代理实现多视角人体网格重建
             </a>
         </h3>
@@ -5204,7 +5204,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Human mesh recovery from multi-view images faces a fundamental challenge: real-world datasets contain imperfect ground-truth annotations that bias the models' training, while synthetic data with precise supervision suffers from domain gap. In this paper, we propose DiffProxy, a novel framework that generates multi-view consistent human proxies for mesh recovery. Central to DiffProxy is leveraging the diffusion-based generative priors to bridge the synthetic training and real-world generalization. Its key innovations include: (1) a multi-conditional mechanism for generating multi-view consistent, pixel-aligned human proxies; (2) a hand refinement module that incorporates flexible visual prompts to enhance local details; and (3) an uncertainty-aware test-time scaling method that increases robustness to challenging cases during optimization. These designs ensure that the mesh recovery process effectively benefits from the precise synthetic ground truth and generative advantages of the diffusion-based pipeline. Trained entirely on synthetic data, DiffProxy achieves state-of-the-art performance across five real-world benchmarks, demonstrating strong zero-shot generalization particularly on challenging scenarios with occlusions and partial views. Project page: https://wrk226.github.io/DiffProxy.html
+                    Human mesh recovery from multi-view images faces a fundamental challenge: real-world datasets contain imperfect ground-truth annotations that bias the models&#39; training, while synthetic data with precise supervision suffers from domain gap. In this paper, we propose DiffProxy, a novel framework that generates multi-view consistent human proxies for mesh recovery. Central to DiffProxy is leveraging the diffusion-based generative priors to bridge the synthetic training and real-world generalization. Its key innovations include: (1) a multi-conditional mechanism for generating multi-view consistent, pixel-aligned human proxies; (2) a hand refinement module that incorporates flexible visual prompts to enhance local details; and (3) an uncertainty-aware test-time scaling method that increases robustness to challenging cases during optimization. These designs ensure that the mesh recovery process effectively benefits from the precise synthetic ground truth and generative advantages of the diffusion-based pipeline. Trained entirely on synthetic data, DiffProxy achieves state-of-the-art performance across five real-world benchmarks, demonstrating strong zero-shot generalization particularly on challenging scenarios with occlusions and partial views. Project page: https://wrk226.github.io/DiffProxy.html
                 </div>
             </details>
     </div>
@@ -5219,7 +5219,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02256v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02256v1" target="_blank" rel="noopener noreferrer">
                 VAR RL的正确实践：解决视觉自回归生成中的异步策略冲突
             </a>
         </h3>
@@ -5276,7 +5276,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02242v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02242v1" target="_blank" rel="noopener noreferrer">
                 VIBE：基于视觉指令的编辑器
             </a>
         </h3>
@@ -5333,7 +5333,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02228v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02228v1" target="_blank" rel="noopener noreferrer">
                 FMVP：基于掩码流匹配的对抗性视频净化
             </a>
         </h3>
@@ -5390,7 +5390,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02212v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02212v1" target="_blank" rel="noopener noreferrer">
                 用于超声结节检测的先验引导DETR
             </a>
         </h3>
@@ -5447,7 +5447,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02206v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02206v1" target="_blank" rel="noopener noreferrer">
                 洞察未见：利用事件相机在黑暗中变焦
             </a>
         </h3>
@@ -5504,7 +5504,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02203v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02203v1" target="_blank" rel="noopener noreferrer">
                 基于适配器模块自监督学习的参数高效CSI人群计数领域自适应
             </a>
         </h3>
@@ -5561,7 +5561,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02201v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02201v1" target="_blank" rel="noopener noreferrer">
                 CORE：基于代码的逆自训练框架与图扩展用于虚拟代理
             </a>
         </h3>
@@ -5618,7 +5618,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02198v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02198v1" target="_blank" rel="noopener noreferrer">
                 弥合鸿沟：面向病理学基础模型的连续放大采样方法
             </a>
         </h3>
@@ -5641,7 +5641,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文标题明确指向病理学基础模型和医学图像分析领域，这属于明确的无关主题（医学/生物学领域特定应用）。标题中的'病理学基础模型'和'连续放大采样'都是医学图像分析的技术术语，与推荐系统、搜索或广告的核心技术进展、LLM应用或Transformer架构改进没有任何关联。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文标题明确指向病理学基础模型和医学图像分析领域，这属于明确的无关主题（医学/生物学领域特定应用）。标题中的&#39;病理学基础模型&#39;和&#39;连续放大采样&#39;都是医学图像分析的技术术语，与推荐系统、搜索或广告的核心技术进展、LLM应用或Transformer架构改进没有任何关联。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -5675,7 +5675,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02189v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02189v1" target="_blank" rel="noopener noreferrer">
                 QuIC：一种量子启发的交互分类器，用于在细粒度识别中复兴浅层CNN
             </a>
         </h3>
@@ -5698,7 +5698,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文标题明确聚焦于计算机视觉领域的细粒度识别任务，使用量子启发的CNN架构改进。这属于纯粹的视觉研究，没有提及任何与推荐系统、搜索或广告相关的应用或潜在联系。根据用户指定的无关主题，'Purely Vision、3D Vision, Graphic or Speech papers without clear relevance to RecSys/Search/Ads' 应被排除。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文标题明确聚焦于计算机视觉领域的细粒度识别任务，使用量子启发的CNN架构改进。这属于纯粹的视觉研究，没有提及任何与推荐系统、搜索或广告相关的应用或潜在联系。根据用户指定的无关主题，&#39;Purely Vision、3D Vision, Graphic or Speech papers without clear relevance to RecSys/Search/Ads&#39; 应被排除。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -5732,7 +5732,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02177v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02177v1" target="_blank" rel="noopener noreferrer">
                 为何商用WiFi传感器在多人员步态识别中失效：基于ESP32的系统性分析
             </a>
         </h3>
@@ -5774,7 +5774,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    WiFi Channel State Information (CSI) has shown promise for single-person gait identification, with numerous studies reporting high accuracy. However, multi-person identification remains largely unexplored, with the limited existing work relying on complex, expensive setups requiring modified firmware. A critical question remains unanswered: is poor multi-person performance an algorithmic limitation or a fundamental hardware constraint? We systematically evaluate six diverse signal separation methods (FastICA, SOBI, PCA, NMF, Wavelet, Tensor Decomposition) across seven scenarios with 1-10 people using commodity ESP32 WiFi sensors--a simple, low-cost, off-the-shelf solution. Through novel diagnostic metrics (intra-subject variability, inter-subject distinguishability, performance degradation rate), we reveal that all methods achieve similarly low accuracy (45-56\%, $σ$=3.74\%) with statistically insignificant differences (p $>$ 0.05). Even the best-performing method, NMF, achieves only 56\% accuracy. Our analysis reveals high intra-subject variability, low inter-subject distinguishability, and severe performance degradation as person count increases, indicating that commodity ESP32 sensors cannot provide sufficient signal quality for reliable multi-person separation.
+                    WiFi Channel State Information (CSI) has shown promise for single-person gait identification, with numerous studies reporting high accuracy. However, multi-person identification remains largely unexplored, with the limited existing work relying on complex, expensive setups requiring modified firmware. A critical question remains unanswered: is poor multi-person performance an algorithmic limitation or a fundamental hardware constraint? We systematically evaluate six diverse signal separation methods (FastICA, SOBI, PCA, NMF, Wavelet, Tensor Decomposition) across seven scenarios with 1-10 people using commodity ESP32 WiFi sensors--a simple, low-cost, off-the-shelf solution. Through novel diagnostic metrics (intra-subject variability, inter-subject distinguishability, performance degradation rate), we reveal that all methods achieve similarly low accuracy (45-56\%, $σ$=3.74\%) with statistically insignificant differences (p $&gt;$ 0.05). Even the best-performing method, NMF, achieves only 56\% accuracy. Our analysis reveals high intra-subject variability, low inter-subject distinguishability, and severe performance degradation as person count increases, indicating that commodity ESP32 sensors cannot provide sufficient signal quality for reliable multi-person separation.
                 </div>
             </details>
     </div>
@@ -5789,7 +5789,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02141v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02141v1" target="_blank" rel="noopener noreferrer">
                 用于大规模三维逆问题的高效展开网络
             </a>
         </h3>
@@ -5846,7 +5846,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02139v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02139v1" target="_blank" rel="noopener noreferrer">
                 超越分割：基于合成SAR图像的溢油变化检测框架
             </a>
         </h3>
@@ -5903,7 +5903,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02126v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02126v1" target="_blank" rel="noopener noreferrer">
                 基于弱时序监督的遥感变化检测
             </a>
         </h3>
@@ -5960,7 +5960,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02112v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02112v1" target="_blank" rel="noopener noreferrer">
                 基于切片代理模型从三维点云预测汽车风阻系数
             </a>
         </h3>
@@ -6002,7 +6002,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    The automotive industry's pursuit of enhanced fuel economy and performance necessitates efficient aerodynamic design. However, traditional evaluation methods such as computational fluid dynamics (CFD) and wind tunnel testing are resource intensive, hindering rapid iteration in the early design stages. Machine learning-based surrogate models offer a promising alternative, yet many existing approaches suffer from high computational complexity, limited interpretability, or insufficient accuracy for detailed geometric inputs. This paper introduces a novel lightweight surrogate model for the prediction of the aerodynamic drag coefficient (Cd) based on a sequential slice-wise processing of the geometry of the 3D vehicle. Inspired by medical imaging, 3D point clouds of vehicles are decomposed into an ordered sequence of 2D cross-sectional slices along the stream-wise axis. Each slice is encoded by a lightweight PointNet2D module, and the sequence of slice embeddings is processed by a bidirectional LSTM to capture longitudinal geometric evolution. The model, trained and evaluated on the DrivAerNet++ dataset, achieves a high coefficient of determination (R^2 > 0.9528) and a low mean absolute error (MAE approx 6.046 x 10^{-3}) in Cd prediction. With an inference time of approximately 0.025 seconds per sample on a consumer-grade GPU, our approach provides fast, accurate, and interpretable aerodynamic feedback, facilitating more agile and informed automotive design exploration.
+                    The automotive industry&#39;s pursuit of enhanced fuel economy and performance necessitates efficient aerodynamic design. However, traditional evaluation methods such as computational fluid dynamics (CFD) and wind tunnel testing are resource intensive, hindering rapid iteration in the early design stages. Machine learning-based surrogate models offer a promising alternative, yet many existing approaches suffer from high computational complexity, limited interpretability, or insufficient accuracy for detailed geometric inputs. This paper introduces a novel lightweight surrogate model for the prediction of the aerodynamic drag coefficient (Cd) based on a sequential slice-wise processing of the geometry of the 3D vehicle. Inspired by medical imaging, 3D point clouds of vehicles are decomposed into an ordered sequence of 2D cross-sectional slices along the stream-wise axis. Each slice is encoded by a lightweight PointNet2D module, and the sequence of slice embeddings is processed by a bidirectional LSTM to capture longitudinal geometric evolution. The model, trained and evaluated on the DrivAerNet++ dataset, achieves a high coefficient of determination (R^2 &gt; 0.9528) and a low mean absolute error (MAE approx 6.046 x 10^{-3}) in Cd prediction. With an inference time of approximately 0.025 seconds per sample on a consumer-grade GPU, our approach provides fast, accurate, and interpretable aerodynamic feedback, facilitating more agile and informed automotive design exploration.
                 </div>
             </details>
     </div>
@@ -6017,7 +6017,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02107v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02107v1" target="_blank" rel="noopener noreferrer">
                 MagicFight：个性化武术格斗视频生成
             </a>
         </h3>
@@ -6074,7 +6074,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02103v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02103v1" target="_blank" rel="noopener noreferrer">
                 HeadLighter：通过光阶捕捉在生成式3D高斯头部模型中解耦光照
             </a>
         </h3>
@@ -6097,7 +6097,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文专注于计算机图形学中的3D生成和光照解耦技术，属于纯粹的视觉/图形学领域。虽然标题提及'生成式'，但其核心是3D头部模型的渲染和光照处理，与推荐系统、搜索或广告中的排序、用户建模、内容理解等核心技术无直接关联。该技术缺乏在RecSys/Search/Ads领域的明确应用路径，因此相关性极低。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文专注于计算机图形学中的3D生成和光照解耦技术，属于纯粹的视觉/图形学领域。虽然标题提及&#39;生成式&#39;，但其核心是3D头部模型的渲染和光照处理，与推荐系统、搜索或广告中的排序、用户建模、内容理解等核心技术无直接关联。该技术缺乏在RecSys/Search/Ads领域的明确应用路径，因此相关性极低。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -6131,7 +6131,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02102v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02102v1" target="_blank" rel="noopener noreferrer">
                 360-GeoGS：面向360度图像的几何一致前馈式3D高斯泼溅重建
             </a>
         </h3>
@@ -6188,7 +6188,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02096v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02096v1" target="_blank" rel="noopener noreferrer">
                 舞动点：基于三点输入的舞厅舞蹈合成
             </a>
         </h3>
@@ -6230,7 +6230,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Ballroom dancing is a structured yet expressive motion category. Its highly diverse movement and complex interactions between leader and follower dancers make the understanding and synthesis challenging. We demonstrate that the three-point trajectory available from a virtual reality (VR) device can effectively serve as a dancer's motion descriptor, simplifying the modeling and synthesis of interplay between dancers' full-body motions down to sparse trajectories. Thanks to the low dimensionality, we can employ an efficient MLP network to predict the follower's three-point trajectory directly from the leader's three-point input for certain types of ballroom dancing, addressing the challenge of modeling high-dimensional full-body interaction. It also prevents our method from overfitting thanks to its compact yet explicit representation. By leveraging the inherent structure of the movements and carefully planning the autoregressive procedure, we show a deterministic neural network is able to translate three-point trajectories into a virtual embodied avatar, which is typically considered under-constrained and requires generative models for common motions. In addition, we demonstrate this deterministic approach generalizes beyond small, structured datasets like ballroom dancing, and performs robustly on larger, more diverse datasets such as LaFAN. Our method provides a computationally- and data-efficient solution, opening new possibilities for immersive paired dancing applications. Code and pre-trained models for this paper are available at https://peizhuoli.github.io/dancing-points.
+                    Ballroom dancing is a structured yet expressive motion category. Its highly diverse movement and complex interactions between leader and follower dancers make the understanding and synthesis challenging. We demonstrate that the three-point trajectory available from a virtual reality (VR) device can effectively serve as a dancer&#39;s motion descriptor, simplifying the modeling and synthesis of interplay between dancers&#39; full-body motions down to sparse trajectories. Thanks to the low dimensionality, we can employ an efficient MLP network to predict the follower&#39;s three-point trajectory directly from the leader&#39;s three-point input for certain types of ballroom dancing, addressing the challenge of modeling high-dimensional full-body interaction. It also prevents our method from overfitting thanks to its compact yet explicit representation. By leveraging the inherent structure of the movements and carefully planning the autoregressive procedure, we show a deterministic neural network is able to translate three-point trajectories into a virtual embodied avatar, which is typically considered under-constrained and requires generative models for common motions. In addition, we demonstrate this deterministic approach generalizes beyond small, structured datasets like ballroom dancing, and performs robustly on larger, more diverse datasets such as LaFAN. Our method provides a computationally- and data-efficient solution, opening new possibilities for immersive paired dancing applications. Code and pre-trained models for this paper are available at https://peizhuoli.github.io/dancing-points.
                 </div>
             </details>
     </div>
@@ -6245,7 +6245,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02091v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02091v1" target="_blank" rel="noopener noreferrer">
                 MCD-Net：一种用于纯光学冰碛分割的轻量级深度学习基准模型
             </a>
         </h3>
@@ -6302,7 +6302,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02088v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02088v1" target="_blank" rel="noopener noreferrer">
                 PhysSFI-Net：基于物理信息的骨骼与面部交互几何学习用于正颌外科手术结果预测
             </a>
         </h3>
@@ -6359,7 +6359,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02072v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02072v1" target="_blank" rel="noopener noreferrer">
                 SketchRodGS：基于草图的细长几何结构提取用于动画化高斯溅射场景
             </a>
         </h3>
@@ -6401,7 +6401,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Physics simulation of slender elastic objects often requires discretization as a polyline. However, constructing a polyline from Gaussian splatting is challenging as Gaussian splatting lacks connectivity information and the configuration of Gaussian primitives contains much noise. This paper presents a method to extract a polyline representation of the slender part of the objects in a Gaussian splatting scene from the user's sketching input. Our method robustly constructs a polyline mesh that represents the slender parts using the screen-space shortest path analysis that can be efficiently solved using dynamic programming. We demonstrate the effectiveness of our approach in several in-the-wild examples.
+                    Physics simulation of slender elastic objects often requires discretization as a polyline. However, constructing a polyline from Gaussian splatting is challenging as Gaussian splatting lacks connectivity information and the configuration of Gaussian primitives contains much noise. This paper presents a method to extract a polyline representation of the slender part of the objects in a Gaussian splatting scene from the user&#39;s sketching input. Our method robustly constructs a polyline mesh that represents the slender parts using the screen-space shortest path analysis that can be efficiently solved using dynamic programming. We demonstrate the effectiveness of our approach in several in-the-wild examples.
                 </div>
             </details>
     </div>
@@ -6416,7 +6416,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02046v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02046v1" target="_blank" rel="noopener noreferrer">
                 面向文本到图像生成的智能修图代理
             </a>
         </h3>
@@ -6473,7 +6473,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02038v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02038v1" target="_blank" rel="noopener noreferrer">
                 AlignVTOFF：面向高保真虚拟试穿系统的纹理-空间特征对齐方法
             </a>
         </h3>
@@ -6530,7 +6530,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02029v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02029v1" target="_blank" rel="noopener noreferrer">
                 利用二维视觉语言模型实现大规模户外场景理解中的无标签三维分割
             </a>
         </h3>
@@ -6587,7 +6587,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02020v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02020v1" target="_blank" rel="noopener noreferrer">
                 利用事件数据将Depth Anything模型适配至恶劣成像条件
             </a>
         </h3>
@@ -6644,7 +6644,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.02008v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.02008v1" target="_blank" rel="noopener noreferrer">
                 XAI-MeD：可解释知识引导的神经符号框架，用于医学影像中的领域泛化与罕见类别检测
             </a>
         </h3>
@@ -6701,7 +6701,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01998v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01998v1" target="_blank" rel="noopener noreferrer">
                 通过渐进式与互增强的夜间雾霾先验实现夜间有雾图像增强
             </a>
         </h3>
@@ -6724,7 +6724,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文标题明确聚焦于计算机视觉中的夜间有雾图像增强问题，属于纯粹的视觉处理任务。虽然提到了'先验'这一概念，但该技术专门针对夜间雾霾这一特定视觉场景，与推荐系统、搜索或广告中的异构数据处理、Transformer架构或LLM应用没有直接关联。该研究属于纯粹的视觉领域，不符合您关注的任何技术方向。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文标题明确聚焦于计算机视觉中的夜间有雾图像增强问题，属于纯粹的视觉处理任务。虽然提到了&#39;先验&#39;这一概念，但该技术专门针对夜间雾霾这一特定视觉场景，与推荐系统、搜索或广告中的异构数据处理、Transformer架构或LLM应用没有直接关联。该研究属于纯粹的视觉领域，不符合您关注的任何技术方向。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -6758,7 +6758,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01992v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01992v1" target="_blank" rel="noopener noreferrer">
                 API：通过自适应补丁重要性学习赋能可泛化的真实世界图像去雾
             </a>
         </h3>
@@ -6815,7 +6815,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01989v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01989v1" target="_blank" rel="noopener noreferrer">
                 VIT-Ped：用于行人行为分析的视觉意图Transformer模型
             </a>
         </h3>
@@ -6872,7 +6872,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01950v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01950v1" target="_blank" rel="noopener noreferrer">
                 从粗到精的面部法线估计
             </a>
         </h3>
@@ -6895,7 +6895,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文标题明确涉及计算机视觉中的面部法线估计，属于纯粹的视觉处理任务。根据用户列出的不相关主题，明确排除了'纯粹视觉、3D视觉、图形或语音论文，除非与推荐系统/搜索/广告有明确相关性'。该论文没有显示出与推荐系统、搜索或广告领域的任何直接或间接联系。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文标题明确涉及计算机视觉中的面部法线估计，属于纯粹的视觉处理任务。根据用户列出的不相关主题，明确排除了&#39;纯粹视觉、3D视觉、图形或语音论文，除非与推荐系统/搜索/广告有明确相关性&#39;。该论文没有显示出与推荐系统、搜索或广告领域的任何直接或间接联系。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -6929,7 +6929,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01925v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01925v1" target="_blank" rel="noopener noreferrer">
                 AR-MOT：自回归多目标跟踪
             </a>
         </h3>
@@ -6986,7 +6986,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01915v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01915v1" target="_blank" rel="noopener noreferrer">
                 TalkPhoto：一种用于智能图像编辑的多功能免训练对话助手
             </a>
         </h3>
@@ -7043,7 +7043,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01908v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01908v1" target="_blank" rel="noopener noreferrer">
                 Nodule-DETR：一种具有频域通道注意力机制的新型DETR架构，用于超声甲状腺结节检测
             </a>
         </h3>
@@ -7100,7 +7100,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01891v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01891v1" target="_blank" rel="noopener noreferrer">
                 遥感领域中的智能体人工智能：基础、分类与新兴系统
             </a>
         </h3>
@@ -7157,7 +7157,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01870v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01870v1" target="_blank" rel="noopener noreferrer">
                 实体引导的红外与可见光图像融合多任务学习
             </a>
         </h3>
@@ -7214,7 +7214,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01865v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01865v1" target="_blank" rel="noopener noreferrer">
                 RRNet：可配置的实时视频增强技术，适用于任意局部光照变化
             </a>
         </h3>
@@ -7271,7 +7271,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01856v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01856v1" target="_blank" rel="noopener noreferrer">
                 GCR：面向任务无关持续异常检测的几何一致性路由
             </a>
         </h3>
@@ -7328,7 +7328,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01847v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01847v1" target="_blank" rel="noopener noreferrer">
                 ESGaussianFace：基于3D高斯泼溅的情感与风格化音频驱动面部动画
             </a>
         </h3>
@@ -7370,7 +7370,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Most current audio-driven facial animation research primarily focuses on generating videos with neutral emotions. While some studies have addressed the generation of facial videos driven by emotional audio, efficiently generating high-quality talking head videos that integrate both emotional expressions and style features remains a significant challenge. In this paper, we propose ESGaussianFace, an innovative framework for emotional and stylized audio-driven facial animation. Our approach leverages 3D Gaussian Splatting to reconstruct 3D scenes and render videos, ensuring efficient generation of 3D consistent results. We propose an emotion-audio-guided spatial attention method that effectively integrates emotion features with audio content features. Through emotion-guided attention, the model is able to reconstruct facial details across different emotional states more accurately. To achieve emotional and stylized deformations of the 3D Gaussian points through emotion and style features, we introduce two 3D Gaussian deformation predictors. Futhermore, we propose a multi-stage training strategy, enabling the step-by-step learning of the character's lip movements, emotional variations, and style features. Our generated results exhibit high efficiency, high quality, and 3D consistency. Extensive experimental results demonstrate that our method outperforms existing state-of-the-art techniques in terms of lip movement accuracy, expression variation, and style feature expressiveness.
+                    Most current audio-driven facial animation research primarily focuses on generating videos with neutral emotions. While some studies have addressed the generation of facial videos driven by emotional audio, efficiently generating high-quality talking head videos that integrate both emotional expressions and style features remains a significant challenge. In this paper, we propose ESGaussianFace, an innovative framework for emotional and stylized audio-driven facial animation. Our approach leverages 3D Gaussian Splatting to reconstruct 3D scenes and render videos, ensuring efficient generation of 3D consistent results. We propose an emotion-audio-guided spatial attention method that effectively integrates emotion features with audio content features. Through emotion-guided attention, the model is able to reconstruct facial details across different emotional states more accurately. To achieve emotional and stylized deformations of the 3D Gaussian points through emotion and style features, we introduce two 3D Gaussian deformation predictors. Futhermore, we propose a multi-stage training strategy, enabling the step-by-step learning of the character&#39;s lip movements, emotional variations, and style features. Our generated results exhibit high efficiency, high quality, and 3D consistency. Extensive experimental results demonstrate that our method outperforms existing state-of-the-art techniques in terms of lip movement accuracy, expression variation, and style feature expressiveness.
                 </div>
             </details>
     </div>
@@ -7385,7 +7385,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01835v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01835v1" target="_blank" rel="noopener noreferrer">
                 RSwinV2-MD：一种用于皮肤图像中猴痘检测的增强型残差SwinV2 Transformer
             </a>
         </h3>
@@ -7442,7 +7442,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01822v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01822v1" target="_blank" rel="noopener noreferrer">
                 DisCo-FLoc：利用双层级视觉-几何对比进行深度感知视觉平面图定位消歧
             </a>
         </h3>
@@ -7499,7 +7499,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01818v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01818v1" target="_blank" rel="noopener noreferrer">
                 通过语言引导的场景上下文感知学习实现鲁棒的第一人称视觉注意力预测
             </a>
         </h3>
@@ -7556,7 +7556,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01807v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01807v1" target="_blank" rel="noopener noreferrer">
                 基于自适应混合优化器框架的牛结节性皮肤病识别
             </a>
         </h3>
@@ -7579,7 +7579,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文标题明确指向医学/生物学领域的特定疾病识别（牛结节性皮肤病），这属于明确列出的无关主题。标题中提到的'自适应混合优化器框架'可能涉及优化技术，但整体应用场景与推荐系统、搜索、广告等核心关注领域完全无关。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文标题明确指向医学/生物学领域的特定疾病识别（牛结节性皮肤病），这属于明确列出的无关主题。标题中提到的&#39;自适应混合优化器框架&#39;可能涉及优化技术，但整体应用场景与推荐系统、搜索、广告等核心关注领域完全无关。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -7613,7 +7613,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01798v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01798v1" target="_blank" rel="noopener noreferrer">
                 VerLM：使用自然语言解释人脸验证
             </a>
         </h3>
@@ -7655,7 +7655,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    Face verification systems have seen substantial advancements; however, they often lack transparency in their decision-making processes. In this paper, we introduce an innovative Vision-Language Model (VLM) for Face Verification, which not only accurately determines if two face images depict the same individual but also explicitly explains the rationale behind its decisions. Our model is uniquely trained using two complementary explanation styles: (1) concise explanations that summarize the key factors influencing its decision, and (2) comprehensive explanations detailing the specific differences observed between the images. We adapt and enhance a state-of-the-art modeling approach originally designed for audio-based differentiation to suit visual inputs effectively. This cross-modal transfer significantly improves our model's accuracy and interpretability. The proposed VLM integrates sophisticated feature extraction techniques with advanced reasoning capabilities, enabling clear articulation of its verification process. Our approach demonstrates superior performance, surpassing baseline methods and existing models. These findings highlight the immense potential of vision language models in face verification set up, contributing to more transparent, reliable, and explainable face verification systems.
+                    Face verification systems have seen substantial advancements; however, they often lack transparency in their decision-making processes. In this paper, we introduce an innovative Vision-Language Model (VLM) for Face Verification, which not only accurately determines if two face images depict the same individual but also explicitly explains the rationale behind its decisions. Our model is uniquely trained using two complementary explanation styles: (1) concise explanations that summarize the key factors influencing its decision, and (2) comprehensive explanations detailing the specific differences observed between the images. We adapt and enhance a state-of-the-art modeling approach originally designed for audio-based differentiation to suit visual inputs effectively. This cross-modal transfer significantly improves our model&#39;s accuracy and interpretability. The proposed VLM integrates sophisticated feature extraction techniques with advanced reasoning capabilities, enabling clear articulation of its verification process. Our approach demonstrates superior performance, surpassing baseline methods and existing models. These findings highlight the immense potential of vision language models in face verification set up, contributing to more transparent, reliable, and explainable face verification systems.
                 </div>
             </details>
     </div>
@@ -7670,7 +7670,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01781v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01781v1" target="_blank" rel="noopener noreferrer">
                 子图像重叠预测：面向遥感影像语义分割的任务对齐自监督预训练
             </a>
         </h3>
@@ -7727,7 +7727,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01769v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01769v1" target="_blank" rel="noopener noreferrer">
                 CTIS-QA：基于临床模板的病理学切片级问答系统
             </a>
         </h3>
@@ -7750,7 +7750,7 @@
         
         <div class="mb-2">
             <strong class="text-gray-700 text-sm"><i class="fa fa-thumbs-up text-green-500 mr-1"></i>个性化推荐理由:</strong>
-            <p class="text-gray-600 text-sm mt-1">该论文标题明确指向医学病理学领域的特定应用（临床模板、病理切片、问答系统），这属于明确的医学领域应用。根据用户列出的无关主题，明确排除了'Medical, Biology, Chemistry, Physics or other domain-specific applications'，因此该论文与用户关注的推荐系统、搜索、广告等核心领域完全无关。</p>
+            <p class="text-gray-600 text-sm mt-1">该论文标题明确指向医学病理学领域的特定应用（临床模板、病理切片、问答系统），这属于明确的医学领域应用。根据用户列出的无关主题，明确排除了&#39;Medical, Biology, Chemistry, Physics or other domain-specific applications&#39;，因此该论文与用户关注的推荐系统、搜索、广告等核心领域完全无关。</p>
         </div>
         
         <div class="flex flex-wrap items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
@@ -7769,7 +7769,7 @@
                      查看完整摘要 <i class="fa fa-chevron-down ml-1 text-xs"></i> 
                  </summary> 
                  <div class="abstract-content mt-2 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                    In this paper, we introduce a clinical diagnosis template-based pipeline to systematically collect and structure pathological information. In collaboration with pathologists and guided by the the College of American Pathologists (CAP) Cancer Protocols, we design a Clinical Pathology Report Template (CPRT) that ensures comprehensive and standardized extraction of diagnostic elements from pathology reports. We validate the effectiveness of our pipeline on TCGA-BRCA. First, we extract pathological features from reports using CPRT. These features are then used to build CTIS-Align, a dataset of 80k slide-description pairs from 804 WSIs for vision-language alignment training, and CTIS-Bench, a rigorously curated VQA benchmark comprising 977 WSIs and 14,879 question-answer pairs. CTIS-Bench emphasizes clinically grounded, closed-ended questions (e.g., tumor grade, receptor status) that reflect real diagnostic workflows, minimize non-visual reasoning, and require genuine slide understanding. We further propose CTIS-QA, a Slide-level Question Answering model, featuring a dual-stream architecture that mimics pathologists' diagnostic approach. One stream captures global slide-level context via clustering-based feature aggregation, while the other focuses on salient local regions through attention-guided patch perception module. Extensive experiments on WSI-VQA, CTIS-Bench, and slide-level diagnostic tasks show that CTIS-QA consistently outperforms existing state-of-the-art models across multiple metrics. Code and data are available at https://github.com/HLSvois/CTIS-QA.
+                    In this paper, we introduce a clinical diagnosis template-based pipeline to systematically collect and structure pathological information. In collaboration with pathologists and guided by the the College of American Pathologists (CAP) Cancer Protocols, we design a Clinical Pathology Report Template (CPRT) that ensures comprehensive and standardized extraction of diagnostic elements from pathology reports. We validate the effectiveness of our pipeline on TCGA-BRCA. First, we extract pathological features from reports using CPRT. These features are then used to build CTIS-Align, a dataset of 80k slide-description pairs from 804 WSIs for vision-language alignment training, and CTIS-Bench, a rigorously curated VQA benchmark comprising 977 WSIs and 14,879 question-answer pairs. CTIS-Bench emphasizes clinically grounded, closed-ended questions (e.g., tumor grade, receptor status) that reflect real diagnostic workflows, minimize non-visual reasoning, and require genuine slide understanding. We further propose CTIS-QA, a Slide-level Question Answering model, featuring a dual-stream architecture that mimics pathologists&#39; diagnostic approach. One stream captures global slide-level context via clustering-based feature aggregation, while the other focuses on salient local regions through attention-guided patch perception module. Extensive experiments on WSI-VQA, CTIS-Bench, and slide-level diagnostic tasks show that CTIS-QA consistently outperforms existing state-of-the-art models across multiple metrics. Code and data are available at https://github.com/HLSvois/CTIS-QA.
                 </div>
             </details>
     </div>
@@ -7784,7 +7784,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01762v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01762v1" target="_blank" rel="noopener noreferrer">
                 AlignDrive：面向端到端自动驾驶的对齐式横向-纵向规划
             </a>
         </h3>
@@ -7841,7 +7841,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01749v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01749v1" target="_blank" rel="noopener noreferrer">
                 MANGO：通过2D提升增强实现自然多说话者3D说话头生成
             </a>
         </h3>
@@ -7898,7 +7898,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01746v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01746v1" target="_blank" rel="noopener noreferrer">
                 Point-SRA：用于三维表征学习的自表示对齐
             </a>
         </h3>
@@ -7955,7 +7955,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01720v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01720v1" target="_blank" rel="noopener noreferrer">
                 FFP-300K：扩展首帧传播以实现可泛化的视频编辑
             </a>
         </h3>
@@ -8012,7 +8012,7 @@
 <div class="simple-paper-card p-3 collapsed-level-2">
     <div class="flex justify-between items-start mb-1">
         <h3 class="text-base font-medium text-primary hover:underline transition-colors">
-            <a href="https://www.alphaxiv.org/abs/2601.01696v1" target="_blank" rel="noopener noreferrer">
+            <a href="https://arxiv.org/abs/2601.01696v1" target="_blank" rel="noopener noreferrer">
                 面向低功耗嵌入式系统的实时车道检测：基于高效特征对齐与协方差优化
             </a>
         </h3>
@@ -8078,6 +8078,12 @@
                     papersContainer.classList.toggle('expanded-all');
                     this.textContent = papersContainer.classList.contains('expanded-all') ? 
                         '收起全部非精选论文' : '展开全部非精选论文';
+
+                    if (!papersContainer.classList.contains('expanded-all')) {
+                        papersContainer.querySelectorAll('.paper-details').forEach(details => {
+                            details.style.display = '';
+                        });
+                    }
                     
                     // 更新所有论文标题前的图标状态
                     const collapsedPapers = papersContainer.querySelectorAll('.collapsed-level-1');
@@ -8111,11 +8117,10 @@
                 
                 divider.appendChild(dividerLabel);
                 
-                // 在所有非精选论文的最后一个元素后面添加分割线
-                const normalPapers = papersContainer.querySelectorAll('.simple-paper-card');
-                if (normalPapers.length > 0) {
-                    const lastNormalPaper = normalPapers[normalPapers.length - 1];
-                    papersContainer.insertBefore(divider, lastNormalPaper.nextSibling);
+                // 将分割线放到第一篇低分论文前，确保文案和展开区域语义一致
+                const firstLowScorePaper = papersContainer.querySelector('.collapsed-level-2');
+                if (firstLowScorePaper) {
+                    papersContainer.insertBefore(divider, firstLowScorePaper);
                 }
             }
             
@@ -8222,6 +8227,10 @@
                     
                     // 重置折叠状态
                     papersContainer.classList.remove('expanded-all');
+                    papersContainer.classList.remove('expanded-level-2');
+                    papersContainer.querySelectorAll('.paper-details').forEach(details => {
+                        details.style.display = '';
+                    });
                     
                     // 更新显示计数
                     const displayCountElement = document.getElementById('display-count');
@@ -8268,33 +8277,34 @@
         const currentMonthEl = document.getElementById('current-month');
         const selectedDateText = document.getElementById('selected-date-text');
         
-        // 当前显示的日期（从页面获取）
-        const currentDateStr = document.getElementById('current-date').textContent.trim().replace(/^\d+年|月|日/g, '');
-        const currentDate = new Date(currentDateStr);
-        let displayYear = currentDate.getFullYear();
-        let displayMonth = currentDate.getMonth();
+        // 当前页面日期由后端注入，避免从展示文本反解析和new Date(date-only)时区差异
+        const currentDateConfig = {"ymd": "20260106", "display": "2026-01-06", "year": 2026, "month": 1, "day": 6};
+        const currentPageDate = currentDateConfig.display;
+        const currentDate = new Date(
+            currentDateConfig.year,
+            currentDateConfig.month - 1,
+            currentDateConfig.day
+        );
+        let displayYear = currentDateConfig.year;
+        let displayMonth = currentDateConfig.month - 1;
         
         // 有论文数据的日期列表
-        const availableDates = ["20251105","20251107","20251218","20251009","20251121","20251113","20251030","20251111","20260101","20251209","20251126","20251204","20251031","20251017","20251021","20251010","20251202","20251127","20251219","20260106","20251224","20251024","20251022","20251211","20251230","20251223","20251216","20251029","20251217","20251114","20251118","20251120","20251016","20251015","20251028","20251014","20251119","20251210","20251212","20251112","20251106","20251125","20251225","20251205","20251023"];
+        const availableDates = ["20251009", "20251010", "20251014", "20251015", "20251016", "20251017", "20251021", "20251022", "20251023", "20251024", "20251028", "20251029", "20251030", "20251031", "20251105", "20251106", "20251107", "20251111", "20251112", "20251113", "20251114", "20251118", "20251119", "20251120", "20251121", "20251125", "20251126", "20251127", "20251202", "20251204", "20251205", "20251209", "20251210", "20251211", "20251212", "20251216", "20251217", "20251218", "20251219", "20251223", "20251224", "20251225", "20251230", "20260101", "20260106", "20260107", "20260108", "20260109", "20260113", "20260114", "20260115", "20260116", "20260121", "20260122", "20260123", "20260127", "20260128", "20260129", "20260130", "20260203", "20260204", "20260205", "20260206", "20260210", "20260211", "20260212", "20260213", "20260217", "20260218", "20260219", "20260220", "20260224", "20260225", "20260226", "20260227", "20260303", "20260304", "20260305", "20260306", "20260310", "20260311", "20260312", "20260313", "20260317", "20260318", "20260319", "20260320", "20260324", "20260325", "20260326", "20260327", "20260331", "20260402", "20260403", "20260407", "20260408", "20260409", "20260410", "20260414", "20260415", "20260417", "20260421", "20260422", "20260423", "20260424", "20260428", "20260429", "20260430", "20260501", "20260505", "20260506", "20260507", "20260508", "20260512", "20260513", "20260515", "20260519", "20260520", "20260521", "20260526"];
         
-        // 尝试从localStorage恢复选择状态
         const savedDate = localStorage.getItem('selectedDate');
         const savedYear = localStorage.getItem('selectedYear');
         const savedMonth = localStorage.getItem('selectedMonth');
         
-        // 确保页面加载时显示当前选中的日期
-        // 修复持久化问题：确保每次加载都能正确恢复选中状态
-        if (savedDate) {
-            selectedDateText.textContent = savedDate;
-            if (savedYear) displayYear = parseInt(savedYear);
-            if (savedMonth) displayMonth = parseInt(savedMonth);
-        } else {
-            // 首次加载时，将当前页面日期保存到localStorage
-            const currentPageDate = currentDateStr.replace(/\//g, '-');
-            selectedDateText.textContent = currentPageDate;
-            localStorage.setItem('selectedDate', currentPageDate);
-            localStorage.setItem('selectedYear', currentDate.getFullYear().toString());
-            localStorage.setItem('selectedMonth', currentDate.getMonth().toString());
+        // 页面日期始终以当前HTML为准，localStorage只用于恢复上次打开的月份视图
+        selectedDateText.textContent = currentPageDate;
+        localStorage.setItem('selectedDate', currentPageDate);
+        if (savedDate === currentPageDate && savedYear && savedMonth) {
+            const parsedYear = parseInt(savedYear, 10);
+            const parsedMonth = parseInt(savedMonth, 10);
+            if (!Number.isNaN(parsedYear) && !Number.isNaN(parsedMonth)) {
+                displayYear = parsedYear;
+                displayMonth = parsedMonth;
+            }
         }
     
         // 切换日历显示状态
@@ -8421,7 +8431,7 @@
                 }
                 
                 // 高亮显示当前选中的日期
-                if (displayDateStr === selectedDateText.textContent) {
+                if (dateStr === currentDateConfig.ymd) {
                     dayElement.classList.add('font-bold', 'border-2', 'border-primary', 'rounded-lg', 'shadow-md');
                 }
                 

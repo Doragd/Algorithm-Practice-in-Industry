@@ -1,21 +1,8 @@
 /*
  * arXiv每日论文精选前端应用
- * 只处理运行时交互功能，如摘要展开/收起和筛选按钮
+ * 仅保留可复用的轻量工具函数。
+ * 筛选、折叠和日历逻辑由生成页面内的脚本统一负责，避免重复绑定事件。
  */
-
-// 初始化应用
-document.addEventListener('DOMContentLoaded', () => {
-    // 绑定筛选按钮事件（实际筛选逻辑在后端完成，此处仅保留UI反馈）
-    document.getElementById('show-all').addEventListener('click', () => {
-        setActiveFilter('show-all');
-        // 实际筛选逻辑需要后端支持，这里仅更新按钮样式
-    });
-
-    document.getElementById('show-selected').addEventListener('click', () => {
-        setActiveFilter('show-selected');
-        // 实际筛选逻辑需要后端支持，这里仅更新按钮样式
-    });
-});
 
 /**
  * 切换摘要显示状态
