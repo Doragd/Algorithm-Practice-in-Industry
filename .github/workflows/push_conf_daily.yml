@@ -28,6 +28,15 @@ jobs:
       contents: write
 
     steps:
+      - name: Debug time
+        run: |
+          echo "UTC:"
+          date -u
+          echo "Local:"
+          date
+          echo "Beijing:"
+          TZ=Asia/Shanghai date
+
       - uses: actions/checkout@v3
         with:
           lfs: true
