@@ -29,6 +29,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          lfs: true
       - name: Set up Python version
         uses: actions/setup-python@v3
         with:
@@ -40,8 +42,10 @@ jobs:
 
       - name: PUSH CONF DAILY
         run: |
-          python conf.py
-          python render.py
+          python paperBotV2/conf_summary/conf_daily.py
+          cd paperBotV2/conf_summary
+          python convert_to_md.py
+          python update_readme_papers.py
         
       - name: Commit files
         id: commit
@@ -49,11 +53,11 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
           git add --all
-          if [ -z "$(git status --porcelain)"]; then
-             echo "::set-output name=push::false"
+          if [ -z "$(git status --porcelain)" ]; then
+             echo "push=false" >> "$GITHUB_OUTPUT"
           else
              git commit -m "chore: update confs" -a
-             echo "::set-output name=push::true"
+             echo "push=true" >> "$GITHUB_OUTPUT"
           fi
         shell: bash
 

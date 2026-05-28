@@ -1,14 +1,99 @@
 import os
-import sys
 import json
 import time
 import argparse
+import re
+import shutil
 from datetime import datetime, timedelta
-from jinja2 import Template
+from urllib.parse import urlparse
+from jinja2 import Environment, BaseLoader, select_autoescape
+from markupsafe import Markup, escape
 
 
 # 配置参数
 MAX_AUTHORS_DISPLAY_LENGTH = 80  # 作者名最大显示长度
+ALLOWED_URL_SCHEMES = {"http", "https"}
+ALLOWED_URL_HOSTS = {"arxiv.org", "www.arxiv.org", "export.arxiv.org"}
+ALLOWED_ARXIV_PATH_PREFIXES = ("/abs/", "/pdf/", "/html/")
+DATE_PATTERN = re.compile(r"^\d{8}$")
+ARXIV_ID_PATTERN = re.compile(r"^[A-Za-z0-9._/-]{1,80}$")
+TEMPLATE_ENV = Environment(
+    loader=BaseLoader(),
+    autoescape=select_autoescape(default=True, default_for_string=True),
+)
+
+
+def safe_text(value, default=""):
+    """将任意值转换为可安全渲染的文本。"""
+    if value is None:
+        return default
+    return str(value)
+
+
+def sanitize_date(date_str):
+    """仅允许YYYYMMDD格式日期，避免写入HTML/JS时混入非日期内容。"""
+    date_str = safe_text(date_str)
+    return date_str if DATE_PATTERN.fullmatch(date_str) else ""
+
+
+def sanitize_arxiv_id(arxiv_id):
+    """限制arXiv ID字符集，避免将异常内容拼入URL路径。"""
+    arxiv_id = safe_text(arxiv_id).strip()
+    return arxiv_id if ARXIV_ID_PATTERN.fullmatch(arxiv_id) else ""
+
+
+def build_arxiv_url(arxiv_id):
+    """根据安全的arXiv ID构造默认论文链接。"""
+    safe_arxiv_id = sanitize_arxiv_id(arxiv_id)
+    if not safe_arxiv_id:
+        return "https://arxiv.org"
+    return f"https://arxiv.org/abs/{safe_arxiv_id}"
+
+
+def sanitize_url(url, fallback_url):
+    """只允许跳转到白名单内的arXiv URL。"""
+    url = safe_text(url).strip()
+    fallback_url = safe_text(fallback_url, "https://arxiv.org")
+    if not url:
+        return fallback_url
+
+    parsed = urlparse(url)
+    host = parsed.hostname.lower() if parsed.hostname else ""
+    if (
+        parsed.scheme.lower() not in ALLOWED_URL_SCHEMES
+        or host not in ALLOWED_URL_HOSTS
+        or parsed.username
+        or parsed.password
+        or not parsed.path.startswith(ALLOWED_ARXIV_PATH_PREFIXES)
+    ):
+        return fallback_url
+
+    return url
+
+
+def build_category_tags(categories):
+    """生成分类标签HTML，标签文本始终进行HTML转义。"""
+    if isinstance(categories, list):
+        category_values = categories
+    elif categories:
+        category_values = [cat.strip() for cat in safe_text(categories).split(',')]
+    else:
+        category_values = []
+
+    tags = [
+        f'<span class="category-tag">{escape(safe_text(category).strip())}</span>'
+        for category in category_values
+        if safe_text(category).strip()
+    ]
+    return Markup(''.join(tags))
+
+
+def coerce_score(score):
+    """将评分转换为数字，异常值按0处理。"""
+    try:
+        return float(score)
+    except (TypeError, ValueError):
+        return 0.0
 
 
 def get_latest_json_file(json_dir):
@@ -46,6 +131,11 @@ def get_json_file_by_date(json_dir, date_str):
     Returns:
         str: JSON文件的路径
     """
+    date_str = sanitize_date(date_str)
+    if not date_str:
+        print("日期格式无效，应为YYYYMMDD")
+        return None
+
     file_name = f"{date_str}.json"
     file_path = os.path.join(json_dir, file_name)
     
@@ -109,6 +199,7 @@ def generate_date_options(current_date):
     Returns:
         str: 日期选项HTML
     """
+    current_date = sanitize_date(current_date)
     options = []
     # 生成最近7天的日期选项
     for i in range(7):
@@ -130,7 +221,7 @@ def render_template(template_content, context):
     Returns:
         str: 渲染后的内容
     """
-    template = Template(template_content)
+    template = TEMPLATE_ENV.from_string(template_content)
     return template.render(**context)
 
 
@@ -146,7 +237,13 @@ def generate_papers_html(papers, frontend_dir, static_dir=None):
         str: 论文列表HTML
     """
     # 先按是否精选排序，再按评分从高到低排序
-    papers_sorted = sorted(papers, key=lambda x: (not x.get('is_fine_ranked', False), -(x.get('rerank_relevance_score') or x.get('relevance_score') or 0)))
+    papers_sorted = sorted(
+        papers,
+        key=lambda x: (
+            not x.get('is_fine_ranked', False),
+            -coerce_score(x.get('rerank_relevance_score') or x.get('relevance_score') or 0),
+        ),
+    )
     
     # 读取模板文件
     # 优先从static_dir读取，如果没有再从frontend_dir读取
@@ -161,7 +258,7 @@ def generate_papers_html(papers, frontend_dir, static_dir=None):
     
     for paper in papers_sorted:
         # 准备论文数据上下文
-        score = paper.get('rerank_relevance_score') or paper.get('relevance_score') or 0
+        score = coerce_score(paper.get('rerank_relevance_score') or paper.get('relevance_score') or 0)
         
        # 确定论文类型和模板
         is_selected = paper.get('is_fine_ranked', False)
@@ -169,7 +266,7 @@ def generate_papers_html(papers, frontend_dir, static_dir=None):
         
         # 分级折叠功能：为非精选论文添加不同的折叠级别
         if not is_selected:
-            score_value = float(score)
+            score_value = coerce_score(score)
             if score_value <= 1:
                 # 分数<=1的论文，默认隐藏，只在分割线后显示标题
                 display_class = "collapsed-level-2"
@@ -189,18 +286,10 @@ def generate_papers_html(papers, frontend_dir, static_dir=None):
             score_color = 'bg-gray-100 text-gray-800'
         
         # 处理分类标签
-        category_tags = ''
-        if isinstance(paper.get('categories'), list):
-            category_tags = ''.join([f'<span class="category-tag">{cat}</span>' for cat in paper['categories']])
-        elif paper.get('categories'):
-            categories_str = str(paper['categories'])
-            if ',' in categories_str:
-                category_tags = ''.join([f'<span class="category-tag">{cat.strip()}</span>' for cat in categories_str.split(',')])
-            else:
-                category_tags = f'<span class="category-tag">{categories_str}</span>'
+        category_tags = build_category_tags(paper.get('categories'))
         
         # 截断作者名
-        authors = paper.get('authors', '')
+        authors = safe_text(paper.get('authors', ''))
         if len(authors) > MAX_AUTHORS_DISPLAY_LENGTH:
             authors = authors[:MAX_AUTHORS_DISPLAY_LENGTH] + '...'
         
@@ -213,8 +302,10 @@ def generate_papers_html(papers, frontend_dir, static_dir=None):
         if paper.get('rerank_reasoning'):
             reasoning_text = paper.get('rerank_reasoning')
         
+        safe_arxiv_id = sanitize_arxiv_id(paper.get('arxiv_id', ''))
+        fallback_url = build_arxiv_url(safe_arxiv_id)
         context = {
-            'URL': paper.get('url', f'https://arxiv.org/abs/{paper.get("arxiv_id", "")}'),
+            'URL': sanitize_url(paper.get('url'), fallback_url),
             'TRANSLATION': paper.get('translation', paper.get('title', '')),
             'TITLE': paper.get('title', ''),
             'SCORE': score_display,
@@ -225,7 +316,7 @@ def generate_papers_html(papers, frontend_dir, static_dir=None):
             'SUMMARY': paper.get('summary', ''),
             'REASONING': reasoning_text,
             'PUB_DATE': paper.get('pub_date', ''),
-            'ARXIV_ID': paper.get('arxiv_id', ''),
+            'ARXIV_ID': safe_arxiv_id,
             'CATEGORY_TAGS': category_tags,
             'DISPLAY_CLASS': display_class
         }
@@ -250,6 +341,11 @@ def generate_html(papers, date_str, script_dir, output_file=None):
     Returns:
         str: 生成的HTML文件路径
     """
+    date_str = sanitize_date(date_str)
+    if not date_str:
+        print("日期格式无效，应为YYYYMMDD")
+        return None
+
     # 格式化日期显示
     display_date = f"{date_str[:4]}-{date_str[4:6]}-{date_str[6:8]}"
     
@@ -260,7 +356,7 @@ def generate_html(papers, date_str, script_dir, output_file=None):
 
     
     if total_papers > 0:
-        total_score = sum(p.get('rerank_relevance_score') or p.get('relevance_score') or 0 for p in papers)
+        total_score = sum(coerce_score(p.get('rerank_relevance_score') or p.get('relevance_score') or 0) for p in papers)
         avg_score = f"{total_score / total_papers:.1f}"
     else:
         avg_score = "0"
@@ -268,25 +364,24 @@ def generate_html(papers, date_str, script_dir, output_file=None):
     # 检查前端目录是否存在
     frontend_dir = os.path.join(script_dir, "frontend")
     
-    # 如果未指定输出文件，则自动生成
+    # 如果未指定输出文件，则自动生成；指定时从文件路径推导output_dir
     if output_file is None:
         output_dir = os.path.join(script_dir, "output")
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
         output_file = os.path.join(output_dir, f"arxiv_{date_str}.html")
+    else:
+        output_file = os.path.abspath(output_file)
+        output_dir = os.path.dirname(output_file) or os.getcwd()
+    os.makedirs(output_dir, exist_ok=True)
     
     # 确保静态资源目录存在
     static_dir = os.path.join(output_dir, "static")
-    if not os.path.exists(static_dir):
-        os.makedirs(static_dir)
+    os.makedirs(static_dir, exist_ok=True)
     
     # 确保templates子目录存在
     static_templates_dir = os.path.join(static_dir, "templates")
-    if not os.path.exists(static_templates_dir):
-        os.makedirs(static_templates_dir)
+    os.makedirs(static_templates_dir, exist_ok=True)
     
     # 如果frontend目录存在，复制静态资源文件
-    import shutil
     if os.path.exists(frontend_dir):
         # 复制静态资源文件
         static_files = ['styles.css', 'tailwind.config.js', 'app.js', 'index.html']
@@ -307,6 +402,26 @@ def generate_html(papers, date_str, script_dir, output_file=None):
                 if os.path.exists(src_path):
                     shutil.copy2(src_path, dst_path)
                     print(f"已复制模板文件: {file_name}")
+    else:
+        default_static_dir = os.path.join(script_dir, "output", "static")
+        if os.path.exists(default_static_dir) and os.path.abspath(default_static_dir) != os.path.abspath(static_dir):
+            static_files = ['styles.css', 'tailwind.config.js', 'app.js', 'index.html']
+            for file_name in static_files:
+                src_path = os.path.join(default_static_dir, file_name)
+                dst_path = os.path.join(static_dir, file_name)
+                if os.path.exists(src_path):
+                    shutil.copy2(src_path, dst_path)
+                    print(f"已复制默认静态资源: {file_name}")
+
+            default_templates_dir = os.path.join(default_static_dir, "templates")
+            if os.path.exists(default_templates_dir):
+                template_files = ['normal_paper_template.html', 'selected_paper_template.html']
+                for file_name in template_files:
+                    src_path = os.path.join(default_templates_dir, file_name)
+                    dst_path = os.path.join(static_templates_dir, file_name)
+                    if os.path.exists(src_path):
+                        shutil.copy2(src_path, dst_path)
+                        print(f"已复制默认模板文件: {file_name}")
     
     # 优先从static_dir读取HTML模板，如果不存在再从frontend_dir读取
     html_template = read_frontend_file(static_dir, 'index.html')
@@ -330,7 +445,6 @@ def generate_html(papers, date_str, script_dir, output_file=None):
     html_content = html_content.replace('{{PAPERS_HTML}}', papers_html)
     
     # 移除不必要的JSON数据部分
-    import re
     html_content = re.sub(r'<script id="papers-data" type="application/json">[\s\S]*?</script>\s*', '', html_content)
     
     # 添加分级折叠功能的CSS样式
@@ -416,7 +530,6 @@ def generate_html(papers, date_str, script_dir, output_file=None):
     html_content = html_content.replace('</head>', collapse_css + '</head>')
     
     # 添加时间戳以避免CSS缓存
-    import time
     timestamp = int(time.time())
     html_content = html_content.replace('{{TIMESTAMP}}', str(timestamp))
     
@@ -610,8 +723,9 @@ def generate_html(papers, date_str, script_dir, output_file=None):
         if os.path.exists(json_dir):
             for file in os.listdir(json_dir):
                 if file.endswith('.json') and len(file) == 13 and file != 'results.json':  # 格式: YYYYMMDD.json
-                    date_str = file[:-5]  # 移除.json
-                    available_dates.append(date_str)
+                    safe_date = sanitize_date(file[:-5])  # 移除.json
+                    if safe_date:
+                        available_dates.append(safe_date)
         return available_dates
     
     # 根据script_dir计算json_dir
@@ -619,7 +733,7 @@ def generate_html(papers, date_str, script_dir, output_file=None):
     
     # 获取有论文数据的日期列表
     available_dates = get_available_dates(json_dir)
-    available_dates_js = '[' + ','.join(f'"{date}"' for date in available_dates) + ']'
+    available_dates_js = json.dumps(available_dates)
     
     # 将日历相关的JavaScript代码直接嵌入到HTML文件中，添加论文数据存在性检查
     calendar_js = '''
@@ -877,8 +991,13 @@ def main():
     
     # 获取JSON文件路径
     if args.date:
-        json_file = get_json_file_by_date(json_dir, args.date)
+        date_arg = sanitize_date(args.date)
+        if not date_arg:
+            print("日期格式无效，应为YYYYMMDD")
+            return
+        json_file = get_json_file_by_date(json_dir, date_arg)
     else:
+        date_arg = None
         json_file = get_latest_json_file(json_dir)
     
     if not json_file:
@@ -892,7 +1011,7 @@ def main():
         return
     
     # 生成HTML页面
-    date_str = args.date if args.date else os.path.basename(json_file).split('.')[0]
+    date_str = date_arg if date_arg else os.path.basename(json_file).split('.')[0]
     generate_html(papers, date_str, script_dir, args.output)
 
 

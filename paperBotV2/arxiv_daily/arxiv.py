@@ -4,6 +4,7 @@ import requests
 import json
 import time
 import feedparser
+import random
 from openai import OpenAI
 from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -22,6 +23,189 @@ TARGET_CATEGORYS = [cat.strip() for cat in TARGET_CATEGORYS.split(',')]
 MAX_PAPERS = int(os.environ.get("MAX_PAPERS", "100"))
 ROUGH_SCORE_THRESHOLD = int(os.environ.get("ROUGH_SCORE_THRESHOLD", "4"))
 RETURN_PAPERS = int(os.environ.get("RETURN_PAPERS", "20"))
+ARXIV_LOOKBACK_HOURS = int(os.environ.get("ARXIV_LOOKBACK_HOURS", "36"))
+ARXIV_PAGE_SIZE = int(os.environ.get("ARXIV_PAGE_SIZE", "100"))
+ARXIV_MAX_PAGES = int(os.environ.get("ARXIV_MAX_PAGES", "20"))
+ARXIV_REQUEST_INTERVAL = int(os.environ.get("ARXIV_REQUEST_INTERVAL", "60"))
+ARXIV_CATEGORY_INTERVAL = int(os.environ.get("ARXIV_CATEGORY_INTERVAL", "120"))
+ARXIV_JITTER_SECONDS = int(os.environ.get("ARXIV_JITTER_SECONDS", "120"))
+ARXIV_CATEGORY_RETRY_ATTEMPTS = int(os.environ.get("ARXIV_CATEGORY_RETRY_ATTEMPTS", "1"))
+ARXIV_USE_DAILY_CACHE = os.environ.get("ARXIV_USE_DAILY_CACHE", "true").lower() == "true"
+ARXIV_RETRY_ATTEMPTS = int(os.environ.get("ARXIV_RETRY_ATTEMPTS", "4"))
+ARXIV_RETRY_BASE_WAIT = int(os.environ.get("ARXIV_RETRY_BASE_WAIT", "600"))
+ARXIV_RETRY_MAX_WAIT = int(os.environ.get("ARXIV_RETRY_MAX_WAIT", "2400"))
+ARXIV_CATEGORY_MAX_PAGES = os.environ.get("ARXIV_CATEGORY_MAX_PAGES", "cs.IR:5,cs.CL:8,cs.CV:20")
+ARXIV_API_BASE_URLS = [
+    url.strip()
+    for url in os.environ.get(
+        "ARXIV_API_BASE_URLS",
+        "https://export.arxiv.org/api/query,https://arxiv.org/api/query",
+    ).split(',')
+    if url.strip()
+]
+ARXIV_USER_AGENT = os.environ.get(
+    "ARXIV_USER_AGENT",
+    "Algorithm-Practice-in-Industry paperBotV2 arxiv_daily; "
+    "https://github.com/Doragd/Algorithm-Practice-in-Industry",
+)
+
+
+class ArxivFetchError(RuntimeError):
+    """Raised when arXiv data cannot be fetched reliably."""
+
+
+def parse_category_max_pages(raw_config):
+    """解析分类级最大页数配置，例如 cs.IR:5,cs.CL:8,cs.CV:20。"""
+    parsed = {}
+    for item in raw_config.split(','):
+        if ':' not in item:
+            continue
+        category, max_pages = item.split(':', 1)
+        category = category.strip()
+        try:
+            parsed[category] = int(max_pages.strip())
+        except ValueError:
+            print(f"⚠️ 忽略无效的分类页数配置: {item}")
+    return parsed
+
+
+CATEGORY_MAX_PAGES = parse_category_max_pages(ARXIV_CATEGORY_MAX_PAGES)
+
+
+def sleep_with_jitter(base_seconds, reason):
+    """带随机抖动的 sleep，降低固定节奏触发 arXiv 限流的概率。"""
+    if base_seconds <= 0:
+        return
+    jitter = random.randint(0, ARXIV_JITTER_SECONDS) if ARXIV_JITTER_SECONDS > 0 else 0
+    total_seconds = base_seconds + jitter
+    print(f"⏱️ {reason}，等待 {total_seconds}s（基础 {base_seconds}s + 抖动 {jitter}s）")
+    time.sleep(total_seconds)
+
+
+def get_category_max_pages(category):
+    """优先使用分类级页数上限，降低低产分类不必要请求次数。"""
+    return CATEGORY_MAX_PAGES.get(category, ARXIV_MAX_PAGES)
+
+
+def load_today_cached_papers(category):
+    """同一天手动重跑时优先复用已有成功结果，减少重复请求 arXiv。"""
+    if not ARXIV_USE_DAILY_CACHE:
+        return {}
+
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    today_file = os.path.join(current_dir, "data", f"{datetime.now().strftime('%Y%m%d')}.json")
+    if not os.path.exists(today_file):
+        return {}
+
+    try:
+        with open(today_file, 'r', encoding='utf-8') as f:
+            today_data = json.load(f)
+    except Exception as exc:
+        print(f"⚠️ 读取今日缓存失败，将继续请求 arXiv: {exc}")
+        return {}
+
+    cached = {
+        arxiv_id: paper
+        for arxiv_id, paper in today_data.items()
+        if category in paper.get('categories', '')
+    }
+    if cached:
+        print(f"📦 分类 '{category}' 复用今日缓存 {len(cached)} 篇论文，跳过 arXiv 请求。")
+    return cached
+
+
+def parse_arxiv_entry(entry):
+    """将 arXiv feed entry 转换为内部论文结构。"""
+    title = re.sub(r'\s+', ' ', entry.title.replace('\n', ' ').strip())
+    arxiv_id = entry.id.split('/abs/')[-1]
+    alphaxiv_link = f"https://www.alphaxiv.org/abs/{arxiv_id}"
+    authors = ', '.join(author.name for author in entry.authors)
+    summary = re.sub(r'\s+', ' ', entry.summary.replace('\n', ' ').strip())
+    published_date = entry.published_parsed
+    published_str = datetime(*published_date[:6]).strftime('%Y-%m-%d %H:%M:%S')
+    categories = ', '.join(tag.term for tag in entry.tags)
+
+    return arxiv_id, {
+        'title': title,
+        'url': alphaxiv_link,
+        'arxiv_id': arxiv_id,
+        'authors': authors,
+        'categories': categories,
+        'pub_date': published_str,
+        'ori_summary': summary,
+        'summary': '',  # 占位，后续由 LLM 填充
+        'translation': '',  # 占位，后续由 LLM 填充
+        'relevance_score': 0,  # 占位，后续由 LLM 填充
+        'reasoning': '',  # 占位，后续由 LLM 填充
+        'rerank_relevance_score': 0,  # 占位，后续由 LLM 填充
+        'rerank_reasoning': '',  # 占位，后续由 LLM 填充
+    }
+
+
+def get_retry_wait_seconds(response, attempt):
+    """优先遵循 Retry-After，否则使用指数退避。"""
+    retry_after = response.headers.get("Retry-After") if response is not None else None
+    if retry_after:
+        try:
+            return min(int(retry_after), ARXIV_RETRY_MAX_WAIT)
+        except ValueError:
+            pass
+    return min(ARXIV_RETRY_BASE_WAIT * (2 ** (attempt - 1)), ARXIV_RETRY_MAX_WAIT)
+
+
+def request_arxiv_page(base_urls, query_params):
+    """请求单页 arXiv API；遇到 429/5xx 时长退避重试。"""
+    headers = {"User-Agent": ARXIV_USER_AGENT}
+    last_error = None
+    if isinstance(base_urls, str):
+        base_urls = [base_urls]
+
+    for attempt in range(1, ARXIV_RETRY_ATTEMPTS + 1):
+        retryable_failure = False
+        last_response = None
+        for base_url in base_urls:
+            try:
+                response = requests.get(
+                    base_url,
+                    params=query_params,
+                    headers=headers,
+                    timeout=(5, 30),
+                )
+                last_response = response
+                if response.status_code == 429 or 500 <= response.status_code < 600:
+                    last_error = requests.exceptions.HTTPError(
+                        f"{response.status_code} error from {base_url}"
+                    )
+                    retryable_failure = True
+                    print(
+                        f"⏳ arXiv API {base_url} 返回 {response.status_code}，"
+                        f"第 {attempt}/{ARXIV_RETRY_ATTEMPTS} 轮重试..."
+                    )
+                    continue
+
+                response.raise_for_status()
+                return response
+            except requests.exceptions.RequestException as exc:
+                last_error = exc
+                retryable_failure = True
+                print(
+                    f"⏳ arXiv API {base_url} 请求异常: {exc}，"
+                    f"第 {attempt}/{ARXIV_RETRY_ATTEMPTS} 轮重试..."
+                )
+
+        if attempt == ARXIV_RETRY_ATTEMPTS:
+            break
+
+        wait_seconds = get_retry_wait_seconds(last_response if retryable_failure else None, attempt)
+        jitter = random.randint(0, ARXIV_JITTER_SECONDS) if ARXIV_JITTER_SECONDS > 0 else 0
+        total_wait = min(wait_seconds + jitter, ARXIV_RETRY_MAX_WAIT)
+        print(
+            f"⏳ 本轮 arXiv API 请求未成功，等待 {total_wait}s "
+            f"（基础 {wait_seconds}s + 抖动 {jitter}s）后重试..."
+        )
+        time.sleep(total_wait)
+
+    raise ArxivFetchError(f"arXiv API 请求多次失败: {last_error}")
 
 @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(5))
 def call_deepseek_api(prompt_content: str,
@@ -76,83 +260,51 @@ def get_daily_arxiv_papers(category='cs.CL', max_results=20):
         category (str): 你感兴趣的 arXiv 类别，例如 'cs.CL', 'cs.AI', 'stat.ML'。
         max_results (int): 希望获取的最大论文数量。
     """
-    # 0. results json
     results = {}
-
-    # 1. 构建 API 请求 URL
-    base_url = 'http://export.arxiv.org/api/query?'
-
-    # 2. 定义搜索参数
-    # 获取今天的日期范围（考虑到 UTC 时间）
-    # arXiv 的服务器在美国东部，但 API 通常使用 UTC 时间
-    today_utc = datetime.now(timezone.utc)
-    start_of_day = today_utc.replace(hour=0, minute=0, second=0, microsecond=0)
-
-    # 格式化为 API 需要的 YYYYMMDDHHMMSS 格式
-    # 为了确保能抓取到今天发布的所有论文，我们可以把范围稍微放宽一点
-    # 比如从昨天晚上到今天晚上
-    yesterday_utc = start_of_day - timedelta(days=1)
-    start_date_str = yesterday_utc.strftime('%Y%m%d%H%M%S')
-    end_date_str = today_utc.strftime('%Y%m%d%H%M%S')
-
-    # 构建 search_query
-    # 语法: cat:cs.CL AND submittedDate:[YYYYMMDDHHMMSS TO YYYYMMDDHHMMSS]
+    end_utc = datetime.now(timezone.utc)
+    start_utc = end_utc - timedelta(hours=ARXIV_LOOKBACK_HOURS)
+    start_date_str = start_utc.strftime('%Y%m%d%H%M%S')
+    end_date_str = end_utc.strftime('%Y%m%d%H%M%S')
     search_query = f'cat:{category} AND submittedDate:[{start_date_str} TO {end_date_str}]'
 
-    query_params = {
-        'search_query': search_query,
-        'sortBy': 'submittedDate',
-        'sortOrder': 'descending',
-        'start': 0,
-        'max_results': max_results
-    }
-
-    # 3. 发送请求并获取数据
-    try:
-        response = requests.get(base_url, params=query_params)
-        response.raise_for_status()  # 如果请求失败 (例如 404, 500), 会抛出异常
-    except requests.exceptions.RequestException as e:
-        print(f"❌ 请求失败: {e}")
-        return {}
-
-    # 4. 使用 feedparser 解析返回的 XML 数据
-    feed = feedparser.parse(response.content)
-
-    # 5. 打印论文信息
-    print(f"🔍 在分类 '{category}' 中找到 {len(feed.entries)} 篇今天更新的论文：")
+    page_size = min(max_results, ARXIV_PAGE_SIZE)
+    max_pages = get_category_max_pages(category)
+    print(
+        f"🔍 开始抓取分类 '{category}'，窗口: {start_utc.isoformat()} -> {end_utc.isoformat()}，"
+        f"page_size={page_size}, max_pages={max_pages}"
+    )
     print("=" * 50)
 
-    if not feed.entries:
-        print("📭 今天还没有新论文，或者查询范围有误。")
-        return {}
-
-    for i, entry in enumerate(feed.entries):
-        # 提取核心信息
-        title = re.sub(r'\s+', ' ', entry.title.replace('\n', ' ').strip())
-        arxiv_id = entry.id.split('/abs/')[-1]
-        alphaxiv_link = f"https://www.alphaxiv.org/abs/{arxiv_id}"
-        authors = ', '.join(author.name for author in entry.authors)
-        summary = re.sub(r'\s+', ' ', entry.summary.replace('\n', ' ').strip())
-        published_date = entry.published_parsed
-        published_str = datetime(
-            *published_date[:6]).strftime('%Y-%m-%d %H:%M:%S')
-        categories = ', '.join(tag.term for tag in entry.tags)
-
-        results[arxiv_id] = {
-            'title': title,
-            'url': alphaxiv_link,
-            'arxiv_id': arxiv_id,
-            'authors': authors,
-            'categories': categories,
-            'pub_date': published_str,
-            'ori_summary': summary,
-            'summary': '',  # 占位，后续由 LLM 填充
-            'translation': '',  # 占位，后续由 LLM 填充
-            'relevance_score': 0,  # 占位，后续由 LLM 填充
-            'reasoning': '',  # 占位，后续由 LLM 填充
-            'rerank_relevance_score': 0,  # 占位，后续由 LLM 填充
-            'rerank_reasoning': '',  # 占位，后续由 LLM 填充
+    for page in range(max_pages):
+        query_params = {
+            'search_query': search_query,
+            'sortBy': 'submittedDate',
+            'sortOrder': 'descending',
+            'start': page * page_size,
+            'max_results': page_size,
         }
+
+        response = request_arxiv_page(ARXIV_API_BASE_URLS, query_params)
+        feed = feedparser.parse(response.content)
+        entries = feed.entries
+        print(f"📄 分类 '{category}' 第 {page + 1} 页返回 {len(entries)} 篇论文")
+
+        if not entries:
+            break
+
+        for entry in entries:
+            arxiv_id, paper = parse_arxiv_entry(entry)
+            results[arxiv_id] = paper
+
+        if len(entries) < page_size:
+            break
+
+        sleep_with_jitter(ARXIV_REQUEST_INTERVAL, f"分类 '{category}' 分页请求间隔")
+
+    if not results:
+        print(f"📭 分类 '{category}' 在 {ARXIV_LOOKBACK_HOURS} 小时窗口内没有新论文。")
+    else:
+        print(f"✅ 分类 '{category}' 共抓取 {len(results)} 篇论文。")
 
     return results
 
@@ -351,7 +503,7 @@ def get_papers_from_all_categories():
     
     # 获取前一天的日期
     yesterday = datetime.now() - timedelta(days=1)
-    yesterday_file = os.path.join(current_dir, "arxiv_daily", f"{yesterday.strftime('%Y%m%d')}.json")
+    yesterday_file = os.path.join(current_dir, "data", f"{yesterday.strftime('%Y%m%d')}.json")
     
     # 读取前一天的论文ID集合（用于去重）
     yesterday_paper_ids = set()
@@ -365,8 +517,20 @@ def get_papers_from_all_categories():
             print(f"❌ 读取前一天论文文件失败: {e}")
     
     # 获取当前日期的所有分类论文
-    for category in TARGET_CATEGORYS:
-        category_results = get_daily_arxiv_papers(category=category, max_results=MAX_PAPERS)
+    for index, category in enumerate(TARGET_CATEGORYS):
+        category_results = load_today_cached_papers(category)
+        if not category_results:
+            for attempt in range(1, ARXIV_CATEGORY_RETRY_ATTEMPTS + 1):
+                try:
+                    category_results = get_daily_arxiv_papers(category=category, max_results=MAX_PAPERS)
+                    break
+                except ArxivFetchError as exc:
+                    if attempt == ARXIV_CATEGORY_RETRY_ATTEMPTS:
+                        raise
+                    print(
+                        f"⚠️ 分类 '{category}' 第 {attempt}/{ARXIV_CATEGORY_RETRY_ATTEMPTS} 次抓取失败: {exc}"
+                    )
+                    sleep_with_jitter(ARXIV_CATEGORY_INTERVAL, f"分类 '{category}' 失败后重试间隔")
         
         # 添加到all_papers并初始化状态标记，跳过与前一天重复的论文
         for arxiv_id, paper in category_results.items():
@@ -374,8 +538,8 @@ def get_papers_from_all_categories():
                 paper['is_filtered'] = False  # 默认为未过滤
                 paper['is_fine_ranked'] = False  # 默认为未精排
                 all_papers[arxiv_id] = paper
-        
-        time.sleep(3)  # 避免请求过于频繁
+        if index < len(TARGET_CATEGORYS) - 1:
+            sleep_with_jitter(ARXIV_CATEGORY_INTERVAL, "分类之间请求间隔")
     
     print(f"📚 获取到 {len(all_papers)} 篇论文（已去除与前一天重复的论文）。")
     return all_papers

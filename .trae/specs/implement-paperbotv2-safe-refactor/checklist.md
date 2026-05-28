@@ -1,0 +1,8 @@
+- [x] 已创建或切换到新的重构分支，且未覆盖用户已有未提交改动。
+- [x] 旧 arXiv 手动工作流已归档到 `legacy/workflows/`，`.github/workflows/` 中只保留主线 arXiv workflow。
+- [x] 会议相关 workflow 已尽可能迁移到 `paperBotV2/conf_summary`；若存在未迁移部分，报告中说明原因和风险。
+- [x] 顶层旧脚本已以原始内容移动到 `legacy/`，文档明确后续主线是 `paperBotV2`。
+- [x] README 顶会链接、arXiv 输出目录、行业实践输出目录和会议 Markdown 输出目录没有回退到旧路径。
+- [x] 已完成 workflow 引用检查、YAML 语法检查或等价静态检查，并记录结果。
+- [x] 已完成相关 Python 入口的最小化验证，且验证不依赖真实线上 webhook 或生产密钥。
+- [x] 已在 `docs/` 中记录本次改动、验证方式、验证结果和残余风险，便于后续回溯。

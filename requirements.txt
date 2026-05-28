@@ -5,4 +5,5 @@ tqdm
 beautifulsoup4
 aiohttp
 requests
+urllib3<2
 jinja2

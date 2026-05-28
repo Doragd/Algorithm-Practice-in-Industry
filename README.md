@@ -1,4 +1,5 @@
 # Algorithm-Practice-in-Industry
+
 ## 仓库介绍
 
 **一开始这个仓库是做如下内容：**
@@ -21,6 +22,28 @@
 
 [![Star History Chart](https://api.star-history.com/svg?repos=Doragd/Algorithm-Practice-in-Industry&type=Date)](https://star-history.com/#Doragd/Algorithm-Practice-in-Industry&Date)
 
+## 当前仓库功能
+
+当前仓库主线代码位于 `paperBotV2/`，主要维护搜广推方向的论文、顶会和工业实践内容：
+
+- **arXiv 每日论文**：抓取 `cs.IR` 等方向新论文，使用大模型进行粗排、精排和摘要翻译，生成每日 JSON 与网页，并支持飞书群推送。
+- **顶会论文汇总**：维护 ACL、CIKM、ECIR、EMNLP、ICLR、ICML、KDD、NAACL、NIPS、RecSys、SIGIR、WSDM、WWW 等会议论文列表，生成按会议和年份组织的 Markdown 页面。
+- **顶会论文日推**：从 `paperBotV2/conf_summary/data/results.json` 中挑选推荐、搜索、广告相关论文，补全摘要、翻译摘要，并通过飞书机器人推送。
+- **行业实践文章**：维护大厂搜广推、广告、搜索、推荐、生成式等实践文章，支持 Issue 驱动更新 README、数据文件和网页版本。
+- **GitHub Actions 自动化**：通过 workflow 定时或按 Issue 标签触发 arXiv 更新、飞书通知、顶会更新、会议日推和行业实践页面部署。
+
+## 代码入口
+
+- arXiv 主流程：`python -m paperBotV2.arxiv_daily.arxiv`
+- arXiv 飞书通知：`python paperBotV2/arxiv_daily/arxiv_feishu_msg.py`
+- 顶会 Issue 更新：`python paperBotV2/conf_summary/update_from_issue.py`
+- 顶会日推：`python paperBotV2/conf_summary/conf_daily.py`
+- 顶会 Markdown 生成：`python paperBotV2/conf_summary/convert_to_md.py`
+- 顶会 README 更新：`python paperBotV2/conf_summary/update_readme_papers.py`
+- 行业实践更新：`python paperBotV2/industry_practice/maintain.py`
+
+旧版脚本和旧 arXiv workflow 已归档到 `legacy/`，仅用于历史回溯、兼容排查和必要时回滚；日常开发和自动化入口以 `paperBotV2/` 为准。
+
 ## 贡献新文章
 提交issue，利用github action自动更新readme和source.xlsx内容
 
@@ -35,7 +58,7 @@
 
 
 ## 搜广推论文推送Bot 【✨Newest:网页版本🥹=>[点击查看](https://doragd.github.io/Algorithm-Practice-in-Industry/arxiv_daily)】
-* Arxiv论文：利用github action + 彩云小译 + 飞书机器人每天推送cs.IR和cs.CL的新论文到飞书群组中。[配置文件](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/.github/workflows/push_arxiv_daily.yml)
+* Arxiv论文：利用github action + 大模型排序翻译 + 飞书机器人每天推送cs.IR等方向的新论文到飞书群组中。[配置文件](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/.github/workflows/arxiv_daily_full.yml)
 * 顶会论文：利用github action + 彩云小译 + 飞书机器人每天推送搜广推顶会的论文到到飞书群组中。[配置文件](https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/.github/workflows/push_conf_daily.yml)
 * PS: 虽然论文没太大用，但是可以无聊时候刷刷，扩展下思路。
 * 比如早上通勤的时候，可以刷刷推送，看看有没有有意思的论文，也不需要花太多时间，毕竟摘要都翻译好了~

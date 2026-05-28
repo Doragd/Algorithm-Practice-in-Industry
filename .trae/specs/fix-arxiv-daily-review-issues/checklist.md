@@ -1,0 +1,7 @@
+- [x] 跨日去重读取路径已指向 `paperBotV2/arxiv_daily/data/YYYYMMDD.json`。
+- [x] arXiv API 请求已设置 timeout，workflow 也设置超时和并发保护。
+- [x] HTML 渲染对标题、摘要、作者、理由等上游文本启用转义，恶意样本不会原样执行。
+- [x] `generate_arxiv_html.py --output <path>` 可正常生成 HTML 和静态资源目录。
+- [x] 飞书 webhook HTTP 或业务失败会被检测并导致脚本失败。
+- [x] 已完成无真实 secrets、无真实飞书发送的本地验证。
+- [x] `docs/paperbotv2-arxiv-daily-review.md` 已记录修复状态和验证结果。
