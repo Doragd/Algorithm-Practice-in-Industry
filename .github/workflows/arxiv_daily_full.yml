@@ -24,6 +24,8 @@ jobs:
       # 检出代码
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          lfs: true
 
       # 设置Python环境
       - name: Set up Python 3.8
@@ -81,10 +83,10 @@ jobs:
           git config --local user.name "github-actions"
           git add --all
           if [ -z "$(git status --porcelain)" ]; then
-             echo "::set-output name=push::false"
+             echo "push=false" >> "$GITHUB_OUTPUT"
           else
              git commit -m "chore: update arxiv papers and HTML" -a
-             echo "::set-output name=push::true"
+             echo "push=true" >> "$GITHUB_OUTPUT"
           fi
         shell: bash
 

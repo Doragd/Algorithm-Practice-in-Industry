@@ -25,6 +25,8 @@ jobs:
       # 检出代码
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          lfs: true
 
       # 设置Python环境
       - name: Set up Python 3.8
