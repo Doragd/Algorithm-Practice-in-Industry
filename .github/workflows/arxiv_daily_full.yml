@@ -3,8 +3,8 @@ name: arxiv_daily_full
 on:
   # 定时触发
   schedule:
-    # 每天UTC时间5:20（北京时间13:20）执行，避开整点和高峰自动任务
-    - cron: '20 5 * * *'
+    # 每天UTC时间3:23（北京时间11:23）执行，避开整点和高峰自动任务
+    - cron: '23 3 * * *'
   # 手动触发
   workflow_dispatch:
 
