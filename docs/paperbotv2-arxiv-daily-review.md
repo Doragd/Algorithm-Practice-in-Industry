@@ -335,13 +335,16 @@ PY
 - 已增加同日缓存复用：手动重跑时若当天 JSON 已包含某分类结果，会复用缓存并跳过该分类 arXiv 请求。
 - 已关闭额外分类级二次重试：单页请求内部已经使用长间隔退避，分类层不再重复放大等待时间；若某分类最终失败，workflow 会 fail，避免提交空结果。
 - 已增加 workflow 外层重试：`arxiv.py` step 最多执行 3 次，失败后分别等待 30 分钟和 60 分钟再重试；最终失败会保留非 0 退出，阻止后续 HTML 生成、提交、部署和飞书成功触发。
+- 已增加运行状态持久化：每次运行会写入 `paperBotV2/arxiv_daily/status/YYYYMMDD.json` 详细状态，并追加/更新 `paperBotV2/arxiv_daily/status/arxiv_daily_runs.csv` 汇总表，记录抓取、粗排、精排、平均分、输出和错误信息。
+- 已增加晚间 recovery workflow：北京时间 18:05 检查当天状态，只有状态缺失、失败、抓取未成功、JSON 未写入或 HTML 未生成时才补跑；成功则直接跳过。
+- 已扩展飞书触发条件：`arxiv_feishu_msg.yml` 同时监听 `arxiv_daily_full` 和 `arxiv_daily_recovery`，确保晚间补跑成功后也会发送当天 Top20 飞书消息。
 - 已增加 `PYTHONUNBUFFERED=1`：GitHub Actions 长抓取阶段会实时输出日志，避免看起来像卡住。
 - 已在 `requirements.txt` 约束 `urllib3<2`：避免 macOS 系统 Python + LibreSSL 环境出现 `NotOpenSSLWarning`。
 
 修复验证采用无线上副作用方式完成：
 
 - `py_compile` 通过：`arxiv.py`、`generate_arxiv_html.py`、`arxiv_feishu_msg.py`。
-- YAML 解析通过：`arxiv_daily_full.yml`、`arxiv_feishu_msg.yml`。
+- YAML 和 shell 语法解析通过：`arxiv_daily_full.yml`、`arxiv_daily_recovery.yml`、`arxiv_feishu_msg.yml`。
 - 静态检查通过：确认 `requests.get(..., timeout=(5, 30))` 和 `data/YYYYMMDD.json` 去重路径存在。
 - HTML 恶意样本验证通过：`<img src=x onerror=alert(1)>` 被转义，`javascript:` URL 不会进入 href。
 - `--output` 验证通过：临时目录中成功生成 `arxiv_20260526.html`、`static/templates/` 和 `index.html`。
@@ -350,6 +353,7 @@ PY
 - arXiv 慢抓策略验证通过：分类级页数、备用 endpoint、分页/分类间隔和随机抖动配置均可被代码和 workflow 读取。
 - arXiv 缓存与分类重试 mock 验证通过：今日缓存存在时跳过请求，分类失败会单独等待后重试。
 - 真实 arXiv 抓取层 smoke 验证通过：只请求 arXiv API，不进入 DeepSeek、不写 JSON/HTML、不发飞书。
+- 状态持久化临时目录验证通过：JSON/CSV 写入、HTML 状态回写和 recovery 判断逻辑均符合预期。
 - `git diff --check` 通过。
 
 ## 后续优化路线
