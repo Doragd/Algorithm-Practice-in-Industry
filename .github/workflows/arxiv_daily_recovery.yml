@@ -170,6 +170,15 @@ jobs:
           full_commit_message: "docs: recover arXiv papers HTML pages ${{ github.sha }}"
           force_orphan: false
 
+      - name: Send Feishu message after recovery
+        if: steps.recovery_check.outputs.needs_recovery == 'true'
+        env:
+          FEISHU_URL: ${{ secrets.FEISHU_URL }}
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          cd paperBotV2/arxiv_daily
+          python arxiv_feishu_msg.py
+
       - name: Commit status on failure
         if: failure() && steps.recovery_check.outputs.needs_recovery == 'true'
         id: failure_status_commit
