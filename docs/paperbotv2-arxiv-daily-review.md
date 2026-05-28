@@ -325,6 +325,18 @@ PY
 - 已修复 `generate_arxiv_html.py --output <path>`，指定输出目录时可正常生成页面、静态资源目录和 `index.html`。
 - 已增强飞书 webhook 失败处理：HTTP 非 2xx、非 JSON 响应或飞书业务错误会汇总并抛出 `RuntimeError`。
 - 已为 `arxiv_daily_full.yml` 和 `arxiv_feishu_msg.yml` 增加 workflow concurrency 与 job `timeout-minutes`。
+- 已增强 arXiv 抓取完整性：抓取窗口改为最近 36 小时，按 `ARXIV_PAGE_SIZE` 分页抓取到空页或 `ARXIV_MAX_PAGES`，避免单页 `max_results=100` 漏论文。
+- 已增强 arXiv 限流处理：请求增加 User-Agent，遇到 429/5xx 会按 `Retry-After` 或指数退避长时间重试；重试耗尽后会让流程失败，避免静默生成 0 篇结果。
+- 已将内部 arXiv 重试策略调整为“少次数、长间隔”：单页请求最多 4 轮，默认等待约 10 分钟、20 分钟、40 分钟，最大等待 2400 秒，并增加 0-120 秒随机抖动，避免短时间重复请求无效消耗。
+- 已进一步降低 arXiv 限流概率：分页间隔默认 60 秒，分类间隔默认 120 秒，并增加随机抖动，避免 GitHub Actions 固定节奏触发限流。
+- 已增加分类级页数上限：`cs.IR:5,cs.CL:8,cs.CV:20`，低产分类减少不必要请求，高产 `cs.CV` 保留更大抓取深度。
+- 已增加备用 API endpoint：主源 `https://export.arxiv.org/api/query` 失败时，同一轮会尝试 `https://arxiv.org/api/query`。
+- 已将定时任务从北京时间 12:00 调整到 13:20，避开整点和常见自动任务高峰。
+- 已增加同日缓存复用：手动重跑时若当天 JSON 已包含某分类结果，会复用缓存并跳过该分类 arXiv 请求。
+- 已关闭额外分类级二次重试：单页请求内部已经使用长间隔退避，分类层不再重复放大等待时间；若某分类最终失败，workflow 会 fail，避免提交空结果。
+- 已增加 workflow 外层重试：`arxiv.py` step 最多执行 3 次，失败后分别等待 30 分钟和 60 分钟再重试；最终失败会保留非 0 退出，阻止后续 HTML 生成、提交、部署和飞书成功触发。
+- 已增加 `PYTHONUNBUFFERED=1`：GitHub Actions 长抓取阶段会实时输出日志，避免看起来像卡住。
+- 已在 `requirements.txt` 约束 `urllib3<2`：避免 macOS 系统 Python + LibreSSL 环境出现 `NotOpenSSLWarning`。
 
 修复验证采用无线上副作用方式完成：
 
@@ -334,6 +346,10 @@ PY
 - HTML 恶意样本验证通过：`<img src=x onerror=alert(1)>` 被转义，`javascript:` URL 不会进入 href。
 - `--output` 验证通过：临时目录中成功生成 `arxiv_20260526.html`、`static/templates/` 和 `index.html`。
 - 飞书 mock 验证通过：成功响应不抛错，HTTP 500 与业务错误码均会抛出 `RuntimeError`，空 URL 仍跳过发送。
+- arXiv 抓取 mock 验证通过：429 会等待后重试，分页会继续抓取后续页面，并在空页停止。
+- arXiv 慢抓策略验证通过：分类级页数、备用 endpoint、分页/分类间隔和随机抖动配置均可被代码和 workflow 读取。
+- arXiv 缓存与分类重试 mock 验证通过：今日缓存存在时跳过请求，分类失败会单独等待后重试。
+- 真实 arXiv 抓取层 smoke 验证通过：只请求 arXiv API，不进入 DeepSeek、不写 JSON/HTML、不发飞书。
 - `git diff --check` 通过。
 
 ## 后续优化路线
@@ -341,7 +357,7 @@ PY
 首轮修复已覆盖本报告中的 5 个主要问题。后续可继续做以下增强：
 
 1. 为去重路径、HTML 转义、URL 白名单、`--output` 和飞书失败处理补充正式单元测试。
-2. 为 arXiv 请求增加更细粒度 retry 策略和分类级失败统计。
+2. 为 arXiv 请求增加分类级失败统计和抓取数量趋势监控。
 3. 清理 `arxiv.py` 内废弃飞书函数，统一通知逻辑到 `arxiv_feishu_msg.py` 或公共模块。
 4. 增加 `DRY_RUN` 或 `--dry-run` 参数，方便在 CI 和本地做无副作用验证。
 5. 后续在 GitHub Actions Python 3.8 环境中手动触发一次 workflow，验证真实 secrets、Pages 部署和飞书模板兼容性。

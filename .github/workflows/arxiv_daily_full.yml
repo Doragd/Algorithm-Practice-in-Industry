@@ -3,8 +3,8 @@ name: arxiv_daily_full
 on:
   # 定时触发
   schedule:
-    # 每天UTC时间4:00（北京时间12:00）执行
-    - cron: '0 4 * * *'
+    # 每天UTC时间5:20（北京时间13:20）执行，避开整点和高峰自动任务
+    - cron: '20 5 * * *'
   # 手动触发
   workflow_dispatch:
 
@@ -19,7 +19,7 @@ env:
 jobs:
   process_and_deploy_arxiv:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 360
     permissions:
       issues: write
       contents: write
@@ -52,16 +52,58 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           # 目标分类，使用逗号分隔的字符串格式
           TARGET_CATEGORYS: "cs.IR,cs.CL,cs.CV"
-          # 最大论文数量
+          # 单页抓取数量，实际抓取会按页遍历
           MAX_PAPERS: "100"
+          # 回看最近36小时，减少 arXiv 更新延迟导致的漏抓
+          ARXIV_LOOKBACK_HOURS: "36"
+          # arXiv API 分页和限流保护配置
+          ARXIV_PAGE_SIZE: "100"
+          ARXIV_MAX_PAGES: "20"
+          ARXIV_CATEGORY_MAX_PAGES: "cs.IR:5,cs.CL:8,cs.CV:20"
+          ARXIV_REQUEST_INTERVAL: "60"
+          ARXIV_CATEGORY_INTERVAL: "120"
+          ARXIV_JITTER_SECONDS: "120"
+          ARXIV_CATEGORY_RETRY_ATTEMPTS: "1"
+          ARXIV_USE_DAILY_CACHE: "true"
+          ARXIV_RETRY_ATTEMPTS: "4"
+          ARXIV_RETRY_BASE_WAIT: "600"
+          ARXIV_RETRY_MAX_WAIT: "2400"
+          ARXIV_API_BASE_URLS: "https://export.arxiv.org/api/query,https://arxiv.org/api/query"
           # 粗排分数阈值
           ROUGH_SCORE_THRESHOLD: "4"
           # 返回论文数量
           RETURN_PAPERS: "20"
           # 确保脚本可以找到paperBotV2模块
           PYTHONPATH: ${{ github.workspace }}
-        run:
-          python -m paperBotV2.arxiv_daily.arxiv
+          # 实时刷新 Python 日志，避免长抓取阶段看起来像卡住
+          PYTHONUNBUFFERED: "1"
+        run: |
+          set -euo pipefail
+
+          max_attempts=3
+          for attempt in $(seq 1 "$max_attempts"); do
+            echo "🚀 arxiv.py workflow 外层尝试 ${attempt}/${max_attempts}"
+
+            if python -m paperBotV2.arxiv_daily.arxiv; then
+              echo "✅ arxiv.py 执行成功"
+              exit 0
+            fi
+
+            exit_code=$?
+            if [ "$attempt" -eq "$max_attempts" ]; then
+              echo "❌ arxiv.py 已达到 workflow 外层最大重试次数，最终失败"
+              exit "$exit_code"
+            fi
+
+            if [ "$attempt" -eq 1 ]; then
+              wait_seconds=1800
+            else
+              wait_seconds=3600
+            fi
+
+            echo "⏳ arxiv.py 执行失败，等待 ${wait_seconds}s 后进行下一次 workflow 外层重试"
+            sleep "$wait_seconds"
+          done
 
       # 生成HTML页面
       - name: Generate HTML pages
