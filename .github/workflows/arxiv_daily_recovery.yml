@@ -24,6 +24,15 @@ jobs:
       pages: write
       id-token: write
     steps:
+      - name: Debug time
+        run: |
+          echo "UTC:"
+          date -u
+          echo "Local:"
+          date
+          echo "Beijing:"
+          TZ=Asia/Shanghai date
+
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
