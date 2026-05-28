@@ -1,5 +1,5 @@
-- [ ] 新增报告位于 `docs/` 目录，且文件名能明确表达 `paperBotV2.arxiv_daily` review 主题。
-- [ ] 报告完整梳理 `arxiv.py`、`generate_arxiv_html.py`、`arxiv_feishu_msg.py` 和相关 workflow 的当前逻辑。
-- [ ] 报告列出缺陷、bug 风险或改进点，并包含严重度、影响、证据和建议方案。
-- [ ] 报告明确哪些验证已执行、哪些因线上副作用或 secrets 限制未真实执行。
-- [ ] 本次 review 不修改 `paperBotV2.arxiv_daily` 源代码，不触发真实飞书发送或生产密钥调用。
+- [x] 新增报告位于 `docs/` 目录，且文件名能明确表达 `paperBotV2.arxiv_daily` review 主题。
+- [x] 报告完整梳理 `arxiv.py`、`generate_arxiv_html.py`、`arxiv_feishu_msg.py` 和相关 workflow 的当前逻辑。
+- [x] 报告列出缺陷、bug 风险或改进点，并包含严重度、影响、证据和建议方案。
+- [x] 报告明确哪些验证已执行、哪些因线上副作用或 secrets 限制未真实执行。
+- [x] 本次 review 不修改 `paperBotV2.arxiv_daily` 源代码，不触发真实飞书发送或生产密钥调用。

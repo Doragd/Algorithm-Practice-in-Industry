@@ -8,6 +8,10 @@ on:
   # 手动触发
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 env:
   PYTHON_VERSION: "3.8"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -15,6 +19,7 @@ env:
 jobs:
   process_and_deploy_arxiv:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     permissions:
       issues: write
       contents: write

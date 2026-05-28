@@ -109,7 +109,7 @@ def get_daily_arxiv_papers(category='cs.CL', max_results=20):
 
     # 3. 发送请求并获取数据
     try:
-        response = requests.get(base_url, params=query_params)
+        response = requests.get(base_url, params=query_params, timeout=(5, 30))
         response.raise_for_status()  # 如果请求失败 (例如 404, 500), 会抛出异常
     except requests.exceptions.RequestException as e:
         print(f"❌ 请求失败: {e}")
@@ -351,7 +351,7 @@ def get_papers_from_all_categories():
     
     # 获取前一天的日期
     yesterday = datetime.now() - timedelta(days=1)
-    yesterday_file = os.path.join(current_dir, "arxiv_daily", f"{yesterday.strftime('%Y%m%d')}.json")
+    yesterday_file = os.path.join(current_dir, "data", f"{yesterday.strftime('%Y%m%d')}.json")
     
     # 读取前一天的论文ID集合（用于去重）
     yesterday_paper_ids = set()
