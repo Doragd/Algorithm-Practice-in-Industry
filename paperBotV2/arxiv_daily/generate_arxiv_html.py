@@ -106,8 +106,12 @@ def get_latest_json_file(json_dir):
         str: 最新JSON文件的路径
     """
     try:
-        # 获取目录中的所有JSON文件
-        json_files = [f for f in os.listdir(json_dir) if f.endswith('.json') and f != 'results.json']
+        # 获取目录中的所有日期JSON文件
+        json_files = [
+            f
+            for f in os.listdir(json_dir)
+            if f.endswith('.json') and sanitize_date(f[:-5])
+        ]
         if not json_files:
             print("未找到JSON文件")
             return None
@@ -119,6 +123,21 @@ def get_latest_json_file(json_dir):
     except Exception as e:
         print(f"获取最新JSON文件失败: {e}")
         return None
+
+
+def get_all_json_files(json_dir):
+    """获取所有日期JSON文件，按日期升序返回，便于批量回溯生成HTML。"""
+    try:
+        json_files = [
+            f
+            for f in os.listdir(json_dir)
+            if f.endswith('.json') and sanitize_date(f[:-5])
+        ]
+        json_files.sort()
+        return [os.path.join(json_dir, file_name) for file_name in json_files]
+    except Exception as e:
+        print(f"获取所有JSON文件失败: {e}")
+        return []
 
 
 def get_json_file_by_date(json_dir, date_str):
@@ -159,11 +178,12 @@ def load_paper_data(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         
-        # 转换为列表并添加arxiv_id字段
+        # 转换为列表并添加arxiv_id字段；避免原地修改JSON解析出的子对象
         papers = []
         for arxiv_id, paper_info in data.items():
-            paper_info['arxiv_id'] = arxiv_id
-            papers.append(paper_info)
+            paper = dict(paper_info)
+            paper['arxiv_id'] = arxiv_id
+            papers.append(paper)
         
         return papers
     except Exception as e:
@@ -294,13 +314,11 @@ def generate_papers_html(papers, frontend_dir, static_dir=None):
             authors = authors[:MAX_AUTHORS_DISPLAY_LENGTH] + '...'
         
         # 准备渲染上下文
-        # 处理评分：整数显示，不需要小数
-        score_display = str(int(score))
+        # 处理评分：保留1位小数，避免8.7被截断成8
+        score_display = f"{score:.1f}".rstrip('0').rstrip('.')
         
         # 根据要求，所有论文优先使用非空的rerank_reasoning字段，否则使用reasoning字段，均为空时显示"无"
-        reasoning_text = paper.get('reasoning', '无')
-        if paper.get('rerank_reasoning'):
-            reasoning_text = paper.get('rerank_reasoning')
+        reasoning_text = paper.get('rerank_reasoning') or paper.get('reasoning') or '无'
         
         safe_arxiv_id = sanitize_arxiv_id(paper.get('arxiv_id', ''))
         fallback_url = build_arxiv_url(safe_arxiv_id)
@@ -456,7 +474,7 @@ def generate_html(papers, date_str, script_dir, output_file=None):
         }
         
         .collapsed-level-2 {
-            display: none !important;
+            display: none;
         }
         
         /* 展开/折叠图标样式 */
@@ -548,6 +566,12 @@ def generate_html(papers, date_str, script_dir, output_file=None):
                     papersContainer.classList.toggle('expanded-all');
                     this.textContent = papersContainer.classList.contains('expanded-all') ? 
                         '收起全部非精选论文' : '展开全部非精选论文';
+
+                    if (!papersContainer.classList.contains('expanded-all')) {
+                        papersContainer.querySelectorAll('.paper-details').forEach(details => {
+                            details.style.display = '';
+                        });
+                    }
                     
                     // 更新所有论文标题前的图标状态
                     const collapsedPapers = papersContainer.querySelectorAll('.collapsed-level-1');
@@ -581,11 +605,10 @@ def generate_html(papers, date_str, script_dir, output_file=None):
                 
                 divider.appendChild(dividerLabel);
                 
-                // 在所有非精选论文的最后一个元素后面添加分割线
-                const normalPapers = papersContainer.querySelectorAll('.simple-paper-card');
-                if (normalPapers.length > 0) {
-                    const lastNormalPaper = normalPapers[normalPapers.length - 1];
-                    papersContainer.insertBefore(divider, lastNormalPaper.nextSibling);
+                // 将分割线放到第一篇低分论文前，确保文案和展开区域语义一致
+                const firstLowScorePaper = papersContainer.querySelector('.collapsed-level-2');
+                if (firstLowScorePaper) {
+                    papersContainer.insertBefore(divider, firstLowScorePaper);
                 }
             }
             
@@ -692,6 +715,10 @@ def generate_html(papers, date_str, script_dir, output_file=None):
                     
                     // 重置折叠状态
                     papersContainer.classList.remove('expanded-all');
+                    papersContainer.classList.remove('expanded-level-2');
+                    papersContainer.querySelectorAll('.paper-details').forEach(details => {
+                        details.style.display = '';
+                    });
                     
                     // 更新显示计数
                     const displayCountElement = document.getElementById('display-count');
@@ -726,7 +753,7 @@ def generate_html(papers, date_str, script_dir, output_file=None):
                     safe_date = sanitize_date(file[:-5])  # 移除.json
                     if safe_date:
                         available_dates.append(safe_date)
-        return available_dates
+        return sorted(available_dates)
     
     # 根据script_dir计算json_dir
     json_dir = os.path.join(script_dir, "data")
@@ -734,6 +761,13 @@ def generate_html(papers, date_str, script_dir, output_file=None):
     # 获取有论文数据的日期列表
     available_dates = get_available_dates(json_dir)
     available_dates_js = json.dumps(available_dates)
+    current_date_config_js = json.dumps({
+        "ymd": date_str,
+        "display": display_date,
+        "year": int(date_str[:4]),
+        "month": int(date_str[4:6]),
+        "day": int(date_str[6:8]),
+    })
     
     # 将日历相关的JavaScript代码直接嵌入到HTML文件中，添加论文数据存在性检查
     calendar_js = '''
@@ -759,33 +793,34 @@ def generate_html(papers, date_str, script_dir, output_file=None):
         const currentMonthEl = document.getElementById('current-month');
         const selectedDateText = document.getElementById('selected-date-text');
         
-        // 当前显示的日期（从页面获取）
-        const currentDateStr = document.getElementById('current-date').textContent.trim().replace(/^\d+年|月|日/g, '');
-        const currentDate = new Date(currentDateStr);
-        let displayYear = currentDate.getFullYear();
-        let displayMonth = currentDate.getMonth();
+        // 当前页面日期由后端注入，避免从展示文本反解析和new Date(date-only)时区差异
+        const currentDateConfig = ''' + current_date_config_js + ''';
+        const currentPageDate = currentDateConfig.display;
+        const currentDate = new Date(
+            currentDateConfig.year,
+            currentDateConfig.month - 1,
+            currentDateConfig.day
+        );
+        let displayYear = currentDateConfig.year;
+        let displayMonth = currentDateConfig.month - 1;
         
         // 有论文数据的日期列表
         const availableDates = ''' + available_dates_js + ''';
         
-        // 尝试从localStorage恢复选择状态
         const savedDate = localStorage.getItem('selectedDate');
         const savedYear = localStorage.getItem('selectedYear');
         const savedMonth = localStorage.getItem('selectedMonth');
         
-        // 确保页面加载时显示当前选中的日期
-        // 修复持久化问题：确保每次加载都能正确恢复选中状态
-        if (savedDate) {
-            selectedDateText.textContent = savedDate;
-            if (savedYear) displayYear = parseInt(savedYear);
-            if (savedMonth) displayMonth = parseInt(savedMonth);
-        } else {
-            // 首次加载时，将当前页面日期保存到localStorage
-            const currentPageDate = currentDateStr.replace(/\//g, '-');
-            selectedDateText.textContent = currentPageDate;
-            localStorage.setItem('selectedDate', currentPageDate);
-            localStorage.setItem('selectedYear', currentDate.getFullYear().toString());
-            localStorage.setItem('selectedMonth', currentDate.getMonth().toString());
+        // 页面日期始终以当前HTML为准，localStorage只用于恢复上次打开的月份视图
+        selectedDateText.textContent = currentPageDate;
+        localStorage.setItem('selectedDate', currentPageDate);
+        if (savedDate === currentPageDate && savedYear && savedMonth) {
+            const parsedYear = parseInt(savedYear, 10);
+            const parsedMonth = parseInt(savedMonth, 10);
+            if (!Number.isNaN(parsedYear) && !Number.isNaN(parsedMonth)) {
+                displayYear = parsedYear;
+                displayMonth = parsedMonth;
+            }
         }
     
         // 切换日历显示状态
@@ -912,7 +947,7 @@ def generate_html(papers, date_str, script_dir, output_file=None):
                 }
                 
                 // 高亮显示当前选中的日期
-                if (displayDateStr === selectedDateText.textContent) {
+                if (dateStr === currentDateConfig.ymd) {
                     dayElement.classList.add('font-bold', 'border-2', 'border-primary', 'rounded-lg', 'shadow-md');
                 }
                 
@@ -978,6 +1013,7 @@ def main():
     parser = argparse.ArgumentParser(description='生成arXiv每日论文HTML页面')
     parser.add_argument('--date', type=str, help='指定日期（格式：YYYYMMDD），如不指定则使用最新日期')
     parser.add_argument('--output', type=str, help='输出文件路径')
+    parser.add_argument('--all', action='store_true', help='回溯生成data目录下所有日期的HTML')
     args = parser.parse_args()
     
     # 获取脚本所在目录
@@ -989,6 +1025,30 @@ def main():
         os.makedirs(json_dir)
         print(f"创建目录: {json_dir}")
     
+    if args.all and args.date:
+        print("--all 与 --date 不能同时使用")
+        return
+    if args.all and args.output:
+        print("--all 不支持同时指定 --output")
+        return
+
+    if args.all:
+        json_files = get_all_json_files(json_dir)
+        if not json_files:
+            print("未找到可回溯生成的日期JSON文件，程序退出")
+            return
+        success_count = 0
+        for json_file in json_files:
+            date_str = os.path.basename(json_file).split('.')[0]
+            papers = load_paper_data(json_file)
+            if not papers:
+                print(f"日期 {date_str} 未加载到论文数据，跳过")
+                continue
+            if generate_html(papers, date_str, script_dir):
+                success_count += 1
+        print(f"批量生成完成：成功 {success_count}/{len(json_files)} 个日期")
+        return
+
     # 获取JSON文件路径
     if args.date:
         date_arg = sanitize_date(args.date)
