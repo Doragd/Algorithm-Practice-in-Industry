@@ -12,6 +12,7 @@ from tqdm import tqdm
 from tenacity import retry, stop_after_attempt, wait_random_exponential
 from openai import APIConnectionError, RateLimitError, APIStatusError
 from .prompts import PRERANK_PROMPT, FINERANK_PROMPT
+from .status import ArxivDailyStatus
 
 # 从环境变量获取配置，同时提供默认值
 # 支持多个飞书URL，用逗号分隔
@@ -275,6 +276,7 @@ def get_daily_arxiv_papers(category='cs.CL', max_results=20):
     )
     print("=" * 50)
 
+    pages_fetched = 0
     for page in range(max_pages):
         query_params = {
             'search_query': search_query,
@@ -287,6 +289,7 @@ def get_daily_arxiv_papers(category='cs.CL', max_results=20):
         response = request_arxiv_page(ARXIV_API_BASE_URLS, query_params)
         feed = feedparser.parse(response.content)
         entries = feed.entries
+        pages_fetched = page + 1
         print(f"📄 分类 '{category}' 第 {page + 1} 页返回 {len(entries)} 篇论文")
 
         if not entries:
@@ -306,7 +309,7 @@ def get_daily_arxiv_papers(category='cs.CL', max_results=20):
     else:
         print(f"✅ 分类 '{category}' 共抓取 {len(results)} 篇论文。")
 
-    return results
+    return results, pages_fetched
 
 
 def rough_analyze_paper(arxiv_id, paper):
@@ -372,7 +375,7 @@ def rough_rank_papers(results, filter_threshold=2, max_workers=10):
         'relevance_score', 0) >= filter_threshold]
     print(
         f"\n⚠️ 过滤掉 {len(analyzed_papers) - len(filtered_papers)} 篇低分论文，剩余 {len(filtered_papers)} 篇高质量论文。")
-    return filtered_papers
+    return filtered_papers, analyzed_papers
 
 
 def fine_analyze_paper(arxiv_id, paper):
@@ -494,7 +497,7 @@ def send_papers_to_feishu(papers, feishu_urls=None):
         except Exception as e:
             print(f"❌ 飞书推送[{idx+1}/{len(feishu_urls)}]失败: {e}")
 
-def get_papers_from_all_categories():
+def get_papers_from_all_categories(run_status=None):
     """从所有指定分类获取论文并初始化状态标记，去除与前一天重复的论文"""
     all_papers = {}
     
@@ -519,18 +522,37 @@ def get_papers_from_all_categories():
     # 获取当前日期的所有分类论文
     for index, category in enumerate(TARGET_CATEGORYS):
         category_results = load_today_cached_papers(category)
+        pages_fetched = 0
         if not category_results:
             for attempt in range(1, ARXIV_CATEGORY_RETRY_ATTEMPTS + 1):
                 try:
-                    category_results = get_daily_arxiv_papers(category=category, max_results=MAX_PAPERS)
+                    category_results, pages_fetched = get_daily_arxiv_papers(
+                        category=category,
+                        max_results=MAX_PAPERS,
+                    )
                     break
                 except ArxivFetchError as exc:
                     if attempt == ARXIV_CATEGORY_RETRY_ATTEMPTS:
+                        if run_status:
+                            run_status.record_category_fetch(
+                                category,
+                                success=False,
+                                papers=0,
+                                pages=pages_fetched,
+                                error=exc,
+                            )
                         raise
                     print(
                         f"⚠️ 分类 '{category}' 第 {attempt}/{ARXIV_CATEGORY_RETRY_ATTEMPTS} 次抓取失败: {exc}"
                     )
                     sleep_with_jitter(ARXIV_CATEGORY_INTERVAL, f"分类 '{category}' 失败后重试间隔")
+        if run_status:
+            run_status.record_category_fetch(
+                category,
+                success=True,
+                papers=len(category_results),
+                pages=pages_fetched,
+            )
         
         # 添加到all_papers并初始化状态标记，跳过与前一天重复的论文
         for arxiv_id, paper in category_results.items():
@@ -545,10 +567,20 @@ def get_papers_from_all_categories():
     return all_papers
 
 
-def perform_rough_ranking(all_papers):
+def perform_rough_ranking(all_papers, run_status=None):
     """执行粗排并标记过滤状态"""
     # 直接使用rough_rank_papers函数进行并发粗排，获取过滤后的论文
-    filtered_papers = rough_rank_papers(all_papers, filter_threshold=ROUGH_SCORE_THRESHOLD, max_workers=10)
+    filtered_papers, analyzed_papers = rough_rank_papers(
+        all_papers,
+        filter_threshold=ROUGH_SCORE_THRESHOLD,
+        max_workers=10,
+    )
+    if run_status:
+        run_status.record_rough_rank(
+            total=len(all_papers),
+            success=len(analyzed_papers),
+            scores=[paper.get('relevance_score', 0) for paper in analyzed_papers],
+        )
     
     # 更新all_papers中的论文信息并标记过滤状态
     for paper in filtered_papers:
@@ -565,9 +597,15 @@ def perform_rough_ranking(all_papers):
     return filtered_papers
 
 
-def perform_fine_ranking(filtered_papers, all_papers):
+def perform_fine_ranking(filtered_papers, all_papers, run_status=None):
     """执行精排并标记精排状态"""
     final_papers = fine_rank_papers(filtered_papers, paper_count=RETURN_PAPERS)
+    if run_status:
+        run_status.record_fine_rank(
+            total=min(len(filtered_papers), RETURN_PAPERS),
+            success=len(final_papers),
+            scores=[paper.get('rerank_relevance_score', 0) for paper in final_papers],
+        )
     
     for paper in final_papers:
         arxiv_id = paper['arxiv_id']
@@ -583,7 +621,7 @@ def save_results_to_json(all_papers):
     # 如果没有新论文，直接返回
     if not all_papers:
         print("📭 今天没有新论文，跳过保存JSON文件")
-        return
+        return False
     
     # 获取当前脚本所在目录（paperBotV2/arxiv_daily目录）
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -625,24 +663,37 @@ def save_results_to_json(all_papers):
         json.dump(all_results, f, ensure_ascii=False, indent=2)
     
     print(f"📊 全量结果已更新到 {all_results_file}，新增 {new_papers_count} 篇论文，总论文数: {len(all_results)}")
+    return True
 
 
 def process_papers():
     """处理并保存论文的主函数 - 协调各个子函数的执行"""
-    # 1. 获取论文
-    all_papers = get_papers_from_all_categories()
-    
-    # 2. 粗排
-    filtered_papers = perform_rough_ranking(all_papers)
-    
-    # 3. 精排
-    final_papers = perform_fine_ranking(filtered_papers, all_papers)
-    
-    # 4. 保存结果
-    save_results_to_json(all_papers)
-    
-    print("✅ 论文处理流程已全部完成！")
-    
+    run_status = ArxivDailyStatus()
+    try:
+        # 1. 获取论文
+        run_status.update_stage("fetch")
+        all_papers = get_papers_from_all_categories(run_status=run_status)
+
+        # 2. 粗排
+        run_status.update_stage("rough_rank")
+        filtered_papers = perform_rough_ranking(all_papers, run_status=run_status)
+
+        # 3. 精排
+        run_status.update_stage("fine_rank")
+        perform_fine_ranking(filtered_papers, all_papers, run_status=run_status)
+
+        # 4. 保存结果
+        run_status.update_stage("save_json")
+        daily_json_written = save_results_to_json(all_papers)
+        run_status.mark_daily_json_written(daily_json_written)
+        run_status.mark_success()
+
+        print("✅ 论文处理流程已全部完成！")
+    except Exception as exc:
+        run_status.mark_failed(run_status.data.get("stage", "unknown"), exc)
+        print(f"❌ 论文处理流程失败，状态已写入: {exc}")
+        raise
+
     # 注意：飞书消息发送功能已移至独立脚本 send_feishu_message.py
     # 在GitHub Actions工作流中，将在网页生成完成后触发发送
 

@@ -1,11 +1,9 @@
-# 合并后的完整工作流：处理arxiv论文、生成HTML并部署到GitHub Pages
-name: arxiv_daily_full
+# 晚间恢复工作流：检查中午 arxiv_daily_full 状态，失败或缺失时补跑
+name: arxiv_daily_recovery
 on:
-  # 定时触发
   schedule:
-    # 每天UTC时间3:23（北京时间11:23）执行，避开整点和高峰自动任务
-    - cron: '23 3 * * *'
-  # 手动触发
+    # 每天UTC时间10:05（北京时间18:05）检查中午任务状态
+    - cron: '5 10 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -17,7 +15,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  process_and_deploy_arxiv:
+  recover_arxiv_daily:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     permissions:
@@ -26,37 +24,37 @@ jobs:
       pages: write
       id-token: write
     steps:
-      # 检出代码
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           lfs: true
 
-      # 设置Python环境
       - name: Set up Python 3.8
         uses: actions/setup-python@v4
         with:
           python-version: '3.8'
 
-      # 安装依赖
+      - name: Check whether recovery is needed
+        id: recovery_check
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m paperBotV2.arxiv_daily.check_recovery_needed
+
       - name: Install dependencies
+        if: steps.recovery_check.outputs.needs_recovery == 'true'
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 执行脚本生成JSON数据
-      - name: Run arxiv.py to generate JSON
+      - name: Run arxiv.py recovery
+        if: steps.recovery_check.outputs.needs_recovery == 'true'
         env:
-          # 可配置的环境变量
           FEISHU_URL: ${{ secrets.FEISHU_URL }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          # 目标分类，使用逗号分隔的字符串格式
           TARGET_CATEGORYS: "cs.IR,cs.CL,cs.CV"
-          # 单页抓取数量，实际抓取会按页遍历
           MAX_PAPERS: "100"
-          # 回看最近36小时，减少 arXiv 更新延迟导致的漏抓
           ARXIV_LOOKBACK_HOURS: "36"
-          # arXiv API 分页和限流保护配置
           ARXIV_PAGE_SIZE: "100"
           ARXIV_MAX_PAGES: "20"
           ARXIV_CATEGORY_MAX_PAGES: "cs.IR:5,cs.CL:8,cs.CV:20"
@@ -69,29 +67,25 @@ jobs:
           ARXIV_RETRY_BASE_WAIT: "600"
           ARXIV_RETRY_MAX_WAIT: "2400"
           ARXIV_API_BASE_URLS: "https://export.arxiv.org/api/query,https://arxiv.org/api/query"
-          # 粗排分数阈值
           ROUGH_SCORE_THRESHOLD: "4"
-          # 返回论文数量
           RETURN_PAPERS: "20"
-          # 确保脚本可以找到paperBotV2模块
           PYTHONPATH: ${{ github.workspace }}
-          # 实时刷新 Python 日志，避免长抓取阶段看起来像卡住
           PYTHONUNBUFFERED: "1"
         run: |
           set -euo pipefail
 
           max_attempts=3
           for attempt in $(seq 1 "$max_attempts"); do
-            echo "🚀 arxiv.py workflow 外层尝试 ${attempt}/${max_attempts}"
+            echo "🚀 arxiv.py recovery 外层尝试 ${attempt}/${max_attempts}"
 
             if python -m paperBotV2.arxiv_daily.arxiv; then
-              echo "✅ arxiv.py 执行成功"
+              echo "✅ arxiv.py recovery 执行成功"
               exit 0
             fi
 
             exit_code=$?
             if [ "$attempt" -eq "$max_attempts" ]; then
-              echo "❌ arxiv.py 已达到 workflow 外层最大重试次数，最终失败"
+              echo "❌ arxiv.py recovery 已达到最大重试次数，最终失败"
               exit "$exit_code"
             fi
 
@@ -101,20 +95,20 @@ jobs:
               wait_seconds=3600
             fi
 
-            echo "⏳ arxiv.py 执行失败，等待 ${wait_seconds}s 后进行下一次 workflow 外层重试"
+            echo "⏳ arxiv.py recovery 执行失败，等待 ${wait_seconds}s 后重试"
             sleep "$wait_seconds"
           done
 
-      # 生成HTML页面
       - name: Generate HTML pages
+        if: steps.recovery_check.outputs.needs_recovery == 'true'
         run: |
           cd paperBotV2/arxiv_daily
           python generate_arxiv_html.py
         env:
-          # 确保脚本可以找到JSON文件
           PYTHONPATH: ${{ github.workspace }}
 
       - name: Mark HTML generated
+        if: steps.recovery_check.outputs.needs_recovery == 'true'
         run: |
           python - <<'PY'
           from paperBotV2.arxiv_daily.status import update_today_output
@@ -124,66 +118,51 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
 
-      # 检查是否生成了HTML文件
       - name: Check generated files
+        if: steps.recovery_check.outputs.needs_recovery == 'true'
         run: |
           echo "检查生成的HTML文件："
           ls -la paperBotV2/arxiv_daily/output/
           echo "检查生成的JSON文件："
           ls -la paperBotV2/arxiv_daily/data/
+          echo "检查状态文件："
+          ls -la paperBotV2/arxiv_daily/status/
 
-      # Commit files
       - name: Commit files
+        if: steps.recovery_check.outputs.needs_recovery == 'true'
         id: commit
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
           git add --all
           if [ -z "$(git status --porcelain)" ]; then
-             echo "push=false" >> "$GITHUB_OUTPUT"
+            echo "push=false" >> "$GITHUB_OUTPUT"
           else
-             git commit -m "chore: update arxiv papers and HTML" -a
-             echo "push=true" >> "$GITHUB_OUTPUT"
+            git commit -m "chore: recover arxiv papers and status"
+            echo "push=true" >> "$GITHUB_OUTPUT"
           fi
         shell: bash
 
-      # Push changes
       - name: Push changes
-        if: steps.commit.outputs.push == 'true'
+        if: steps.recovery_check.outputs.needs_recovery == 'true' && steps.commit.outputs.push == 'true'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      # 创建或更新gh-pages分支
       - name: Deploy to GitHub Pages
+        if: steps.recovery_check.outputs.needs_recovery == 'true'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./paperBotV2/arxiv_daily/output
           destination_dir: arxiv_daily
           publish_branch: gh-pages
-          commit_message: "docs: update arXiv papers HTML pages"
-          full_commit_message: "docs: update arXiv papers HTML pages ${{ github.sha }}"
+          commit_message: "docs: recover arXiv papers HTML pages"
+          full_commit_message: "docs: recover arXiv papers HTML pages ${{ github.sha }}"
           force_orphan: false
 
-      # 更新README或其他地方的链接，指向最新的HTML页面
-      - name: Update latest paper link
-        if: always()
-        run: |
-          # 获取最新的HTML文件名
-          LATEST_HTML=$(ls -t paperBotV2/arxiv_daily/output/*.html 2>/dev/null | head -n 1)
-          if [ -n "$LATEST_HTML" ]; then
-            LATEST_HTML_NAME=$(basename "$LATEST_HTML")
-            REPO_URL="https://${{ github.repository_owner }}.github.io/Algorithm-Practice-in-Industry/arxiv_daily"
-            echo "最新HTML文件: $LATEST_HTML_NAME"
-            echo "GitHub Pages URL: $REPO_URL/$LATEST_HTML_NAME"
-            
-            # 这里可以添加更新README等文件的逻辑，例如：
-            # sed -i "s|https://.*arxiv_[0-9]\{8\}\.html|$REPO_URL/$LATEST_HTML_NAME|g" README.md
-          fi
-
       - name: Commit status on failure
-        if: failure()
+        if: failure() && steps.recovery_check.outputs.needs_recovery == 'true'
         id: failure_status_commit
         run: |
           git config --local user.email "action@github.com"
@@ -194,7 +173,7 @@ jobs:
           if [ -z "$(git status --porcelain -- paperBotV2/arxiv_daily/status/)" ]; then
             echo "push=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "chore: update failed arxiv daily status"
+            git commit -m "chore: update failed arxiv recovery status"
             echo "push=true" >> "$GITHUB_OUTPUT"
           fi
         shell: bash
