@@ -1,3 +1,6 @@
 date,run_id,run_attempt,workflow,trigger,status,stage,started_at,ended_at,duration_seconds,total_papers,cs_ir_papers,cs_cl_papers,cs_cv_papers,rough_rank_total,rough_rank_success,rough_rank_failed,fine_rank_total,fine_rank_success,fine_rank_failed,avg_rough_score,avg_fine_score,daily_json_written,html_generated,error
 20260528,26554546735,1,arxiv_daily_full,workflow_dispatch,success,completed,2026-05-28T04:24:36+00:00,2026-05-28T04:36:20+00:00,704,353,26,191,136,336,335,1,20,20,0,2.11,7.4,true,true,
 20260528,26560093034,1,arxiv_daily_full,schedule,success,completed,2026-05-28T07:06:35+00:00,2026-05-28T07:14:58+00:00,503,353,26,191,136,336,334,2,20,20,0,2.19,7.55,true,true,
+20260529,26623384427,1,arxiv_daily_full,schedule,failed,fetch,2026-05-29T07:07:03+00:00,2026-05-29T08:21:18+00:00,4455,0,0,,,0,0,0,0,0,0,0,0,false,false,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
+20260529,26623384427,1,arxiv_daily_full,schedule,failed,fetch,2026-05-29T08:51:19+00:00,2026-05-29T10:04:06+00:00,4367,0,0,,,0,0,0,0,0,0,0,0,false,false,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
+20260529,26623384427,1,arxiv_daily_full,schedule,success,completed,2026-05-29T11:04:06+00:00,2026-05-29T12:40:18+00:00,5772,332,24,153,155,309,307,2,20,20,0,2.21,7.75,true,true,
