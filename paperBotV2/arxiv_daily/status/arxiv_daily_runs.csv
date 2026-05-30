@@ -4,3 +4,4 @@ date,run_id,run_attempt,workflow,trigger,status,stage,started_at,ended_at,durati
 20260529,26623384427,1,arxiv_daily_full,schedule,failed,fetch,2026-05-29T07:07:03+00:00,2026-05-29T08:21:18+00:00,4455,0,0,,,0,0,0,0,0,0,0,0,false,false,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
 20260529,26623384427,1,arxiv_daily_full,schedule,failed,fetch,2026-05-29T08:51:19+00:00,2026-05-29T10:04:06+00:00,4367,0,0,,,0,0,0,0,0,0,0,0,false,false,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
 20260529,26623384427,1,arxiv_daily_full,schedule,success,completed,2026-05-29T11:04:06+00:00,2026-05-29T12:40:18+00:00,5772,332,24,153,155,309,307,2,20,20,0,2.21,7.75,true,true,
+20260530,26676965312,1,arxiv_daily_full,schedule,success,completed,2026-05-30T06:33:10+00:00,2026-05-30T06:39:53+00:00,403,0,0,0,0,0,0,0,0,0,0,0,0,false,true,
