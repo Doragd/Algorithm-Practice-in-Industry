@@ -7,3 +7,4 @@ date,run_id,run_attempt,workflow,trigger,status,stage,started_at,ended_at,durati
 20260530,26676965312,1,arxiv_daily_full,schedule,success,completed,2026-05-30T06:33:10+00:00,2026-05-30T06:39:53+00:00,403,0,0,0,0,0,0,0,0,0,0,0,0,false,true,
 20260530,26682568922,1,arxiv_daily_recovery,schedule,success,completed,2026-05-30T11:24:50+00:00,2026-05-30T11:41:19+00:00,989,0,0,0,0,0,0,0,0,0,0,0,0,false,true,
 20260531,26706121884,1,arxiv_daily_full,schedule,success,completed,2026-05-31T07:08:49+00:00,2026-05-31T07:14:16+00:00,327,0,0,0,0,0,0,0,0,0,0,0,0,false,true,
+20260531,26711634597,1,arxiv_daily_recovery,schedule,success,completed,2026-05-31T11:43:00+00:00,2026-05-31T11:49:18+00:00,378,0,0,0,0,0,0,0,0,0,0,0,0,false,true,
