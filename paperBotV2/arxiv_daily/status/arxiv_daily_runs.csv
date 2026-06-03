@@ -12,3 +12,6 @@ date,run_id,run_attempt,workflow,trigger,status,stage,started_at,ended_at,durati
 20260601,26744702865,1,arxiv_daily_full,schedule,success,completed,2026-06-01T10:35:30+00:00,2026-06-01T11:53:19+00:00,4669,0,0,0,0,0,0,0,0,0,0,0,0,false,true,
 20260601,26766869843,1,arxiv_daily_recovery,schedule,success,completed,2026-06-01T16:10:54+00:00,2026-06-01T17:41:27+00:00,5433,0,0,0,0,0,0,0,0,0,0,0,0,false,true,
 20260602,26807105613,1,arxiv_daily_full,schedule,success,completed,2026-06-02T08:11:16+00:00,2026-06-02T08:57:35+00:00,2779,307,14,120,173,289,289,0,20,20,0,2.05,8.0,true,true,
+20260603,26873154409,1,arxiv_daily_full,schedule,failed,fetch,2026-06-03T08:31:55+00:00,2026-06-03T09:46:12+00:00,4457,0,0,,,0,0,0,0,0,0,0,0,false,false,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
+20260603,26873154409,1,arxiv_daily_full,schedule,failed,fetch,2026-06-03T10:16:12+00:00,2026-06-03T11:27:29+00:00,4277,0,0,,,0,0,0,0,0,0,0,0,false,false,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
+20260603,26873154409,1,arxiv_daily_full,schedule,failed,fetch,2026-06-03T12:27:29+00:00,2026-06-03T13:39:43+00:00,4334,0,0,,,0,0,0,0,0,0,0,0,false,true,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
