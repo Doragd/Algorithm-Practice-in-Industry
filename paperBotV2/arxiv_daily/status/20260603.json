@@ -1,39 +1,51 @@
 {
   "date": "20260603",
-  "status": "failed",
-  "stage": "fetch",
-  "workflow": "arxiv_daily_full",
-  "run_id": "26873154409",
+  "status": "success",
+  "stage": "completed",
+  "workflow": "arxiv_daily_recovery",
+  "run_id": "26892538068",
   "run_attempt": "1",
   "trigger": "schedule",
-  "started_at": "2026-06-03T12:27:29+00:00",
-  "ended_at": "2026-06-03T13:39:43+00:00",
+  "started_at": "2026-06-03T18:42:17+00:00",
+  "ended_at": "2026-06-03T19:13:31+00:00",
   "fetch": {
-    "success": false,
-    "total_papers": 0,
+    "success": true,
+    "total_papers": 172,
     "by_category": {
       "cs.IR": {
-        "success": false,
-        "papers": 0,
-        "pages": 0,
-        "error": "arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query"
+        "success": true,
+        "papers": 10,
+        "pages": 1,
+        "error": ""
+      },
+      "cs.CL": {
+        "success": true,
+        "papers": 70,
+        "pages": 1,
+        "error": ""
+      },
+      "cs.CV": {
+        "success": true,
+        "papers": 92,
+        "pages": 1,
+        "error": ""
       }
     }
   },
   "llm": {
-    "rough_rank_total": 0,
-    "rough_rank_success": 0,
+    "rough_rank_total": 159,
+    "rough_rank_success": 159,
     "rough_rank_failed": 0,
-    "fine_rank_total": 0,
-    "fine_rank_success": 0,
+    "fine_rank_total": 20,
+    "fine_rank_success": 20,
     "fine_rank_failed": 0,
-    "avg_rough_score": 0,
-    "avg_fine_score": 0
+    "avg_rough_score": 2.03,
+    "avg_fine_score": 6.7
   },
   "output": {
-    "daily_json_written": false,
+    "daily_json_written": true,
     "html_generated": true,
-    "feishu_should_send": false
+    "feishu_should_send": true
   },
-  "error": "arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query"
+  "error": ""
 }

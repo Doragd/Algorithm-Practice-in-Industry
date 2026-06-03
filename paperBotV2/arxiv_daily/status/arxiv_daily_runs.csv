@@ -15,3 +15,6 @@ date,run_id,run_attempt,workflow,trigger,status,stage,started_at,ended_at,durati
 20260603,26873154409,1,arxiv_daily_full,schedule,failed,fetch,2026-06-03T08:31:55+00:00,2026-06-03T09:46:12+00:00,4457,0,0,,,0,0,0,0,0,0,0,0,false,false,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
 20260603,26873154409,1,arxiv_daily_full,schedule,failed,fetch,2026-06-03T10:16:12+00:00,2026-06-03T11:27:29+00:00,4277,0,0,,,0,0,0,0,0,0,0,0,false,false,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
 20260603,26873154409,1,arxiv_daily_full,schedule,failed,fetch,2026-06-03T12:27:29+00:00,2026-06-03T13:39:43+00:00,4334,0,0,,,0,0,0,0,0,0,0,0,false,true,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
+20260603,26892538068,1,arxiv_daily_recovery,schedule,failed,fetch,2026-06-03T14:46:50+00:00,2026-06-03T16:00:28+00:00,4418,0,0,,,0,0,0,0,0,0,0,0,false,false,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
+20260603,26892538068,1,arxiv_daily_recovery,schedule,failed,fetch,2026-06-03T16:30:28+00:00,2026-06-03T17:42:17+00:00,4309,0,0,,,0,0,0,0,0,0,0,0,false,false,arXiv API 请求多次失败: 429 error from https://arxiv.org/api/query
+20260603,26892538068,1,arxiv_daily_recovery,schedule,success,completed,2026-06-03T18:42:17+00:00,2026-06-03T19:13:31+00:00,1874,172,10,70,92,159,159,0,20,20,0,2.03,6.7,true,true,
