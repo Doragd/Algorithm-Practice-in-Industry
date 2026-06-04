@@ -68,7 +68,7 @@ jobs:
           # arXiv API 分页和限流保护配置
           ARXIV_PAGE_SIZE: "100"
           ARXIV_MAX_PAGES: "20"
-          ARXIV_CATEGORY_MAX_PAGES: "cs.IR:5,cs.CL:8,cs.CV:20"
+          ARXIV_CATEGORY_MAX_PAGES: "cs.IR:8,cs.CL:8,cs.CV:5"
           ARXIV_REQUEST_INTERVAL: "60"
           ARXIV_CATEGORY_INTERVAL: "120"
           ARXIV_JITTER_SECONDS: "120"
