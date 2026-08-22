@@ -2,31 +2,31 @@
   "date": "20260822",
   "status": "success",
   "stage": "completed",
-  "workflow": "arxiv_daily_full",
-  "run_id": "32550486352",
+  "workflow": "arxiv_daily_recovery",
+  "run_id": "32567641034",
   "run_attempt": "1",
   "trigger": "schedule",
-  "started_at": "2026-08-22T04:00:37+00:00",
-  "ended_at": "2026-08-22T04:07:12+00:00",
+  "started_at": "2026-08-22T10:28:06+00:00",
+  "ended_at": "2026-08-22T10:35:07+00:00",
   "fetch": {
     "success": true,
-    "total_papers": 23,
+    "total_papers": 0,
     "by_category": {
       "cs.IR": {
         "success": true,
-        "papers": 3,
+        "papers": 0,
         "pages": 1,
         "error": ""
       },
       "cs.CL": {
         "success": true,
-        "papers": 9,
+        "papers": 0,
         "pages": 1,
         "error": ""
       },
       "cs.CV": {
         "success": true,
-        "papers": 11,
+        "papers": 0,
         "pages": 1,
         "error": ""
       }
