@@ -162,3 +162,4 @@ date,run_id,run_attempt,workflow,trigger,status,stage,started_at,ended_at,durati
 20260915,34983513489,1,arxiv_daily_recovery,schedule,failed,fetch,2026-09-15T14:43:52+00:00,2026-09-15T15:58:52+00:00,4500,0,0,,,0,0,0,0,0,0,0,0,false,false,"arXiv API 请求多次失败: HTTPSConnectionPool(host='export.arxiv.org', port=443): Read timed out. (read timeout=30)"
 20260915,34983513489,1,arxiv_daily_recovery,schedule,success,completed,2026-09-15T16:28:53+00:00,2026-09-15T17:49:31+00:00,4838,136,10,56,70,127,127,0,18,18,0,2.14,6.67,true,true,
 20260916,35075163851,1,arxiv_daily_full,schedule,success,completed,2026-09-16T08:42:32+00:00,2026-09-16T08:50:48+00:00,496,188,14,73,101,182,182,0,19,19,0,1.93,6.42,true,true,
+20260917,35201370590,1,arxiv_daily_full,schedule,success,completed,2026-09-17T08:46:03+00:00,2026-09-17T08:53:10+00:00,427,187,11,84,92,175,175,0,17,17,0,1.9,5.88,true,true,
