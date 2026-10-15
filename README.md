@@ -45,7 +45,7 @@
 旧版脚本和旧 arXiv workflow 已归档到 `legacy/`，仅用于历史回溯、兼容排查和必要时回滚；日常开发和自动化入口以 `paperBotV2/` 为准。
 
 ## 贡献新文章
-提交issue，利用github action自动更新readme和source.xlsx内容
+提交 Issue，由 GitHub Action 自动更新 README、`article.json` 和 `article.csv`，并重新生成 HTML 页面。
 
 已提供issue模板，具体内容参考issue：https://github.com/Doragd/Algorithm-Practice-in-Industry/issues/1
 
